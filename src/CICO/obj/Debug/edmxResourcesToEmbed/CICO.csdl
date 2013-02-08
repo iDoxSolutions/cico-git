@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="CICO" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="CICOContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="CICO.Employee" />
+    <EntitySet Name="Dependents" EntityType="CICO.Dependent" />
+    <EntitySet Name="Cases" EntityType="CICO.Case" />
+    <EntitySet Name="Items" EntityType="CICO.Item" />
+    <EntitySet Name="Departments" EntityType="CICO.Department" />
+    <EntitySet Name="Staffs" EntityType="CICO.Staff" />
+    <EntitySet Name="CheckLists" EntityType="CICO.CheckList" />
+    <AssociationSet Name="EmployeesDependents" Association="CICO.EmployeesDependents">
+      <End EntitySet="Employees" Role="Employee" />
+      <End EntitySet="Dependents" Role="Dependent" />
+    </AssociationSet>
+    <AssociationSet Name="CaseEmployee" Association="CICO.CaseEmployee">
+      <End Role="Case" EntitySet="Cases" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="DepartmentStaff" Association="CICO.DepartmentStaff">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Staff" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="CheckListDepartment" Association="CICO.CheckListDepartment">
+      <End Role="CheckListItem" EntitySet="CheckLists" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="CheckListStep" Association="CICO.CheckListStep">
+      <End Role="CheckListItem" EntitySet="CheckLists" />
+      <End Role="Step" EntitySet="Items" />
+    </AssociationSet>
+    <EntitySet Name="Documents" EntityType="CICO.Document" />
+    <AssociationSet Name="CaseDocument" Association="CICO.CaseDocument">
+      <End Role="Case" EntitySet="Cases" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="CaseCheckList" Association="CICO.CaseCheckList">
+      <End Role="Case" EntitySet="Cases" />
+      <End Role="CheckList" EntitySet="CheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeCheckList" Association="CICO.EmployeeCheckList">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="CheckList" EntitySet="CheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="CheckListDocument" Association="CICO.CheckListDocument">
+      <End Role="CheckList" EntitySet="CheckLists" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="CICO.sysdiagram" />
+  </EntityContainer>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Type="Int32" Name="EmployeeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="MiddleName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="PreferredName" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="DateOfBirth" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Nationality" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomePhone" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="CellPhone" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="TourStartDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="TourEndDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="AgencyOrSection" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="PositionTitle" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomeStreetAddress" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomeStreetAddress2" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomeState" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomeCity" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="HomeZip" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="AgencyEmail" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="PersonalEmail" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Dependents" Relationship="CICO.EmployeesDependents" FromRole="Employee" ToRole="Dependent" />
+    <NavigationProperty Name="Case" Relationship="CICO.CaseEmployee" FromRole="Employee" ToRole="Case" />
+    <NavigationProperty Name="CheckLists" Relationship="CICO.EmployeeCheckList" FromRole="Employee" ToRole="CheckList" />
+  </EntityType>
+  <EntityType Name="Dependent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="EmployeesEmployeeId" Nullable="false" Type="Int32" />
+    <NavigationProperty Name="Employee" Relationship="CICO.EmployeesDependents" FromRole="Dependent" ToRole="Employee" />
+    <Property Type="String" Name="DependentType" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Case">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DueDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employee" Relationship="CICO.CaseEmployee" FromRole="Case" ToRole="Employee" />
+    <NavigationProperty Name="Documents" Relationship="CICO.CaseDocument" FromRole="Case" ToRole="Document" />
+    <NavigationProperty Name="CheckLists" Relationship="CICO.CaseCheckList" FromRole="Case" ToRole="CheckList" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Documentation>
+      <LongDescription>Numer of days (plus or minus) from check list due date.</LongDescription>
+    </Documentation>
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="CaseId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Priority" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Viewable" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Subscriber" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="CheckListId" Nullable="false" />
+    <Property Type="String" Name="DueDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="DateTime" Name="DueDate1" Nullable="false" Precision="3" />
+    <Property Type="String" Name="InstructionDocument" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="EmployeeCompleted" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Provisional" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="OfficeComplete" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="ItemDocument" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="BlankForm" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="InstructionText" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Group" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="CheckList" Relationship="CICO.CheckListStep" FromRole="Step" ToRole="CheckListItem" />
+    <Property Type="String" Name="AlertDays" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="AlertFrequency" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="Contact" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="CheckListId" Nullable="false" />
+    <NavigationProperty Name="Staffs" Relationship="CICO.DepartmentStaff" FromRole="Department" ToRole="Staff" />
+    <NavigationProperty Name="CheckList" Relationship="CICO.CheckListDepartment" FromRole="Department" ToRole="CheckListItem" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="CICO.DepartmentStaff" FromRole="Staff" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="CheckList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="Type" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Departments" Relationship="CICO.CheckListDepartment" FromRole="CheckListItem" ToRole="Department" />
+    <NavigationProperty Name="Items" Relationship="CICO.CheckListStep" FromRole="CheckListItem" ToRole="Step" />
+    <NavigationProperty Name="Case" Relationship="CICO.CaseCheckList" FromRole="CheckList" ToRole="Case" />
+    <Property Type="Int32" Name="CaseId" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="CICO.EmployeeCheckList" FromRole="CheckList" ToRole="Employee" />
+    <Property Type="Int32" Name="EmployeeEmployeeId" Nullable="false" />
+    <NavigationProperty Name="Documents" Relationship="CICO.CheckListDocument" FromRole="CheckList" ToRole="Document" />
+    <Property Type="String" Name="StartDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="EndDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Type="String" Name="DueDate" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <Association Name="EmployeesDependents">
+    <End Type="CICO.Employee" Multiplicity="1" Role="Employee" />
+    <End Type="CICO.Dependent" Multiplicity="*" Role="Dependent" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Dependent">
+        <PropertyRef Name="EmployeesEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CaseEmployee">
+    <End Type="CICO.Case" Role="Case" Multiplicity="1" />
+    <End Type="CICO.Employee" Role="Employee" Multiplicity="1" />
+  </Association>
+  <Association Name="DepartmentStaff">
+    <End Type="CICO.Department" Role="Department" Multiplicity="1" />
+    <End Type="CICO.Staff" Role="Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CheckListDepartment">
+    <End Type="CICO.CheckList" Role="CheckListItem" Multiplicity="1" />
+    <End Type="CICO.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckListItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CheckListStep">
+    <End Type="CICO.CheckList" Role="CheckListItem" Multiplicity="1" />
+    <End Type="CICO.Item" Role="Step" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckListItem">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Step">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Type="Int32" Name="DocumentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="FileName" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocId" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ContentType" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Case" Relationship="CICO.CaseDocument" FromRole="Document" ToRole="Case" />
+    <Property Type="Int32" Name="CaseId" Nullable="false" />
+    <NavigationProperty Name="CheckList" Relationship="CICO.CheckListDocument" FromRole="Document" ToRole="CheckList" />
+    <Property Type="Int32" Name="CheckListId" Nullable="false" />
+  </EntityType>
+  <Association Name="CaseDocument">
+    <End Type="CICO.Case" Role="Case" Multiplicity="1" />
+    <End Type="CICO.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CaseCheckList">
+    <End Type="CICO.Case" Role="Case" Multiplicity="1" />
+    <End Type="CICO.CheckList" Role="CheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Case">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckList">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeCheckList">
+    <End Type="CICO.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CICO.CheckList" Role="CheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="CheckList">
+        <PropertyRef Name="EmployeeEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CheckListDocument">
+    <End Type="CICO.CheckList" Role="CheckList" Multiplicity="1" />
+    <End Type="CICO.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckList">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

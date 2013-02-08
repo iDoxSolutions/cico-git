@@ -1,0 +1,12 @@
+﻿
+@model Cico.CICOContainer
+
+<table style="width:100%">
+<tr>
+    <th>Description</th>
+</tr>
+@foreach (var item in Model.Items)
+{
+    <tr>@item.Description</tr>
+}
+    </table>

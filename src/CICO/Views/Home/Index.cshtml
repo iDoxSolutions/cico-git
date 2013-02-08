@@ -1,0 +1,332 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .columnsContainer
+    {
+        position: relative;
+        height: 400px
+    }
+
+    .leftColumn
+    {
+        width: 25%;
+        float: left;
+    }
+
+    .rightColumn
+    {
+        float: right;
+        width: 70%;
+        margin-right: 4%;
+        
+    }
+
+    .checklist{
+        list-style: none;
+        padding-left: 0px
+        
+    }
+    .checkInItem {
+        font-size: small
+    }
+
+    .checkInItem .ico,.description,.checkbox {
+        display: inline
+    }
+
+    .float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+</style>
+<script type="text/javascript">
+$(function() {
+    $("#infoTabs").tabs();
+    $("#checkInTabs").tabs();
+  });
+</script>
+<div class="columnsContainer">
+    <div class="rightColumn">
+        <div id="infoTabs">
+            <ul>
+                <li><a href="#myinfo">My Info</a></li>
+                <li><a href="#mydependents">My dependents</a></li>
+                <li><a href="#housingquestionare">My Housing Questionaire</a></li>
+            </ul>
+            <div id="myinfo">
+                
+            </div>
+            <div id="mydependents">
+                
+            </div>
+             <div id="housingquestionare">
+                
+            </div>
+        </div>
+    </div>
+    <div class="leftColumn">
+        <div id="checkInTabs">
+            <ul>
+                <li><a href="#checkIn">Check-In</a></li>
+                <li><a href="#checkOut">Check-out</a></li>
+                
+            </ul>
+            <div id="checkIn">
+                <h4>Priority 1</h4>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Complete my Info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Travel Orders</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Passport</div>
+                        </div>
+                    </li>
+                </ul>
+                <h4>Priority 2</h4>
+                 <ul class="checklist">
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Complete my Info</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Travel Orders</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="checkInItem">
+                            <div  class="ico ui-icon ui-icon-document">&nbsp; &nbsp;</div>
+                            <div  class="checkbox"><input type="checkbox" checked/></div>
+                            <div  class="description">Passport</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="checkOut">
+                
+            </div>
+             
+        </div>
+        
+    </div>
+    <div style="clear:both"></div>
+</div>
+
+
+@*<head>
+    <title>2-Column Centered Flexible Width Layout</title>
+    <style type="text/css">
+
+
+        
+html, body { 
+	margin:0; 
+	padding:0; 
+	border:none; 
+}
+#container { 
+	width: 80%; 
+	max-width: 1000px; 
+	min-width: 300px; 
+	margin: 0 auto; 
+	padding: 0;
+}
+#container h1 { 
+	border: thin solid green; /* remove this line to remove the border */
+}
+#container h2 { 
+	clear: both; 
+	border: thin solid blue; /* remove this line to remove the border */
+}
+#thick-col { 
+	width: 68%; 
+	float: right; /* switch this to left and below to right to change the column locations */
+	border: thin solid black; /* remove this line to remove the border */
+}
+#thin-col {
+	width: 30%; 
+	float: left; /* switch this to right and above to left to change the column locations */
+	border: thin solid red; /* remove this line to remove the border */
+}
+#tabs {
+	border:1px solid #ccc; 
+	height:28px; 
+	background:#eff5f9; 
+	padding-left: 40px;
+	padding-top:45px;
+	-moz-box-shadow: inset 0 -2px 2px #dadada;
+	-webkit-box-shadow:inset  0 -2px 2px #dadada;
+	box-shadow: inset 0 -2px 2px #dadada;
+	border-top-left-radius:4px;  
+	border-top-right-radius:4px;
+}
+#tabs li {
+	float:left; 
+	list-style:none; 
+	border-top:1px solid #ccc; 
+	border-left:1px solid #ccc; 
+	border-right:1px solid #ccc; 
+	margin-right:5px; 
+	border-top-left-radius:3px;  
+	border-top-right-radius:3px;
+	-moz-box-shadow: 0 -2px 2px #dadada;
+	-webkit-box-shadow:  0 -2px 2px #dadada;
+	box-shadow: 0 -2px 2px #dadada;
+}
+#tabs li a {
+	font-family:Arial, Helvetica, sans-serif; 
+	font-size:13px;
+	font-weight:bold; 
+	color:#070000; 
+	padding:7px 14px 6px 12px; 
+	display:block; 
+	background:#FFFFFF;  
+	border-top-left-radius:3px; 
+	border-top-right-radius:3px; 
+	text-decoration:none;
+	background: -moz-linear-gradient(top, #ebebeb, white 10%);  
+	background: -webkit-gradient(linear, 0 0, 0 10%, from(#ebebeb), to(white));  
+	border-top: 1px solid white; 
+	text-shadow:-1px -1px 0 #fff;
+	outline:none;
+}
+#tabs li a.inactive{
+	padding-top:5px;
+	padding-bottom:5px;
+	color:#666666;
+	background: -moz-linear-gradient(top, #dedede, white 75%);  
+	background: -webkit-gradient(linear, 0 0, 0 75%, from(#dedede), to(white));  
+	border-top: 1px solid white; 
+}
+        #tabs li a:hover, #tabs li a.inactive:hover
+        {
+            border-top: 1px solid #dedede;
+            color: #000000;
+        }
+.container{ 
+	clear:both; 	 	 
+	padding:10px 0px; 
+	width:664px; 
+	background-color:#fff; 
+	text-align:left; 	 
+}
+
+    </style>
+</head>
+
+<body>
+    
+    
+
+
+    <div id="container">
+        <h1>Mexico City Check-In</h1>
+         <div id="thin-col">
+            <ul id="tabs">
+                <li><a href="#ckintab">Check-In</a></li>
+                <li><a href="#ckouttab">Check-Out</a></li>
+            </ul>
+            
+            <div class="container" id="ckintab">
+                Check-in item content goes here
+            </div>
+            <div class="container" id="ckouttab">
+                Check-Out item content goes here
+            </div>
+
+        </div>
+           <div id="thick-col">
+                <ul id="tabs">
+                    <li><a href="#tab1">My Info</a></li>
+                    <li><a href="#tab2">My Dependends</a></li>
+                   <li><a href="#tab3">Housing Questionaire</a></li>
+        
+                </ul>
+                <div class="container" id="tab1">
+                        My Info content goes here
+                </div>
+                <div class="container" id="tab2">
+                        My dependents content goes here
+                </div>
+                <div class="container" id="tab3">
+                        My Housing Questionaire content goes here
+                </div>
+                    
+                    
+        </div>
+       
+   
+    </div>
+</body>
+
+
+
+
+
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {	
+    //our script goes here...
+    $('#tabs li a:not(:first)').addClass('inactive');
+    $('.container:not(:first)').hide();
+    $('#tabs li a').click(function() {
+        var t = $(this).attr('href');
+        $('#tabs li a').addClass('inactive');
+        $(this).removeClass('inactive');
+        $('.container').hide();
+        $(t).fadeIn('slow');
+        return false;
+    });
+    if ($(this).hasClass('inactive')) { //this is the start of our condition 
+        $('#tabs li a').addClass('inactive');
+        $(this).removeClass('inactive');
+        $('.container').hide();
+        $(t).fadeIn('slow');
+    }
+    
+    $('#itemtabs li a:not(:first)').addClass('inactive');
+    $('.container:not(:first)').hide();
+    $('#itemtabs li a').click(function () {
+        var t = $(this).attr('href');
+        $('#itemtabs li a').addClass('inactive');
+        $(this).removeClass('inactive');
+        $('.container').hide();
+        $(t).fadeIn('slow');
+        return false;
+    });
+    if ($(this).hasClass('inactive')) { //this is the start of our condition 
+        $('#itemtabs li a').addClass('inactive');
+        $(this).removeClass('inactive');
+        $('.container').hide();
+        $(t).fadeIn('slow');
+    }
+
+});
+</script>
+ *@

@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization
+
+
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="/Content/site.css" />
+        <link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" />
+        <script src="/Scripts/jquery-1.5.1.js"></script>
+        <script src="/Scripts/jquery-ui-1.8.11.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title"><img src="Images/state-dep.png"/>Check-In & Check-Out Application</p>
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        <span class="username">@User.Identity.Name</span>
+                    </section>
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("My Data", "About", "Home", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("Admin", "Index", "AdminHome", new { area = "Admin" }, null)</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; IDOX</p>
+                </div>
+            </div>
+        </footer>
+
+       
+    </body>
+</html>

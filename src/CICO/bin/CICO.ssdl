@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CICO.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CICOStoreContainer">
+    <EntitySet Name="Cases" EntityType="CICO.Store.Cases" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CheckLists" EntityType="CICO.Store.CheckLists" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Departments" EntityType="CICO.Store.Departments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Dependents" EntityType="CICO.Store.Dependents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="CICO.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Employees" EntityType="CICO.Store.Employees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Items" EntityType="CICO.Store.Items" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staffs" EntityType="CICO.Store.Staffs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="CICO.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CaseCheckList" Association="CICO.Store.FK_CaseCheckList">
+      <End Role="Cases" EntitySet="Cases" />
+      <End Role="CheckLists" EntitySet="CheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseDocument" Association="CICO.Store.FK_CaseDocument">
+      <End Role="Cases" EntitySet="Cases" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseEmployee" Association="CICO.Store.FK_CaseEmployee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Cases" EntitySet="Cases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckListDepartment" Association="CICO.Store.FK_CheckListDepartment">
+      <End Role="CheckLists" EntitySet="CheckLists" />
+      <End Role="Departments" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckListDocument" Association="CICO.Store.FK_CheckListDocument">
+      <End Role="CheckLists" EntitySet="CheckLists" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckListStep" Association="CICO.Store.FK_CheckListStep">
+      <End Role="CheckLists" EntitySet="CheckLists" />
+      <End Role="Items" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentStaff" Association="CICO.Store.FK_DepartmentStaff">
+      <End Role="Departments" EntitySet="Departments" />
+      <End Role="Staffs" EntitySet="Staffs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeCheckList" Association="CICO.Store.FK_EmployeeCheckList">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="CheckLists" EntitySet="CheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeesDependents" Association="CICO.Store.FK_EmployeesDependents">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dependents" EntitySet="Dependents" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cases">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DueDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Employee_EmployeeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CheckLists">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="EmployeeEmployeeId" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DueDate" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Contact" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CheckListId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dependents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeesEmployeeId" Type="int" Nullable="false" />
+    <Property Name="DependentType" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="DocId" Type="nvarchar" MaxLength="255" />
+    <Property Name="ContentType" Type="nvarchar" MaxLength="255" />
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="CheckListId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PreferredName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DateOfBirth" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nationality" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomePhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CellPhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TourStartDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TourEndDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AgencyOrSection" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PositionTitle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeStreetAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeStreetAddress2" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeState" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeCity" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HomeZip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AgencyEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PersonalEmail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Items">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CaseId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Priority" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Viewable" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Subscriber" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CheckListId" Type="int" Nullable="false" />
+    <Property Name="DueDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DueDate1" Type="datetime" Nullable="false" />
+    <Property Name="InstructionDocument" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EmployeeCompleted" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Provisional" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OfficeComplete" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ItemDocument" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BlankForm" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InstructionText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Group" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AlertDays" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AlertFrequency" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staffs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_CaseCheckList">
+    <End Role="Cases" Type="CICO.Store.Cases" Multiplicity="1" />
+    <End Role="CheckLists" Type="CICO.Store.CheckLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cases">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CheckLists">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseDocument">
+    <End Role="Cases" Type="CICO.Store.Cases" Multiplicity="1" />
+    <End Role="Documents" Type="CICO.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cases">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseEmployee">
+    <End Role="Employees" Type="CICO.Store.Employees" Multiplicity="1" />
+    <End Role="Cases" Type="CICO.Store.Cases" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Cases">
+        <PropertyRef Name="Employee_EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckListDepartment">
+    <End Role="CheckLists" Type="CICO.Store.CheckLists" Multiplicity="1" />
+    <End Role="Departments" Type="CICO.Store.Departments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckLists">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Departments">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckListDocument">
+    <End Role="CheckLists" Type="CICO.Store.CheckLists" Multiplicity="1" />
+    <End Role="Documents" Type="CICO.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckLists">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckListStep">
+    <End Role="CheckLists" Type="CICO.Store.CheckLists" Multiplicity="1" />
+    <End Role="Items" Type="CICO.Store.Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckLists">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Items">
+        <PropertyRef Name="CheckListId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentStaff">
+    <End Role="Departments" Type="CICO.Store.Departments" Multiplicity="1" />
+    <End Role="Staffs" Type="CICO.Store.Staffs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Staffs">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeCheckList">
+    <End Role="Employees" Type="CICO.Store.Employees" Multiplicity="1" />
+    <End Role="CheckLists" Type="CICO.Store.CheckLists" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="CheckLists">
+        <PropertyRef Name="EmployeeEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeesDependents">
+    <End Role="Employees" Type="CICO.Store.Employees" Multiplicity="1" />
+    <End Role="Dependents" Type="CICO.Store.Dependents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Dependents">
+        <PropertyRef Name="EmployeesEmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
