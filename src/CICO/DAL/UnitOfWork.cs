@@ -8,6 +8,7 @@ namespace Cico.DAL
     {
         private SchoolContext context = new SchoolContext();
         private GenericRepository<Department> departmentRepository;
+        private GenericRepository<CheckList> checklistRepository;
         private CourseRepository courseRepository;
 
         public GenericRepository<Department> DepartmentRepository
@@ -20,6 +21,15 @@ namespace Cico.DAL
                     this.departmentRepository = new GenericRepository<Department>(context);
                 }
                 return departmentRepository;
+            }
+        }
+        public GenericRepository<CheckList> ChecklistRepository {
+            get {
+
+                if (this.checklistRepository == null) {
+                    this.checklistRepository = new GenericRepository<Cico.Models.CheckList>(context);
+                }
+                return checklistRepository;
             }
         }
 

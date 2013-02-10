@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cico.Models
 {
-    public partial class CheckList
+    public partial class Employee
     {
        
 

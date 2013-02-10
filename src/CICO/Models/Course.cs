@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cico.Models
 {
-    public class CheckList
+    public class Course
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Number")]
 
-        public int CheckListID { get; set; }
+        public int CourseID { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
         [MaxLength(50)]

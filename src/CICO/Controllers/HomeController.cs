@@ -17,8 +17,16 @@ namespace Cico.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Please enter information";
+            CheckList checklist = new CheckList();
 
-            return View();
+            var item = new Item();
+            item.DueDate = DateTime.Now.ToString();
+            item.Name = "kens item";
+            item.InstructionText = "take this a shove it";
+            checklist.Items.Add(item);
+            Employee employee = new Employee();
+
+            return View(employee);
         }
 
         public ActionResult About()

@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Cico.Models;
+
 namespace Cico
 {
     using System;

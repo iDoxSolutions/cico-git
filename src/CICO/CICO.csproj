@@ -12,7 +12,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cico</RootNamespace>
-    <AssemblyName>ContosoUniversity</AssemblyName>
+    <AssemblyName>CICO</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -122,12 +122,15 @@
       <DependentUpon>CICOEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Controllers\ChecklistController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="DAL\ChecklistRepository.cs" />
     <Compile Include="DAL\CourseRepository.cs" />
     <Compile Include="DAL\GenericRepository.cs" />
     <Compile Include="DAL\IStudentRepository.cs" />
@@ -160,6 +163,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\CheckList.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Enrollment.cs" />
     <Compile Include="Models\Instructor.cs" />
@@ -301,11 +305,6 @@
       <LastGenOutput>CICO.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -394,6 +393,12 @@
     <Content Include="Views\Item\Index.cshtml" />
     <Content Include="Views\Item\About.cshtml" />
     <Content Include="Views\Shared\_ItemPartial.cshtml" />
+    <Content Include="Views\Checklist\Index.cshtml" />
+    <Content Include="Views\Checklist\Details.cshtml" />
+    <Content Include="Views\Checklist\Create.cshtml" />
+    <Content Include="Views\Checklist\Edit.cshtml" />
+    <Content Include="Views\Checklist\Delete.cshtml" />
+    <Content Include="Views\Employee\EmployeeIndex.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

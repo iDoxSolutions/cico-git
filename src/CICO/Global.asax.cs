@@ -29,8 +29,12 @@ namespace Cico
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
-            );
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional}); // Parameter defaults
+
+            //routes.MapRoute("Admin_default", 
+            //    "Admin/{controller}/{action}/{id}",
+            //    new { controller = "Employee", action = "EmployeeIndex", id = UrlParameter.Optional });
+            
 
         }
 

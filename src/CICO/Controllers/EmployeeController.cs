@@ -12,7 +12,7 @@ namespace Cico.Controllers
         //
         // GET: /Employee/
 
-        public ActionResult Index()
+        public ActionResult EmployeeIndex()
         {
             return View();
         }

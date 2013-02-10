@@ -17,7 +17,7 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title"><img src="Images/us_embassy_logo1.jpg"/>Check-In & Check-Out Application</p>
+                    <p class="site-title"><img src="Images/us_embassy_logo1.jpg"/>Check-In & Check-Out </p>
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -35,10 +35,10 @@
             <div style="clear: both"></div>
         </header>
         <div id="body">
-            @RenderSection("featured", required: false)
+            @RenderPage("~/Views/Shared/EmployeeIndex.cshtml")
             <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+               
+            </section> @RenderSection("Index")
         </div>
         <footer>
             <div class="content-wrapper">

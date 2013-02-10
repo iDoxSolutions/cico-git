@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cico
+namespace Cico.Models
 {
     using System;
     using System.Collections.Generic;
