@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 01/27/2013 12:10:55
--- Generated from EDMX file: C:\Users\Ken\Documents\iDoxSolutions\Mexico\CICO\C#\ContosoUniversity\CICO.edmx
+-- Date Created: 02/11/2013 10:56:38
+-- Generated from EDMX file: C:\Users\Ken\Documents\wingithub\cico\CICO\Models\CICO.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,55 +17,64 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_EmployeesDependents]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Dependents] DROP CONSTRAINT [FK_EmployeesDependents];
+IF OBJECT_ID(N'[dbo].[FK_CaseCheckList]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CheckLists] DROP CONSTRAINT [FK_CaseCheckList];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CaseDocument]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_CaseDocument];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CaseEmployee]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Cases] DROP CONSTRAINT [FK_CaseEmployee];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CaseStep]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Steps] DROP CONSTRAINT [FK_CaseStep];
+IF OBJECT_ID(N'[dbo].[FK_CheckListDepartment]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Departments] DROP CONSTRAINT [FK_CheckListDepartment];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CheckListDocument]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_CheckListDocument];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CheckListStep]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Items] DROP CONSTRAINT [FK_CheckListStep];
 GO
 IF OBJECT_ID(N'[dbo].[FK_DepartmentStaff]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Staffs] DROP CONSTRAINT [FK_DepartmentStaff];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CheckListDepartment]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Departments] DROP CONSTRAINT [FK_CheckListDepartment];
+IF OBJECT_ID(N'[dbo].[FK_EmployeeCheckList]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CheckLists] DROP CONSTRAINT [FK_EmployeeCheckList];
 GO
-IF OBJECT_ID(N'[dbo].[FK_CheckListStep]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Steps] DROP CONSTRAINT [FK_CheckListStep];
-GO
-IF OBJECT_ID(N'[dbo].[FK_CaseDocument]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_CaseDocument];
+IF OBJECT_ID(N'[dbo].[FK_EmployeesDependents]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Dependents] DROP CONSTRAINT [FK_EmployeesDependents];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Employees];
-GO
-IF OBJECT_ID(N'[dbo].[Dependents]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Dependents];
-GO
 IF OBJECT_ID(N'[dbo].[Cases]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Cases];
 GO
-IF OBJECT_ID(N'[dbo].[Steps]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Steps];
+IF OBJECT_ID(N'[dbo].[CheckLists]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CheckLists];
 GO
 IF OBJECT_ID(N'[dbo].[Departments]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Departments];
 GO
-IF OBJECT_ID(N'[dbo].[Staffs]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Staffs];
-GO
-IF OBJECT_ID(N'[dbo].[CheckListItems]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CheckListItems];
+IF OBJECT_ID(N'[dbo].[Dependents]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Dependents];
 GO
 IF OBJECT_ID(N'[dbo].[Documents]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Documents];
+GO
+IF OBJECT_ID(N'[dbo].[Employees]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Employees];
+GO
+IF OBJECT_ID(N'[dbo].[Items]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Items];
+GO
+IF OBJECT_ID(N'[dbo].[Staffs]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Staffs];
+GO
+IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[sysdiagrams];
 GO
 
 -- --------------------------------------------------
@@ -115,8 +124,8 @@ CREATE TABLE [dbo].[Cases] (
 );
 GO
 
--- Creating table 'Steps'
-CREATE TABLE [dbo].[Steps] (
+-- Creating table 'Items'
+CREATE TABLE [dbo].[Items] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Type] nvarchar(max)  NOT NULL,
     [CaseId] int  NOT NULL,
@@ -128,7 +137,18 @@ CREATE TABLE [dbo].[Steps] (
     [Viewable] nvarchar(max)  NOT NULL,
     [Subscriber] nvarchar(max)  NOT NULL,
     [CheckListId] int  NOT NULL,
-    [DueDate] nvarchar(max)  NOT NULL
+    [DueDate] nvarchar(max)  NOT NULL,
+    [DueDate1] datetime  NOT NULL,
+    [InstructionDocument] nvarchar(max)  NOT NULL,
+    [EmployeeCompleted] nvarchar(max)  NOT NULL,
+    [Provisional] nvarchar(max)  NOT NULL,
+    [OfficeComplete] nvarchar(max)  NOT NULL,
+    [ItemDocument] nvarchar(max)  NOT NULL,
+    [BlankForm] nvarchar(max)  NOT NULL,
+    [InstructionText] nvarchar(max)  NOT NULL,
+    [Group] nvarchar(max)  NOT NULL,
+    [AlertDays] nvarchar(max)  NOT NULL,
+    [AlertFrequency] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -144,18 +164,21 @@ GO
 -- Creating table 'Staffs'
 CREATE TABLE [dbo].[Staffs] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [StaffId] nvarchar(max)  NOT NULL,
     [Email] nvarchar(max)  NOT NULL,
     [DepartmentId] int  NOT NULL
 );
 GO
 
--- Creating table 'CheckListItems'
-CREATE TABLE [dbo].[CheckListItems] (
+-- Creating table 'CheckLists'
+CREATE TABLE [dbo].[CheckLists] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Type] int  NOT NULL,
     [Name] nvarchar(max)  NOT NULL,
-    [DueDate] datetime  NOT NULL
+    [CaseId] int  NOT NULL,
+    [EmployeeEmployeeId] int  NOT NULL,
+    [StartDate] nvarchar(max)  NOT NULL,
+    [EndDate] nvarchar(max)  NOT NULL,
+    [DueDate] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -165,7 +188,18 @@ CREATE TABLE [dbo].[Documents] (
     [FileName] nvarchar(255)  NULL,
     [DocId] nvarchar(255)  NULL,
     [ContentType] nvarchar(255)  NULL,
-    [CaseId] int  NOT NULL
+    [CaseId] int  NOT NULL,
+    [CheckListId] int  NOT NULL
+);
+GO
+
+-- Creating table 'sysdiagrams'
+CREATE TABLE [dbo].[sysdiagrams] (
+    [name] nvarchar(128)  NOT NULL,
+    [principal_id] int  NOT NULL,
+    [diagram_id] int IDENTITY(1,1) NOT NULL,
+    [version] int  NULL,
+    [definition] varbinary(max)  NULL
 );
 GO
 
@@ -191,9 +225,9 @@ ADD CONSTRAINT [PK_Cases]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'Steps'
-ALTER TABLE [dbo].[Steps]
-ADD CONSTRAINT [PK_Steps]
+-- Creating primary key on [Id] in table 'Items'
+ALTER TABLE [dbo].[Items]
+ADD CONSTRAINT [PK_Items]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -209,9 +243,9 @@ ADD CONSTRAINT [PK_Staffs]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'CheckListItems'
-ALTER TABLE [dbo].[CheckListItems]
-ADD CONSTRAINT [PK_CheckListItems]
+-- Creating primary key on [Id] in table 'CheckLists'
+ALTER TABLE [dbo].[CheckLists]
+ADD CONSTRAINT [PK_CheckLists]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -219,6 +253,12 @@ GO
 ALTER TABLE [dbo].[Documents]
 ADD CONSTRAINT [PK_Documents]
     PRIMARY KEY CLUSTERED ([DocumentId] ASC);
+GO
+
+-- Creating primary key on [diagram_id] in table 'sysdiagrams'
+ALTER TABLE [dbo].[sysdiagrams]
+ADD CONSTRAINT [PK_sysdiagrams]
+    PRIMARY KEY CLUSTERED ([diagram_id] ASC);
 GO
 
 -- --------------------------------------------------
@@ -253,20 +293,6 @@ ON [dbo].[Cases]
     ([Employee_EmployeeId]);
 GO
 
--- Creating foreign key on [CaseId] in table 'Steps'
-ALTER TABLE [dbo].[Steps]
-ADD CONSTRAINT [FK_CaseStep]
-    FOREIGN KEY ([CaseId])
-    REFERENCES [dbo].[Cases]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CaseStep'
-CREATE INDEX [IX_FK_CaseStep]
-ON [dbo].[Steps]
-    ([CaseId]);
-GO
-
 -- Creating foreign key on [DepartmentId] in table 'Staffs'
 ALTER TABLE [dbo].[Staffs]
 ADD CONSTRAINT [FK_DepartmentStaff]
@@ -285,7 +311,7 @@ GO
 ALTER TABLE [dbo].[Departments]
 ADD CONSTRAINT [FK_CheckListDepartment]
     FOREIGN KEY ([CheckListId])
-    REFERENCES [dbo].[CheckListItems]
+    REFERENCES [dbo].[CheckLists]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -295,17 +321,17 @@ ON [dbo].[Departments]
     ([CheckListId]);
 GO
 
--- Creating foreign key on [CheckListId] in table 'Steps'
-ALTER TABLE [dbo].[Steps]
+-- Creating foreign key on [CheckListId] in table 'Items'
+ALTER TABLE [dbo].[Items]
 ADD CONSTRAINT [FK_CheckListStep]
     FOREIGN KEY ([CheckListId])
-    REFERENCES [dbo].[CheckListItems]
+    REFERENCES [dbo].[CheckLists]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CheckListStep'
 CREATE INDEX [IX_FK_CheckListStep]
-ON [dbo].[Steps]
+ON [dbo].[Items]
     ([CheckListId]);
 GO
 
@@ -321,6 +347,48 @@ ADD CONSTRAINT [FK_CaseDocument]
 CREATE INDEX [IX_FK_CaseDocument]
 ON [dbo].[Documents]
     ([CaseId]);
+GO
+
+-- Creating foreign key on [CaseId] in table 'CheckLists'
+ALTER TABLE [dbo].[CheckLists]
+ADD CONSTRAINT [FK_CaseCheckList]
+    FOREIGN KEY ([CaseId])
+    REFERENCES [dbo].[Cases]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CaseCheckList'
+CREATE INDEX [IX_FK_CaseCheckList]
+ON [dbo].[CheckLists]
+    ([CaseId]);
+GO
+
+-- Creating foreign key on [EmployeeEmployeeId] in table 'CheckLists'
+ALTER TABLE [dbo].[CheckLists]
+ADD CONSTRAINT [FK_EmployeeCheckList]
+    FOREIGN KEY ([EmployeeEmployeeId])
+    REFERENCES [dbo].[Employees]
+        ([EmployeeId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmployeeCheckList'
+CREATE INDEX [IX_FK_EmployeeCheckList]
+ON [dbo].[CheckLists]
+    ([EmployeeEmployeeId]);
+GO
+
+-- Creating foreign key on [CheckListId] in table 'Documents'
+ALTER TABLE [dbo].[Documents]
+ADD CONSTRAINT [FK_CheckListDocument]
+    FOREIGN KEY ([CheckListId])
+    REFERENCES [dbo].[CheckLists]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CheckListDocument'
+CREATE INDEX [IX_FK_CheckListDocument]
+ON [dbo].[Documents]
+    ([CheckListId]);
 GO
 
 -- --------------------------------------------------
