@@ -35,3 +35,4 @@ C:\Users\Ken\Documents\wingithub\cico\src\CICO\bin\CICO.dll
 C:\Users\Ken\Documents\wingithub\cico\src\CICO\bin\CICO.pdb
 C:\Users\Ken\Documents\wingithub\cico\src\CICO\obj\Debug\CICO.dll
 C:\Users\Ken\Documents\wingithub\cico\src\CICO\obj\Debug\CICO.pdb
+C:\Users\Ken\Documents\wingithub\cico\src\CICO\obj\Debug\CICO.csprojResolveAssemblyReference.cache
