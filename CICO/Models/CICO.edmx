@@ -739,7 +739,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="CICO" ZoomLevel="93" >
+      <Diagram Name="CICO" ZoomLevel="80" >
         <EntityTypeShape EntityType="CICO.Employee" Width="1.5" PointX="4.125" PointY="0.875" />
         <EntityTypeShape EntityType="CICO.Dependent" PointX="4" PointY="6.875" Width="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CICO.Item" Width="1.5" PointX="9.75" PointY="3.75" />

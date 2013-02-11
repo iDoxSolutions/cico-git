@@ -4,7 +4,7 @@ using Cico.Models;
 
 namespace Cico.DAL
 {
-    public class UnitOfWork : IDisposable
+    /*public class UnitOfWork : IDisposable
     {
         private SchoolContext context = new SchoolContext();
         private GenericRepository<Department> departmentRepository;
@@ -60,5 +60,5 @@ namespace Cico.DAL
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-    }
+    }*/
 }
