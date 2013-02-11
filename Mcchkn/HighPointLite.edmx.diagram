@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aae00a44783b4096b89dbd5548f85560" Name="Diagram1">
+        <EntityTypeShape EntityType="HighPointLiteModel.Document" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.DomainEntity" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Employer" Width="1.5" PointX="12.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_Advances" Width="1.5" PointX="11.25" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_Companies" Width="1.5" PointX="6.75" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_Expenses" Width="1.5" PointX="13.5" PointY="47.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_ExpenseVoucherCases" Width="1.5" PointX="16.5" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_ExpenseVouchers" Width="1.5" PointX="11.25" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_Projects" Width="1.5" PointX="9" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_Reviews" Width="1.5" PointX="13.5" PointY="50.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Expenses_VoucherEmployees" Width="1.5" PointX="15.75" PointY="60.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Addresses" Width="1.5" PointX="13.5" PointY="70.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_AutoFormInstances" Width="1.5" PointX="11.25" PointY="52" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_AutoFormItemInstances" Width="1.5" PointX="13.5" PointY="53.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_AutoFormItems" Width="1.5" PointX="11.25" PointY="63.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_AutoForms" Width="1.5" PointX="26" PointY="48.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_BusinessActivityLogs" Width="1.5" PointX="11.25" PointY="59.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_BusinessCalendars" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_BusinessProcesses" Width="1.5" PointX="25.25" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_CaseBusinessActivityLogs" Width="1.5" PointX="13.5" PointY="59.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_CaseDocuments" Width="1.5" PointX="18.5" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_CaseNotes" Width="1.5" PointX="11.25" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_DocTypeWorkflowBookmarks" Width="1.5" PointX="25.25" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Documents" Width="1.5" PointX="16.25" PointY="43.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_DocumentTypes" Width="1.5" PointX="14" PointY="43.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Features" Width="1.5" PointX="3" PointY="49" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Forms" Width="1.5" PointX="27.5" PointY="52.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_FormTracks" Width="1.5" PointX="34.75" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Holidays" Width="1.5" PointX="13" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_NavigatorProcessForms" Width="1.5" PointX="25.25" PointY="70.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_People" Width="1.5" PointX="15.75" PointY="70.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_PostMessages" Width="1.5" PointX="18.5" PointY="45.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ProcessAutoForms" Width="1.5" PointX="28.25" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ProcessFormBookmarks" Width="1.5" PointX="26.25" PointY="58.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ProcessForms" Width="1.5" PointX="23" PointY="62" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ProcessingCases" Width="1.5" PointX="20.75" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ProcessingEntities" Width="1.5" PointX="13.5" PointY="74.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Reminders" Width="1.5" PointX="37" PointY="51.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_ReportCategories" Width="1.5" PointX="3.75" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Reports" Width="1.5" PointX="6" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Roles" Width="1.5" PointX="0.75" PointY="49.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_SelectableOptionBookmarks" Width="1.5" PointX="25.25" PointY="56.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_StateCompletionTracks" Width="1.5" PointX="30.25" PointY="55.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_StateDocuments" Width="1.5" PointX="23.75" PointY="59.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_StateItemAudits" Width="1.5" PointX="15.75" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_StateItems" Width="1.5" PointX="32.5" PointY="51.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Suggestions" Width="1.5" PointX="11.25" PointY="71.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_TaskBases" Width="1.5" PointX="34.75" PointY="52.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Tasks" Width="1.5" PointX="37" PointY="54" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_TrackTimeItems" Width="1.5" PointX="34.75" PointY="56.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_UserGroups" Width="1.5" PointX="11.25" PointY="74.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_Users" Width="1.5" PointX="9" PointY="46" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_WorkflowBookmarks" Width="1.5" PointX="23" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_WorkflowStatuses" Width="1.5" PointX="18.5" PointY="62.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HighPoint_WorkflowTracks" Width="1.5" PointX="34.75" PointY="60" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Household" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HouseholdCase" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.HouseholdPeople" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.IncomeWorksheet" Width="1.5" PointX="12.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.LetterDefinition" Width="1.5" PointX="8.25" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Letter" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_EconomyElements" Width="1.5" PointX="28.25" PointY="69.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_HouseholdCases" Width="1.5" PointX="23" PointY="66.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_HouseholdPeople" Width="1.5" PointX="18" PointY="71.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_Households" Width="1.5" PointX="15.75" PointY="74.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_MfhContracts" Width="1.5" PointX="15.75" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_PropertyCases" Width="1.5" PointX="23" PointY="73.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_RecertificationCases" Width="1.5" PointX="25.25" PointY="73.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MFH_Units" Width="1.5" PointX="13.5" PointY="66.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.MyEntity1s" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Note" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.ProcessType" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Role" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Slv_LoanVerificationCases" Width="1.5" PointX="26" PointY="67.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Slv_Students" Width="1.5" PointX="18.75" PointY="74.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.SystemCas" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.SystemUser" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.TaskDefinition" Width="1.5" PointX="6" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.Task" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HighPointLiteModel.WorksheetItem" Width="1.5" PointX="15" PointY="11.375" IsExpanded="true" />
+        <AssociationConnector Association="HighPointLiteModel.FK4F97A3A960E63C5E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKE7C6EE18B22480E8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK452132473F16FF28" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK8CEC6BE83F16FF28" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1ECC761AF28D617E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK31F1936F69C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4A1413349E48735" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK789567439E48735" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2346FC871E1B5A2B" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKFA246FE31E1B5A2B" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKFA246FE369C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKFA246FE3A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK413C83E769C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK62E1CAC61E1B5A2B" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK7B453D9E22AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK7B453D9E69C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK61E7E92C29D1C67D" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC70E65407C393498" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK49BD133A6F09C450" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK49BD133AA8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK49BD133AEF90302F" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK99EBF26D88706FDE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK99EBF26D51694AC7" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK5EE68E8EF90302F" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2A26F4D7EF90302F" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK36D1DD2969C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK680F4D6568D845CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK736C06FCAC6C4F15" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2A8D62D9101EBBA" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK60CC320DE6F26EF6" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C8101EBBA" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK680F4D65A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK7F6AA04B3984DFB" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2C9DF7CBADF31A7F" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKEA1BBAFA22AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKEA1BBAFA3E381B5A" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKEA1BBAFAE33F499D" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKE0826EF965E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKE0826EF9A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKE0826EF9D7350207" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1B2D59242BB1A642" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1B2D59246DFA4F61" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK290DFEF4E33F499D" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4CD4AE22E33F499D" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK54BAFE736DFA4F61" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK54BAFE736F09C450" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK54BAFE73A5CB3E9B" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC673078A70BAAD77" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC673078A6DFA4F61" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4EC99D401E48F0AA" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK290DFEF4D2FDB5D6" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC673078AE6185602" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK290DFEF429F0881E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK290DFEF465E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKE6DCF3CC578BE8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK61E7E92CA72BC3CF" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD4F10FE69F5CA0FC" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD57ED6679F5CA0FC" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2A26F4D7578BE8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB0F441C52BB1A642" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB0F441C5578BE8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2A8D62D9A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKAA52267A578BE8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK128688F2A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK55B02720A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6609144AA8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C822AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C8556A5E3D" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C862F0DC3B" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C87EC13BB" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK6B9262C8E6185602" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKAA52267AA8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKBF627FA8A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC2D2B683A8A5A1F8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK8D0D2C19A4B9DB0C" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD2219C8422AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD4F784CB22AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD57ED66722AD72E3" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKF679DAF52E0B1592" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKBF8E1E2E39853825" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK809BB3882BB1A642" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK40AC8CA0460E4439" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKAA52267A1094F85A" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKAA52267A274F0C32" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2C9DF7CB65E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK7F6AA04B65E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK7F6AA04B69C47013" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK14821E7F65E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2F6DBCDD65E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK40AC8CA06F09C450" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC2D2B68365E3A6CE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1675D739E6185602" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK14821E7F1094F85A" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKC2D10B432E0B1592" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4A1413345753A3D0" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB3C2D74C5A687D37" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK55B027209DD8F844" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK371E1D35A8DDA4C" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK452132475F6A4FA9" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4521324779B233F4" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK998C6F6C5A8DDA4C" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK3456262CCC581494" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK371E1D3B22480E8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1ECC761AD298EEFE" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK1ECC761AFDF768A2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4F97A3A9AB1C5DF" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK4F97A3A91DA42CD4" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK98FAB7184EE05EC2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK98FAB718A33CE567" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK128688F2635D0140" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD08DE553A33CE567" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD2219C848AB5839F" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD4F10FE6635D0140" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKD2219C842DED7CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK5F7A17371DA42CD4" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK5F7A17378EE18F7E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK2992F567E3C6EB42" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FK8CEC6BE8E3C6EB42" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKBF627FA897C709D2" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB0CBFE5CB22480E8" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB0CBFE5C8EE18F7E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKFFEA3917612A562E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKFFEA39178EE18F7E" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.FKB0CBFE5C51A5E690" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.BusinessProcesses_Forms" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.Document_ProcessingCase" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.Reports_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.Roles_To_Features" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.Roles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="HighPointLiteModel.RolesToSystemUsers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
