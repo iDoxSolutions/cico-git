@@ -1,0 +1,85 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# Not currently on any branch.
+# You are currently rebasing.
+#   (all conflicts fixed: run "git rebase --continue")
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   CICO/Controllers/CaseController.cs
+#	new file:   CICO/Controllers/DepartmentController.cs
+#	new file:   CICO/Controllers/DependentController.cs
+#	new file:   CICO/Controllers/DocumentController.cs
+#	new file:   CICO/Controllers/ItemController.cs
+#	new file:   CICO/Controllers/StaffController.cs
+#	new file:   CICO/Models/CICO.Context.cs
+#	new file:   CICO/Models/CICO.Context.tt
+#	new file:   CICO/Models/CICO.Views.cs
+#	new file:   CICO/Models/CICO.cs
+#	new file:   CICO/Models/CICO.edmx.diagram
+#	new file:   CICO/Models/CICO.tt
+#	new file:   CICO/Models/Case.cs
+#	new file:   CICO/Models/CheckList.cs
+#	new file:   CICO/Models/Department.cs
+#	new file:   CICO/Models/Dependent.cs
+#	new file:   CICO/Models/Document.cs
+#	new file:   CICO/Models/Employee.cs
+#	new file:   CICO/Models/Item.cs
+#	new file:   CICO/Models/Staff.cs
+#	new file:   CICO/Models/sysdiagram.cs
+#	renamed:    CICO/Views/Student/Create.cshtml -> CICO/Views/Case/Create.cshtml
+#	renamed:    CICO/Views/Instructor/Delete.cshtml -> CICO/Views/Case/Delete.cshtml
+#	new file:   CICO/Views/Case/Details.cshtml
+#	renamed:    CICO/Views/Student/Edit.cshtml -> CICO/Views/Case/Edit.cshtml
+#	new file:   CICO/Views/Case/Index.cshtml
+#	renamed:    CICO/Views/Instructor/Create.cshtml -> CICO/Views/Dependent/Create.cshtml
+#	new file:   CICO/Views/Dependent/Delete.cshtml
+#	new file:   CICO/Views/Dependent/Details.cshtml
+#	new file:   CICO/Views/Dependent/Edit.cshtml
+#	new file:   CICO/Views/Dependent/Index.cshtml
+#	new file:   CICO/Views/Document/Create.cshtml
+#	new file:   CICO/Views/Document/Delete.cshtml
+#	new file:   CICO/Views/Document/Details.cshtml
+#	new file:   CICO/Views/Document/Edit.cshtml
+#	new file:   CICO/Views/Document/Index.cshtml
+#	new file:   CICO/Views/Item/Create.cshtml
+#	new file:   CICO/Views/Item/Delete.cshtml
+#	new file:   CICO/Views/Item/Details.cshtml
+#	new file:   CICO/Views/Item/Edit.cshtml
+#	new file:   CICO/Views/Item/Index.cshtml
+#	new file:   CICO/Views/Staff/Create.cshtml
+#	new file:   CICO/Views/Staff/Delete.cshtml
+#	new file:   CICO/Views/Staff/Details.cshtml
+#	new file:   CICO/Views/Staff/Edit.cshtml
+#	new file:   CICO/Views/Staff/Index.cshtml
+#	modified:   CICO/obj/Debug/CICO.csproj.FileListAbsolute.txt
+#	modified:   CICO/obj/Debug/CICO.csprojResolveAssemblyReference.cache
+#	new file:   CICO/obj/Debug/TempPE/Controllers.Case.Context.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Controllers.Case.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.CICO.Context.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.CICO.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.CICO2.Designer.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.CICO2.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.Model1.Context.cs.dll
+#	new file:   CICO/obj/Debug/TempPE/Models.Model1.cs.dll
+#	new file:   CICO/obj/Release/CICO.csproj.FileListAbsolute.txt
+#	new file:   CICO/obj/Release/CICO.csprojResolveAssemblyReference.cache
+#	new file:   CICO/obj/Release/CSAutoParameterize.parameters.xml
+#	new file:   CICO/obj/Release/ContosoUniversity.dll
+#	new file:   CICO/obj/Release/ContosoUniversity.pdb
+#	new file:   CICO/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+#	new file:   CICO/obj/Release/Package/CICO.SourceManifest.xml
+#	new file:   CICO/obj/Release/Package/PackageTmp/Models/CICO.edmx.sql
+#	new file:   CICO/obj/Release/Package/PackageTmp/Models/Model1.Context.tt
+#	new file:   CICO/obj/Release/Package/PackageTmp/Models/Model1.tt
+#	new file:   CICO/obj/Release/Package/PackageTmp/bin/ContosoUniversity.dll
+#	new file:   CICO/obj/Release/TempPE/Models.CICO.Designer.cs.dll
+#	new file:   CICO/obj/Release/TempPE/Models.Model1.cs.dll
+#	new file:   CICO/obj/Release/_WPPLastBuildInfo.txt
+#	modified:   Test/obj/Debug/Test.csproj.FileListAbsolute.txt
+#	modified:   Test/obj/Debug/Test.csprojResolveAssemblyReference.cache
+#	new file:   Test/obj/Release/DesignTimeResolveAssemblyReferencesInput.cache
+#
+
