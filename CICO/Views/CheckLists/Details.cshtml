@@ -1,0 +1,47 @@
+@model Cico.Models.CheckList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CheckList</legend>
+
+    <div class="display-label">Type</div>
+    <div class="display-field">@Model.Type</div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">EmployeeEmployeeId</div>
+    <div class="display-field">@Model.EmployeeEmployeeId</div>
+
+    <div class="display-label">StartDate</div>
+    <div class="display-field">@Model.StartDate</div>
+
+    <div class="display-label">EndDate</div>
+    <div class="display-field">@Model.EndDate</div>
+
+    <div class="display-label">DueDate</div>
+    <div class="display-field">@Model.DueDate</div>
+
+    <div class="display-label">Departments</div>
+    <div class="display-field">@(Model.Departments == null ? "None" : Model.Departments.Count.ToString())</div>
+
+    <div class="display-label">Documents</div>
+    <div class="display-field">@(Model.Documents == null ? "None" : Model.Documents.Count.ToString())</div>
+
+    <div class="display-label">CheckListItems</div>
+    <div class="display-field">@(Model.CheckListItems == null ? "None" : Model.CheckListItems.Count.ToString())</div>
+
+    <div class="display-label">Employee</div>
+    <div class="display-field">@(Model.Employee == null ? "None" : Model.Employee.Title)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

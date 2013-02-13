@@ -13,3 +13,15 @@ C:\Users\Pawel\Documents\GitHub\cico\Test\bin\Debug\log4net.xml
 C:\Users\Pawel\Documents\GitHub\cico\Test\bin\Debug\PagedList.xml
 C:\Users\Pawel\Documents\GitHub\cico\Test\obj\Debug\Test.dll
 C:\Users\Pawel\Documents\GitHub\cico\Test\obj\Debug\Test.pdb
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\Test.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\Test.pdb
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\CICO.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\nunit.framework.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\EntityFramework.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\log4net.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\CICO.pdb
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\nunit.framework.xml
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\log4net.xml
+C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.dll
+C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.pdb

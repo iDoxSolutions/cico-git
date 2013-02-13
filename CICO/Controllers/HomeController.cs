@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Cico.DAL;
 using Cico.Models;
-using Cico.ViewModels;
+
 
 namespace Cico.Controllers
 {
@@ -15,7 +14,7 @@ namespace Cico.Controllers
         public string Description { get; set; }
     }
 
-    public class CheckListItemModel
+    public partial class CheckListItem
     {
         public int Id { get; set; }
         public bool Checked { get; set; }
@@ -23,10 +22,14 @@ namespace Cico.Controllers
         public string IconClass { get; set; }
         public IList<MenuItem> MenuItems { get; set; }
     }
-    
+
+    public partial class Staff {
+       
+    }
+
     public class HomeController : Controller
     {
-        private SchoolContext db = new SchoolContext();
+        private CICOEntities db = new CICOEntities();
 
         public ActionResult Index()
         {
@@ -50,7 +53,7 @@ namespace Cico.Controllers
                 + "FROM Person "
                 + "WHERE EnrollmentDate IS NOT NULL "
                 + "GROUP BY EnrollmentDate";
-            var data = db.Database.SqlQuery<EnrollmentDateGroup>(query);
+            var data = db.Database.SqlQuery<CheckList>(query);
             return View(data);
         }
 

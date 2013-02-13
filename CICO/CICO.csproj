@@ -12,7 +12,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Cico</RootNamespace>
-    <AssemblyName>ContosoUniversity</AssemblyName>
+    <AssemblyName>CICO</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -47,9 +47,7 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -107,43 +105,92 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InstructorController.cs" />
-    <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="DAL\CourseRepository.cs" />
-    <Compile Include="DAL\GenericRepository.cs" />
-    <Compile Include="DAL\IStudentRepository.cs" />
-    <Compile Include="DAL\SchoolContext.cs" />
-    <Compile Include="DAL\SchoolInitializer.cs" />
-    <Compile Include="DAL\StudentRepository.cs" />
-    <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CICO.Designer.cs" />
-    <Compile Include="Models\CICO1.Designer.cs">
+    <Compile Include="Models\CheckList.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckListItem.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckListItem_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckList_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CICO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CICO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CICO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CICO.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Enrollment.cs" />
-    <Compile Include="Models\Instructor.cs" />
-    <Compile Include="Models\OfficeAssignment.cs" />
-    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\CICO.Entities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CICO.Mapping.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Department_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dependent.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Dependent_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Document.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Document_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SharePoint\DocumentDto.cs" />
     <Compile Include="Models\SharePoint\SharePointDocumentQuery.cs" />
     <Compile Include="Models\SharePoint\CicoConfiguration.cs" />
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
-    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Staff.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Staff_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>CICO.Entities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram_Mapping.cs">
+      <DependentUpon>CICO.Mapping.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\AssignedCourseData.cs" />
-    <Compile Include="ViewModels\EnrollmentDateGroup.cs" />
-    <Compile Include="ViewModels\InstructorIndexData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -218,6 +265,7 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\state-dep.png" />
+    <Content Include="Images\us_embassy_logo.jpg" />
     <Content Include="Models\CICO.edmx.sql" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -260,90 +308,69 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Student\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Student\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Student\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Student\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Student\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Instructor\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Instructor\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Instructor\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Instructor\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Instructor\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Details.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Create.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Edit.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Department\Delete.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Course\UpdateCourseCredits.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\CICO.edmx">
+    <Content Include="Models\CICO.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CICO1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+      <LastGenOutput>CICO.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CICO.edmx.diagram">
+      <DependentUpon>CICO.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CICO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CICO.Context.cs</LastGenOutput>
+      <DependentUpon>CICO.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CICO.Entities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CICO.Entities.cs</LastGenOutput>
+      <DependentUpon>CICO.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CICO.Mapping.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CICO.Mapping.cs</LastGenOutput>
+      <DependentUpon>CICO.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Dependent\Index.cshtml" />
+    <Content Include="Views\Dependent\Details.cshtml" />
+    <Content Include="Views\Dependent\Create.cshtml" />
+    <Content Include="Views\Dependent\Edit.cshtml" />
+    <Content Include="Views\Dependent\Delete.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <Content Include="Views\Document\Details.cshtml" />
+    <Content Include="Views\Document\Create.cshtml" />
+    <Content Include="Views\Document\Edit.cshtml" />
+    <Content Include="Views\Document\Delete.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Staff\Details.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -367,7 +394,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>38365</DevelopmentServerPort>
+          <DevelopmentServerPort>12075</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

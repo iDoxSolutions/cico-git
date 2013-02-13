@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Data.Entity;
-using Cico.DAL;
 using Cico.Models;
 
 namespace Cico
@@ -35,8 +34,7 @@ namespace Cico
 
         protected void Application_Start()
         {
-            Database.SetInitializer<SchoolContext>(new SchoolInitializer());
-
+            
             AreaRegistration.RegisterAllAreas();
             
             RegisterGlobalFilters(GlobalFilters.Filters);
