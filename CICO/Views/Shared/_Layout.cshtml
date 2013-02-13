@@ -28,7 +28,7 @@
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                             <li>@Html.ActionLink("My Data", "About", "Home", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("Admin", "Index", "AdminHome", new { area = "Admin" }, null)</li>
+                            <li>@Html.ActionLink("Admin", "Index", "Employees", new { area = "Admin" }, null)</li>
                         </ul>
                     </nav>
                 </div>
@@ -39,6 +39,7 @@
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
+
             </section>
         </div>
         <footer>

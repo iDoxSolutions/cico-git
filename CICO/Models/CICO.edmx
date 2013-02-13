@@ -232,7 +232,7 @@
           <EntitySet Name="Departments" EntityType="CICOModel.Department" />
           <EntitySet Name="Dependents" EntityType="CICOModel.Dependent" />
           <EntitySet Name="Documents" EntityType="CICOModel.Document" />
-          <EntitySet Name="Employees" EntityType="CICOModel.Employee" />
+          <EntitySet Name="Employee_Set" EntityType="CICOModel.Employee_" />
           <EntitySet Name="CheckListItems" EntityType="CICOModel.CheckListItem" />
           <EntitySet Name="Staffs" EntityType="CICOModel.Staff" />
           <EntitySet Name="sysdiagrams" EntityType="CICOModel.sysdiagram" />
@@ -249,7 +249,7 @@
             <End Role="Items" EntitySet="CheckListItems" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeCheckList" Association="CICOModel.FK_EmployeeCheckList">
-            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees" EntitySet="Employee_Set" />
             <End Role="CheckLists" EntitySet="CheckLists" />
           </AssociationSet>
           <AssociationSet Name="FK_DepartmentStaff" Association="CICOModel.FK_DepartmentStaff">
@@ -257,7 +257,7 @@
             <End Role="Staffs" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeesDependents" Association="CICOModel.FK_EmployeesDependents">
-            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Employees" EntitySet="Employee_Set" />
             <End Role="Dependents" EntitySet="Dependents" />
           </AssociationSet>
           <FunctionImport Name="sp_alterdiagram">
@@ -338,7 +338,7 @@
           <Property Name="CheckListId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CheckList" Relationship="CICOModel.FK_CheckListDocument" FromRole="Documents" ToRole="CheckLists" />
         </EntityType>
-        <EntityType Name="Employee">
+        <EntityType Name="Employee_">
           <Key>
             <PropertyRef Name="EmployeeId" />
           </Key>
@@ -347,7 +347,7 @@
           <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="PreferredName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="DateOfBirth" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateOfBirth" Type="String" Nullable="false" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Nationality" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="HomePhone" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -452,7 +452,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeeCheckList">
-          <End Role="Employees" Type="CICOModel.Employee" Multiplicity="1" />
+          <End Role="Employees" Type="CICOModel.Employee_" Multiplicity="1" />
           <End Role="CheckLists" Type="CICOModel.CheckList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -476,7 +476,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_EmployeesDependents">
-          <End Role="Employees" Type="CICOModel.Employee" Multiplicity="1" />
+          <End Role="Employees" Type="CICOModel.Employee_" Multiplicity="1" />
           <End Role="Dependents" Type="CICOModel.Dependent" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Employees">
@@ -547,8 +547,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="IsTypeOf(CICOModel.Employee)">
+    <EntitySetMapping Name="Employee_Set">
+      <EntityTypeMapping TypeName="IsTypeOf(CICOModel.Employee_)">
         <MappingFragment StoreEntitySet="Employees">
           <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />

@@ -29,7 +29,7 @@ namespace Cico.Controllers
 
     public class HomeController : Controller
     {
-        private CICOEntities db = new CICOEntities();
+        //private CICOEntities db = new CICOEntities();
 
         public ActionResult Index()
         {
@@ -49,17 +49,13 @@ namespace Cico.Controllers
             //               EnrollmentDate = dateGroup.Key,
             //               StudentCount = dateGroup.Count()
             //           };
-            var query = "SELECT EnrollmentDate, COUNT(*) AS StudentCount "
-                + "FROM Person "
-                + "WHERE EnrollmentDate IS NOT NULL "
-                + "GROUP BY EnrollmentDate";
-            var data = db.Database.SqlQuery<CheckList>(query);
-            return View(data);
+            
+            return View();
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            
             base.Dispose(disposing);
         }
 

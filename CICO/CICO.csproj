@@ -103,6 +103,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\EmployeesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -110,87 +112,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\CheckList.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CheckListItem.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CheckListItem_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CheckList_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CICO.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CICO.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CICO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CICO.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\CICO.Entities.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CICO.Mapping.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CICOContext.cs" />
-    <Compile Include="Models\Department.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Department_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Dependent.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Dependent_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Document.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Document_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\SharePoint\DocumentDto.cs" />
     <Compile Include="Models\SharePoint\SharePointDocumentQuery.cs" />
     <Compile Include="Models\SharePoint\CicoConfiguration.cs" />
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Staff.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Staff_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>CICO.Entities.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram_Mapping.cs">
-      <DependentUpon>CICO.Mapping.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -267,7 +201,6 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\state-dep.png" />
     <Content Include="Images\us_embassy_logo.jpg" />
-    <Content Include="Models\CICO.edmx.sql" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
@@ -312,6 +245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -321,28 +256,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\CICO.edmx">
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <EntityDeploy Include="Models\CICO.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CICO.Designer.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CICO.edmx.diagram">
-      <DependentUpon>CICO.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\CICO.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CICO.Context.cs</LastGenOutput>
-      <DependentUpon>CICO.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\CICO.Entities.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CICO.Entities.cs</LastGenOutput>
-      <DependentUpon>CICO.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\CICO.Mapping.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CICO.Mapping.cs</LastGenOutput>
-      <DependentUpon>CICO.edmx</DependentUpon>
-    </Content>
+    </EntityDeploy>
+    <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
     <Content Include="Views\Department\Index.cshtml" />
     <Content Include="Views\Department\Details.cshtml" />

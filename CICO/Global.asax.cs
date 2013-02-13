@@ -34,7 +34,7 @@ namespace Cico
 
         protected void Application_Start()
         {
-            
+            System.Data.Entity.Database.SetInitializer(new CicoInit());
             AreaRegistration.RegisterAllAreas();
             
             RegisterGlobalFilters(GlobalFilters.Filters);
