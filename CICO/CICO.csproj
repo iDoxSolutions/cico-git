@@ -142,6 +142,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CICO.Mapping.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CICOContext.cs" />
     <Compile Include="Models\Department.cs">
       <DependentUpon>CICO.Entities.tt</DependentUpon>
     </Compile>
@@ -368,6 +369,12 @@
     <Content Include="Views\Staff\Create.cshtml" />
     <Content Include="Views\Staff\Edit.cshtml" />
     <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\CheckLists\Create.cshtml" />
+    <Content Include="Views\CheckLists\Edit.cshtml" />
+    <Content Include="Views\CheckLists\Delete.cshtml" />
+    <Content Include="Views\CheckLists\Details.cshtml" />
+    <Content Include="Views\CheckLists\Index.cshtml" />
+    <Content Include="Views\CheckLists\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

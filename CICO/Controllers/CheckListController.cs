@@ -50,11 +50,7 @@ namespace Cico.Controllers
             return Json(CheckList);
         }
 
-        public ActionResult GetCheckList()
-        {
-            CICOEntities db = new CICOEntities();
-            var cklist = db.CheckLists.Select(c => c.Employee.userid)
-        }
+        
 
         public ActionResult UpdateItem(CheckListItem model)
         {
