@@ -22,3 +22,4 @@ C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\log4net.xml
 C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
 C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.dll
 C:\Users\Ken\Documents\wingithub\cico\Test\obj\Debug\Test.pdb
+C:\Users\Ken\Documents\wingithub\cico\Test\bin\Debug\EntityFramework.xml

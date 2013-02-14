@@ -11,7 +11,7 @@ namespace Cico.Areas.Admin
 { 
     public class DepartmentController : Controller
     {
-        private CicoContext db = new CicoContext();
+        private  CicoContext db = new CicoContext();
 
         //
         // GET: /Admin/Department/
