@@ -10,6 +10,11 @@ C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\WebGrease.dll
 C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\log4net.xml
 C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\nunit.framework.xml
 C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\PagedList.xml
+C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\CICO.dll
+C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\CICO.pdb
+C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.dll
+C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.pdb
+C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.csprojResolveAssemblyReference.cache
 C:\Users\Ken\Documents\wingithub\cico\CICO\bin\CICO.dll
 C:\Users\Ken\Documents\wingithub\cico\CICO\bin\CICO.pdb
 C:\Users\Ken\Documents\wingithub\cico\CICO\bin\Antlr3.Runtime.dll
@@ -26,8 +31,3 @@ C:\Users\Ken\Documents\wingithub\cico\CICO\bin\nunit.framework.xml
 C:\Users\Ken\Documents\wingithub\cico\CICO\bin\PagedList.xml
 C:\Users\Ken\Documents\wingithub\cico\CICO\obj\Debug\CICO.dll
 C:\Users\Ken\Documents\wingithub\cico\CICO\obj\Debug\CICO.pdb
-C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\CICO.dll
-C:\Users\Pawel\Documents\GitHub\cico\CICO\bin\CICO.pdb
-C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.dll
-C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.pdb
-C:\Users\Pawel\Documents\GitHub\cico\CICO\obj\Debug\CICO.csprojResolveAssemblyReference.cache

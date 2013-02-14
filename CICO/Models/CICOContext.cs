@@ -23,7 +23,7 @@ namespace Cico.Models
     }
 
 
-    public class CICOContext : DbContext
+    public class CicoContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.
         // 
@@ -35,12 +35,14 @@ namespace Cico.Models
         public DbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public DbSet<CheckListItemType> CheckListItemTypes { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
     }
 
-    public class CicoInit:System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CICOContext>
+    public class CicoInit :System.Data.Entity.DropCreateDatabaseAlways<Cico.Models.CicoContext>
     {
         
-        protected override void Seed(CICOContext context)
+        protected override void Seed(CicoContext context)
         {
             
             context.CheckListItemTypes.Add(new CheckListItemType() {Name = "Simple Check Item"});

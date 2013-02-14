@@ -104,7 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\DepartmentController.cs" />
     <Compile Include="Areas\Admin\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -118,6 +120,8 @@
       <DependentUpon>CICO.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\CICOContext.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\SharePoint\DocumentDto.cs" />
     <Compile Include="Models\SharePoint\SharePointDocumentQuery.cs" />
@@ -267,12 +271,17 @@
     <Content Include="Areas\Admin\Views\Employees\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Employees\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Department\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
-    <Content Include="Views\Department\Index.cshtml" />
-    <Content Include="Views\Department\Details.cshtml" />
-    <Content Include="Views\Department\Create.cshtml" />
-    <Content Include="Views\Department\Edit.cshtml" />
-    <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Dependent\Index.cshtml" />
     <Content Include="Views\Dependent\Details.cshtml" />
     <Content Include="Views\Dependent\Create.cshtml" />
@@ -283,11 +292,6 @@
     <Content Include="Views\Document\Create.cshtml" />
     <Content Include="Views\Document\Edit.cshtml" />
     <Content Include="Views\Document\Delete.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Employee\Details.cshtml" />
-    <Content Include="Views\Employee\Create.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\Delete.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
     <Content Include="Views\Staff\Details.cshtml" />
     <Content Include="Views\Staff\Create.cshtml" />

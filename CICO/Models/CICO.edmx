@@ -309,9 +309,9 @@
         </EntityType>
         <EntityType Name="Department">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="DepartmentId" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Contact" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CheckListId" Type="Int32" Nullable="false" />
@@ -468,7 +468,7 @@
           <End Role="Staffs" Type="CICOModel.Staff" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Departments">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="DepartmentId" />
             </Principal>
             <Dependent Role="Staffs">
               <PropertyRef Name="DepartmentId" />
@@ -520,7 +520,7 @@
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="IsTypeOf(CICOModel.Department)">
         <MappingFragment StoreEntitySet="Departments">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DepartmentId" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="CheckListId" ColumnName="CheckListId" />

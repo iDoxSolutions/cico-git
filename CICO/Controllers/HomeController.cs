@@ -33,6 +33,10 @@ namespace Cico.Controllers
 
         public ActionResult Index()
         {
+            CicoContext db = new CicoContext();
+            var cklistTypes = db.CheckListItemTypes;
+            var staffmembers = db.Staffs;
+
             ViewBag.Message = "Please enter information";
 
             return View();

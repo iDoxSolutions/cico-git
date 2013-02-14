@@ -9,29 +9,29 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class EmployeesController : Controller
+    public class StaffController : Controller
     {
         private CicoContext db = new CicoContext();
 
         //
-        // GET: /Admin/Employees/
+        // GET: /Admin/Staff/
 
         public ViewResult Index()
         {
-            return View(db.Employees.ToList());
+            return View(db.Staffs.ToList());
         }
 
         //
-        // GET: /Admin/Employees/Details/5
+        // GET: /Admin/Staff/Details/5
 
         public ViewResult Details(int id)
         {
-            Employee employee = db.Employees.Find(id);
-            return View(employee);
+            Staff staff = db.Staffs.Find(id);
+            return View(staff);
         }
 
         //
-        // GET: /Admin/Employees/Create
+        // GET: /Admin/Staff/Create
 
         public ActionResult Create()
         {
@@ -39,62 +39,62 @@ namespace Cico.Areas.Admin
         } 
 
         //
-        // POST: /Admin/Employees/Create
+        // POST: /Admin/Staff/Create
 
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        public ActionResult Create(Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Employees.Add(employee);
+                db.Staffs.Add(staff);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            return View(employee);
+            return View(staff);
         }
         
         //
-        // GET: /Admin/Employees/Edit/5
+        // GET: /Admin/Staff/Edit/5
  
         public ActionResult Edit(int id)
         {
-            Employee employee = db.Employees.Find(id);
-            return View(employee);
+            Staff staff = db.Staffs.Find(id);
+            return View(staff);
         }
 
         //
-        // POST: /Admin/Employees/Edit/5
+        // POST: /Admin/Staff/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(Staff staff)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                db.Entry(staff).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(staff);
         }
 
         //
-        // GET: /Admin/Employees/Delete/5
+        // GET: /Admin/Staff/Delete/5
  
         public ActionResult Delete(int id)
         {
-            Employee employee = db.Employees.Find(id);
-            return View(employee);
+            Staff staff = db.Staffs.Find(id);
+            return View(staff);
         }
 
         //
-        // POST: /Admin/Employees/Delete/5
+        // POST: /Admin/Staff/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Employee employee = db.Employees.Find(id);
-            db.Employees.Remove(employee);
+            Staff staff = db.Staffs.Find(id);
+            db.Staffs.Remove(staff);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
