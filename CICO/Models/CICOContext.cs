@@ -37,9 +37,11 @@ namespace Cico.Models
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
+        
     }
 
-    public class CicoInit :System.Data.Entity.DropCreateDatabaseAlways<Cico.Models.CicoContext>
+    public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
     {
         
         protected override void Seed(CicoContext context)

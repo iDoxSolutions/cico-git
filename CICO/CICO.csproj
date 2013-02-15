@@ -111,6 +111,7 @@
     <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
+    <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -122,6 +123,7 @@
       <DependentUpon>CICO.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\CICOContext.cs" />
+    <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -305,6 +307,11 @@
     <Content Include="Views\CheckLists\Details.cshtml" />
     <Content Include="Views\CheckLists\Index.cshtml" />
     <Content Include="Views\CheckLists\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -331,7 +338,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>12075</DevelopmentServerPort>
+          <DevelopmentServerPort>2695</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

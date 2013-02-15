@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -12,7 +13,9 @@ namespace Cico.Areas.Admin
     public class StaffController : Controller
     {
         private CicoContext db = new CicoContext();
-
+        
+        
+        
         //
         // GET: /Admin/Staff/
 
