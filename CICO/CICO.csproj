@@ -106,12 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
+    <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\DepartmentController.cs" />
     <Compile Include="Areas\Admin\EmployeesController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
-    <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -124,6 +125,8 @@
     </Compile>
     <Compile Include="Models\CICOContext.cs" />
     <Compile Include="Models\CheckListItemTemplate.cs" />
+    <Compile Include="Models\CheckListTemplate.cs" />
+    <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -285,6 +288,11 @@
     <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Department\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Delete.cshtml" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
     <Content Include="Views\Dependent\Index.cshtml" />
     <Content Include="Views\Dependent\Details.cshtml" />
@@ -301,17 +309,17 @@
     <Content Include="Views\Staff\Create.cshtml" />
     <Content Include="Views\Staff\Edit.cshtml" />
     <Content Include="Views\Staff\Delete.cshtml" />
-    <Content Include="Views\CheckLists\Create.cshtml" />
-    <Content Include="Views\CheckLists\Edit.cshtml" />
-    <Content Include="Views\CheckLists\Delete.cshtml" />
-    <Content Include="Views\CheckLists\Details.cshtml" />
-    <Content Include="Views\CheckLists\Index.cshtml" />
-    <Content Include="Views\CheckLists\_CreateOrEdit.cshtml" />
-    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\CheckListItemTemplate\Delete.cshtml" />
+    <Content Include="Views\CheckList\Create.cshtml" />
+    <Content Include="Views\CheckList\Edit.cshtml" />
+    <Content Include="Views\CheckList\Delete.cshtml" />
+    <Content Include="Views\CheckList\Details.cshtml" />
+    <Content Include="Views\CheckList\Index.cshtml" />
+    <Content Include="Views\CheckList\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListTemplate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListTemplate\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListTemplate\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListTemplate\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListTemplate\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -14,13 +14,7 @@ namespace Cico.Models
         public string Name { get; set; }
     }
 
-    public class CheckListTemplate
-    {
-        [Key]
-        public int CheckListTemplateId { get; set; }
-        [Required]
-        public int Name { get; set; }
-    }
+   
 
 
     public class CicoContext : DbContext
@@ -38,6 +32,7 @@ namespace Cico.Models
         public DbSet<Department> Departments { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
+        public DbSet<CheckList> CheckLists { get; set; }
         
     }
 

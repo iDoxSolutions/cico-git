@@ -49,4 +49,4 @@ namespace Cico.Models
         [Display(Name = "Item Alert Frequency")]
         public string  AlertFrenquency{ get; set; }
    }
-   }
+}
