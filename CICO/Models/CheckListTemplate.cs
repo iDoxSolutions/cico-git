@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
@@ -19,6 +20,6 @@ namespace Cico.Models
         public DateTime? EndDate { get; set; }
         [Display(Name = "CheckList Due Date")]
         public DateTime? DueDate { get; set; }
-        
+        public ICollection<CheckListItemType> CheckListItems { get; set; } 
    }
 }

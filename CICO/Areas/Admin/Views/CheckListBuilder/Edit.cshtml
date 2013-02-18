@@ -1,0 +1,82 @@
+﻿@model Cico.Models.CheckListTemplate
+
+@{
+    ViewBag.Title = "title";
+    
+}
+
+<h2>Edit checklist template</h2>
+
+@Html.TextBoxFor(c=>c.Name)
+
+<h2>Items</h2>
+<ul data-bind="foreach: templateItems">
+    <li>
+        <div style="float: left;width:130px" data-bind="text: Description"></div>
+        <div style="float: left" data-bind="text: Type"></div><a href="#" data-bind="click: $parent.removeItem">Delete</a>
+    </li>
+</ul>
+    <hr/>
+    <form>
+        <input type="text" data-bind="value:ItemForm.Description"/>
+        <select data-bind="value:ItemForm.Type">
+            <option>Type 1</option>
+            <option>Type 2</option>
+            <option>Type 3</option>
+        </select>
+        <a href="#" data-bind="click:addItem">Add</a>
+    </form>
+
+
+
+
+<script type="text/javascript">
+    
+    function TemplateItem(description,type,id) {
+        var self = this;
+        self.Description = description;
+        self.Type = type;
+        self.ID = id;
+    }
+
+
+    function ItemForm() {
+        var self = this;
+        self.Description = ko.observable("");
+        self.Type = ko.observable("");
+    }
+
+    function CheckListTemplate() {
+        var self = this;
+        self.templateItems = ko.observableArray(
+            []
+        );
+
+        self.removeItem = function(item) {
+            $.post("/Admin/checklistbuilder/deleteitem", item, function (data) {
+                self.templateItems.remove(item);
+            });
+            
+        };
+
+        self.addItem = function(item) {
+            
+            $.post("/Admin/checklistbuilder/additem", { Description: item.ItemForm.Description(), Type: item.ItemForm.Type() }, function (data) {
+                self.templateItems.push(new TemplateItem(data.Description, item.ItemForm.Type));
+            });
+            item.ItemForm.Description("");
+        };
+
+        self.ItemForm = new ItemForm();
+
+        
+        $.post("/Admin/checklistbuilder/getitems", {}, function (data) {
+            ko.utils.arrayForEach(data, function (item) {
+                self.templateItems.push(new TemplateItem(item.Description, item.Type,item.Id));
+            });
+        });
+    }
+
+    var templateModel = new CheckListTemplate();
+    ko.applyBindings(templateModel);
+</script>

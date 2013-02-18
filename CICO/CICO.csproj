@@ -34,6 +34,24 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="SchoolContext-Deployment" Order="1">
+          <Destination Path="Data Source=ltkserver\sqlexpress%3bInitial Catalog=cicodb%3bIntegrated Security=false%3buid=app%3bpwd=26rtYsxGL%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28localdb%29\v11.0%3bInitial Catalog=Cico.Models.CicoContext%3bIntegrated Security=True%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\SchoolContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+        <ObjectGroup Name="Cico.Models.CicoContext-Deployment" Order="2">
+          <Destination Path="Data Source=ltkserver\sqlexpress%3bInitial Catalog=cicodb%3bIntegrated Security=false%3buid=app%3bpwd=26rtYsxGL%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=%28localdb%29\v11.0%3bInitial Catalog=Cico.Models.CicoContext%3bIntegrated Security=True%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Cico.Models.CicoContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -106,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\CheckListBuilderController.cs" />
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\DepartmentController.cs" />
@@ -293,22 +312,10 @@
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListBuilder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListBuilder\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckListBuilder\Edit.cshtml" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
-    <Content Include="Views\Dependent\Index.cshtml" />
-    <Content Include="Views\Dependent\Details.cshtml" />
-    <Content Include="Views\Dependent\Create.cshtml" />
-    <Content Include="Views\Dependent\Edit.cshtml" />
-    <Content Include="Views\Dependent\Delete.cshtml" />
-    <Content Include="Views\Document\Index.cshtml" />
-    <Content Include="Views\Document\Details.cshtml" />
-    <Content Include="Views\Document\Create.cshtml" />
-    <Content Include="Views\Document\Edit.cshtml" />
-    <Content Include="Views\Document\Delete.cshtml" />
-    <Content Include="Views\Staff\Index.cshtml" />
-    <Content Include="Views\Staff\Details.cshtml" />
-    <Content Include="Views\Staff\Create.cshtml" />
-    <Content Include="Views\Staff\Edit.cshtml" />
-    <Content Include="Views\Staff\Delete.cshtml" />
     <Content Include="Views\CheckList\Create.cshtml" />
     <Content Include="Views\CheckList\Edit.cshtml" />
     <Content Include="Views\CheckList\Delete.cshtml" />

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Cico.Models.CheckListTemplate>
+
+@{
+    ViewBag.Title = "Checklist Template Builder";
+    
+}
+
+<h2>Checklist Template Builder</h2>
+
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name,"Edit",new {id=item.CheckListTemplateId})
+                
+            </td>
+        </tr>
+    }
+         
+    @Html.ActionLink("Create Template","Create")
+
+</table>

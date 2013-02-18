@@ -48,5 +48,9 @@ namespace Cico.Models
         public string  AlertDays{ get; set; }
         [Display(Name = "Item Alert Frequency")]
         public string  AlertFrenquency{ get; set; }
-   }
+
+        public CheckListTemplate CheckListTemplate { get; set; }
+
+        public string Type{get; set; }
+    }
 }

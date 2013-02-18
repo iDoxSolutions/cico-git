@@ -1,0 +1,17 @@
+﻿@model Cico.Models.CheckListTemplate
+
+@{
+   
+}
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(c=>c.Name)
+    @Html.ValidationMessageFor(c=>c.Name)
+
+    @Html.DropDownListFor(c=>c.Type,new List<SelectListItem>(){new SelectListItem(){Selected = false,Text = "type1",Value = "type1"} ,new SelectListItem(){Selected = false,Text = "type2",Value = "type2"}})
+    @Html.ValidationMessageFor(c=>c.Type)
+    <input type="submit" value="Submit"/>
+}
