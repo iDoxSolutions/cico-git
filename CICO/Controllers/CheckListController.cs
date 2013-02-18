@@ -9,6 +9,8 @@ namespace Cico.Controllers
 {
     public class CheckListController : Controller
     {
+
+        private CicoContext db = new CicoContext();
         //
         // GET: /CheckList/
         private List<CheckListItem> CheckList
@@ -47,10 +49,45 @@ namespace Cico.Controllers
 
         public ActionResult GetItems()
         {
-            return Json(CheckList);
+            var list = new List<CheckListItem>();
+            var s = db.Settings.FirstOrDefault(c => c.Name == "checklisttemplate");
+            if (s != null)
+            {
+                var templateId = Int32.Parse(s.Value);
+                var template = db.CheckListTemplates.Include("CheckListItems").SingleOrDefault(c => c.CheckListTemplateId == templateId);
+                if (template != null)
+                {
+                    foreach (var checkListItemType in template.CheckListItems)
+                    {
+                        list.Add(new CheckListItem() { Description = checkListItemType.Description, MenuItems = GetMenuByType (checkListItemType.Type)});
+                    }
+                }
+            }
+
+            return Json(list);
         }
 
         
+
+        private IList<MenuItem> GetMenuByType(string type)
+        {
+            var list = new List<MenuItem>();
+
+            switch (type)
+            {
+                case "SelfContainedForm":
+                    list.Add(new MenuItem(){Description = "Fill The Form"});
+
+                    break;
+                case "DocUpload":
+                    list.Add(new MenuItem() { Description = "Download doc" });
+                    list.Add(new MenuItem() { Description = "Upload doc" });
+                    break;
+
+            }
+            
+            return list;
+        }
 
         public ActionResult UpdateItem(CheckListItem model)
         {

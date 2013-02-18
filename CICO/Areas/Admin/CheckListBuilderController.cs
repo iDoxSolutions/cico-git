@@ -12,7 +12,15 @@ namespace Cico.Areas.Admin
         public int Id { get; set; }
         public string Description { get; set; }
         public string Type { get; set; }
+        public int TemplateId { get; set; }
     }
+
+    public class TemplateModel
+    {
+        public CheckListTemplate CheckListTemplate { get; set; }
+        public List<SelectListItem> ItemTypes { get; set; }
+    }
+
 
     public class CheckListBuilderController : Controller
     {
@@ -39,15 +47,17 @@ namespace Cico.Areas.Admin
         public ActionResult AddItem(TemplateItemModel model)
         {
             var item = new CheckListItemTemplate(){Description = model.Description,Item = model.Type,Type = model.Type};
+            var template = db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
+            item.CheckListTemplate = template;
             db.CheckListItemTemplates.Add(item);
             db.SaveChanges();
             model.Id = item.CheckListItemTemplateId;
             return Json(model);
         }
 
-        public ActionResult GetItems()
+        public ActionResult GetItems(int id)
         {
-            var list = db.CheckListItemTemplates.ToList().Select(c=>new TemplateItemModel(){Description = c.Description,Id=c.CheckListItemTemplateId,Type = c.Type}).ToList();
+            var list = db.CheckListItemTemplates.Where(c=>c.CheckListTemplate.CheckListTemplateId == id).ToList().Select(c=>new TemplateItemModel(){Description = c.Description,Id=c.CheckListItemTemplateId,Type = c.Type}).ToList();
 
             return Json(list);
         }
@@ -74,10 +84,19 @@ namespace Cico.Areas.Admin
             }
         }
 
+
+
         public ActionResult Edit(int id)
         {
             var item = db.CheckListTemplates.Single(c => c.CheckListTemplateId == id);
-            return View(item);
+            var model = new TemplateModel()
+                {
+                    CheckListTemplate = item,
+                    ItemTypes =
+                        db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
+                          .ToList()
+                };
+            return View(model);
         }
     }
 }

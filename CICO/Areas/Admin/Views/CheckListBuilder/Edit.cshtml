@@ -1,4 +1,4 @@
-﻿@model Cico.Models.CheckListTemplate
+﻿@model Cico.Areas.Admin.TemplateModel
 
 @{
     ViewBag.Title = "title";
@@ -7,7 +7,7 @@
 
 <h2>Edit checklist template</h2>
 
-@Html.TextBoxFor(c=>c.Name)
+@Html.TextBoxFor(c=>c.CheckListTemplate.Name)
 
 <h2>Items</h2>
 <ul data-bind="foreach: templateItems">
@@ -20,9 +20,10 @@
     <form>
         <input type="text" data-bind="value:ItemForm.Description"/>
         <select data-bind="value:ItemForm.Type">
-            <option>Type 1</option>
-            <option>Type 2</option>
-            <option>Type 3</option>
+            @foreach (var item in Model.ItemTypes)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
         </select>
         <a href="#" data-bind="click:addItem">Add</a>
     </form>
@@ -31,7 +32,8 @@
 
 
 <script type="text/javascript">
-    
+
+    var templateId = '@(Model.CheckListTemplate.CheckListTemplateId)';
     function TemplateItem(description,type,id) {
         var self = this;
         self.Description = description;
@@ -61,8 +63,8 @@
 
         self.addItem = function(item) {
             
-            $.post("/Admin/checklistbuilder/additem", { Description: item.ItemForm.Description(), Type: item.ItemForm.Type() }, function (data) {
-                self.templateItems.push(new TemplateItem(data.Description, item.ItemForm.Type));
+            $.post("/Admin/checklistbuilder/additem", { Description: item.ItemForm.Description(), Type: item.ItemForm.Type(), TemplateId: templateId }, function (data) {
+                self.templateItems.push(new TemplateItem(data.Description, data.Type, data.Id));
             });
             item.ItemForm.Description("");
         };
@@ -70,7 +72,7 @@
         self.ItemForm = new ItemForm();
 
         
-        $.post("/Admin/checklistbuilder/getitems", {}, function (data) {
+        $.post("/Admin/checklistbuilder/getitems/"+templateId, {}, function (data) {
             ko.utils.arrayForEach(data, function (item) {
                 self.templateItems.push(new TemplateItem(item.Description, item.Type,item.Id));
             });

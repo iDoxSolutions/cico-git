@@ -1,11 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
 {
     public class CheckListTemplate
     {
+        public CheckListTemplate()
+        {
+            CheckListItems = new Collection<CheckListItemTemplate>();
+        }
+
         [Key]
         public int CheckListTemplateId { get; set; }
         [Required]
@@ -20,6 +26,6 @@ namespace Cico.Models
         public DateTime? EndDate { get; set; }
         [Display(Name = "CheckList Due Date")]
         public DateTime? DueDate { get; set; }
-        public ICollection<CheckListItemType> CheckListItems { get; set; } 
+        public ICollection<CheckListItemTemplate> CheckListItems { get; set; } 
    }
 }

@@ -12,8 +12,19 @@ namespace Cico.Models
         public int CheckListTypeId { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
+        public string Description { get; set; }
     }
 
+
+    public class Setting
+    {
+        [Key]
+        public string Name { get; set; }
+        [Required]
+        public string Value { get; set; }
+        public string Name1 { get; set; }
+    }
    
 
 
@@ -33,7 +44,15 @@ namespace Cico.Models
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public DbSet<CheckList> CheckLists { get; set; }
-        
+        public DbSet<Setting> Settings { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CheckListTemplate>().HasMany(c => c.CheckListItems);
+        }
     }
 
     public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
@@ -41,10 +60,15 @@ namespace Cico.Models
         
         protected override void Seed(CicoContext context)
         {
-            
-            context.CheckListItemTypes.Add(new CheckListItemType() {Name = "Simple Check Item"});
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "Document upload Item" });
 
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentApproval", Description = "Document w/On-Line Approval" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "ProvisionalStatus", Description = "Provisional Status" });
+
+            context.Settings.Add(new Setting(){Name = "checklisttemplate",Value = "1"});
             
             context.SaveChanges();
         } 
