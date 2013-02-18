@@ -32,6 +32,8 @@ namespace Cico
 
         }
 
+        
+
         protected void Application_Start()
         {
             Database.SetInitializer<CicoContext>(new CicoInit());

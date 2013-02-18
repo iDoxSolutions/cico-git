@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
+using Cico.Models.Authentication;
 
 
 namespace Cico.Controllers
@@ -27,19 +28,37 @@ namespace Cico.Controllers
        
     }
 
+
+    public class EmployeeModel
+    {
+        public string Name { get; set; }
+        public string Number { get; set; }
+    }
+
+    public class HomeModel
+    {
+        public EmployeeModel EmployeeModel { get; set; }
+    }
+
     public class HomeController : Controller
     {
         //private CICOEntities db = new CICOEntities();
-
+        UserSession _userSession = new UserSession();
         public ActionResult Index()
         {
             CicoContext db = new CicoContext();
             var cklistTypes = db.CheckListItemTypes;
             var staffmembers = db.Staffs;
+            var user = _userSession.GetCurrent();
+            var empModel = new EmployeeModel(){Name = "Len Hambright",Number = "10000"};
+            var model = new HomeModel()
+                {
+                    EmployeeModel = empModel
+                };
 
             ViewBag.Message = "Please enter information";
 
-            return View();
+            return View(model);
         }
 
        
@@ -63,5 +82,21 @@ namespace Cico.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult UpdateEmployeeData(EmployeeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return null;
+            }
+            else
+            {
+                var empModel = new EmployeeModel() { Name = "Len Hambright", Number = "10000" };
+                var homemodel = new HomeModel()
+                {
+                    EmployeeModel = empModel
+                };
+                return View(homemodel);
+            }
+        }
     }
 }

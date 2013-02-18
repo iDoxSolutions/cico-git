@@ -1,3 +1,4 @@
+@model Cico.Controllers.HomeModel
 @{
     ViewBag.Title = "Home Page";
 }
@@ -59,7 +60,7 @@
                 <li><a href="#housingquestionare">My Housing Questionaire</a></li>
             </ul>
             <div id="myinfo">
-                
+                @Html.Partial("EmployeeForm",Model.EmployeeModel)
             </div>
             <div id="mydependents">
                 

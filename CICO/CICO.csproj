@@ -137,6 +137,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Authentication\UserSession.cs" />
     <Compile Include="Models\CICO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +156,7 @@
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -327,6 +329,7 @@
     <Content Include="Areas\Admin\Views\CheckListTemplate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListTemplate\Delete.cshtml" />
+    <Content Include="Views\Home\EmployeeForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

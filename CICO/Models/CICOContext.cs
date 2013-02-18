@@ -45,6 +45,7 @@ namespace Cico.Models
         public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public DbSet<CheckList> CheckLists { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
