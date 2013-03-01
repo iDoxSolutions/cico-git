@@ -33,6 +33,24 @@ namespace Cico.Controllers
     {
         public string Name { get; set; }
         public string Number { get; set; }
+
+        public DateTime? ArrivalDate
+        {
+            get; set; 
+        }
+
+        public string Agency
+        {
+            get; set; 
+        }
+
+        public string Nationality
+        {
+            get; set; }
+
+        public string AssignedOffice
+        {
+            get; set; }
     }
 
     public class HomeModel

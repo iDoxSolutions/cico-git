@@ -1,10 +1,54 @@
 ﻿@model Cico.Controllers.EmployeeModel
            
-@using (Html.BeginForm("UpdateEmployeeData","Home"))
-{
-    @Html.TextBoxFor(c=>c.Name)   
-    @Html.ValidationMessageFor(c=>c.Name)   
-    @Html.TextBoxFor(c=>c.Number)   
-    @Html.ValidationMessageFor(c=>c.Number)   
-    <input type="submit" value="Submit"/>
-}
+<div>
+    <ul>
+        <li>
+            Name
+            <div>
+                @Model.Name    
+            </div>
+        </li>
+        <li>
+            Number
+            <div>
+                @Model.Number    
+            </div>
+        </li>
+        <li>
+            Arrival Date
+            <div>
+                @Model.ArrivalDate
+            </div>
+        </li>
+        <li>
+            Agency
+            <div>
+                @Model.Agency
+            </div>
+        </li>
+        <li>
+            Assigned Office
+            <div>
+                @Model.AssignedOffice
+            </div>
+        </li>
+
+        <li>
+            Nationality
+            <div>
+                @Model.Nationality
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <ul>
+        <li>
+            Nationality
+            <div>
+                @Model.Nationality
+            </div>
+        </li>
+    </ul>
+</div>
