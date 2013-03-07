@@ -805,3 +805,61 @@ div.tabcontents div.content h2 {
             margin: 0;
         }
 }
+
+ .columnsContainer
+    {
+        position: relative;
+        height: 400px
+    }
+
+    .leftColumn
+    {
+        width: 25%;
+        float: left;
+    }
+
+    .rightColumn
+    {
+        float: right;
+        width: 70%;
+        margin-right: 4%;
+        
+    }
+
+    .checklist{
+        list-style: none;
+        padding-left: 0px
+        
+    }
+    .checkInItem {
+        font-size: small;
+        cursor: pointer;
+    }
+
+    .selected {
+        font-weight:bold
+            }
+
+    .checkInItem .ico,.description,.checkbox {
+        display: inline
+    }
+
+    .float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}

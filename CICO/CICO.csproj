@@ -129,15 +129,22 @@
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\DepartmentController.cs" />
     <Compile Include="Areas\Admin\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
+    <Compile Include="Areas\Forms\Controllers\TestFormController.cs" />
+    <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\UserSession.cs" />
+    <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
+    <Compile Include="Models\CheckListItemType.cs" />
+    <Compile Include="Models\CheckListSession.cs" />
     <Compile Include="Models\CICO.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,6 +154,10 @@
     <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
+    <Compile Include="Models\CicoInit.cs" />
+    <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\ICicoContext.cs" />
+    <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -156,7 +167,6 @@
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,11 +243,14 @@
     <Content Include="Images\orderedList9.png" />
     <Content Include="Images\state-dep.png" />
     <Content Include="Images\us_embassy_logo.jpg" />
+    <Content Include="Scripts\DocSubmitted\DocSubmitted.js" />
+    <Content Include="Scripts\Forms\TestForm.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -245,7 +258,9 @@
     <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -279,6 +294,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Shared\" />
+    <Folder Include="Areas\Forms\Models\" />
+    <Folder Include="Areas\Forms\Views\Shared\" />
+    <Folder Include="Models\CheckList\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +335,16 @@
     <Content Include="Areas\Admin\Views\CheckListBuilder\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListBuilder\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListBuilder\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_SelfContainedForm.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_DocumentSubmitted.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_DocumentWriting.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_DocumentApproval.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_PhysicalActivity.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\_ProvisionalStatus.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\Create.cshtml" />
+    <Content Include="Areas\Forms\Views\Web.config" />
+    <Content Include="Areas\Forms\Views\TestForm\Index.cshtml" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
     <Content Include="Views\CheckList\Create.cshtml" />
     <Content Include="Views\CheckList\Edit.cshtml" />

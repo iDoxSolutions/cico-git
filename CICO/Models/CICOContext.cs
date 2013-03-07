@@ -1,42 +1,22 @@
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Data.Common;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Objects;
 using System.Linq;
 using System.Web;
 
 namespace Cico.Models
 {
-    public class CheckListItemType
+    public class CicoContext : DbContext//, ICicoContext
     {
-        [Key]
-        public int CheckListTypeId { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Description { get; set; }
-    }
+        public CicoContext()
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+        }
 
-
-    public class Setting
-    {
-        [Key]
-        public string Name { get; set; }
-        [Required]
-        public string Value { get; set; }
-        public string Name1 { get; set; }
-    }
-   
-
-
-    public class CicoContext : DbContext
-    {
-        // You can add custom code to this file. Changes will not be overwritten.
-        // 
-        // If you want Entity Framework to drop and regenerate your database
-        // automatically whenever you change your model schema, add the following
-        // code to the Application_Start method in your Global.asax file.
-        // Note: this will destroy and re-create your database with every model change.
-        // 
         public DbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public DbSet<CheckListItemType> CheckListItemTypes { get; set; }
         public DbSet<Employee> Employees { get; set; }
@@ -45,34 +25,41 @@ namespace Cico.Models
         public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public DbSet<CheckList> CheckLists { get; set; }
         public DbSet<Setting> Settings { get; set; }
-        public DbSet<User> Users { get; set; }
-
+        
+        public DbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
+        public DbSet<CheckListSession> CheckListSessions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
-            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<CheckListTemplate>().HasMany(c => c.CheckListItems);
+            /*modelBuilder.Entity<CheckListTemplate>().HasMany(c => c.CheckListItemTemplates).WithRequired(c => c.CheckListTemplate).WillCascadeOnDelete();
+            modelBuilder.Entity<CheckListItemTemplate>()
+                        .HasRequired(c => c.CheckListTemplate)
+                        .WithMany(c => c.CheckListItemTemplates);*/
+            modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
+           
+            /*
+            modelBuilder.Entity<CheckListSession>()
+                .HasMany(c => c.CheckListItemSubmitionTracks)
+                .WithRequired(c=>c.CheckListSession).WillCascadeOnDelete();
+           
+            base.OnModelCreating(modelBuilder);*/
+        }
+
+        public override int SaveChanges()
+        {
+            ChangeTracker.DetectChanges();
+
+            var added = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Added).Select(e => e.Entity).OfType<EntityBase>();
+            foreach (var entityBase in added)
+            {
+                entityBase.DateCreated = DateTime.Now;
+                entityBase.DateEdited = DateTime.Now;
+                if (HttpContext.Current != null)
+                {
+                    entityBase.UserCreated = HttpContext.Current.User.Identity.Name;
+                }
+            }
+            return base.SaveChanges();
         }
     }
-
-    public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
-    {
-        
-        protected override void Seed(CicoContext context)
-        {
-
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentApproval", Description = "Document w/On-Line Approval" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "ProvisionalStatus", Description = "Provisional Status" });
-
-            context.Settings.Add(new Setting(){Name = "checklisttemplate",Value = "1"});
-            
-            context.SaveChanges();
-        } 
-    }
-
 }

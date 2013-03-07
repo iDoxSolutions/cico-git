@@ -57,7 +57,8 @@ namespace Cico.Areas.Admin
 
         public ActionResult GetItems(int id)
         {
-            var list = db.CheckListItemTemplates.Where(c=>c.CheckListTemplate.CheckListTemplateId == id).ToList().Select(c=>new TemplateItemModel(){Description = c.Description,Id=c.CheckListItemTemplateId,Type = c.Type}).ToList();
+            var list = db.CheckListItemTemplates.Where(c=>c.CheckListTemplate.CheckListTemplateId == id)
+                .ToList().Select(c=>new TemplateItemModel(){Description = c.Description,Id=c.CheckListItemTemplateId,Type = c.Item}).ToList();
 
             return Json(list);
         }

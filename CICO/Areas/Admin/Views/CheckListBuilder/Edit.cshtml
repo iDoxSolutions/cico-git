@@ -9,6 +9,8 @@
 
 @Html.TextBoxFor(c=>c.CheckListTemplate.Name)
 
+@Html.ActionLink("New Items","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
+
 <h2>Items</h2>
 <ul data-bind="foreach: templateItems">
     <li>
@@ -16,17 +18,8 @@
         <div style="float: left" data-bind="text: Type"></div><a href="#" data-bind="click: $parent.removeItem">Delete</a>
     </li>
 </ul>
-    <hr/>
-    <form>
-        <input type="text" data-bind="value:ItemForm.Description"/>
-        <select data-bind="value:ItemForm.Type">
-            @foreach (var item in Model.ItemTypes)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </select>
-        <a href="#" data-bind="click:addItem">Add</a>
-    </form>
+<hr/>
+
 
 
 
