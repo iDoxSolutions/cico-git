@@ -42,5 +42,27 @@ namespace Cico.Models.Authentication
             var templateId = Int32.Parse(template.Value);
             return _db.CheckListTemplates.First(c => c.CheckListTemplateId == templateId);
         }
+
+        public CheckListItemSubmitionTrack GetTrack(int checklistItemTemplateId)
+        {
+            var session = GetCurrent();
+            var track =
+               session.
+                CheckListItemSubmitionTracks.FirstOrDefault(
+                    c => c.CheckListItemTemplate.CheckListItemTemplateId == checklistItemTemplateId);
+            if (track == null)
+            {
+                var itemTemplate =
+                    _db.CheckListItemTemplates.First(c => c.CheckListItemTemplateId == checklistItemTemplateId);
+                track = new CheckListItemSubmitionTrack()
+                    {
+                        CheckListSession = session,
+                        CheckListItemTemplate = itemTemplate
+                    };
+               track =  _db.CheckListItemSubmitionTracks.Add(track);
+                _db.SaveChanges();
+            }
+            return track;
+        }
     }
 }

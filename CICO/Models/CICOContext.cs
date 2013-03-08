@@ -10,24 +10,24 @@ using System.Web;
 
 namespace Cico.Models
 {
-    public class CicoContext : DbContext//, ICicoContext
+    public class CicoContext : DbContext, ICicoContext
     {
         public CicoContext()
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
 
-        public DbSet<CheckListTemplate> CheckListTemplates { get; set; }
-        public DbSet<CheckListItemType> CheckListItemTypes { get; set; }
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Staff> Staffs { get; set; }
-        public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
-        public DbSet<CheckList> CheckLists { get; set; }
-        public DbSet<Setting> Settings { get; set; }
-        
-        public DbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
-        public DbSet<CheckListSession> CheckListSessions { get; set; }
+        public IDbSet<CheckListTemplate> CheckListTemplates { get; set; }
+        public IDbSet<CheckListItemType> CheckListItemTypes { get; set; }
+        public IDbSet<Employee> Employees { get; set; }
+        public IDbSet<Department> Departments { get; set; }
+        public IDbSet<Staff> Staffs { get; set; }
+        public IDbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
+        public IDbSet<CheckList> CheckLists { get; set; }
+        public IDbSet<Setting> Settings { get; set; }
+        public IDbSet<Note> Notes { get; set; }
+        public IDbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
+        public IDbSet<CheckListSession> CheckListSessions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 

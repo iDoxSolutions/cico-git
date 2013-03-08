@@ -137,6 +137,7 @@
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -258,6 +259,7 @@
     <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\Notes.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -9,7 +9,7 @@
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
 
-<script type="text/javascript" src="/Scripts/DocSubmitted/DocSubmitted.js">
+<script type="text/javascript" src="/Scripts/notes.js">
 </script>
 <div class="columnsContainer">
     <div class="rightColumn">
@@ -24,6 +24,9 @@
                 
                 <div data-bind="template: { name: selectedTemplate(), data: complationDetails }" style="height: 300px">
                     
+                </div>
+                <div>
+                    <ul data-bind=""></ul>
                 </div>
             </div>
             <div id="myinfo">
@@ -148,6 +151,7 @@
 
     function HomeViewModel() {
         var self = this;
+        self.selectedItem = ko.observable(new CheckBoxItem());
         self.selectedTemplate = ko.observable( "none" );
         self.checklist = ko.observableArray();
         $.post("/checklist", {}, function (data) {

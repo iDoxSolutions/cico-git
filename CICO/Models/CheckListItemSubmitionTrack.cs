@@ -10,6 +10,12 @@ namespace Cico.Models
     {
         public CheckListSession CheckListSession { get; set; }
         public CheckListItemTemplate CheckListItemTemplate { get; set; }
+        public virtual ICollection<Note> Notes { get; set; } 
+    }
 
+    public class Note:EntityBaseWithKey
+    {
+        public virtual CheckListItemSubmitionTrack CheckListItemSubmitionTrack { get; set; }
+        public string Content { get; set; }
     }
 }
