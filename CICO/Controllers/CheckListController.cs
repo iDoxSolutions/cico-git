@@ -8,11 +8,7 @@ using Cico.Models;
 
 namespace Cico.Controllers.ViewModels
 {
-    public class NoteModel
-    {
-        public string Content { get; set; }
-        public string DateCreated { get; set; }
-    }
+   
 
     public class CheckListModel
     {
@@ -31,7 +27,7 @@ namespace Cico.Controllers.ViewModels
         public bool Checked { get; set; }
         public string CssClass{get; set; }
 
-        public IList<NoteModel> Notes
+        public IList<NoteViewModel> Notes
         {
             get; set; }
     }
@@ -62,17 +58,17 @@ namespace Cico.Controllers
             return Json(model);
         }
 
-        private IList<NoteModel> GetNotes(CheckListItemTemplate checkListItemTemplate, ICollection<CheckListItemSubmitionTrack> checkListItemSubmitionTracks)
+        private IList<NoteViewModel> GetNotes(CheckListItemTemplate checkListItemTemplate, ICollection<CheckListItemSubmitionTrack> checkListItemSubmitionTracks)
         {
             var track =
                 checkListItemSubmitionTracks.FirstOrDefault(
                     c =>
                     c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
             if(track==null)
-                return new List<NoteModel>();
+                return new List<NoteViewModel>();
             else
             {
-                return track.Notes.Select(c=>new NoteModel(){Content = c.Content,DateCreated = c.DateCreated.ToString()}).ToList();
+                return track.Notes.Select(c => new NoteViewModel() { Content = c.Content, DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
             }
         }
 

@@ -6,12 +6,17 @@ function NoteModel(note) {
 
 function NoteListModel(item) {
     var self = this;
-    self.notes = ko.observableArray([]);
-    $.post('/notes', { checklistItemTemplateId:item.Id},
-        function(data) {
-            ko.utils.arrayForEach(data, function (note) {
-                self.notes.push(new NoteModel(note));
+    self.notes = ko.observableArray(item?item.Notes:[]);
+    self.Content = ko.observable();
+    self.addNote = function() {
+
+        $.post("/notes/create", { TemplateItemId: item.Id, Content: self.Content() },
+            function (data) {
+                self.notes.push(new NoteModel(data));
+                self.Content("");
             });
-        }
-    );
+        
+    };
+
+
 }

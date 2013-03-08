@@ -25,8 +25,19 @@
                 <div data-bind="template: { name: selectedTemplate(), data: complationDetails }" style="height: 300px">
                     
                 </div>
-                <div>
-                    <ul data-bind=""></ul>
+                <div data-bind="with:selectedItem().notes">
+                    <div>
+                        <form data-bind="submit:addNote">
+                            <textarea data-bind="value:Content"></textarea>
+                            <button type="submit">Add Note</button>
+                        </form>
+                    </div>
+                    <ul data-bind=" foreach: notes">
+                        <li>
+                            <div data-bind="text:Content"></div>
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
             <div id="myinfo">
@@ -115,7 +126,7 @@
    }
    
 
-   function CheckBoxItem(checked, description, id, homeModel, ItemTemplate,CssClass) {
+   function CheckBoxItem(checked, description, id, homeModel, ItemTemplate,CssClass,ditem) {
         var self = this;
         self.selectItem = function (item) {
            // item.Checked(false);
@@ -127,16 +138,20 @@
                 item.selected(true);
                 homeModel.complationDetails(new ComplationDetailsModel(item));
                 homeModel.selectedTemplate(item.ItemTemplate);
+                homeModel.selectedItem(item);
             }
         };
 
-        self.Id = id;
+       
+
+       self.Id = id;
         self.Checked = ko.observable(checked);
         self.Description = ko.observable(description);
         self.menuItems = ko.observableArray([]);
         self.selected = ko.observable(false);
         self.ItemTemplate = ItemTemplate;
         self.CssClass = ko.observable(CssClass);
+        self.notes = new NoteListModel(ditem);
         self.checkIn = function () {
 
         };
@@ -156,7 +171,7 @@
         self.checklist = ko.observableArray();
         $.post("/checklist", {}, function (data) {
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
-                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate,item.CssClass));
+                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate,item.CssClass,item));
             });
         });
 

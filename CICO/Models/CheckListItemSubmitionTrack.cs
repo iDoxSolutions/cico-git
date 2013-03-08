@@ -8,8 +8,8 @@ namespace Cico.Models
 {
     public class CheckListItemSubmitionTrack:EntityBaseWithKey
     {
-        public CheckListSession CheckListSession { get; set; }
-        public CheckListItemTemplate CheckListItemTemplate { get; set; }
+        public virtual CheckListSession CheckListSession { get; set; }
+        public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
         public virtual ICollection<Note> Notes { get; set; } 
     }
 
