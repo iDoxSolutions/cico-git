@@ -28,13 +28,26 @@
                 <div data-bind="with:selectedItem().notes">
                     <div>
                         <form data-bind="submit:addNote">
-                            <textarea data-bind="value:Content"></textarea>
+                            <div class="editor-label">
+                                Note text:
+                            </div>
+                            <div class="editor-field">
+                                <textarea rows="5" data-bind="value:Content"></textarea>
+                            </div>
+                            <div class="editor-field">
                             <button type="submit">Add Note</button>
+                                </div>
                         </form>
                     </div>
-                    <ul data-bind=" foreach: notes">
+                    <ul data-bind=" foreach: notes" class="note-list">
                         <li>
-                            <div data-bind="text:Content"></div>
+                            <div class="note-content" data-bind="text:Content"></div>
+                            <div class="note-tools" >
+                                <div data-bind="text:'Date Created: '+ DateCreated"></div>
+                               
+                                <div class="toolbox-button" data-bind="click:$parent.deleteNote" >Delete</div>
+                            </div>
+                            <div style="clear:both"></div>
                         </li>
                     </ul>
                     

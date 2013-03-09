@@ -68,7 +68,7 @@ namespace Cico.Controllers
                 return new List<NoteViewModel>();
             else
             {
-                return track.Notes.Select(c => new NoteViewModel() { Content = c.Content, DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
+                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel() { Content = c.Content, DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
             }
         }
 

@@ -17,6 +17,7 @@ namespace Cico.Controllers
         public int TemplateItemId { get; set; }
         public int Id { get; set; }
         public string DateCreated { get; set; }
+        public string UserCreated { get; set; }
     }
     public class NotesController : ControllerBase
     {
@@ -37,6 +38,15 @@ namespace Cico.Controllers
             Db.Notes.Add(note);
             Db.SaveChanges();
             return Json(new NoteViewModel() {Content = note.Content, Id = note.Id,DateCreated = note.DateEdited.ToString()});
+        }
+
+        public ActionResult Delete(int id)
+        {
+
+            var note = Db.Notes.Single(c => c.Id == id);
+            Db.Notes.Remove(note);
+            Db.SaveChanges();
+            return Json(true);
         }
     }
 }

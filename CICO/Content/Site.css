@@ -863,3 +863,43 @@ div.tabcontents div.content h2 {
 .green {
     background-color: green;
 }
+
+.note-list {
+    list-style: none;
+    padding-left: 0px;
+   
+    
+}
+
+.note-list li {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #3e5667;
+    border-bottom-color: #CFDAE2;
+    background-color: #E2E2E2;
+    margin-bottom: 2px;
+     margin-left: 4px;
+}
+
+    .note-list li .note-tools{
+        padding-top: 5px;
+        padding-left: 5px;
+        font-size: xx-small;
+        font-weight: bold;
+    }
+
+     .note-list li .note-tools div{
+        float: left;
+         width: 200px;
+    }
+
+    .note-list li .note-content{
+
+        padding-left: 5px;
+        font-size: medium;
+        
+    }
+
+    .toolbox-button {
+        cursor: pointer;
+    }
