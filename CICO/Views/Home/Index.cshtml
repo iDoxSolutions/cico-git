@@ -5,7 +5,15 @@
 <style>
    
 
-</style>
+    </style>
+<script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        mode: "textareas",
+        theme: "simple"
+    });
+</script>
+
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
 
@@ -22,9 +30,12 @@
             </ul>
             <div id="completion">
                 
-                <div data-bind="template: { name: selectedTemplate(), data: complationDetails }" style="height: 300px">
-                    
+                <div data-bind="template: { name: selectedTemplate(), data: complationDetails }" >
                 </div>
+                <h3>Due Date:</h3>
+
+                <h3>Instructions:</h3>
+                <div class="instructions" data-bind="text:selectedItem().InstructionText"></div>
                 <div data-bind="with:selectedItem().notes">
                     <div>
                         <form data-bind="submit:addNote">
@@ -32,7 +43,7 @@
                                 Note text:
                             </div>
                             <div class="editor-field">
-                                <textarea rows="5" data-bind="value:Content"></textarea>
+                                <textarea id="note-editor" rows="5" data-bind="value:Content"></textarea>
                             </div>
                             <div class="editor-field">
                             <button type="submit">Add Note</button>
@@ -41,7 +52,7 @@
                     </div>
                     <ul data-bind=" foreach: notes" class="note-list">
                         <li>
-                            <div class="note-content" data-bind="text:Content"></div>
+                            <div class="note-content" data-bind="html:Content"></div>
                             <div class="note-tools" >
                                 <div data-bind="text:'Date Created: '+ DateCreated"></div>
                                
@@ -152,6 +163,10 @@
                 homeModel.complationDetails(new ComplationDetailsModel(item));
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
+                tinyMCE.init({
+                    mode: "textareas",
+                    theme: "simple"
+                });
             }
         };
 
@@ -165,6 +180,7 @@
         self.ItemTemplate = ItemTemplate;
         self.CssClass = ko.observable(CssClass);
         self.notes = new NoteListModel(ditem);
+        self.InstructionText =ditem? ditem.InstructionText:"";
         self.checkIn = function () {
 
         };

@@ -19,6 +19,7 @@ namespace Cico.Areas.Admin
     {
         public CheckListTemplate CheckListTemplate { get; set; }
         public List<SelectListItem> ItemTypes { get; set; }
+        public List<TemplateItemModel> TemplateItems { get; set; }
     }
 
 
@@ -95,7 +96,14 @@ namespace Cico.Areas.Admin
                     CheckListTemplate = item,
                     ItemTypes =
                         db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
-                          .ToList()
+                          .ToList(),
+                          TemplateItems = item.CheckListItemTemplates.Select(c=>
+                              new TemplateItemModel()
+                                  {
+                                      Description = c.Description,Id = c.CheckListItemTemplateId,TemplateId = id,Type = c.Item
+                                  }
+                          ).ToList()
+
                 };
             return View(model);
         }

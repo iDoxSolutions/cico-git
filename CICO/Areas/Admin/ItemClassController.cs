@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +21,7 @@ public class ItemClassModel
 
 namespace Cico.Areas.Admin
 {
-    public class ItemClassController : Controller
+    public class ItemClassController : Cico.Controllers.ControllerBase
     {
         private CicoContext db = new CicoContext();
 
@@ -54,6 +55,33 @@ namespace Cico.Areas.Admin
                 model.ItemTypes =
                     db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
                       .ToList();
+                return View(model);
+            }
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var template = Db.CheckListItemTemplates.Single(c => c.CheckListItemTemplateId == id);
+            return View(new ItemClassModel()
+                {
+                    CheckListItemTemplate = template,
+                    TemplateId = id,
+                    ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
+                          .ToList()
+                });
+        }
+        [HttpPost]
+        public ActionResult Edit(ItemClassModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //db.CheckListItemTemplates. ( model.CheckListItemTemplate);
+                db.Entry(model.CheckListItemTemplate).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Edit", "ChecklistBuilder",new {id=model.TemplateId} );
+            }
+            else
+            {
                 return View(model);
             }
         }

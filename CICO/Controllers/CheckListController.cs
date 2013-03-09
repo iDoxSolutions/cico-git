@@ -26,7 +26,7 @@ namespace Cico.Controllers.ViewModels
         public string ItemTemplate { get; set; }
         public bool Checked { get; set; }
         public string CssClass{get; set; }
-
+        public string InstructionText { get; set; }
         public IList<NoteViewModel> Notes
         {
             get; set; }
@@ -52,7 +52,8 @@ namespace Cico.Controllers
                         Description = checkListItemTemplate.Description,
                         Checked = session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId),
                         CssClass = itemCssClass,
-                        Notes = notes
+                        Notes = notes,
+                        InstructionText = checkListItemTemplate.InstructionText
                     });
             }
             return Json(model);
@@ -68,7 +69,7 @@ namespace Cico.Controllers
                 return new List<NoteViewModel>();
             else
             {
-                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel() { Content = c.Content, DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
+                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel() { Content = HttpUtility.HtmlDecode( c.Content), DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
             }
         }
 

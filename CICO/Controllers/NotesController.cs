@@ -31,6 +31,7 @@ namespace Cico.Controllers
         }
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(NoteViewModel model)
         {
             var track = UserSession.GetTrack(model.TemplateItemId);
