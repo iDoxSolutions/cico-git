@@ -9,7 +9,7 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class EmployeesController : Controller
+    public class EmployeeController : Controller
     {
         private CicoContext db = new CicoContext();
 

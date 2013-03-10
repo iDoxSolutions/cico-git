@@ -30,38 +30,24 @@ namespace Cico.Controllers
         public IList<MenuItem> MenuItems { get; set; }
     }
 
-    public partial class Staff {
-       
-    }
-
-
-    public class EmployeeModel
+    public partial class Staff
     {
-        public string Name { get; set; }
-        public string Number { get; set; }
 
-        public DateTime? ArrivalDate
-        {
-            get; set; 
-        }
-
-        public string Agency
-        {
-            get; set; 
-        }
-
-        public string Nationality
-        {
-            get; set; }
-
-        public string AssignedOffice
-        {
-            get; set; }
     }
+
+    
+
+
+//public class EmployeeModel
+    //{
+    //   Employee employee = new Employee();
+    //}
+
 
     public class HomeModel
     {
-        public EmployeeModel EmployeeModel { get; set; }
+        public Employee Employee { get; set; }
+       
     }
 
 
@@ -71,15 +57,14 @@ namespace Cico.Controllers
         
         public ActionResult Index()
         {
-            var user = this.UserSession.GetCurrent();
-            var cklistTypes = Db.CheckListItemTypes;
-            var staffmembers = Db.Staffs;
-            this.UserSession.GetCurrent();
-
+            CicoContext db = new CicoContext();
+            var cklistTypes = db.CheckListItemTypes;
+            var staffmembers = db.Staffs;
+            var user = _userSession.GetCurrent();
             var empModel = new EmployeeModel(){Name = "Len Hambright",Number = "10000"};
             var model = new HomeModel()
                 {
-                    EmployeeModel = empModel
+                    Employee = empModel
                 };
 
             ViewBag.Message = "Please enter information";
@@ -108,7 +93,7 @@ namespace Cico.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult UpdateEmployeeData(EmployeeModel model)
+        public ActionResult UpdateEmployeeData(Employee model)
         {
             if (ModelState.IsValid)
             {
@@ -116,10 +101,10 @@ namespace Cico.Controllers
             }
             else
             {
-                var empModel = new EmployeeModel() { Name = "Len Hambright", Number = "10000" };
+                var empModel = new Employee() { GivenName = "Len Hambright", EmployeeId = 10000 };
                 var homemodel = new HomeModel()
                 {
-                    EmployeeModel = empModel
+                    Employee = empModel
                 };
                 return View(homemodel);
             }

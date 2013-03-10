@@ -8,15 +8,15 @@
         <EntityContainer Name="CICOModelStoreContainer">
           <EntitySet Name="CheckListItems" EntityType="CICOModel.Store.CheckListItems" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CheckLists" EntityType="CICOModel.Store.CheckLists" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Departments" EntityType="CICOModel.Store.Departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Offices" EntityType="CICOModel.Store.Offices" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Dependents" EntityType="CICOModel.Store.Dependents" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Documents" EntityType="CICOModel.Store.Documents" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Employees" EntityType="CICOModel.Store.Employees" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Staffs" EntityType="CICOModel.Store.Staffs" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="sysdiagrams" EntityType="CICOModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_CheckListDepartment" Association="CICOModel.Store.FK_CheckListDepartment">
+          <AssociationSet Name="FK_CheckListOffice" Association="CICOModel.Store.FK_CheckListOffice">
             <End Role="CheckLists" EntitySet="CheckLists" />
-            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Offices" EntitySet="Offices" />
           </AssociationSet>
           <AssociationSet Name="FK_CheckListDocument" Association="CICOModel.Store.FK_CheckListDocument">
             <End Role="CheckLists" EntitySet="CheckLists" />
@@ -26,8 +26,8 @@
             <End Role="CheckLists" EntitySet="CheckLists" />
             <End Role="CheckListItems" EntitySet="CheckListItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_DepartmentStaff" Association="CICOModel.Store.FK_DepartmentStaff">
-            <End Role="Departments" EntitySet="Departments" />
+          <AssociationSet Name="FK_OfficeStaff" Association="CICOModel.Store.FK_OfficeStaff">
+            <End Role="Offices" EntitySet="Offices" />
             <End Role="Staffs" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeeCheckList" Association="CICOModel.Store.FK_EmployeeCheckList">
@@ -47,7 +47,7 @@
           <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Department" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Office" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Priority" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Status" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Viewable" Type="nvarchar(max)" Nullable="false" />
@@ -78,7 +78,7 @@
           <Property Name="EndDate" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DueDate" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="Departments">
+        <EntityType Name="Offices">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -139,7 +139,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="OfficeId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -151,14 +151,14 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <Association Name="FK_CheckListDepartment">
+        <Association Name="FK_CheckListOffice">
           <End Role="CheckLists" Type="CICOModel.Store.CheckLists" Multiplicity="1" />
-          <End Role="Departments" Type="CICOModel.Store.Departments" Multiplicity="*" />
+          <End Role="Offices" Type="CICOModel.Store.Offices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CheckLists">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Departments">
+            <Dependent Role="Offices">
               <PropertyRef Name="CheckListId" />
             </Dependent>
           </ReferentialConstraint>
@@ -187,15 +187,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DepartmentStaff">
-          <End Role="Departments" Type="CICOModel.Store.Departments" Multiplicity="1" />
+        <Association Name="FK_OfficeStaff">
+          <End Role="Offices" Type="CICOModel.Store.Offices" Multiplicity="1" />
           <End Role="Staffs" Type="CICOModel.Store.Staffs" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Departments">
+            <Principal Role="Offices">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Staffs">
-              <PropertyRef Name="DepartmentId" />
+              <PropertyRef Name="OfficeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -229,16 +229,16 @@
       <Schema Namespace="CICOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="CICOEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CheckLists" EntityType="CICOModel.CheckList" />
-          <EntitySet Name="Departments" EntityType="CICOModel.Department" />
+          <EntitySet Name="Offices" EntityType="CICOModel.Office" />
           <EntitySet Name="Dependents" EntityType="CICOModel.Dependent" />
           <EntitySet Name="Documents" EntityType="CICOModel.Document" />
           <EntitySet Name="Employee_Set" EntityType="CICOModel.Employee_" />
           <EntitySet Name="CheckListItems" EntityType="CICOModel.CheckListItem" />
           <EntitySet Name="Staffs" EntityType="CICOModel.Staff" />
           <EntitySet Name="sysdiagrams" EntityType="CICOModel.sysdiagram" />
-          <AssociationSet Name="FK_CheckListDepartment" Association="CICOModel.FK_CheckListDepartment">
+          <AssociationSet Name="FK_CheckListOffice" Association="CICOModel.FK_CheckListOffice">
             <End Role="CheckLists" EntitySet="CheckLists" />
-            <End Role="Departments" EntitySet="Departments" />
+            <End Role="Offices" EntitySet="Offices" />
           </AssociationSet>
           <AssociationSet Name="FK_CheckListDocument" Association="CICOModel.FK_CheckListDocument">
             <End Role="CheckLists" EntitySet="CheckLists" />
@@ -252,8 +252,8 @@
             <End Role="Employees" EntitySet="Employee_Set" />
             <End Role="CheckLists" EntitySet="CheckLists" />
           </AssociationSet>
-          <AssociationSet Name="FK_DepartmentStaff" Association="CICOModel.FK_DepartmentStaff">
-            <End Role="Departments" EntitySet="Departments" />
+          <AssociationSet Name="FK_OfficeStaff" Association="CICOModel.FK_OfficeStaff">
+            <End Role="Offices" EntitySet="Offices" />
             <End Role="Staffs" EntitySet="Staffs" />
           </AssociationSet>
           <AssociationSet Name="FK_EmployeesDependents" Association="CICOModel.FK_EmployeesDependents">
@@ -302,21 +302,21 @@
           <Property Name="StartDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="EndDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="DueDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Departments" Relationship="CICOModel.FK_CheckListDepartment" FromRole="CheckLists" ToRole="Departments" />
+          <NavigationProperty Name="Offices" Relationship="CICOModel.FK_CheckListOffice" FromRole="CheckLists" ToRole="Offices" />
           <NavigationProperty Name="Documents" Relationship="CICOModel.FK_CheckListDocument" FromRole="CheckLists" ToRole="Documents" />
           <NavigationProperty Name="CheckListItems" Relationship="CICOModel.FK_CheckListStep" FromRole="CheckLists" ToRole="Items" />
           <NavigationProperty Name="Employee" Relationship="CICOModel.FK_EmployeeCheckList" FromRole="CheckLists" ToRole="Employees" />
         </EntityType>
-        <EntityType Name="Department">
+        <EntityType Name="Office">
           <Key>
-            <PropertyRef Name="DepartmentId" />
+            <PropertyRef Name="OfficeId" />
           </Key>
-          <Property Name="DepartmentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Contact" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="CheckListId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CheckList" Relationship="CICOModel.FK_CheckListDepartment" FromRole="Departments" ToRole="CheckLists" />
-          <NavigationProperty Name="Staffs" Relationship="CICOModel.FK_DepartmentStaff" FromRole="Departments" ToRole="Staffs" />
+          <NavigationProperty Name="CheckList" Relationship="CICOModel.FK_CheckListOffice" FromRole="Offices" ToRole="CheckLists" />
+          <NavigationProperty Name="Staffs" Relationship="CICOModel.FK_OfficeStaff" FromRole="Offices" ToRole="Staffs" />
         </EntityType>
         <EntityType Name="Dependent">
           <Key>
@@ -376,7 +376,7 @@
           <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Department" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Office" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Priority" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Viewable" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -402,8 +402,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Department" Relationship="CICOModel.FK_DepartmentStaff" FromRole="Staffs" ToRole="Departments" />
+          <Property Name="OfficeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Office" Relationship="CICOModel.FK_OfficeStaff" FromRole="Staffs" ToRole="Offices" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -415,14 +415,14 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_CheckListDepartment">
+        <Association Name="FK_CheckListOffice">
           <End Role="CheckLists" Type="CICOModel.CheckList" Multiplicity="1" />
-          <End Role="Departments" Type="CICOModel.Department" Multiplicity="*" />
+          <End Role="Offices" Type="CICOModel.Office" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CheckLists">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Departments">
+            <Dependent Role="Offices">
               <PropertyRef Name="CheckListId" />
             </Dependent>
           </ReferentialConstraint>
@@ -463,15 +463,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_DepartmentStaff">
-          <End Role="Departments" Type="CICOModel.Department" Multiplicity="1" />
+        <Association Name="FK_OfficeStaff">
+          <End Role="Offices" Type="CICOModel.Office" Multiplicity="1" />
           <End Role="Staffs" Type="CICOModel.Staff" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Departments">
-              <PropertyRef Name="DepartmentId" />
+            <Principal Role="Offices">
+              <PropertyRef Name="OfficeId" />
             </Principal>
             <Dependent Role="Staffs">
-              <PropertyRef Name="DepartmentId" />
+              <PropertyRef Name="OfficeId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -517,10 +517,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Departments">
-      <EntityTypeMapping TypeName="IsTypeOf(CICOModel.Department)">
-        <MappingFragment StoreEntitySet="Departments">
-          <ScalarProperty Name="DepartmentId" ColumnName="Id" />
+    <EntitySetMapping Name="Offices">
+      <EntityTypeMapping TypeName="IsTypeOf(CICOModel.Office)">
+        <MappingFragment StoreEntitySet="Offices">
+          <ScalarProperty Name="OfficeId" ColumnName="Id" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Contact" ColumnName="Contact" />
           <ScalarProperty Name="CheckListId" ColumnName="CheckListId" />
@@ -583,7 +583,7 @@
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Office" ColumnName="Office" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Viewable" ColumnName="Viewable" />
@@ -609,7 +609,7 @@
         <MappingFragment StoreEntitySet="Staffs">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="OfficeId" ColumnName="OfficeId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -15,8 +15,8 @@ namespace Cico.Models
         [Required]
         [Display(Name = "Item Description")]
         public string Description {get; set; }
-        [Display(Name = "Item Department")]
-        public string Department { get; set; }
+        [Display(Name = "Item Office")]
+        public string Office { get; set; }
         [Display(Name = "Item Priority")]
         public string Priority { get; set; }
         [Display(Name = "Item Status")]
