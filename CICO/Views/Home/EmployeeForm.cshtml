@@ -1,5 +1,5 @@
 ﻿@model Cico.Controllers.HomeModel
-           
+@using Cico.Models.Helpers;           
 @using (Html.BeginForm("UpdateEmployeeData","Home"))
 {
     @Html.ValidationSummary(true)
@@ -55,6 +55,7 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Employee.LegalResidenceState)
             @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
+            @Html.DropDownListFor(model=>model.Employee.LegalResidenceState,Html.GetDropdownItems("States"),"")
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Employee.Location)

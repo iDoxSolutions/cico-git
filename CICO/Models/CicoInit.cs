@@ -1,3 +1,5 @@
+using Cico.Models.Helpers;
+
 namespace Cico.Models
 {
     public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
@@ -20,8 +22,16 @@ namespace Cico.Models
             template.Type = "Test";
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Desc", Item = "DocumentSubmitted", Type = "DocumentSubmitted" });
             context.CheckListTemplates.Add(template);
+
+            AddStates(context);
+
             context.SaveChanges();
            
+        }
+
+        private void AddStates(CicoContext context)
+        {
+            context.DropdownItems.Add(new DropdownItem(){Key = "MD",Description = "Maryland",ValueType = "States"});
         } 
     }
 }
