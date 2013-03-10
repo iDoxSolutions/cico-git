@@ -7,6 +7,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Objects;
 using System.Linq;
 using System.Web;
+using Cico.Models.Helpers;
 
 namespace Cico.Models
 {
@@ -16,11 +17,11 @@ namespace Cico.Models
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
-
+        public IDbSet<DropdownItem> DropdownItems { get; set; }
         public IDbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public IDbSet<CheckListItemType> CheckListItemTypes { get; set; }
         public IDbSet<Employee> Employees { get; set; }
-        public IDbSet<Department> Departments { get; set; }
+        public IDbSet<Office> Offices { get; set; }
         public IDbSet<Staff> Staffs { get; set; }
         public IDbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public IDbSet<CheckList> CheckLists { get; set; }

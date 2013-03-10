@@ -129,6 +129,8 @@
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\DepartmentController.cs" />
     <Compile Include="Areas\Admin\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\OfficeController.cs" />
+    <Compile Include="Areas\Admin\EmployeeController.cs" />
     <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
@@ -159,6 +161,8 @@
     <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\CicoInit.cs" />
     <Compile Include="Models\EntityBase.cs" />
+    <Compile Include="Models\Helpers\DropdownItem.cs" />
+    <Compile Include="Models\Helpers\MyDropdown.cs" />
     <Compile Include="Models\ICicoContext.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Staff.cs" />

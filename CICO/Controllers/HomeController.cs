@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Cico.Models;
 
 
 namespace Cico.Controllers
@@ -57,11 +58,12 @@ namespace Cico.Controllers
         
         public ActionResult Index()
         {
+            
             CicoContext db = new CicoContext();
             var cklistTypes = db.CheckListItemTypes;
             var staffmembers = db.Staffs;
-            var user = _userSession.GetCurrent();
-            var empModel = new EmployeeModel(){Name = "Len Hambright",Number = "10000"};
+            var user = UserSession.GetCurrent();
+            var empModel = new Employee(){ GivenName = "Len Hambright", EmployeeId = 100000};
             var model = new HomeModel()
                 {
                     Employee = empModel
