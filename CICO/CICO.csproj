@@ -127,10 +127,7 @@
     <Compile Include="Areas\Admin\CheckListBuilderController.cs" />
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
-    <Compile Include="Areas\Admin\DepartmentController.cs" />
-    <Compile Include="Areas\Admin\EmployeesController.cs" />
-    <Compile Include="Areas\Admin\OfficeController.cs" />
-    <Compile Include="Areas\Admin\EmployeeController.cs" />
+   
     <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
