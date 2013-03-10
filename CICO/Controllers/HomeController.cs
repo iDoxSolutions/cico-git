@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Cico.Models;
-using Cico.Models.Authentication;
 
 
 namespace Cico.Controllers
@@ -13,6 +11,14 @@ namespace Cico.Controllers
     {
         public int Id { get; set; }
         public string Description { get; set; }
+
+        public string FormName
+        {
+            get; set; }
+
+        public string Command
+        {
+            get; set; }
     }
 
     public partial class CheckListItem
@@ -44,10 +50,11 @@ namespace Cico.Controllers
        
     }
 
-    public class HomeController : Controller
+
+    public class HomeController : ControllerBase
     {
         //private CICOEntities db = new CICOEntities();
-        UserSession _userSession = new UserSession();
+        
         public ActionResult Index()
         {
             CicoContext db = new CicoContext();
@@ -104,3 +111,6 @@ namespace Cico.Controllers
         }
     }
 }
+
+
+

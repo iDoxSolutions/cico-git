@@ -1,26 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace Cico.Models.Authentication
 {
+
+
     public class UserSession
     {
-        private CicoContext db = new CicoContext();
-        public User GetCurrent()
+        public UserSession(CicoContext db,HttpContextBase httpContext)
         {
-            var uname = HttpContext.Current.User.Identity.Name;
-            var ouser=   db.Users.SingleOrDefault(c => c.UserId == uname);
-            if (ouser == null)
+            _db = db;
+            _httpContext = httpContext;
+        }
+
+        private readonly CicoContext _db = null;
+        private readonly HttpContextBase _httpContext;
+
+        public CheckListSession GetCurrent()
+        {
+            var uname = _httpContext.User.Identity.Name;
+            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active);
+            if (session == null)
             {
-                var res = db.Users.Add(new User() {UserId = uname});
+                var template = GetCurrentTemplate();
+                var res = _db.CheckListSessions.Add(new CheckListSession() { UserId = uname,CheckListTemplate = template});
+                _db.SaveChanges();
                 return res;
             }
             else
             {
-                return ouser;
+                return session;
             }
+        }
+
+        public CheckListTemplate GetCurrentTemplate()
+        {
+            var template = _db.Settings.First(c => c.Name == "checklisttemplate");
+            var templateId = Int32.Parse(template.Value);
+            return _db.CheckListTemplates.First(c => c.CheckListTemplateId == templateId);
+        }
+
+        public CheckListItemSubmitionTrack GetTrack(int checklistItemTemplateId)
+        {
+            var session = GetCurrent();
+            var track =
+               session.
+                CheckListItemSubmitionTracks.FirstOrDefault(
+                    c => c.CheckListItemTemplate.CheckListItemTemplateId == checklistItemTemplateId);
+            if (track == null)
+            {
+                var itemTemplate =
+                    _db.CheckListItemTemplates.First(c => c.CheckListItemTemplateId == checklistItemTemplateId);
+                track = new CheckListItemSubmitionTrack()
+                    {
+                        CheckListSession = session,
+                        CheckListItemTemplate = itemTemplate
+                    };
+               track =  _db.CheckListItemSubmitionTracks.Add(track);
+                _db.SaveChanges();
+            }
+            return track;
         }
     }
 }

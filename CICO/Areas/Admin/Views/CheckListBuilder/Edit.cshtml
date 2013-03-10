@@ -9,76 +9,29 @@
 
 @Html.TextBoxFor(c=>c.CheckListTemplate.Name)
 
+@Html.ActionLink("New Items","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
+
 <h2>Items</h2>
-<ul data-bind="foreach: templateItems">
+<ul>
+@foreach (var item in Model.TemplateItems)
+{
     <li>
-        <div style="float: left;width:130px" data-bind="text: Description"></div>
-        <div style="float: left" data-bind="text: Type"></div><a href="#" data-bind="click: $parent.removeItem">Delete</a>
+        <div>
+            <div>Description: </div>
+            @Html.ActionLink(@item.Description,"Edit","ItemClass",new {id=item.Id},null)
+        </div>
+        <div>
+            <div>Item Type:</div>
+            @item.Type
+        </div>
+        <hr/>
     </li>
-</ul>
-    <hr/>
-    <form>
-        <input type="text" data-bind="value:ItemForm.Description"/>
-        <select data-bind="value:ItemForm.Type">
-            @foreach (var item in Model.ItemTypes)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </select>
-        <a href="#" data-bind="click:addItem">Add</a>
-    </form>
+}
+    </ul>
 
 
 
 
-<script type="text/javascript">
-
-    var templateId = '@(Model.CheckListTemplate.CheckListTemplateId)';
-    function TemplateItem(description,type,id) {
-        var self = this;
-        self.Description = description;
-        self.Type = type;
-        self.ID = id;
-    }
 
 
-    function ItemForm() {
-        var self = this;
-        self.Description = ko.observable("");
-        self.Type = ko.observable("");
-    }
 
-    function CheckListTemplate() {
-        var self = this;
-        self.templateItems = ko.observableArray(
-            []
-        );
-
-        self.removeItem = function(item) {
-            $.post("/Admin/checklistbuilder/deleteitem", item, function (data) {
-                self.templateItems.remove(item);
-            });
-            
-        };
-
-        self.addItem = function(item) {
-            
-            $.post("/Admin/checklistbuilder/additem", { Description: item.ItemForm.Description(), Type: item.ItemForm.Type(), TemplateId: templateId }, function (data) {
-                self.templateItems.push(new TemplateItem(data.Description, data.Type, data.Id));
-            });
-            item.ItemForm.Description("");
-        };
-
-        self.ItemForm = new ItemForm();
-
-        
-        $.post("/Admin/checklistbuilder/getitems/"+templateId, {}, function (data) {
-            ko.utils.arrayForEach(data, function (item) {
-                self.templateItems.push(new TemplateItem(item.Description, item.Type,item.Id));
-            });
-        });
-    }
-
-    var templateModel = new CheckListTemplate();
-    ko.applyBindings(templateModel);
-</script>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
@@ -32,14 +33,24 @@ namespace Cico.Models
         public string Instructions { get; set; }
         [Display(Name = "Employee Complete ")]
         public string  EmployeeComplete{ get; set; }
-        [Display(Name = "Item Provisional ")]
-        public string Provisional { get; set; }
+        
         [Display(Name = "Item Office Complete ")]
         public string OfficeComplete { get; set; }
+
+
+        [Display(Name = "Notes Access")]
+        public bool NotesAccess { get; set; }
+        [Display(Name = "Item Provisional ")]
+        public bool Provisional { get; set; }
         [Display(Name = "Item Document ")]
         public string  Document { get; set; }
         [Display(Name = "Item Form ")]
         public string Form { get; set; }
+        [Display(Name = "Dependents ")]
+        public bool Dependents { get; set; }
+
+        
+        
         [Display(Name = "Item Instructions ")]
         public string InstructionText { get; set; }
         [Display(Name = "Item Group")]
@@ -50,7 +61,7 @@ namespace Cico.Models
         public string  AlertFrenquency{ get; set; }
 
         public CheckListTemplate CheckListTemplate { get; set; }
-
+        public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
     }
 }

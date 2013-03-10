@@ -9,7 +9,7 @@ namespace Cico.Models
     {
         public CheckListTemplate()
         {
-            CheckListItems = new Collection<CheckListItemTemplate>();
+            CheckListItemTemplates = new List<CheckListItemTemplate>();
         }
 
         [Key]
@@ -17,7 +17,7 @@ namespace Cico.Models
         [Required]
         [Display(Name = "CheckList Type")]
         public string Type { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "CheckList Description")]
         public string Name {get; set; }
         [Display(Name = "CheckList Start Date")]
@@ -26,6 +26,7 @@ namespace Cico.Models
         public DateTime? EndDate { get; set; }
         [Display(Name = "CheckList Due Date")]
         public DateTime? DueDate { get; set; }
-        public ICollection<CheckListItemTemplate> CheckListItems { get; set; } 
+        public virtual IList<CheckListItemTemplate> CheckListItemTemplates { get; set; }
+        public virtual IList<CheckListSession> CheckListSessions { get; set; }
    }
 }

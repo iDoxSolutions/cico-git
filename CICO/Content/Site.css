@@ -805,3 +805,106 @@ div.tabcontents div.content h2 {
             margin: 0;
         }
 }
+
+ .columnsContainer
+    {
+        position: relative;
+        height: 400px
+    }
+
+    .leftColumn
+    {
+        width: 25%;
+        float: left;
+    }
+
+    .rightColumn
+    {
+        float: right;
+        width: 70%;
+        margin-right: 4%;
+        
+    }
+
+    .checklist{
+        list-style: none;
+        padding-left: 0px
+        
+    }
+    .checkInItem {
+        font-size: small;
+        cursor: pointer;
+    }
+
+    .selected {
+        font-weight:bold
+            }
+
+    .checkInItem .ico,.description,.checkbox {
+        display: inline
+    }
+
+    .float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.note-list {
+    list-style: none;
+    padding-left: 0px;
+   
+    
+}
+
+.note-list li {
+    padding-top: 5px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #3e5667;
+    border-bottom-color: #CFDAE2;
+    background-color: #E2E2E2;
+    margin-bottom: 2px;
+     margin-left: 4px;
+}
+
+    .note-list li .note-tools{
+        padding-top: 5px;
+        padding-left: 5px;
+        font-size: xx-small;
+        font-weight: bold;
+    }
+
+     .note-list li .note-tools div{
+        float: left;
+         width: 200px;
+    }
+
+    .note-list li .note-content{
+
+        padding-left: 5px;
+        font-size: medium;
+        
+    }
+
+    .toolbox-button {
+        cursor: pointer;
+    }
+
+    .instructions {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
