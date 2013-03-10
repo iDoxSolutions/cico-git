@@ -127,8 +127,8 @@
     <Compile Include="Areas\Admin\CheckListBuilderController.cs" />
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
-    <Compile Include="Areas\Admin\DepartmentController.cs" />
-    <Compile Include="Areas\Admin\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\OfficeController.cs" />
+    <Compile Include="Areas\Admin\EmployeeController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
@@ -148,7 +148,7 @@
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\Staff.cs" />
-    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Office.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\SharePoint\DocumentDto.cs" />
     <Compile Include="Models\SharePoint\SharePointDocumentQuery.cs" />
@@ -294,21 +294,21 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CICO.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Employees\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Employees\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Employees\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Employees\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Department\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Department\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Department\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Department\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Department\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Office\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Office\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Office\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Office\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Office\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Details.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListItemTemplate\Create.cshtml" />

@@ -9,29 +9,29 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class DepartmentController : Controller
+    public class OfficeController : Controller
     {
         private  CicoContext db = new CicoContext();
 
         //
-        // GET: /Admin/Department/
+        // GET: /Admin/Office/
 
         public ViewResult Index()
         {
-            return View(db.Departments.ToList());
+            return View(db.Offices.ToList());
         }
 
         //
-        // GET: /Admin/Department/Details/5
+        // GET: /Admin/Office/Details/5
 
         public ViewResult Details(int id)
         {
-            Department department = db.Departments.Find(id);
-            return View(department);
+            Office Office = db.Offices.Find(id);
+            return View(Office);
         }
 
         //
-        // GET: /Admin/Department/Create
+        // GET: /Admin/Office/Create
 
         public ActionResult Create()
         {
@@ -39,62 +39,62 @@ namespace Cico.Areas.Admin
         } 
 
         //
-        // POST: /Admin/Department/Create
+        // POST: /Admin/Office/Create
 
         [HttpPost]
-        public ActionResult Create(Department department)
+        public ActionResult Create(Office Office)
         {
             if (ModelState.IsValid)
             {
-                db.Departments.Add(department);
+                db.Offices.Add(Office);
                 db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            return View(department);
+            return View(Office);
         }
         
         //
-        // GET: /Admin/Department/Edit/5
+        // GET: /Admin/Office/Edit/5
  
         public ActionResult Edit(int id)
         {
-            Department department = db.Departments.Find(id);
-            return View(department);
+            Office Office = db.Offices.Find(id);
+            return View(Office);
         }
 
         //
-        // POST: /Admin/Department/Edit/5
+        // POST: /Admin/Office/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Department department)
+        public ActionResult Edit(Office Office)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(department).State = EntityState.Modified;
+                db.Entry(Office).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(department);
+            return View(Office);
         }
 
         //
-        // GET: /Admin/Department/Delete/5
+        // GET: /Admin/Office/Delete/5
  
         public ActionResult Delete(int id)
         {
-            Department department = db.Departments.Find(id);
-            return View(department);
+            Office Office = db.Offices.Find(id);
+            return View(Office);
         }
 
         //
-        // POST: /Admin/Department/Delete/5
+        // POST: /Admin/Office/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Department department = db.Departments.Find(id);
-            db.Departments.Remove(department);
+            Office Office = db.Offices.Find(id);
+            db.Offices.Remove(Office);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

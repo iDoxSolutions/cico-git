@@ -1,7 +1,7 @@
-﻿@model Cico.Models.Department
+﻿@model Cico.Models.Office
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Office";
 }
 
 <h2>Create</h2>
@@ -12,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Department</legend>
+        <legend>Office</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)

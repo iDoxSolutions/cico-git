@@ -60,7 +60,7 @@
                 <li><a href="#housingquestionare">My Housing Questionaire</a></li>
             </ul>
             <div id="myinfo">
-                @Html.Partial("EmployeeForm",Model.EmployeeModel)
+              @Html.Partial("EmployeeForm",Model)
             </div>
             <div id="mydependents">
                 
@@ -75,8 +75,7 @@
             <ul>
                 <li><a href="#checkIn">Check-In</a></li>
                 <li><a href="#checkOut">Check-out</a></li>
-                <li><a href="#checkOut">Admin</a></li>
-                
+             
             </ul>
             <div id="checkIn">
                 <h4>Priority 1</h4>
@@ -102,16 +101,7 @@
             <div id="checkOut">
                 
             </div>
-            <div id="Admin">
-                 <li>@Html.ActionLink("Checklist builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("Department", "Index", "Department", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("Staff", "Index", "Staff", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("CheckListItemTemplate", "Index", "CheckListItemTemplate", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("CheckListTemplate", "Index", "CheckListTemplate", new { area = "Admin" }, null)</li>
-                <li>@Html.ActionLink("CheckLists", "Index", "CheckList")</li>
-
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </div>
+            
              
         </div>
         

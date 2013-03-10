@@ -1,14 +1,13 @@
-﻿@model Cico.Models.Department
+﻿@model Cico.Models.Office
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Office Details";
 }
 
-<h2>Delete</h2>
+<h2>Ofice Details</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <fieldset>
-    <legend>Department</legend>
+    <legend>Office</legend>
 
     <div class="display-label">Name</div>
     <div class="display-field">
@@ -20,9 +19,7 @@
         @Html.DisplayFor(model => model.ContactUser)
     </div>
 </fieldset>
-@using (Html.BeginForm()) {
-    <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OfficeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -40,7 +40,7 @@ namespace Cico.Models
         public DbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public DbSet<CheckListItemType> CheckListItemTypes { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Department> Departments { get; set; }
+        public DbSet<Office> Offices { get; set; }
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public DbSet<CheckList> CheckLists { get; set; }
