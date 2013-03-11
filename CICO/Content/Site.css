@@ -908,3 +908,18 @@ div.tabcontents div.content h2 {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+
+    .tabContent {
+        
+    }
+    .tabContent .title{
+        font-style: italic;
+    }
+    .homescreen-label label{
+        font-style: normal;
+        font-size: medium;
+        font-weight: normal;
+    }
+    .homescreen-display {
+        font-weight: bold;
+    }
