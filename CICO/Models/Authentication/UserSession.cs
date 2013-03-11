@@ -26,7 +26,14 @@ namespace Cico.Models.Authentication
             if (session == null)
             {
                 var template = GetCurrentTemplate();
-                var res = _db.CheckListSessions.Add(new CheckListSession() { UserId = uname,CheckListTemplate = template});
+
+                var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
+                if (employee == null)
+                {
+                    employee = new Employee() {UserId = uname};
+                    _db.Employees.Add(employee);
+                }
+                var res = _db.CheckListSessions.Add(new CheckListSession() { UserId = uname,CheckListTemplate = template,Employee = employee});
                 _db.SaveChanges();
                 return res;
             }

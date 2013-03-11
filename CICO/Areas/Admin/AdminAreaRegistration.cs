@@ -17,7 +17,7 @@ namespace Cico.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", controller = "Emploees", id = UrlParameter.Optional }
+                new { action = "Index", controller = "Emploees", id = UrlParameter.Optional }, new string[] { "Cico.Areas.Admin" } 
             );
         }
     }

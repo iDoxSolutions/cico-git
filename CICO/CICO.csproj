@@ -127,7 +127,6 @@
     <Compile Include="Areas\Admin\CheckListBuilderController.cs" />
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
-   
     <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
@@ -137,6 +136,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,11 +147,6 @@
     <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
     <Compile Include="Models\CheckListItemType.cs" />
     <Compile Include="Models\CheckListSession.cs" />
-    <Compile Include="Models\CICO.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CICO.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\CICOContext.cs" />
     <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\CheckListTemplate.cs" />
@@ -571,10 +566,6 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <EntityDeploy Include="Models\CICO.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CICO.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <Content Include="Areas\Admin\Views\Employee\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\Create.cshtml" />
@@ -623,6 +614,8 @@
     <Content Include="Areas\Admin\Views\CheckListTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListTemplate\Delete.cshtml" />
     <Content Include="Views\Home\EmployeeForm.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\EmployeeForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

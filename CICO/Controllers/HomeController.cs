@@ -66,7 +66,7 @@ namespace Cico.Controllers
             var empModel = new Employee(){ GivenName = "Len Hambright", EmployeeId = 100000};
             var model = new HomeModel()
                 {
-                    Employee = empModel
+                    Employee = user.Employee
                 };
 
             ViewBag.Message = "Please enter information";

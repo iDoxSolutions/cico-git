@@ -1,15 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 {
-    public class Employee
+    public class Employee:EntityBaseWithKey
     {
-        [Key]
+  
         [DisplayName("Employee ID")]
         public int EmployeeId { get; set; }
-        [Required]
+        
         [DisplayName("Given Name(s)")]
         [StringLength(65)]
         public string GivenName { get; set; }
@@ -23,7 +24,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string Surname { get; set; }
         [DisplayName("Date of Birth")]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         [DisplayName("Diplomatic Title")]
         [StringLength(65)]
         public string DiplomaticTitle { get; set; }
@@ -91,7 +92,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression(@"[^a-zA-Z0-9]+", ErrorMessage = "Visa Number can not contain special characters.")]
         public string VisaNumber { get; set; }
         [DisplayName("Visa expiration")]
-        public DateTime VisaExpiration { get; set; }
+        public DateTime? VisaExpiration { get; set; }
         public string PostOfAssignment { get; set; }
         [DisplayName("Office")]
         [StringLength(65)]
@@ -125,7 +126,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("State of U.S. Legal Residence")]
         [StringLength(2)]
         public string LegalResidenceState { get; set; }
-        
-       
+        public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
+        public string UserId { get; set; }
     }
 }

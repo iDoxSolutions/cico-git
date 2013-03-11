@@ -11,6 +11,7 @@ namespace Cico.Models
         public string UserId { get; set; }
         public virtual ICollection<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public CheckListTemplate CheckListTemplate { get; set; }
+        public virtual Employee Employee { get; set; }
 
 
         
