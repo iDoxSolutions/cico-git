@@ -53,7 +53,6 @@
         <div class="homescreen-display">
             @Html.DisplayFor(model => model.Employee.LegalResidenceState)
             @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
-            @Html.DropDownListFor(model=>model.Employee.LegalResidenceState,Html.GetDropdownItems("States"),"")
         </div>
         <div class="homescreen-label">
             @Html.LabelFor(model => model.Employee.Location)

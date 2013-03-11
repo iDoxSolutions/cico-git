@@ -102,9 +102,9 @@ namespace Cico.Models
             context.DropdownItems.Add(new DropdownItem() { Key = "Location2", Description = "Location2", ValueType = "Location" });
             context.DropdownItems.Add(new DropdownItem() { Key = "Location3", Description = "Location3", ValueType = "Location" });
 
-            context.DropdownItems.Add(new DropdownItem() { Key = "Nationality1", Description = "Nationality1", ValueType = "Nationality" });
-            context.DropdownItems.Add(new DropdownItem() { Key = "Nationality2", Description = "Nationality2", ValueType = "Nationality" });
-            context.DropdownItems.Add(new DropdownItem() { Key = "Nationality3", Description = "Nationality3", ValueType = "Nationality" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Nation1", Description = "Nation1", ValueType = "Nationality" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Nation2", Description = "Nation2", ValueType = "Nationality" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Nation3", Description = "Nation3", ValueType = "Nationality" });
 
             context.DropdownItems.Add(new DropdownItem() { Key = "PassportType1", Description = "PassportType1", ValueType = "PassportType" });
             context.DropdownItems.Add(new DropdownItem() { Key = "PassportType2", Description = "PassportType2", ValueType = "PassportType" });
@@ -113,6 +113,10 @@ namespace Cico.Models
             context.DropdownItems.Add(new DropdownItem() { Key = "PassportType1", Description = "PassportType1", ValueType = "PassportType" });
             context.DropdownItems.Add(new DropdownItem() { Key = "PassportType2", Description = "PassportType2", ValueType = "PassportType" });
             context.DropdownItems.Add(new DropdownItem() { Key = "PassportType3", Description = "PassportType3", ValueType = "PassportType" });
+
+            context.DropdownItems.Add(new DropdownItem() { Key = "Agency1", Description = "Agency1", ValueType = "Agency" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Agency2", Description = "Agency2", ValueType = "Agency" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Agency3", Description = "Agency3", ValueType = "Agency" });
 
 
 
