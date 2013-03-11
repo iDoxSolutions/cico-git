@@ -33,7 +33,18 @@ namespace Cico.Models.Authentication
                     employee = new Employee() {UserId = uname};
                     _db.Employees.Add(employee);
                 }
-                var res = _db.CheckListSessions.Add(new CheckListSession() { UserId = uname,CheckListTemplate = template,Employee = employee});
+                session = _db.CheckListSessions.Create();
+                session.UserId = uname;
+                session.CheckListTemplate = template;
+                session.Employee = employee;
+                var res = _db.CheckListSessions.Add(session);
+                foreach (var checkListItemTemplate in template.CheckListItemTemplates)
+                {
+                    _db.CheckListItemSubmitionTracks.Add(new CheckListItemSubmitionTrack()
+                        {
+                            CheckListItemTemplate = checkListItemTemplate,CheckListSession = res
+                        });
+                }
                 _db.SaveChanges();
                 return res;
             }

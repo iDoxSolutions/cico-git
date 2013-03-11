@@ -16,9 +16,12 @@
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
-
 <script type="text/javascript" src="/Scripts/notes.js">
 </script>
+<script type="text/javascript" src="/Scripts/Forms/DocumentSubmittedModel.js"></script>
+<script type="text/javascript" src="/Scripts/Forms/SelfContainedFormModel.js"></script>
+<script type="text/javascript" src="/Scripts/Forms/DocumentWritingModel.js"></script>
+<script type="text/javascript" src="/Scripts/Forms/PhysicalActivityModel.js"></script>
 <div class="columnsContainer">
     <div class="rightColumn">
         <div id="infoTabs">
@@ -28,10 +31,13 @@
                 <li><a href="#mydependents">My dependents</a></li>
                 <li><a href="#housingquestionare">My Housing Questionaire</a></li>
             </ul>
-            <div id="completion">
-                
-                <div data-bind="template: { name: selectedTemplate(), data: complationDetails }" >
+            <div id="completion" data-bind="stopBindings: true">
+
+                <div id="selectedForm" data-bind="template:{name:templateName}">
+                    
                 </div>
+                
+                
                 <h3>Due Date:</h3>
 
                 <h3>Instructions:</h3>
@@ -46,35 +52,35 @@
                                 <textarea id="note-editor" rows="5" data-bind="value:Content"></textarea>
                             </div>
                             <div class="editor-field">
-                            <button type="submit">Add Note</button>
-                                </div>
+                                <button type="submit">Add Note</button>
+                            </div>
                         </form>
                     </div>
                     <ul data-bind=" foreach: notes" class="note-list">
                         <li>
                             <div class="note-content" data-bind="html:Content"></div>
-                            <div class="note-tools" >
+                            <div class="note-tools">
                                 <div data-bind="text:'Date Created: '+ DateCreated"></div>
-                               
-                                <div class="toolbox-button" data-bind="click:$parent.deleteNote" >Delete</div>
+
+                                <div class="toolbox-button" data-bind="click:$parent.deleteNote">Delete</div>
                             </div>
-                            <div style="clear:both"></div>
+                            <div style="clear: both"></div>
                         </li>
                     </ul>
-                    
+
                 </div>
             </div>
             <div id="myinfo">
-                
+
                 <div class="tabContent">
-                    <div  class="title">Panel title</div>
+                    <div class="title">Panel title</div>
                     @Html.Partial("EmployeeForm", Model)
                 </div>
-                
+
             </div>
             <div id="mydependents">
                 <div class="tabContent">
-                    <div  class="title">Panel title</div>
+                    <div class="title">Panel title</div>
                 </div>
             </div>
             <div id="housingquestionare">
@@ -94,9 +100,10 @@
                         <div data-bind="css: { selected: selected }" class="checkInItem">
                             <div class="ico ui-icon ui-icon-document" data-bind="css: CssClass">&nbsp; &nbsp;</div>
                             <div class="checkbox">
-                                <input data-bind="checked: Checked" type="checkbox" disabled="disabled" /></div>
+                                <input data-bind="checked: Checked" type="checkbox" disabled="disabled" />
+                            </div>
                             <div data-bind="text: Description, click:selectItem" class="description"></div>
-                            
+
                         </div>
                     </li>
 
@@ -114,60 +121,95 @@
     <div style="clear: both"></div>
 </div>
 
+<script type="text/html" id="DocumentWriting">
+    DocumentWriting
+    
+</script>
 
+<script type="text/html" id="PhysicalActivity">
+    PhysicalActivity
+    
+</script>
 
 <script type="text/html" id="DocumentSubmitted">
     Document Submitted
     <form data-bind="submit:submitDoc">
-        <input name="docSubmitted" type="file"/>
+        <input name="docSubmitted" type="file" />
         <input type="submit" value="Submit" />
     </form>
 </script>
 
 <script type="text/html" id="SelfContainedForm">
-    <form    method="post">
+    <form method="post">
         Self contained form 
     </form>
-    
+
 </script>
 <script type="text/html" id="none">
-    <form    method="post">
-        
+    <form method="post">
     </form>
-    
+
 </script>
 
+@Html.Partial("_SystemForms")
+
 <script type="text/javascript">
+    ko.bindingHandlers.stopBindings = {
+        init: function () {
+            return { 'controlsDescendantBindings': true };
+        }
+    };
+
+
     $(function () {
         $("#infoTabs").tabs();
         $("#checkInTabs").tabs();
     });
 
-   
-   function ComplationDetailsModel(item) {
-       var self = this;
-       
-       self.submitDoc = function(e) {
-          $.post('/checklist/UploadFile', { itemTemplateId: item.Id }, function (data) {
-              item.Checked(data.Checked);
-              item.CssClass(data.CssClass);
-           });
-           return false;
-       };
-   }
-   
 
-   function CheckBoxItem(checked, description, id, homeModel, ItemTemplate,CssClass,ditem) {
+    function ComplationDetailsModel(item) {
+        var self = this;
+
+        self.submitDoc = function (e) {
+            $.post('/checklist/UploadFile', { itemTemplateId: item.Id }, function (data) {
+                item.Checked(data.Checked);
+                item.CssClass(data.CssClass);
+            });
+            return false;
+        };
+    }
+
+
+    function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem) {
         var self = this;
         self.selectItem = function (item) {
-           // item.Checked(false);
+            // item.Checked(false);
             if (item) {
                 $('#infoTabs').tabs('option', 'selected', 1);
                 ko.utils.arrayForEach(homeModel.checklist(), function (ii) {
                     ii.selected(false);
                 });
                 item.selected(true);
-                homeModel.complationDetails(new ComplationDetailsModel(item));
+                ko.cleanNode($("#selectedForm")[0]);
+                switch (item.ItemTemplate) {
+                    case "DocumentSubmitted":
+                        ko.applyBindings(new DocumentSubmittedModel(), $("#selectedForm")[0]);
+                        break;
+                    case "SelfContainedForm":
+                        ko.applyBindings(new SelfContainedFormModel(), $("#selectedForm")[0]);
+                        break;
+                    case "DocumentWriting":
+                        ko.applyBindings(new DocumentWritingModel(), $("#selectedForm")[0]);
+                        break;
+                    case "PhysicalActivity":
+                        ko.applyBindings(new PhysicalActivityModel(), $("#selectedForm")[0]);
+                        break;
+                    default:
+                }
+
+                
+
+
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
                 tinyMCE.init({
@@ -177,9 +219,9 @@
             }
         };
 
-       
 
-       self.Id = id;
+
+        self.Id = id;
         self.Checked = ko.observable(checked);
         self.Description = ko.observable(description);
         self.menuItems = ko.observableArray([]);
@@ -187,7 +229,7 @@
         self.ItemTemplate = ItemTemplate;
         self.CssClass = ko.observable(CssClass);
         self.notes = new NoteListModel(ditem);
-        self.InstructionText =ditem? ditem.InstructionText:"";
+        self.InstructionText = ditem ? ditem.InstructionText : "";
         self.checkIn = function () {
 
         };
@@ -203,11 +245,11 @@
     function HomeViewModel() {
         var self = this;
         self.selectedItem = ko.observable(new CheckBoxItem());
-        self.selectedTemplate = ko.observable( "none" );
+        self.selectedTemplate = ko.observable("none");
         self.checklist = ko.observableArray();
         $.post("/checklist", {}, function (data) {
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
-                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate,item.CssClass,item));
+                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item));
             });
         });
 
@@ -216,7 +258,6 @@
 
     var homeModel = new HomeViewModel();
     ko.applyBindings(homeModel);
-
 
 </script>
 

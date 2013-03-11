@@ -7,26 +7,36 @@ namespace Cico.Models
         
         protected override void Seed(CicoContext context)
         {
+
+            
            
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentApproval", Description = "Document w/On-Line Approval" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "ProvisionalStatus", Description = "Provisional Status" });
+            
 
             context.Settings.Add(new Setting(){Name = "checklisttemplate",Value = "1"});
-            var x = context.CheckListSessions.Create();
             var template = context.CheckListTemplates.Create();//(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
-            template.Name = "Name of the template";
+            template.Name = "Base Checklist Template";
             template.Type = "Test";
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Desc", Item = "DocumentSubmitted", Type = "DocumentSubmitted" });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Document Submitted Class", Item = "DocumentSubmitted", Type = "DocumentSubmitted" });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Self-Contained Form", Item = "SelfContainedForm", Type = "SelfContainedForm" });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Document w/Writing", Item = "DocumentWriting", Type = "DocumentWriting" });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Physical Activity", Item = "PhysicalActivity", Type = "PhysicalActivity" });
             context.CheckListTemplates.Add(template);
 
             AddStates(context);
-
+            AddSystemForms(context);
             context.SaveChanges();
            
+        }
+
+        private void AddSystemForms(CicoContext context)
+        {
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form1", Description = "Form 1", ValueType = "SystemForms" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form2", Description = "Form 2", ValueType = "SystemForms" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form3", Description = "Form 3", ValueType = "SystemForms" });
         }
 
         private void AddStates(CicoContext context)
