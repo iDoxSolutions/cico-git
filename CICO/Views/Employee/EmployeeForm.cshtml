@@ -52,11 +52,10 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.LegalResidenceState)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.LegalResidenceState)
-            @Html.ValidationMessageFor(model => model.LegalResidenceState)
-            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("States"),"")
-        </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("States"),"")
+                @Html.ValidationMessageFor(model => model.LegalResidenceState)
+            </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Location)
         </div>
@@ -68,14 +67,14 @@
             @Html.LabelFor(model => model.Nationality)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Nationality)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("Nationality"),"")
             @Html.ValidationMessageFor(model => model.Nationality)
         </div>
         <div class="editor-label">
             @Html.LabelFor(model => model.Office)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Office)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("Office"),"")
             @Html.ValidationMessageFor(model => model.Office)
         </div>
         <div class="editor-label">
@@ -110,7 +109,7 @@
             @Html.LabelFor(model => model.PassportType)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.PassportType)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("PassportType"),"")
             @Html.ValidationMessageFor(model => model.PassportType)
         </div>
         <div class="editor-label">
@@ -159,7 +158,7 @@
             @Html.LabelFor(model => model.PriorPostCountry)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.PriorPostCountry)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("Nationality"),"")
             @Html.ValidationMessageFor(model => model.PriorPostCountry)
         </div>
 
@@ -167,7 +166,7 @@
             @Html.LabelFor(model => model.PriorPostState)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.PriorPostState)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("States"),"")
             @Html.ValidationMessageFor(model => model.PriorPostState)
         </div>
 
@@ -223,7 +222,7 @@
             @Html.LabelFor(model => model.AgencyOrSection)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.AgencyOrSection)
+            @Html.DropDownListFor(model=>model.LegalResidenceState,Html.GetDropdownItems("Agency"),"")
             @Html.ValidationMessageFor(model => model.AgencyOrSection)
         </div>
 
