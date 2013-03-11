@@ -8,7 +8,8 @@ namespace Cico.Models
         protected override void Seed(CicoContext context)
         {
 
-            
+            var template1 = context.SystemFiles.Add(new SystemFile() {FileType = "DocTemplate", Description = "Doc Template1", Patch = "DocTemplates/Template1.docx" });
+            var template2 = context.SystemFiles.Add(new SystemFile() { FileType = "DocTemplate", Description = "Doc Template2", Patch = "DocTemplates/Template2.docx" });
            
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
@@ -20,7 +21,7 @@ namespace Cico.Models
             var template = context.CheckListTemplates.Create();//(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
             template.Name = "Base Checklist Template";
             template.Type = "Test";
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Document Submitted Class", Item = "DocumentSubmitted", Type = "DocumentSubmitted" });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {File = template1, Description = "Document Submitted Class", Item = "DocumentSubmitted", Type = "DocumentSubmitted" });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Self-Contained Form", Item = "SelfContainedForm", Type = "SelfContainedForm" });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Document w/Writing", Item = "DocumentWriting", Type = "DocumentWriting" });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Physical Activity", Item = "PhysicalActivity", Type = "PhysicalActivity" });

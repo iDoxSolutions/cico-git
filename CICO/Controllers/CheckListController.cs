@@ -30,6 +30,16 @@ namespace Cico.Controllers.ViewModels
         public IList<NoteViewModel> Notes
         {
             get; set; }
+
+        public string FileUrl
+        {get; set; }
+
+        public string FileDesc
+        {
+            get; set; }
+
+        public string Form
+        {get; set; }
     }
 }
 
@@ -53,7 +63,10 @@ namespace Cico.Controllers
                         Checked = session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId),
                         CssClass = itemCssClass,
                         Notes = notes,
-                        InstructionText = checkListItemTemplate.InstructionText
+                        InstructionText = checkListItemTemplate.InstructionText,
+                        FileUrl = checkListItemTemplate.File==null ? "":"/content/"+checkListItemTemplate.File.Patch,
+                        FileDesc = checkListItemTemplate.File == null ? "" : checkListItemTemplate.File.Description,
+                        Form = checkListItemTemplate.Form
                     });
             }
             return Json(model);

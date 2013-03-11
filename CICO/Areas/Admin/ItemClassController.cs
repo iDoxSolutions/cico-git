@@ -34,7 +34,8 @@ namespace Cico.Areas.Admin
                 {
                     TemplateId = templateId,
                     ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
-                          .ToList()
+                          .ToList(),
+                          CheckListItemTemplate = new CheckListItemTemplate()
                 };
            
             return View(model);

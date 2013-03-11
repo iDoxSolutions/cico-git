@@ -8,16 +8,17 @@
     </style>
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
-    tinyMCE.init({
+/*    tinyMCE.init({
         mode: "textareas",
         theme: "simple"
-    });
+    });*/
 </script>
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
-<script type="text/javascript" src="/Scripts/notes.js">
+<script type="text/javascript" src="/Scripts/Forms/CicoFormBase.js">
 </script>
+<script type="text/javascript" src="/Scripts/notes.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/DocumentSubmittedModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/SelfContainedFormModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/DocumentWritingModel.js"></script>
@@ -31,44 +32,48 @@
                 <li><a href="#mydependents">My dependents</a></li>
                 <li><a href="#housingquestionare">My Housing Questionaire</a></li>
             </ul>
-            <div id="completion" data-bind="stopBindings: true">
+            
 
-                <div id="selectedForm" data-bind="template:{name:templateName}">
+            <div id="completion" >
+                <div data-bind="stopBindings: true">
+                    <div id="selectedForm" data-bind="template:{name:templateName}">
                     
+                    </div>
                 </div>
-                
                 
                 <h3>Due Date:</h3>
 
                 <h3>Instructions:</h3>
-                <div class="instructions" data-bind="text:selectedItem().InstructionText"></div>
-                <div data-bind="with:selectedItem().notes">
+                <div class="instructions" ></div>
+                <div data-bind="with:selectedItem">
+                <div id="note-list" >
                     <div>
-                        <form data-bind="submit:addNote">
+                        <form data-bind="submit:notes.addNote">
                             <div class="editor-label">
                                 Note text:
                             </div>
                             <div class="editor-field">
-                                <textarea id="note-editor" rows="5" data-bind="value:Content"></textarea>
+                                <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
                             </div>
                             <div class="editor-field">
                                 <button type="submit">Add Note</button>
                             </div>
                         </form>
                     </div>
-                    <ul data-bind=" foreach: notes" class="note-list">
+                    <ul data-bind=" foreach: notes.notes" class="note-list">
                         <li>
                             <div class="note-content" data-bind="html:Content"></div>
                             <div class="note-tools">
                                 <div data-bind="text:'Date Created: '+ DateCreated"></div>
 
-                                <div class="toolbox-button" data-bind="click:$parent.deleteNote">Delete</div>
+                                <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote">Delete</div>
                             </div>
                             <div style="clear: both"></div>
                         </li>
                     </ul>
-
-                </div>
+                    </div>
+            </div>
+                
             </div>
             <div id="myinfo">
 
@@ -123,7 +128,6 @@
 
 <script type="text/html" id="DocumentWriting">
     DocumentWriting
-    
 </script>
 
 <script type="text/html" id="PhysicalActivity">
@@ -132,7 +136,9 @@
 </script>
 
 <script type="text/html" id="DocumentSubmitted">
-    Document Submitted
+    
+    Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
+
     <form data-bind="submit:submitDoc">
         <input name="docSubmitted" type="file" />
         <input type="submit" value="Submit" />
@@ -140,9 +146,9 @@
 </script>
 
 <script type="text/html" id="SelfContainedForm">
-    <form method="post">
-        Self contained form 
-    </form>
+    <div data-bind="template:{name:Form}">
+
+    </div>
 
 </script>
 <script type="text/html" id="none">
@@ -182,6 +188,7 @@
 
     function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem) {
         var self = this;
+        self.item = ditem;
         self.selectItem = function (item) {
             // item.Checked(false);
             if (item) {
@@ -193,29 +200,30 @@
                 ko.cleanNode($("#selectedForm")[0]);
                 switch (item.ItemTemplate) {
                     case "DocumentSubmitted":
-                        ko.applyBindings(new DocumentSubmittedModel(), $("#selectedForm")[0]);
+                        ko.applyBindings(new DocumentSubmittedModel(item.item), $("#selectedForm")[0]);
                         break;
                     case "SelfContainedForm":
-                        ko.applyBindings(new SelfContainedFormModel(), $("#selectedForm")[0]);
+                        ko.applyBindings(new SelfContainedFormModel(item.item), $("#selectedForm")[0]);
                         break;
                     case "DocumentWriting":
-                        ko.applyBindings(new DocumentWritingModel(), $("#selectedForm")[0]);
+                        ko.applyBindings(new DocumentWritingModel(item.item), $("#selectedForm")[0]);
                         break;
                     case "PhysicalActivity":
-                        ko.applyBindings(new PhysicalActivityModel(), $("#selectedForm")[0]);
+                        ko.applyBindings(new PhysicalActivityModel(item.item), $("#selectedForm")[0]);
                         break;
                     default:
                 }
-
+                //ko.cleanNode(document.getElementById("note-list"));
+                //ko.applyBindings(new NoteListModel(item.item), $("#note-list")[0]);
                 
 
 
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
-                tinyMCE.init({
+                /*tinyMCE.init({
                     mode: "textareas",
                     theme: "simple"
-                });
+                });*/
             }
         };
 
@@ -228,7 +236,7 @@
         self.selected = ko.observable(false);
         self.ItemTemplate = ItemTemplate;
         self.CssClass = ko.observable(CssClass);
-        self.notes = new NoteListModel(ditem);
+        self.notes = new NoteListModel(this.item);
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.checkIn = function () {
 
@@ -244,7 +252,7 @@
 
     function HomeViewModel() {
         var self = this;
-        self.selectedItem = ko.observable(new CheckBoxItem());
+        self.selectedItem = ko.observable();
         self.selectedTemplate = ko.observable("none");
         self.checklist = ko.observableArray();
         $.post("/checklist", {}, function (data) {

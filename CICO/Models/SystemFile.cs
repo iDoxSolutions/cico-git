@@ -10,5 +10,7 @@ namespace Cico.Models
         public string Description { get; set; }
         public string Patch { get; set; }
         public string Extension { get; set; }
+
+        public string FileType{get; set; }
     }
 }

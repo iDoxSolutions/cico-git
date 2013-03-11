@@ -1,5 +1,5 @@
 ﻿@model ItemClassModel
-
+@using Cico.Models.Helpers
 @Html.ValidationSummary()
 @using (Html.BeginForm())
 {
@@ -22,7 +22,7 @@
             @Html.LabelFor(c=>c.CheckListItemTemplate.Form)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(c=>c.CheckListItemTemplate.Form)
+            @Html.DropDownListFor(c=>c.CheckListItemTemplate.Form,Html.GetDropdownItems("SystemForms"),"")
         </div>
         <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.Document)

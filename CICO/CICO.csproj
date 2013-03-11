@@ -245,6 +245,7 @@
     <Content Include="Images\state-dep.png" />
     <Content Include="Images\us_embassy_logo.jpg" />
     <Content Include="Scripts\DocSubmitted\DocSubmitted.js" />
+    <Content Include="Scripts\Forms\CicoFormBase.js" />
     <Content Include="Scripts\Forms\DocumentSubmittedModel.js" />
     <Content Include="Scripts\Forms\DocumentWritingModel.js" />
     <Content Include="Scripts\Forms\PhysicalActivityModel.js" />
@@ -607,6 +608,8 @@
     <Content Include="Areas\Forms\Views\TestForm\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ItemClass\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ItemClass\_Form.cshtml" />
+    <Content Include="Content\DocTemplates\Template1.docx" />
+    <Content Include="Content\DocTemplates\Template2.docx" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
     <Content Include="Views\CheckList\Create.cshtml" />
     <Content Include="Views\CheckList\Edit.cshtml" />
