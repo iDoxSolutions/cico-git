@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,19 @@ namespace Cico.Controllers.ViewModels
         public IList<NoteViewModel> Notes
         {
             get; set; }
+
+        public string FileUrl
+        {get; set; }
+
+        public string FileDesc
+        {
+            get; set; }
+
+        public string Form
+        {get; set; }
+
+        public string DueDate
+        {get; set; }
     }
 }
 
@@ -53,7 +67,12 @@ namespace Cico.Controllers
                         Checked = session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId),
                         CssClass = itemCssClass,
                         Notes = notes,
-                        InstructionText = checkListItemTemplate.InstructionText
+                        InstructionText = checkListItemTemplate.InstructionText,
+                        FileUrl = checkListItemTemplate.File==null ? "":"/content/"+checkListItemTemplate.File.Patch,
+                        FileDesc = checkListItemTemplate.File == null ? "" : checkListItemTemplate.File.Description,
+                        Form = checkListItemTemplate.Form,
+                        DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null
+                        
                     });
             }
             return Json(model);
@@ -69,7 +88,12 @@ namespace Cico.Controllers
                 return new List<NoteViewModel>();
             else
             {
-                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel() { Content = HttpUtility.HtmlDecode( c.Content), DateCreated = c.DateCreated.ToString(),Id = c.Id}).ToList();
+                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel()
+                    {
+                        Content = HttpUtility.HtmlDecode( c.Content), 
+                        DateCreated = c.DateCreated.ToString(),Id = c.Id,
+                        UserCreated = c.UserCreated
+                    }).ToList();
             }
         }
 

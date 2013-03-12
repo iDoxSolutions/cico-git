@@ -4,6 +4,7 @@ function NoteModel(note) {
     self.Content = note.Content;
     self.DateCreated = note.DateCreated;
     self.Id = note.Id;
+    self.UserCreated = note.UserCreated;
 }
 
 function NoteListModel(item) {
@@ -11,9 +12,10 @@ function NoteListModel(item) {
     self.notes = ko.observableArray(item?item.Notes:[]);
     self.Content = ko.observable();
     self.addNote = function () {
-
+        //alert('');
         //alert(tinyMCE.get('note-editor').getContent());
-        $.post("/notes/create", { TemplateItemId: item.Id, Content: tinyMCE.get('note-editor').getContent({ format: 'raw' }) },
+        var noteContent = tinyMCE.get('note-editor').getContent({ format: 'raw' });
+        $.post("/notes/create", { TemplateItemId: item.Id, Content: noteContent },
             
             function (data) {
                 self.notes.unshift(new NoteModel(data));

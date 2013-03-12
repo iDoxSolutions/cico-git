@@ -814,14 +814,14 @@ div.tabcontents div.content h2 {
 
     .leftColumn
     {
-        width: 25%;
+        width: 30%;
         float: left;
     }
 
     .rightColumn
     {
         float: right;
-        width: 70%;
+        width: 65%;
         margin-right: 4%;
         
     }
@@ -841,7 +841,8 @@ div.tabcontents div.content h2 {
             }
 
     .checkInItem .ico,.description,.checkbox {
-        display: inline
+        display: inline;
+        font-size: small;
     }
 
     .float-left {

@@ -13,6 +13,7 @@ public class ItemClassModel
     public IList<SelectListItem> ItemTypes { get; set; }
     public int TemplateId { get; set; }
     public string FormType { get; set; }
+    public IList<SelectListItem> FileList { get; set; } 
     public bool IsFormSelected()
     {
         return !string.IsNullOrEmpty(FormType);
@@ -34,12 +35,15 @@ namespace Cico.Areas.Admin
                 {
                     TemplateId = templateId,
                     ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
-                          .ToList()
+                          .ToList(),
+                          CheckListItemTemplate = new CheckListItemTemplate(),
+                          FileList = GetFileList()
                 };
            
             return View(model);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Index(ItemClassModel model)
         {
             if (ModelState.IsValid)
@@ -67,25 +71,41 @@ namespace Cico.Areas.Admin
                     CheckListItemTemplate = template,
                     TemplateId = id,
                     ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
-                          .ToList()
+                          .ToList(),FileList = GetFileList()
                 });
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(ItemClassModel model)
         {
             if (ModelState.IsValid)
             {
                 //db.CheckListItemTemplates. ( model.CheckListItemTemplate);
                 db.Entry(model.CheckListItemTemplate).State = EntityState.Modified;
+                if (model.CheckListItemTemplate.File != null)
+                {
+                    
+                }
                 db.SaveChanges();
                 return RedirectToAction("Edit", "ChecklistBuilder",new {id=model.TemplateId} );
             }
             else
             {
+                model.FileList = GetFileList();
+                model.ItemTypes =
+                    db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
+                      .ToList();
                 return View(model);
             }
         }
 
+
+        public IList<SelectListItem> GetFileList()
+        {
+            var files = Db.SystemFiles.Where(c => c.FileType == "DocTemplate").ToList();
+            var ofiles = files.Select(c => new SelectListItem(){Text = c.Description,Value = c.Id.ToString()}).ToList();
+            return ofiles;
+        }
        
     }
 }

@@ -7,11 +7,13 @@ namespace Cico.Models
         
         protected override void Seed(CicoContext context)
         {
+
+            var template1 = context.SystemFiles.Add(new SystemFile() {FileType = "DocTemplate", Description = "Doc Template1", Patch = "DocTemplates/Template1.docx" });
+            var template2 = context.SystemFiles.Add(new SystemFile() { FileType = "DocTemplate", Description = "Doc Template2", Patch = "DocTemplates/Template2.docx" });
            
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
-            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentApproval", Description = "Document w/On-Line Approval" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
             
             
@@ -63,9 +65,16 @@ namespace Cico.Models
             context.CheckListTemplates.Add(template);
 
             AddStates(context);
-
+            AddSystemForms(context);
             context.SaveChanges();
            
+        }
+
+        private void AddSystemForms(CicoContext context)
+        {
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form1", Description = "Form 1", ValueType = "SystemForms" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form2", Description = "Form 2", ValueType = "SystemForms" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "Form3", Description = "Form 3", ValueType = "SystemForms" });
         }
 
         private void AddStates(CicoContext context)

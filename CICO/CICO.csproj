@@ -158,6 +158,7 @@
     <Compile Include="Models\Helpers\DropdownItem.cs" />
     <Compile Include="Models\Helpers\MyDropdown.cs" />
     <Compile Include="Models\ICicoContext.cs" />
+    <Compile Include="Models\Note.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Office.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
+    <Compile Include="Models\SystemFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +247,11 @@
     <Content Include="Images\state-dep.png" />
     <Content Include="Images\us_embassy_logo.jpg" />
     <Content Include="Scripts\DocSubmitted\DocSubmitted.js" />
+    <Content Include="Scripts\Forms\CicoFormBase.js" />
+    <Content Include="Scripts\Forms\DocumentSubmittedModel.js" />
+    <Content Include="Scripts\Forms\DocumentWritingModel.js" />
+    <Content Include="Scripts\Forms\PhysicalActivityModel.js" />
+    <Content Include="Scripts\Forms\SelfContainedFormModel.js" />
     <Content Include="Scripts\Forms\TestForm.js" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
@@ -603,6 +610,8 @@
     <Content Include="Areas\Forms\Views\TestForm\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ItemClass\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ItemClass\_Form.cshtml" />
+    <Content Include="Content\DocTemplates\Template1.docx" />
+    <Content Include="Content\DocTemplates\Template2.docx" />
     <None Include="Properties\PublishProfiles\ltkserver.pubxml" />
     <Content Include="Views\CheckList\Create.cshtml" />
     <Content Include="Views\CheckList\Edit.cshtml" />
@@ -620,6 +629,7 @@
     <Content Include="Views\Employee\EmployeeForm.cshtml" />
     <Content Include="Views\Dependent\Edit.cshtml" />
     <Content Include="Views\Dependent\DependentForm.cshtml" />
+    <Content Include="Views\Shared\_SystemForms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
