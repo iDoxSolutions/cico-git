@@ -12,7 +12,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public int EmployeeId { get; set; }
         
         [DisplayName("Given Name(s)")]
-        [StringLength(65)]
+        [StringLength(66)]
         public string GivenName { get; set; }
         [DisplayName("Agency")]
         [StringLength(65)]

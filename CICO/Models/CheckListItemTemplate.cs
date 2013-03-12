@@ -63,5 +63,9 @@ namespace Cico.Models
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
+
+        public virtual SystemFile File
+        {
+            get; set; }
     }
 }

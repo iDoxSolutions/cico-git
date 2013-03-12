@@ -17,6 +17,7 @@ namespace Cico.Models
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
+        public IDbSet<SystemFile> SystemFiles { get; set; }
         public IDbSet<DropdownItem> DropdownItems { get; set; }
         public IDbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public IDbSet<CheckListItemType> CheckListItemTypes { get; set; }
@@ -48,7 +49,7 @@ namespace Cico.Models
 
         public override int SaveChanges()
         {
-            ChangeTracker.DetectChanges();
+            //ChangeTracker.DetectChanges();
 
             var added = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Added).Select(e => e.Entity).OfType<EntityBase>();
             foreach (var entityBase in added)
@@ -58,6 +59,17 @@ namespace Cico.Models
                 if (HttpContext.Current != null)
                 {
                     entityBase.UserCreated = HttpContext.Current.User.Identity.Name;
+                }
+            }
+
+            var modified = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified).Select(e => e.Entity).OfType<EntityBase>();
+            foreach (var entityBase in modified)
+            {
+                entityBase.DateEdited = DateTime.Now;
+                
+                if (HttpContext.Current != null)
+                {
+                    entityBase.UserEdited = HttpContext.Current.User.Identity.Name;
                 }
             }
             return base.SaveChanges();
