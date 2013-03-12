@@ -136,6 +136,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\DependentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\CicoInit.cs" />
+    <Compile Include="Models\Dependent.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Helpers\DropdownItem.cs" />
     <Compile Include="Models\Helpers\MyDropdown.cs" />
@@ -616,6 +618,8 @@
     <Content Include="Views\Home\EmployeeForm.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\EmployeeForm.cshtml" />
+    <Content Include="Views\Dependent\Edit.cshtml" />
+    <Content Include="Views\Dependent\DependentForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
