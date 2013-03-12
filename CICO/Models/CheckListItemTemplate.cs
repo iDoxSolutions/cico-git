@@ -60,13 +60,12 @@ namespace Cico.Models
         [Display(Name = "Item Alert Frequency")]
         public string  AlertFrenquency{ get; set; }
 
-        public CheckListTemplate CheckListTemplate { get; set; }
+        public virtual CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
 
-        public virtual SystemFile File
-        {
-            get; set; }
+        public virtual SystemFile SystemFile{get; set; }
+        
         [Display(Name = "Number of days to complete item")]
         public int DueDays
         {

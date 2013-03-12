@@ -25,7 +25,8 @@ namespace Cico.Models
             template.Type = "Mexico";
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Schedule meeting with Human Resources Officer"
                                                                                    , Item = "DocumentSubmitted" 
-                                                                                   , Type = "DocumentSubmitted"
+                                                                                   , Type = "DocumentSubmitted",
+                                                                              SystemFile = template1
                                                                                    ,InstructionText = "Please Bring: Copies of Travel orders, passports, visas and stamped Mexican Migratory Forms (FME) for the employee and each family member;3 color photos passport size, face front, white background of employee, spouse and each dependent at post"});
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Pick-up orientation package and forms for GOM Accreditation"
                                                                                    , Item = "DocumentSubmitted"
@@ -43,24 +44,27 @@ namespace Cico.Models
                                                                                    , AlertDays = "3" });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Provide copy of diplomatic passport, Mexican visa, travel orders"
                                                                                    , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted"
+                                                                                   , Type = "DocumentSubmitted",
+                                                                              SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
              template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Provide copy of diplomatic carnet and supporting documentation"
                                                                                    , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted"
+                                                                                   , Type = "DocumentSubmitted",
+                                                                               SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Fill out Travel Card application"
                                                                                    , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted"
+                                                                                   , Type = "DocumentSubmitted",
+                                                                                    SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Acknowledge receipt of Mgmt Announcement 11-78"
                                                                                    , Item = "DocumentApproval"
                                                                                    , Type = "DocumentApproval"
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3"});
+                                                                                   ,AlertDays = "3",SystemFile = template1});
             
             context.CheckListTemplates.Add(template);
 

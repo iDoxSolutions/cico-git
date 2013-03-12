@@ -79,10 +79,10 @@
             @Html.TextAreaFor(c=>c.CheckListItemTemplate.InstructionText)
         </div>
          <div class="editor-label">
-            @Html.LabelFor(c=>c.CheckListItemTemplate.File)
+            @Html.LabelFor(c=>c.CheckListItemTemplate.SystemFile)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(c=>c.CheckListItemTemplate.File.Id,Model.FileList,"")
+            @Html.DropDownListFor(c=>c.CheckListItemTemplate.SystemFile.Id,Model.FileList,"")
         </div>
 
         @Html.HiddenFor(c=>c.TemplateId)

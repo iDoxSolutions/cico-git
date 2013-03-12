@@ -68,8 +68,8 @@ namespace Cico.Controllers
                         CssClass = itemCssClass,
                         Notes = notes,
                         InstructionText = checkListItemTemplate.InstructionText,
-                        FileUrl = checkListItemTemplate.File==null ? "":"/content/"+checkListItemTemplate.File.Patch,
-                        FileDesc = checkListItemTemplate.File == null ? "" : checkListItemTemplate.File.Description,
+                        FileUrl = checkListItemTemplate.SystemFile==null ? "":"/content/"+checkListItemTemplate.SystemFile.Patch,
+                        FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
                         DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null
                         
