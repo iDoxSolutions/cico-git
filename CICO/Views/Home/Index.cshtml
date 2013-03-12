@@ -35,44 +35,48 @@
             
 
             <div id="completion" >
+                <div data-bind="with:selectedItem">
+                    <h4>Instructions:</h4>
+                    <div class="instructions" data-bind="html:InstructionText"></div>
+                    <h4>Due Date:</h4>
+                    <div class="duedate" data-bind="text:DueDate"></div>
+                </div>
+                <h3>Form To fill</h3>
                 <div data-bind="stopBindings: true">
                     <div id="selectedForm" data-bind="template:{name:templateName}">
                     
                     </div>
                 </div>
                 
-                <h3>Due Date:</h3>
-
-                <h3>Instructions:</h3>
-                <div class="instructions" ></div>
+                <h3>Notes</h3>
                 <div data-bind="with:selectedItem">
-                <div id="note-list" >
-                    <div>
-                        <form data-bind="submit:notes.addNote">
-                            <div class="editor-label">
-                                Note text:
-                            </div>
-                            <div class="editor-field">
-                                <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
-                            </div>
-                            <div class="editor-field">
-                                <button type="submit">Add Note</button>
-                            </div>
-                        </form>
+                    <div id="note-list" >
+                        <div>
+                            <form data-bind="submit:notes.addNote">
+                                <div class="editor-label">
+                                    Note text:
+                                </div>
+                                <div class="editor-field">
+                                    <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
+                                </div>
+                                <div class="editor-field">
+                                    <button type="submit">Add Note</button>
+                                </div>
+                            </form>
+                        </div>
+                        <ul data-bind=" foreach: notes.notes" class="note-list">
+                            <li>
+                                <div class="note-content" data-bind="html:Content"></div>
+                                <div class="note-tools">
+                                    <div data-bind="text:'Date Created: '+ DateCreated"></div>
+                                    <div data-bind="text:'Created by: '+ UserCreated" style="width:180px"></div>
+                                    <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote" style="width:50px">Delete</div>
+                                </div>
+                                <div style="clear: both"></div>
+                            </li>
+                        </ul>
                     </div>
-                    <ul data-bind=" foreach: notes.notes" class="note-list">
-                        <li>
-                            <div class="note-content" data-bind="html:Content"></div>
-                            <div class="note-tools">
-                                <div data-bind="text:'Date Created: '+ DateCreated"></div>
-
-                                <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote">Delete</div>
-                            </div>
-                            <div style="clear: both"></div>
-                        </li>
-                    </ul>
-                    </div>
-            </div>
+                </div>
                 
             </div>
             <div id="myinfo">
@@ -220,10 +224,10 @@
 
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
-                /*tinyMCE.init({
+                tinyMCE.init({
                     mode: "textareas",
                     theme: "simple"
-                });*/
+                });
             }
         };
 
@@ -238,6 +242,7 @@
         self.CssClass = ko.observable(CssClass);
         self.notes = new NoteListModel(this.item);
         self.InstructionText = ditem ? ditem.InstructionText : "";
+        self.DueDate = ditem.DueDate;
         self.checkIn = function () {
 
         };

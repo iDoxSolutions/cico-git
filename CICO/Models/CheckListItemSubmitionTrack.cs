@@ -10,6 +10,7 @@ namespace Cico.Models
     {
         public virtual CheckListSession CheckListSession { get; set; }
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
-        public virtual ICollection<Note> Notes { get; set; } 
+        public virtual ICollection<Note> Notes { get; set; }
+        public DateTime? DueDate { get; set; }
     }
 }

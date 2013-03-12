@@ -67,5 +67,9 @@ namespace Cico.Models
         public virtual SystemFile File
         {
             get; set; }
+        [Display(Name = "Number of days to complete item")]
+        public int DueDays
+        {
+            get; set; }
     }
 }

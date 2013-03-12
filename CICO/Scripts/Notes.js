@@ -4,6 +4,7 @@ function NoteModel(note) {
     self.Content = note.Content;
     self.DateCreated = note.DateCreated;
     self.Id = note.Id;
+    self.UserCreated = note.UserCreated;
 }
 
 function NoteListModel(item) {
@@ -13,12 +14,12 @@ function NoteListModel(item) {
     self.addNote = function () {
         //alert('');
         //alert(tinyMCE.get('note-editor').getContent());
-        //var noteContent = tinyMCE.get('note-editor').getContent({ format: 'raw' });
-        $.post("/notes/create", { TemplateItemId: item.Id, Content: self.Content()},
+        var noteContent = tinyMCE.get('note-editor').getContent({ format: 'raw' });
+        $.post("/notes/create", { TemplateItemId: item.Id, Content: noteContent },
             
             function (data) {
                 self.notes.unshift(new NoteModel(data));
-                //tinyMCE.get('note-editor').setContent('');
+                tinyMCE.get('note-editor').setContent('');
             });
         
     };

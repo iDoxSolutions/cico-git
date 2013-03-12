@@ -42,7 +42,8 @@ namespace Cico.Models.Authentication
                 {
                     _db.CheckListItemSubmitionTracks.Add(new CheckListItemSubmitionTrack()
                         {
-                            CheckListItemTemplate = checkListItemTemplate,CheckListSession = res
+                            CheckListItemTemplate = checkListItemTemplate,CheckListSession = res,
+                            DueDate = DateTime.Today.AddDays(checkListItemTemplate.DueDays)
                         });
                 }
                 _db.SaveChanges();
