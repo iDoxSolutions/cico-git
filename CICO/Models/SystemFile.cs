@@ -12,5 +12,10 @@ namespace Cico.Models
         public string Extension { get; set; }
 
         public string FileType{get; set; }
+
+        public override string ToString()
+        {
+            return Id.ToString();
+        }
     }
 }

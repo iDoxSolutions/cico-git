@@ -82,7 +82,7 @@
             @Html.LabelFor(c=>c.CheckListItemTemplate.File)
         </div>
         <div class="editor-field">
-            @Html.DropDownListFor(c=>c.CheckListItemTemplate.File.Id,Model.FileList,"")
+            @Html.DropDownListFor(c=>c.CheckListItemTemplate.File,Model.FileList,"")
         </div>
 
         @Html.HiddenFor(c=>c.TemplateId)

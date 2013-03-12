@@ -13,7 +13,7 @@ public class ItemClassModel
     public IList<SelectListItem> ItemTypes { get; set; }
     public int TemplateId { get; set; }
     public string FormType { get; set; }
-    public IList<SelectListItem> FileList { get; set; } 
+    public SelectList FileList { get; set; } 
     public bool IsFormSelected()
     {
         return !string.IsNullOrEmpty(FormType);
@@ -100,10 +100,10 @@ namespace Cico.Areas.Admin
         }
 
 
-        public IList<SelectListItem> GetFileList()
+        public SelectList GetFileList()
         {
             var files = Db.SystemFiles.Where(c => c.FileType == "DocTemplate").ToList();
-            var ofiles = files.Select(c => new SelectListItem(){Text = c.Description,Value = c.Id.ToString()}).ToList();
+            var ofiles = new SelectList(files,"Id","Description");
             return ofiles;
         }
        
