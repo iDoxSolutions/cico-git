@@ -7,10 +7,9 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 {
     public class Employee:EntityBaseWithKey
     {
-  
+       
         [DisplayName("Employee ID")]
         public int EmployeeId { get; set; }
-        
         [DisplayName("Given Name(s)")]
         [StringLength(65)]
         public string GivenName { get; set; }
@@ -127,6 +126,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(2)]
         public string LegalResidenceState { get; set; }
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
+        
         public string UserId { get; set; }
     }
 }
