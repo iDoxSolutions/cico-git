@@ -22,6 +22,7 @@ namespace Cico.Models
         public IDbSet<CheckListTemplate> CheckListTemplates { get; set; }
         public IDbSet<CheckListItemType> CheckListItemTypes { get; set; }
         public IDbSet<Employee> Employees { get; set; }
+        public IDbSet<Dependent> Dependents { get; set; }
         public IDbSet<Office> Offices { get; set; }
         public IDbSet<Staff> Staffs { get; set; }
         public IDbSet<CheckListItemTemplate> CheckListItemTemplates { get; set; }
