@@ -831,18 +831,25 @@ div.tabcontents div.content h2 {
         padding-left: 0px
         
     }
+       .checklist li{
+           padding-top: 3px;
+        padding-bottom: 3px;
+    }
     .checkInItem {
         font-size: small;
         cursor: pointer;
+        padding-top: 2px;
     }
 
     .selected {
-        font-weight:bold
+        font-weight: bold;
             }
 
     .checkInItem .ico,.description,.checkbox {
-        display: inline;
+        
+        display: inline-block;
         font-size: small;
+      vertical-align: middle
     }
 
     .float-left {
