@@ -63,7 +63,7 @@ namespace Cico.Models
         public virtual CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
-
+        public int SystemFile_Id { get; set; }
         public virtual SystemFile SystemFile{get; set; }
         
         [Display(Name = "Number of days to complete item")]

@@ -38,6 +38,9 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasRequired(c => c.CheckListTemplate)
                         .WithMany(c => c.CheckListItemTemplates);*/
+            modelBuilder.Entity<CheckListItemTemplate>()
+                        .HasOptional(c => c.SystemFile)
+                        .WithMany(c => c.CheckListItemTemplates);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
            
             /*

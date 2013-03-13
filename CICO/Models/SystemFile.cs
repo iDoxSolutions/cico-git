@@ -7,6 +7,7 @@ namespace Cico.Models
 {
     public class SystemFile:EntityBaseWithKey
     {
+        public virtual IList<CheckListItemTemplate> CheckListItemTemplates { get; set; } 
         public string Description { get; set; }
         public string Patch { get; set; }
         public string Extension { get; set; }

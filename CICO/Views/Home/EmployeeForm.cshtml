@@ -6,8 +6,11 @@
         <fieldset>
         <legend>Employee</legend>
             <div>
-                <div class="float-left">
+                <div class="float-left" style="width:48%">
        
+                   <div class="homescreen-label">
+                        @Html.LabelFor(model => model.Employee.GivenName)
+                    </div>
                     <div class="homescreen-display">
                         @Html.DisplayFor(model => model.Employee.GivenName)
             
@@ -343,7 +346,4 @@
             </div>
         
     </fieldset>
-
-   
-    @Html.ActionLink("Edit My Data","Edit","Employee",new {id=Model.Employee.Id},null)
 }

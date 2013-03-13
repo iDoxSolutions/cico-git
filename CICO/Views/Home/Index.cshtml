@@ -38,7 +38,11 @@
                     <h4>Instructions:</h4>
                     <div class="instructions" data-bind="html:InstructionText"></div>
                     <h4>Due Date:</h4>
-                    <div class="duedate" data-bind="text:DueDate"></div>
+                    <div >
+                        <div style="float: left;height: 30px" class="duedate" data-bind="text:DueDate"></div>
+                        
+                        <div style="clear:both"></div>
+                    </div>
                 </div>
                 <h3>Form To fill</h3>
                 <div data-bind="stopBindings: true">
@@ -81,7 +85,10 @@
             <div id="myinfo">
 
                 <div class="tabContent">
-                    <div class="title">Panel title</div>
+                    <div class="title ui-widget ui-widget-header">
+                       <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                        <div style="clear:both"></div>
+                    </div>
                     @Html.Partial("EmployeeForm", Model)
                 </div>
 

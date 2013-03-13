@@ -922,12 +922,19 @@ div.tabcontents div.content h2 {
     }
     .tabContent .title{
         font-style: italic;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
     }
     .homescreen-label label{
         font-style: normal;
-        font-size: medium;
+        font-size: x-small;
         font-weight: normal;
+        
     }
     .homescreen-display {
+        padding-left: 5px;
+        font-size: small;
         font-weight: bold;
+        height: 20px;
+        padding-bottom: 2px;
     }

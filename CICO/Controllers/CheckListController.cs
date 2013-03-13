@@ -57,6 +57,12 @@ namespace Cico.Controllers
             var model = new CheckListModel();
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
             {
+                var track =
+                    session.CheckListItemSubmitionTracks.FirstOrDefault(
+                        c =>
+                        c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
+                if(track==null)
+                    track = new CheckListItemSubmitionTrack();
                 var itemCssClass = GetItemCssClass(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 model.CheckListItems.Add(new CheckListItemModel
@@ -64,7 +70,7 @@ namespace Cico.Controllers
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
-                        Checked = session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId),
+                        Checked = track.Checked,
                         CssClass = itemCssClass,
                         Notes = notes,
                         InstructionText = checkListItemTemplate.InstructionText,

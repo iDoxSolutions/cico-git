@@ -160,6 +160,7 @@
     <Compile Include="Models\ICicoContext.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\SharePoint\FileStorage.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Office.cs" />
     <Compile Include="Models\Employee.cs" />

@@ -13,7 +13,8 @@ public class ItemClassModel
     public IList<SelectListItem> ItemTypes { get; set; }
     public int TemplateId { get; set; }
     public string FormType { get; set; }
-    public IList<SelectListItem> FileList { get; set; } 
+    public IList<SelectListItem> FileList { get; set; }
+    public int? SelectedFile { get; set; }
     public bool IsFormSelected()
     {
         return !string.IsNullOrEmpty(FormType);
@@ -66,13 +67,18 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(int id)
         {
             var template = Db.CheckListItemTemplates.Single(c => c.CheckListItemTemplateId == id);
-            return View(new ItemClassModel()
+            var model = new ItemClassModel()
                 {
+                    
                     CheckListItemTemplate = template,
                     TemplateId = template.CheckListTemplate.CheckListTemplateId,
-                    ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
-                          .ToList(),FileList = GetFileList()
-                });
+                    ItemTypes =
+                        db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
+                          .ToList(),
+                    FileList = GetFileList()
+                };
+            model.SelectedFile = template.SystemFile == null ? (int?) null : template.SystemFile.Id;
+            return View(model);
         }
         [HttpPost]
         [ValidateInput(false)]
@@ -80,28 +86,35 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                //db.CheckListItemTemplates. ( model.CheckListItemTemplate);
-
-                /*if (model.CheckListItemTemplate.SystemFile != null)
-                {
-                    model.CheckListItemTemplate.SystemFile =
-                        db.SystemFiles.Single(c => c.Id == model.CheckListItemTemplate.SystemFile.Id);
-                }*/
-                db.Entry(model.CheckListItemTemplate).State = EntityState.Modified;
                 
-                db.SaveChanges();
-
                 var item =
                     db.CheckListItemTemplates.Single(
                         c => c.CheckListItemTemplateId == model.CheckListItemTemplate.CheckListItemTemplateId);
 
-                if (model.CheckListItemTemplate.SystemFile != null)
+
+                if (model.SelectedFile.HasValue)
                 {
-                    item.SystemFile =
-                        db.SystemFiles.Single(c => c.Id == model.CheckListItemTemplate.SystemFile.Id);
-                    db.SaveChanges();
+                    var file =
+                        db.SystemFiles.Single(c => c.Id == model.SelectedFile.Value);
+                    db.Entry(item).Reference(c => c.SystemFile).CurrentValue = file;
+                    item.SystemFile = file;
                 }
-                
+                else
+                {
+                    db.Entry(item).State = EntityState.Modified;
+                    db.Entry(item).Reference(c => c.SystemFile).CurrentValue = null;
+                    item.SystemFile = null;
+                }
+
+                item.DueDays = model.CheckListItemTemplate.DueDays;
+                item.Description = model.CheckListItemTemplate.Description;
+                item.Item = model.CheckListItemTemplate.Item;
+                item.Form = model.CheckListItemTemplate.Form;
+                item.Provisional = model.CheckListItemTemplate.Provisional;
+                item.NotesAccess = model.CheckListItemTemplate.NotesAccess;
+                item.Dependents = model.CheckListItemTemplate.Dependents;
+                item.InstructionText = model.CheckListItemTemplate.InstructionText;
+                db.SaveChanges();
                 return RedirectToAction("Edit", "ChecklistBuilder",new {id=model.TemplateId} );
             }
             else
