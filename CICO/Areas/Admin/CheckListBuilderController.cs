@@ -13,6 +13,10 @@ namespace Cico.Areas.Admin
         public string Description { get; set; }
         public string Type { get; set; }
         public int TemplateId { get; set; }
+
+        public string Office
+        {
+            get; set; }
     }
 
     public class TemplateModel
@@ -20,6 +24,16 @@ namespace Cico.Areas.Admin
         public CheckListTemplate CheckListTemplate { get; set; }
         public List<SelectListItem> ItemTypes { get; set; }
         public List<TemplateItemModel> TemplateItems { get; set; }
+        public List<SelectListItem> OfficeList { get; set; }
+
+        public int? SelectedOffice
+        {
+            get; set; }
+
+        public void Load(CicoContext db)
+        {
+            OfficeList =  db.Offices.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.OfficeId.ToString()}).ToList();
+        }
     }
 
 
@@ -39,6 +53,7 @@ namespace Cico.Areas.Admin
 
         public ActionResult DeleteItem(TemplateItemModel model)
         {
+
             var item = db.CheckListItemTemplates.Single(c => c.CheckListItemTemplateId == model.Id);
             db.CheckListItemTemplates.Remove(item);
             db.SaveChanges();
@@ -88,23 +103,27 @@ namespace Cico.Areas.Admin
 
 
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,TemplateModel filter)
         {
             var item = db.CheckListTemplates.Single(c => c.CheckListTemplateId == id);
+            var itemTemplates = filter.SelectedOffice == null ? item.CheckListItemTemplates : item.CheckListItemTemplates.Where(c=>c.Office.OfficeId == filter.SelectedOffice);
             var model = new TemplateModel()
                 {
                     CheckListTemplate = item,
                     ItemTypes =
                         db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
                           .ToList(),
-                          TemplateItems = item.CheckListItemTemplates.Select(c=>
+                          TemplateItems = itemTemplates.Select(c=>
                               new TemplateItemModel()
                                   {
-                                      Description = c.Description,Id = c.CheckListItemTemplateId,TemplateId = id,Type = c.Item
+                                      Description = c.Description,Id = c.CheckListItemTemplateId,TemplateId = id,Type = c.Item,Office = c.Office.Name
+                                      
                                   }
                           ).ToList()
 
                 };
+            model.Load(db);
+
             return View(model);
         }
     }

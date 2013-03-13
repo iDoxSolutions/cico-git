@@ -35,6 +35,14 @@
         <div class="editor-field">
             @Html.TextBoxFor(c=>c.CheckListItemTemplate.Description)
         </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.CheckListItemTemplate.Office)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(c=>c.SelectedOffice,Model.OfficeList,"")
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.Form)
         </div>

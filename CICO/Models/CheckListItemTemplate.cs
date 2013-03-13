@@ -16,7 +16,7 @@ namespace Cico.Models
         [Display(Name = "Item Description")]
         public string Description {get; set; }
         [Display(Name = "Item Office")]
-        public string Office { get; set; }
+        public virtual Office Office { get; set; }
         [Display(Name = "Item Priority")]
         public string Priority { get; set; }
         [Display(Name = "Item Status")]
@@ -63,8 +63,9 @@ namespace Cico.Models
         public virtual CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
-        public int SystemFile_Id { get; set; }
+        
         public virtual SystemFile SystemFile{get; set; }
+
         
         [Display(Name = "Number of days to complete item")]
         public int DueDays

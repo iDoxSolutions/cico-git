@@ -631,6 +631,7 @@
     <Content Include="Views\Dependent\Edit.cshtml" />
     <Content Include="Views\Dependent\DependentForm.cshtml" />
     <Content Include="Views\Shared\_SystemForms.cshtml" />
+    <Content Include="Views\Dependent\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

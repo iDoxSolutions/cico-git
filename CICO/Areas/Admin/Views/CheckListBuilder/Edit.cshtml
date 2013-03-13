@@ -11,23 +11,50 @@
 
 @Html.ActionLink("New Items","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
 
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Select office to filter</legend>
+        <div>
+            Office
+        </div>
+        <div>
+            @Html.DropDownListFor(c=>c.SelectedOffice,Model.OfficeList,"")
+        </div>
+        <div>
+            <button type="submit"> Filter</button>
+        </div>
+
+    </fieldset>
+}
+
+
 <h2>Items</h2>
 <ul>
-@foreach (var item in Model.TemplateItems)
-{
-    <li>
-        <div>
-            <div>Description: </div>
-            @Html.ActionLink(@item.Description,"Edit","ItemClass",new {id=item.Id},null)
-        </div>
-        <div>
-            <div>Item Type:</div>
-            @item.Type
-        </div>
-        <hr/>
-    </li>
-}
-    </ul>
+    
+    @foreach (var item in Model.TemplateItems)
+    {
+        <li>
+            <div>
+                <div style="float: left;width:300px">
+                    <div>Description: </div>
+                    @Html.ActionLink(@item.Description, "Edit", "ItemClass", new { id = item.Id }, null)
+                </div>
+                <div style="float: left;width:150px">
+                    <div>Item Type:</div>
+                    @item.Type
+                </div>
+                
+                <div style="float: left">
+                    <div>Office:</div>
+                    @item.Office
+                </div>
+                <div style="clear: both"></div>
+            </div>
+            <hr/>
+        </li>
+    }
+</ul>
 
 
 

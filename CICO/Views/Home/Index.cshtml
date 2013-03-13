@@ -35,16 +35,15 @@
 
             <div id="completion" >
                 <div data-bind="with:selectedItem">
-                    <h4>Instructions:</h4>
+                    <h2>Instructions:</h2>
                     <div class="instructions" data-bind="html:InstructionText"></div>
-                    <h4>Due Date:</h4>
+                    <h2>Due Date:</h2> 
                     <div >
                         <div style="float: left;height: 30px" class="duedate" data-bind="text:DueDate"></div>
                         
                         <div style="clear:both"></div>
                     </div>
                 </div>
-                <h3>Form To fill</h3>
                 <div data-bind="stopBindings: true">
                     <div id="selectedForm" data-bind="template:{name:templateName}">
                     
@@ -93,11 +92,7 @@
                 </div>
 
             </div>
-            <div id="mydependents">
-                <div class="tabContent">
-                    <div class="title">Panel title</div>
-                </div>
-            </div>
+            
            
         </div>
     </div>
@@ -107,8 +102,8 @@
                 <li><a href="#checkIn">Check-In</a></li>
                 <li><a href="#checkOut">Check-out</a></li>
             </ul>
+            <div class="">Click on an item from the list to complete</div>
             <div id="checkIn">
-                <h4>Priority 1</h4>
                 <ul data-bind="foreach: checklist " class="checklist">
                     <li>
                         <div data-bind="css: { selected: selected }" class="checkInItem">
@@ -122,8 +117,6 @@
                     </li>
 
                 </ul>
-                <h4>Priority 2</h4>
-
             </div>
 
             <div id="checkOut">

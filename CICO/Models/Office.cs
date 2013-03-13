@@ -9,7 +9,7 @@ namespace Cico.Models
 
         public int OfficeId { get; set; }
         [DisplayName ("Office Name")]
-         [StringLength(65)]
+         [StringLength(66)]
         public string Name { get; set; }
 
         [Required]

@@ -41,6 +41,8 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.SystemFile)
                         .WithMany(c => c.CheckListItemTemplates);
+            modelBuilder.Entity<CheckListItemTemplate>()
+                        .HasOptional(c => c.Office);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
            
             /*

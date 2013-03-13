@@ -15,9 +15,23 @@ public class ItemClassModel
     public string FormType { get; set; }
     public IList<SelectListItem> FileList { get; set; }
     public int? SelectedFile { get; set; }
+    public int SelectedOffice { get; set; }
+    public IList<SelectListItem> OfficeList { get; set; }
     public bool IsFormSelected()
     {
         return !string.IsNullOrEmpty(FormType);
+    }
+
+    public static ItemClassModel Load(CicoContext db,ItemClassModel model)
+    {
+        model = model?? new ItemClassModel();
+        model.SelectedOffice = model.CheckListItemTemplate !=null && model.CheckListItemTemplate.Office != null ? model.CheckListItemTemplate.Office.OfficeId :0;
+        model.ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
+                            .ToList();
+        model.OfficeList = db.Offices.ToList().Select(c=>new SelectListItem(){Text = c.Name,Value = c.OfficeId.ToString()}).ToList();
+        var files = db.SystemFiles.Where(c => c.FileType == "DocTemplate").ToList();
+        model.FileList = files.Select(c => new SelectListItem() { Text = c.Description, Value = c.Id.ToString() }).ToList();
+        return model;
     }
 }
 
@@ -32,15 +46,9 @@ namespace Cico.Areas.Admin
 
         public ActionResult Index(int templateId)
         {
-            var model = new ItemClassModel()
-                {
-                    TemplateId = templateId,
-                    ItemTypes = db.CheckListItemTypes.Select(c => new SelectListItem() { Text = c.Description, Value = c.Name })
-                          .ToList(),
-                          CheckListItemTemplate = new CheckListItemTemplate(),
-                          FileList = GetFileList()
-                };
-           
+            var model = ItemClassModel.Load(db,null);
+            model.TemplateId = templateId;
+            model.CheckListItemTemplate = new CheckListItemTemplate();
             return View(model);
         }
         [HttpPost]
@@ -50,6 +58,14 @@ namespace Cico.Areas.Admin
             if (ModelState.IsValid)
             {
                 model.CheckListItemTemplate.CheckListTemplate = db.CheckListTemplates.Single(c => c.CheckListTemplateId==model.TemplateId);
+                if (model.SelectedFile.HasValue)
+                {
+                    var file =
+                        db.SystemFiles.Single(c => c.Id == model.SelectedFile.Value);
+                    model.CheckListItemTemplate.SystemFile = file;
+                }
+
+                model.CheckListItemTemplate.Office = db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
                 var template = db.CheckListItemTemplates.Add(model.CheckListItemTemplate);
                 db.SaveChanges();
                 return RedirectToAction("edit","checklistbuilder",new{id=model.TemplateId});
@@ -57,9 +73,7 @@ namespace Cico.Areas.Admin
             }
             else
             {
-                model.ItemTypes =
-                    db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
-                      .ToList();
+                ItemClassModel.Load(db, model);
                 return View(model);
             }
         }
@@ -71,12 +85,10 @@ namespace Cico.Areas.Admin
                 {
                     
                     CheckListItemTemplate = template,
-                    TemplateId = template.CheckListTemplate.CheckListTemplateId,
-                    ItemTypes =
-                        db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
-                          .ToList(),
-                    FileList = GetFileList()
+                    TemplateId = template.CheckListTemplate.CheckListTemplateId
+                 
                 };
+            ItemClassModel.Load(db, model);
             model.SelectedFile = template.SystemFile == null ? (int?) null : template.SystemFile.Id;
             return View(model);
         }
@@ -105,7 +117,7 @@ namespace Cico.Areas.Admin
                     db.Entry(item).Reference(c => c.SystemFile).CurrentValue = null;
                     item.SystemFile = null;
                 }
-
+                item.Office = db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
                 item.DueDays = model.CheckListItemTemplate.DueDays;
                 item.Description = model.CheckListItemTemplate.Description;
                 item.Item = model.CheckListItemTemplate.Item;
@@ -119,21 +131,12 @@ namespace Cico.Areas.Admin
             }
             else
             {
-                model.FileList = GetFileList();
-                model.ItemTypes =
-                    db.CheckListItemTypes.Select(c => new SelectListItem() {Text = c.Description, Value = c.Name})
-                      .ToList();
+                ItemClassModel.Load(db, model);
                 return View(model);
             }
         }
 
 
-        public IList<SelectListItem> GetFileList()
-        {
-            var files = Db.SystemFiles.Where(c => c.FileType == "DocTemplate").ToList();
-            var ofiles = files.Select(c=>new SelectListItem(){Text = c.Description,Value = c.Id.ToString()}).ToList();
-            return ofiles;
-        }
        
     }
 }

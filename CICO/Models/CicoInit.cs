@@ -4,7 +4,8 @@ namespace Cico.Models
 {
     public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
     {
-        
+        private Office _hrOffice;
+
         protected override void Seed(CicoContext context)
         {
 
@@ -23,44 +24,68 @@ namespace Cico.Models
             var template = context.CheckListTemplates.Create();//(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
             template.Name = "Check In";
             template.Type = "Mexico";
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Schedule meeting with Human Resources Officer"
+            AddStates(context);
+
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Office = _hrOffice,
+                Description = "Schedule meeting with Human Resources Officer"
                                                                                    , Item = "DocumentSubmitted" 
                                                                                    , Type = "DocumentSubmitted",
                                                                               SystemFile = template1
                                                                                    ,InstructionText = "Please Bring: Copies of Travel orders, passports, visas and stamped Mexican Migratory Forms (FME) for the employee and each family member;3 color photos passport size, face front, white background of employee, spouse and each dependent at post"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Pick-up orientation package and forms for GOM Accreditation"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Pick-up orientation package and forms for GOM Accreditation"
                                                                                    , Item = "DocumentSubmitted"
                                                                                    , Type = "DocumentSubmitted"
                                                                                    , InstructionText = "Please Bring: Copie of Travel orders, passports, visas and stamped Mexican Migratory Forms (FME) for the employee and each family member;3 color photos passport size, face front, white background of employee, spouse and each dependent at post" });
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Schedule meeting with Management Officer"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Schedule meeting with Management Officer"
                                                                                    , Item = "PhysicalActivity"
                                                                                    , Type = "PhysicalActivity"
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Attend the newcomer orientation"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Attend the newcomer orientation"
                                                                                    , Item = "PhysicalActivity"
                                                                                    , Type = "PhysicalActivity"
                                                                                    , InstructionText = "GSO Office: Ext. 2225, 3rd Floor - Room 357. The orientation is helo on Wednesday"
                                                                                    , AlertDays = "3" });
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Provide copy of diplomatic passport, Mexican visa, travel orders"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Provide copy of diplomatic passport, Mexican visa, travel orders"
                                                                                    , Item = "DocumentSubmitted"
                                                                                    , Type = "DocumentSubmitted",
                                                                               SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
-             template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Provide copy of diplomatic carnet and supporting documentation"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Provide copy of diplomatic carnet and supporting documentation"
                                                                                    , Item = "DocumentSubmitted"
                                                                                    , Type = "DocumentSubmitted",
                                                                                SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Fill out Travel Card application"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Fill out Travel Card application"
                                                                                    , Item = "DocumentSubmitted"
                                                                                    , Type = "DocumentSubmitted",
                                                                                     SystemFile = template1
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
                                                                                    ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Description = "Acknowledge receipt of Mgmt Announcement 11-78"
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
+            {
+                Office = _hrOffice,
+                Description = "Acknowledge receipt of Mgmt Announcement 11-78"
                                                                                    , Item = "DocumentApproval"
                                                                                    , Type = "DocumentApproval"
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
@@ -68,7 +93,7 @@ namespace Cico.Models
             
             context.CheckListTemplates.Add(template);
 
-            AddStates(context);
+            
             AddSystemForms(context);
             context.SaveChanges();
            
@@ -171,7 +196,7 @@ namespace Cico.Models
             context.DropdownItems.Add(new DropdownItem() { Key = "Agency3", Description = "Agency3", ValueType = "Agency" });
 
 
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "HR" });
+            _hrOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "HR" });
             context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "ADM" });
             context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "GSO" });
             context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "FMC" });
