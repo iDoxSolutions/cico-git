@@ -28,18 +28,17 @@
         <div id="infoTabs">
             <ul>
                 <li><a href="#myinfo">My Info</a></li>
-                <li><a href="#mydependents">My dependents</a></li>
+                <li><a href="#mydependents">Checklist Detail</a></li>
             </ul>
             
 
             <div id="completion" >
                 <div data-bind="with:selectedItem">
-                    <h4>Instructions:</h4>
+                    <h2>Instructions:</h2>
                     <div class="instructions" data-bind="html:InstructionText"></div>
-                    <h4>Due Date:</h4>
+                    <h2>Due Date:</h2> 
                     <div class="duedate" data-bind="text:DueDate"></div>
                 </div>
-                <h3>Form To fill</h3>
                 <div data-bind="stopBindings: true">
                     <div id="selectedForm" data-bind="template:{name:templateName}">
                     
@@ -80,16 +79,11 @@
             <div id="myinfo">
 
                 <div class="tabContent">
-                    <div class="title">Panel title</div>
                     @Html.Partial("EmployeeForm", Model)
                 </div>
 
             </div>
-            <div id="mydependents">
-                <div class="tabContent">
-                    <div class="title">Panel title</div>
-                </div>
-            </div>
+            
            
         </div>
     </div>
@@ -99,8 +93,8 @@
                 <li><a href="#checkIn">Check-In</a></li>
                 <li><a href="#checkOut">Check-out</a></li>
             </ul>
+            <div class="">Click on an item from the list to complete</div>
             <div id="checkIn">
-                <h4>Priority 1</h4>
                 <ul data-bind="foreach: checklist " class="checklist">
                     <li>
                         <div data-bind="css: { selected: selected }" class="checkInItem">
@@ -109,13 +103,10 @@
                                 <input data-bind="checked: Checked" type="checkbox" disabled="disabled" />
                             </div>
                             <div data-bind="text: Description, click:selectItem" class="description"></div>
-
                         </div>
                     </li>
 
                 </ul>
-                <h4>Priority 2</h4>
-
             </div>
 
             <div id="checkOut">

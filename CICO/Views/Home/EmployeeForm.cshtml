@@ -2,7 +2,9 @@
 @using Cico.Models.Helpers;           
 @using (Html.BeginForm("UpdateEmployeeData","Home"))
 {
-    @Html.ValidationSummary(true)
+     @Html.ActionLink("Edit My Info","Edit","Employee",new {id=Model.Employee.Id},null)      @Html.ActionLink("Add Dependent","Create","Dependent",new {id=Model.Employee.Id},null)
+ 
+       @Html.ValidationSummary(true)
         <fieldset>
         <legend>Employee</legend>
             <div>
@@ -345,5 +347,5 @@
     </fieldset>
 
    
-    @Html.ActionLink("Edit My Data","Edit","Employee",new {id=Model.Employee.Id},null)
+   
 }
