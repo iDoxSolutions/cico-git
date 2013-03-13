@@ -1,0 +1,35 @@
+﻿@model ICollection< Cico.Models.Dependent>
+
+@{
+    ViewBag.Title = "Dependents ";
+ 
+}
+
+<h2>Dependents</h2>
+
+
+<table>
+    <tr>
+        <th>
+            Given Name
+        </th>
+        <th>
+           DOB
+        </th>
+    </tr>
+    @foreach (var dep in Model)
+    {
+        <tr>
+            <td>
+                @dep.GivenName
+            </td>
+        
+            <td>
+                @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})
+            </td>
+        </tr>
+    }
+</table>

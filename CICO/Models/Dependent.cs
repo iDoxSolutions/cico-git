@@ -7,9 +7,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 {
     public class Dependent:EntityBaseWithKey
     {
-       
-        [DisplayName("Employee ID")]
-        public int EmployeeId { get; set; }
         [DisplayName("Given Name(s)")]
         [StringLength(65)]
         public string GivenName { get; set; }
@@ -77,8 +74,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string EmergencyContactPhone2 { get; set; }
         public string EmergencyContactOfficePhone { get; set; }
-        public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
-       
-       
+        public virtual Employee Employee { get; set; }
     }
 }

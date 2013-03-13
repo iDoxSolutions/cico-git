@@ -28,7 +28,7 @@
         <div id="infoTabs">
             <ul>
                 <li><a href="#myinfo">My Info</a></li>
-                <li><a href="#completion">My dependents</a></li>
+                <li><a href="#completion">Completion Details</a></li>
                 <li><a href="#mydependents">My dependents</a></li>
             </ul>
             
@@ -92,7 +92,15 @@
                 </div>
 
             </div>
-            
+            <div id="mydependents">
+                <div class="tabContent">
+                    <div class="title ui-widget ui-widget-header">
+                        <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
+                        <div style="clear:both"></div>
+                    </div>
+                    </div>
+                @Html.Partial("_DependentsList", Model.Dependents)
+            </div>
            
         </div>
     </div>
@@ -171,6 +179,8 @@
 
     $(function () {
         $("#infoTabs").tabs();
+        $("#infoTabs").tabs("select", "#myinfo");
+        //$('#infoTabs').tabs('option', 'selected', 0);
         $("#checkInTabs").tabs();
     });
 

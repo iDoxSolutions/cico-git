@@ -632,6 +632,10 @@
     <Content Include="Views\Dependent\DependentForm.cshtml" />
     <Content Include="Views\Shared\_SystemForms.cshtml" />
     <Content Include="Views\Dependent\Create.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Dependent\Index.cshtml" />
+    <Content Include="Views\Home\_DependentsList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

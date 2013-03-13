@@ -8,6 +8,11 @@ using Cico.Models;
 
 namespace Cico.Controllers
 {
+    public class DepententModel
+    {
+        public Dependent Dependent { get; set; }
+    }
+
     public class DependentController : ControllerBase
     {
         //
@@ -15,24 +20,47 @@ namespace Cico.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var employee = UserSession.GetCurrent().Employee;
+            return View(employee.Dependents);
+        }
+
+        public ActionResult Create()
+        {
+            return View(new DepententModel(){Dependent = new Dependent(){}});
+        }
+
+        [HttpPost]
+        public ActionResult Create(DepententModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.Dependent.Employee = UserSession.GetCurrent().Employee;
+                Db.Dependents.Add(model.Dependent);
+                Db.SaveChanges();
+                return RedirectToAction("index");
+            }
+            else
+            {
+                return View();
+            }
+
         }
 
         public ActionResult Edit(int id)
         {
-            //TODO: return multiple dependents?
-            //var dependent = UserSession.GetCurrent();
-            //return View(dependent);
-            return View();
+            var dependent = Db.Dependents.Single(c => c.Id == id);
+            var model = new DepententModel(){Dependent = dependent};
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(Dependent model) {
+        public ActionResult Edit(DepententModel model) {
             if (ModelState.IsValid)
             {
-                Db.Entry(model).State = EntityState.Modified;
+                model.Dependent.Employee = UserSession.GetCurrent().Employee;
+                Db.Entry(model.Dependent).State = EntityState.Modified;
                 Db.SaveChanges();
-                return RedirectToAction("index", "home");
+                return RedirectToAction("index");
             }
             else
             {

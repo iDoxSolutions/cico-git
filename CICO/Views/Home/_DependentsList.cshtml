@@ -1,0 +1,29 @@
+﻿@model IList<Cico.Models.Dependent>
+
+
+<table>
+    <tr>
+        <th>
+            Given Name
+        </th>
+        <th>
+           DOB
+        </th>
+    </tr>
+    @foreach (var dep in Model)
+    {
+        <tr>
+            <td>
+                @dep.GivenName
+            </td>
+        
+            <td>
+                @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit","Edit","Dependent",new{id=dep.Id},null)
+            </td>
+        </tr>
+    }
+</table>

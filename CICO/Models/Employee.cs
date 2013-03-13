@@ -128,5 +128,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
        
         public string UserId { get; set; }
+
+        public virtual ICollection<Dependent> Dependents { get; set; }
     }
 }

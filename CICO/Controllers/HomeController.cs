@@ -48,7 +48,11 @@ namespace Cico.Controllers
     public class HomeModel
     {
         public Employee Employee { get; set; }
-       
+        public IList<Dependent> Dependents { get; set; }
+        public void Load(CicoContext db)
+        {
+            Dependents = db.Dependents.ToList();
+        }
     }
 
 
@@ -68,7 +72,7 @@ namespace Cico.Controllers
                 {
                     Employee = user.Employee
                 };
-
+            model.Load(Db);
             ViewBag.Message = "Please enter information";
 
             return View(model);
