@@ -3,18 +3,11 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-        <fieldset>
+        <fieldset class="two-column-form" style="width:80%">
           <legend>Employee</legend>
             <div>
-                <div class="float-left">
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.GivenName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.GivenName)
-                        @Html.ValidationMessageFor(model => model.GivenName)
-                    </div>
+                <div class="float-left" style="width: 47%" >
+                    <h3>Personal Data</h3>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.DateOfBirth)
                     </div>
@@ -22,6 +15,14 @@
                         @Html.EditorFor(model => model.DateOfBirth)
                         @Html.ValidationMessageFor(model => model.DateOfBirth)
                     </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.GivenName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.GivenName)
+                        @Html.ValidationMessageFor(model => model.GivenName)
+                    </div>
+                    
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Title)
@@ -29,6 +30,20 @@
                     <div class="editor-field">
                         @Html.EditorFor(model => model.Title)
                         @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.Nationality)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nationality"), "")
+                        @Html.ValidationMessageFor(model => model.Nationality)
+                    </div>
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.EmployeeId)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.EmployeeId)
+                        @Html.ValidationMessageFor(model => model.EmployeeId)
                     </div>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.HomeAddress)
@@ -58,20 +73,7 @@
                         @Html.DropDownListFor(model => model.LegalResidenceState, Html.GetDropdownItems("States"), "")
                         @Html.ValidationMessageFor(model => model.LegalResidenceState)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Location)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Location)
-                        @Html.ValidationMessageFor(model => model.Location)
-                    </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Nationality)
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nationality"), "")
-                        @Html.ValidationMessageFor(model => model.Nationality)
-                    </div>
+                    
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Office)
                     </div>
@@ -129,7 +131,44 @@
                         @Html.EditorFor(model => model.PositionTitle)
                         @Html.ValidationMessageFor(model => model.PositionTitle)
                     </div>
+                    
+                    
                     <div class="editor-label">
+                        @Html.LabelFor(model => model.PreferredName)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.PreferredName)
+                        @Html.ValidationMessageFor(model => model.PreferredName)
+                    </div>
+                   
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.RoutingNumber)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.RoutingNumber)
+                        @Html.ValidationMessageFor(model => model.RoutingNumber)
+                    </div>
+
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Surname)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Surname)
+                        @Html.ValidationMessageFor(model => model.Surname)
+                    </div>
+               </div>
+                <div class="float-right" style="width: 47%">
+                    <h3>Posting Information</h3>
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Location)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Location)
+                        @Html.ValidationMessageFor(model => model.Location)
+                    </div>
+                   <div class="editor-label">
                         @Html.LabelFor(model => model.PostOfAssignment)
                     </div>
                     <div class="editor-field">
@@ -143,14 +182,7 @@
                         @Html.EditorFor(model => model.PreArrivalPhone)
                         @Html.ValidationMessageFor(model => model.PreArrivalPhone)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.PreferredName)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.PreferredName)
-                        @Html.ValidationMessageFor(model => model.PreferredName)
-                    </div>
-                    <div class="editor-label">
+                     <div class="editor-label">
                         @Html.LabelFor(model => model.PriorPostCity)
                     </div>
                     <div class="editor-field">
@@ -172,25 +204,6 @@
                         @Html.DropDownListFor(model => model.LegalResidenceState, Html.GetDropdownItems("States"), "")
                         @Html.ValidationMessageFor(model => model.PriorPostState)
                     </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.RoutingNumber)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.RoutingNumber)
-                        @Html.ValidationMessageFor(model => model.RoutingNumber)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Surname)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Surname)
-                        @Html.ValidationMessageFor(model => model.Surname)
-                    </div>
-               </div>
-                <div class="float-right">
-
                     <div class="editor-label">
                         @Html.LabelFor(model => model.TourEndDate)
                     </div>
@@ -255,14 +268,7 @@
                         @Html.ValidationMessageFor(model => model.CellPhone)
                     </div>
 
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.DateOfBirth)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.DateOfBirth)
-                        @Html.ValidationMessageFor(model => model.DateOfBirth)
-                    </div>
-
+                   
                     <div class="editor-label">
                         @Html.LabelFor(model => model.DiplomaticTitle)
                     </div>
@@ -327,13 +333,7 @@
                         @Html.ValidationMessageFor(model => model.EmergencyContactSurname)
                     </div>
 
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.EmployeeId)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.EmployeeId)
-                        @Html.ValidationMessageFor(model => model.EmployeeId)
-                    </div>
+                   
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Extension)

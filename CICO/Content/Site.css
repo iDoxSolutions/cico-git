@@ -58,6 +58,10 @@ mark {
     visibility: hidden;
 }
 
+fieldset h5 {
+    margin-top: 3px
+}
+
 h1, h2, h3,
 h4, h5, h6 {
     color: #000;
@@ -836,21 +840,25 @@ div.tabcontents div.content h2 {
         padding-bottom: 3px;
     }
     .checkInItem {
-        font-size: small;
-        cursor: pointer;
-        padding-top: 2px;
-    }
+        
+    font-size: small;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    height: 45px;
+    background: #EFEEEF url(/content/themes/base/images/ui-bg_glass_75_dadada_1x400.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
+    color: #222222 /*{fcHeader}*/;
+}
 
     .selected {
-        font-weight: bold;
-            }
+    background-color: #D9D9D9;
+    background: #EFEEEF url(/content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
+}
 
-    .checkInItem .ico,.description,.checkbox {
-        
-        display: inline-block;
-        font-size: small;
-      vertical-align: middle
-    }
+    
 
     .float-left {
     float: left;
@@ -917,24 +925,63 @@ div.tabcontents div.content h2 {
         padding-bottom: 10px;
     }
 
+    .checkin-list-item {
+        
+    }
+
     .tabContent {
         
     }
     .tabContent .title{
-        font-style: italic;
+        
         padding-bottom: 5px;
         margin-bottom: 10px;
+        font-size: small;
+    }
+    .tabContent .title a{
+        
+        font-size: small;
     }
     .homescreen-label label{
         font-style: normal;
-        font-size: x-small;
+        font-size: xx-small;
         font-weight: normal;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-top: 3px;
+        margin-bottom: 1px;
         
     }
     .homescreen-display {
         padding-left: 5px;
         font-size: small;
-        font-weight: bold;
-        height: 20px;
+
+        min-height: 20px;
+        padding-top: 2px;
         padding-bottom: 2px;
+        border: 1px solid #e2e2e2;
+        vertical-align: central
+    }
+
+    .two-column-form {
+        
+    }
+
+    .two-column-form .editor-field input {
+        width: 100%
+    }
+    .two-column-form .editor-field select {
+        width: 100%;
+        font-size: 1.2em;
+        border: 1px solid #e2e2e2;
+        margin: 5px 0 6px 0;
+        padding: 5px;
+    }
+
+    .two-column-form .editor-field textarea {
+        width: 100%;
+        font-size: 1.2em;
+        border: 1px solid #e2e2e2;
+        margin: 5px 0 6px 0;
+        padding: 5px;
     }

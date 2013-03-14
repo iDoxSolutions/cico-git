@@ -39,6 +39,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Nationality")]
         [StringLength(10)]
         public string Nationality { get; set; }
+        [DisplayName("Home Phone")]
         public string HomePhone { get; set; }
         [DisplayName("Mexico - Personal Cell Phone")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
@@ -56,6 +57,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public DateTime? ArrivalDate { get; set; }
         [DisplayName("Tour End Date")]
         public DateTime? TourEndDate { get; set; }
+        [DisplayName("Agency Or Section")]
         public string AgencyOrSection { get; set; }
         [DisplayName("Position Title")]
         [StringLength(65)]
@@ -92,6 +94,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string VisaNumber { get; set; }
         [DisplayName("Visa expiration")]
         public DateTime? VisaExpiration { get; set; }
+        [DisplayName("Post Of Assignment")]
         public string PostOfAssignment { get; set; }
         [DisplayName("Office")]
         [StringLength(65)]

@@ -33,53 +33,64 @@
             </ul>
             
 
-            <div id="completion" >
-                <div data-bind="with:selectedItem">
-                    <h2>Instructions:</h2>
-                    <div class="instructions" data-bind="html:InstructionText"></div>
-                    <h2>Due Date:</h2> 
-                    <div >
-                        <div style="float: left;height: 30px" class="duedate" data-bind="text:DueDate"></div>
-                        
+            <div id="completion">
+                <div class="tabContent">
+                    <div class="title ui-widget ui-widget-header">
+                        <a style="float: right">Please complete the form</a>
                         <div style="clear:both"></div>
                     </div>
-                </div>
-                <div data-bind="stopBindings: true">
-                    <div id="selectedForm" data-bind="template:{name:templateName}">
-                    
-                    </div>
-                </div>
-                
-                <h3>Notes</h3>
-                <div data-bind="with:selectedItem">
-                    <div id="note-list" >
-                        <div>
-                            <form data-bind="submit:notes.addNote">
-                                <div class="editor-label">
-                                    Note text:
-                                </div>
-                                <div class="editor-field">
-                                    <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
-                                </div>
-                                <div class="editor-field">
-                                    <button type="submit">Add Note</button>
-                                </div>
-                            </form>
+                    <div data-bind="with:selectedItem">
+
+                        <div class="homescreen-label">
+                            <label>Instructions:</label>
                         </div>
-                        <ul data-bind=" foreach: notes.notes" class="note-list">
-                            <li>
-                                <div class="note-content" data-bind="html:Content"></div>
-                                <div class="note-tools">
-                                    <div data-bind="text:'Date Created: '+ DateCreated"></div>
-                                    <div data-bind="text:'Created by: '+ UserCreated" style="width:180px"></div>
-                                    <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote" style="width:50px">Delete</div>
-                                </div>
-                                <div style="clear: both"></div>
-                            </li>
-                        </ul>
+                        <div style="min-height: 50px" class="instructions homescreen-display" data-bind="html:InstructionText"></div>
+                        <div class="homescreen-label">
+                            <label>Due Date:</label>
+                        </div>
+                        
+                            <div  class="duedate homescreen-display" data-bind="text:DueDate"></div>
+                            
+                        <div class="homescreen-label">
+                            <label>Action To Take:</label>
+                        </div> 
+                    </div>
+                    <div data-bind="stopBindings: true">
+                        <div id="selectedForm" data-bind="template:{name:templateName}">
+                        </div>
+                    </div>
+                    <div data-bind="with:selectedItem">
+                        <div class="homescreen-label">
+                            <label>Notes</label>
+                        </div> 
+                        <div id="note-list">
+                            <div>
+                                <form data-bind="submit:notes.addNote">
+                                    <div class="editor-label">
+                                        
+                                    </div>
+                                    <div class="editor-field">
+                                        <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
+                                    </div>
+                                    <div class="editor-field">
+                                        <button type="submit">Add Note</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul data-bind=" foreach: notes.notes" class="note-list">
+                                <li>
+                                    <div class="note-content" data-bind="html:Content"></div>
+                                    <div class="note-tools">
+                                        <div data-bind="text:'Date Created: '+ DateCreated"></div>
+                                        <div data-bind="text:'Created by: '+ UserCreated" style="width: 180px"></div>
+                                        <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote" style="width: 50px">Delete</div>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                
             </div>
             <div id="myinfo">
 
@@ -110,20 +121,24 @@
                 <li><a href="#checkIn">Check-In</a></li>
                 <li><a href="#checkOut">Check-out</a></li>
             </ul>
-            <div class="">Click on an item from the list to complete</div>
+            
             <div id="checkIn">
-                <ul data-bind="foreach: checklist " class="checklist">
+                <div class="homescreen-label">
+                    <label>Click on an item from the list to complete</label>
+                </div>
+                <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
-                        <div data-bind="css: { selected: selected }" class="checkInItem">
-                            <div class="ico ui-icon ui-icon-document" data-bind="css: CssClass">&nbsp; &nbsp;</div>
-                            <div class="checkbox">
-                                <input data-bind="checked: Checked" type="checkbox" disabled="disabled" />
+                        <div data-bind="css: { selected: selected }" class="checkInItem ui-corner-all">
+                            <div data-bind="text: Description, click:selectItem" class="description" style="width: 190px;float:left"></div>
+                            <div style="float:right;padding-right: 5px;text-align: center">
+                                <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
+                                <div class="checkbox">
+                                    <input data-bind="checked: Checked" type="checkbox" disabled="disabled" />
+                                </div>
                             </div>
-                            <div data-bind="text: Description, click:selectItem" class="description" style="width:185px"></div>
-
+                            <div style="clear: both"></div>
                         </div>
                     </li>
-
                 </ul>
             </div>
 
