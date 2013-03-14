@@ -1,0 +1,17 @@
+﻿@model Cico.Areas.Admin.CheckListsModel
+           
+
+
+
+
+<table>
+    <tr>
+        <th>Check Lists</th>
+    </tr>
+    @foreach (var c in Model.CheckListModels)
+    {
+        <tr>
+            <td>@c.EmployeeName</td>
+        </tr>
+    }
+</table>
