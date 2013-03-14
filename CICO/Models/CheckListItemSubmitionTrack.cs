@@ -12,7 +12,7 @@ namespace Cico.Models
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
         public virtual ICollection<Note> Notes { get; set; }
         public DateTime? DueDate { get; set; }
-        public SystemFile SubmittedFile { get; set; }
+        public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
     }
 }

@@ -840,35 +840,35 @@ div.tabcontents div.content h2 {
         padding-bottom: 3px;
     }
     .checkInItem {
-        
-    font-size: small;
-    cursor: pointer;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    height: 45px;
-    background: #EFEEEF url(/content/themes/base/images/ui-bg_glass_75_dadada_1x400.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
-    color: #222222 /*{fcHeader}*/;
-}
+        font-size: small;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-top: 5px;
+        height: 45px;
+        background: #EFEEEF url(/content/themes/base/images/ui-bg_glass_75_dadada_1x400.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
+        color: #222222 /*{fcHeader}*/;
+    }
 
     .selected {
-    background-color: #D9D9D9;
-    background: #EFEEEF url(/content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
-}
+        text-decoration: #3e5667;
+        background-color: #D9D9D9;
+        background: #EFEEEF url(/content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png) repeat-x 50% 50% /*{bgColorHeader}*/ /*{bgImgUrlHeader}*/ /*{bgHeaderXPos}*/ /*{bgHeaderYPos}*/ /*{bgHeaderRepeat}*/;
+    }
 
     
 
     .float-left {
-    float: left;
-}
+        float: left;
+    }
 
-.float-right {
+    .float-right {
     float: right;
 }
 
-.red {
+    .red {
     background-color: red;
 }
 

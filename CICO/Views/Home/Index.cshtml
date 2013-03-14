@@ -65,7 +65,7 @@
                         </div> 
                         <div id="note-list">
                             <div>
-                                <form data-bind="submit:notes.addNote">
+                                <form id="notesForm" data-bind="submit:notes.addNote" >
                                     <div class="editor-label">
                                         
                                     </div>
@@ -164,10 +164,15 @@
     
     Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
 
-    <form data-bind="submit:submitDoc">
+    <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
         <input type="submit" value="Submit" />
     </form>
+    <div data-bind="with:submittedFile">
+        Submitted file:
+        <a  data-bind="attr: { href: Url },text:Description"></a>
+    </div>
+
 </script>
 
 <script type="text/html" id="SelfContainedForm">
@@ -227,7 +232,7 @@
                 ko.cleanNode($("#selectedForm")[0]);
                 switch (item.ItemTemplate) {
                     case "DocumentSubmitted":
-                        ko.applyBindings(new DocumentSubmittedModel(item.item), $("#selectedForm")[0]);
+                        ko.applyBindings(new DocumentSubmittedModel(item), $("#selectedForm")[0]);
                         break;
                     case "SelfContainedForm":
                         ko.applyBindings(new SelfContainedFormModel(item.item), $("#selectedForm")[0]);

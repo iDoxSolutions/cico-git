@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Controllers.ViewModels;
 using Cico.Models;
+using Cico.Models.SharePoint;
 
 namespace Cico.Controllers.ViewModels
 {
    
+    public class FileModel
+    {
+        public string Url { get; set; }
+        public string Description { get; set; }
+    }
 
     public class CheckListModel
     {
@@ -44,6 +51,8 @@ namespace Cico.Controllers.ViewModels
 
         public string DueDate
         {get; set; }
+
+        public FileModel SubmittedFile { get; set; }
     }
 }
 
@@ -67,6 +76,7 @@ namespace Cico.Controllers
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
+                        SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+track.SubmittedFile.Description},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
@@ -78,6 +88,7 @@ namespace Cico.Controllers
                         FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
                         DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null
+                        
                         
                     });
             }
@@ -128,29 +139,26 @@ namespace Cico.Controllers
 
         public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId)
         {
-            var session = UserSession.GetCurrent();
-            var completion = Db.CheckListItemSubmitionTracks.Include("CheckListItemTemplate")
-                .SingleOrDefault(c => c.CheckListItemTemplate.CheckListItemTemplateId == itemTemplateId && c.CheckListSession.Id == session.Id);
-            var itemTemplate = Db.CheckListItemTemplates.First(c => c.CheckListItemTemplateId==itemTemplateId);
-            if (completion == null)
+            if (docSubmitted == null)
+                return new HttpStatusCodeResult(400, "File Is required");
+            var track = UserSession.GetTrack(itemTemplateId);
+            if (track.SubmittedFile == null)
             {
-                completion = new CheckListItemSubmitionTrack()
-                    {
-                        CheckListItemTemplate = itemTemplate,
-                        CheckListSession = session
-                    };
-                session.CheckListItemSubmitionTracks.Add(completion);
-                Db.SaveChanges();
+                track.SubmittedFile = new SystemFile();
+                Db.SystemFiles.Add(track.SubmittedFile);
             }
-            var model = new CheckListItemModel()
-                {
-                    Id = completion.CheckListItemTemplate.CheckListItemTemplateId,
-                    ItemTemplate = completion.CheckListItemTemplate.Item,
-                    Description = completion.CheckListItemTemplate.Description,
-                    Checked = true,
-                    CssClass = GetItemCssClass(itemTemplate, Db.CheckListItemSubmitionTracks.Include("CheckListItemTemplate").Where(c => c.CheckListSession.Id == session.Id).ToList())
-                };
-            return Json(model);
+            string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
+            if(!Directory.Exists(Server.MapPath("/Files")))
+            {
+                Directory.CreateDirectory(Server.MapPath("/Files"));
+            }
+            docSubmitted.SaveAs(Server.MapPath("/Files/")+filename);
+            track.SubmittedFile.Description = filename;
+            track.Checked = true;
+            var storage = new FileStorage();
+            storage.PutFile(docSubmitted,track.SubmittedFile);
+            Db.SaveChanges();
+            return Json(new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+filename});
         }
 
         public ActionResult CloseCurrentSession()

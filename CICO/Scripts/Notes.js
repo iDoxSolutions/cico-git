@@ -12,11 +12,10 @@ function NoteListModel(item) {
     self.notes = ko.observableArray(item?item.Notes:[]);
     self.Content = ko.observable();
     self.addNote = function () {
-        //alert('');
+        
         //alert(tinyMCE.get('note-editor').getContent());
         var noteContent = tinyMCE.get('note-editor').getContent({ format: 'raw' });
         $.post("/notes/create", { TemplateItemId: item.Id, Content: noteContent },
-            
             function (data) {
                 self.notes.unshift(new NoteModel(data));
                 tinyMCE.get('note-editor').setContent('');

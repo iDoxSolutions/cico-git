@@ -14,7 +14,7 @@ namespace Test
         public void TestUploadDoc()
         {
             var spQuery = new Cico.Models.SharePoint.SharePointDocumentsQuery();
-            //spQuery.Save()
+            spQuery.Save(new byte[] { }, new Dictionary<string, object>(), "sample.txt");
         }
     }
 }
