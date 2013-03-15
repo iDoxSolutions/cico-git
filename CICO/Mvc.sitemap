@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
+            enableLocalization="true">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Edit Employee" controller="Employee" action="Edit"/>
+    <mvcSiteMapNode title="Add Dependent" controller="dependent" action="Create"/>
+    <mvcSiteMapNode title="Admin" controller="Checklists" action="Index" area="admin">
+      <mvcSiteMapNode title="Employees" controller="Employee" action="Index" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Offices" controller="Office" action="Index" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Check List Builder" controller="ChecklistBuilder" action="Index" area="admin">
+        <mvcSiteMapNode title="Edit Check List" controller="ChecklistBuilder" action="Edit" area="admin">
+          <mvcSiteMapNode title="Edit Check List Item" controller="ItemClass" action="Edit" area="admin">
+
+          </mvcSiteMapNode>
+        </mvcSiteMapNode>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
+  </mvcSiteMapNode>
+  
+
+</mvcSiteMap>

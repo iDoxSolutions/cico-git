@@ -7,12 +7,7 @@
 
     </style>
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript">
-/*    tinyMCE.init({
-        mode: "textareas",
-        theme: "simple"
-    });*/
-</script>
+
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
@@ -230,6 +225,7 @@
                 });
                 item.selected(true);
                 ko.cleanNode($("#selectedForm")[0]);
+                
                 switch (item.ItemTemplate) {
                     case "DocumentSubmitted":
                         ko.applyBindings(new DocumentSubmittedModel(item), $("#selectedForm")[0]);
@@ -245,6 +241,8 @@
                         break;
                     default:
                 }
+
+                self.classModel = ko.observable();
                 //ko.cleanNode(document.getElementById("note-list"));
                 //ko.applyBindings(new NoteListModel(item.item), $("#note-list")[0]);
                 

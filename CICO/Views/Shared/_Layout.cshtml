@@ -2,6 +2,7 @@
 
 
 <!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8" />
         <title>@ViewBag.Title</title>
@@ -25,6 +26,7 @@
             <div class="content-wrapper">
                 <div class="float-left">
                     <p class="site-title"><img src="/Images/us_embassy_logo.jpg"/>Check-In & Check-Out</p>
+                    @Html.MvcSiteMap().SiteMapPath()
                 </div>
                 <div class="float-right">
                     <section id="login">
@@ -33,9 +35,10 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("Admin", "Index", "Employee", new { area = "Admin" }, null)</li>
+                            <li>@Html.ActionLink("Admin", "Index", "CheckLists", new { area = "Admin" }, null)</li>
                         </ul>
                     </nav>
+                   
                 </div>
             </div>
             <div style="clear: both"></div>
@@ -44,7 +47,9 @@
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
                 @RenderBody()
-
+                <aside>
+                    @Html.Partial("AsideMenu")
+                </aside>
             </section>
         </div>
         <footer>

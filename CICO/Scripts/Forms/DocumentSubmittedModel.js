@@ -11,7 +11,7 @@
             //beforeSubmit: showRequest,  // pre-submit callback 
             success: function(data) {
                 self.submittedFile(data);
-                item.Checked(true);
+                //item.Checked(true);
                 return false;
             },
             error:function(e) {
