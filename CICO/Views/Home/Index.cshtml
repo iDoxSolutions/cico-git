@@ -14,6 +14,7 @@
 <script type="text/javascript" src="/Scripts/Forms/CicoFormBase.js">
 </script>
 <script type="text/javascript" src="/Scripts/notes.js"></script>
+<script type="text/javascript" src="/Scripts/Forms/DocumentApprovalModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/DocumentSubmittedModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/SelfContainedFormModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/DocumentWritingModel.js"></script>
@@ -43,12 +44,14 @@
                         <div class="homescreen-label">
                             <label>Due Date:</label>
                         </div>
-                            <div  class="homescreen-display" data-bind="text:DueDate"></div>
+                        <div  class="homescreen-display" data-bind="text:DueDate"></div>
+                        
+                        
                         <div class="homescreen-label">
                             <label>Action To Take:</label>
                         </div> 
                         <div data-bind="with:classModel">
-                          
+                            
                             <div id="selectedForm" data-bind="template:{name:templateName}">
                             </div>
                         </div>
@@ -147,13 +150,22 @@
     <div style="clear: both"></div>
 </div>
 
+<script type="text/html" id="DocumentApproval">
+  
+        <div data-bind="html:ApprovalText" ></div>
+        Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a>
+    
+</script>
+
+
 <script type="text/html" id="DocumentWriting">
     DocumentWriting
 </script>
 
 <script type="text/html" id="PhysicalActivity">
+    <div data-bind="html:ApprovalText" ></div>
     
-    <button data-bind="click:complete">Complete</button>
+    <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Complete</button>
 </script>
 
 <script type="text/html" id="DocumentSubmitted">
@@ -246,26 +258,26 @@
         self.notes = new NoteListModel(this.item);
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.DueDate = ditem.DueDate;
-        self.classModel = ko.observable();
+        //self.classModel = ko.observable();
 
         switch (ItemTemplate) {
             case "DocumentSubmitted":
-                //ko.applyBindings(new DocumentSubmittedModel(item), $("#selectedForm")[0]);
                 self.classModel = ko.observable(new DocumentSubmittedModel(this));
                 break;
             case "SelfContainedForm":
-                //ko.applyBindings(new SelfContainedFormModel(item.item), $("#selectedForm")[0]);
                 self.classModel = ko.observable(new SelfContainedFormModel(this));
                 break;
             case "DocumentWriting":
-                //ko.applyBindings(new DocumentWritingModel(item.item), $("#selectedForm")[0]);
-                self.classModel = ko.observable(DocumentWritingModel(this));
+                self.classModel = ko.observable(new DocumentWritingModel(this));
+                break;
+            case "DocumentApproval":
+                self.classModel = ko.observable(new DocumentApprovalModel(this));
                 break;
             case "PhysicalActivity":
-                //ko.applyBindings(new PhysicalActivityModel(item.item), $("#selectedForm")[0]);
                 self.classModel = ko.observable(new PhysicalActivityModel(this));
                 break;
             default:
+                alert('unknown model ' + ItemTemplate);
         }
 
         self.checkIn = function () {

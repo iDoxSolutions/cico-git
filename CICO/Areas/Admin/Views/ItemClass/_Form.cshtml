@@ -86,7 +86,15 @@
         <div class="editor-field">
             @Html.TextAreaFor(c=>c.CheckListItemTemplate.InstructionText)
         </div>
-         <div class="editor-label">
+        
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.CheckListItemTemplate.ApprovalText)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(c=>c.CheckListItemTemplate.ApprovalText)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.SystemFile)
         </div>
         <div class="editor-field">

@@ -53,6 +53,10 @@ namespace Cico.Controllers.ViewModels
         {get; set; }
 
         public FileModel SubmittedFile { get; set; }
+
+        public string ApprovalText
+        {
+            get; set; }
     }
 }
 
@@ -87,7 +91,8 @@ namespace Cico.Controllers
                         FileUrl = checkListItemTemplate.SystemFile==null ? "":"/content/"+checkListItemTemplate.SystemFile.Patch,
                         FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
-                        DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null
+                        DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null,
+                        ApprovalText = checkListItemTemplate.ApprovalText
                         
                         
                     });
@@ -159,6 +164,13 @@ namespace Cico.Controllers
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
             return Json(new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+filename});
+        }
+
+        public ActionResult Check(int id)
+        {
+            var track = UserSession.GetTrack(id);
+            track.Checked = true;
+            return Json(true);
         }
 
         public ActionResult CloseCurrentSession()
