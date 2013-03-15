@@ -1,116 +1,248 @@
 using Cico.Models.Helpers;
 
-namespace Cico.Models
-{
-    public class CicoInit :System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
-    {
+namespace Cico.Models {
+    public class CicoInit : System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext> {
         private Office _hrOffice;
+        private Office _cloOffice;
+        private Office _huOffice;
+        private Office _imOffice;
+        private Office _admOffice;
+        private Office _gsoOffice;
+        private Office _fmcOffice;
+        private Office _rsoOffice;
+        private Office _ambOffice;
 
-        protected override void Seed(CicoContext context)
-        {
 
-            var template1 = context.SystemFiles.Add(new SystemFile() {FileType = "DocTemplate", Description = "Doc Template1", Patch = "DocTemplates/Template1.docx" });
+        protected override void Seed(CicoContext context) {
+
+            var template1 = context.SystemFiles.Add(new SystemFile() { FileType = "DocTemplate", Description = "Doc Template1", Patch = "DocTemplates/Template1.docx" });
             var template2 = context.SystemFiles.Add(new SystemFile() { FileType = "DocTemplate", Description = "Doc Template2", Patch = "DocTemplates/Template2.docx" });
-           
+
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
-            
-            
 
-            context.Settings.Add(new Setting(){Name = "checklisttemplate",Value = "1"});
+
+
+            context.Settings.Add(new Setting() { Name = "checklisttemplate", Value = "1" });
             var x = context.CheckListSessions.Create();
             var template = context.CheckListTemplates.Create();//(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
             template.Name = "Check In";
             template.Type = "Mexico";
             AddStates(context);
 
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate() { Office = _hrOffice,
-                Description = "Schedule meeting with Human Resources Officer"
-                                                                                   , Item = "DocumentSubmitted" 
-                                                                                   , Type = "DocumentSubmitted",
-                                                                              SystemFile = template1
-                                                                                   ,InstructionText = "Please Bring: Copies of Travel orders, passports, visas and stamped Mexican Migratory Forms (FME) for the employee and each family member;3 color photos passport size, face front, white background of employee, spouse and each dependent at post"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
                 Office = _hrOffice,
-                Description = "Pick-up orientation package and forms for GOM Accreditation"
-                                                                                   , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted"
-                                                                                   , InstructionText = "Please Bring: Copie of Travel orders, passports, visas and stamped Mexican Migratory Forms (FME) for the employee and each family member;3 color photos passport size, face front, white background of employee, spouse and each dependent at post" });
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
+                Description = "Submit travel orders"
+
+                                                                                   ,
+                Item = "DocumentSubmitted"
+                                                                                   ,
+                Type = "DocumentSubmitted"
+
+                                                                                   ,
+                SystemFile = template1
+
+                                                                                   ,
+                InstructionText = "Upload a copy of your Travel Orders.  May be electronic copy, scanned or photographed."
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
                 Office = _hrOffice,
-                Description = "Schedule meeting with Management Officer"
-                                                                                   , Item = "PhysicalActivity"
-                                                                                   , Type = "PhysicalActivity"
-                                                                                   , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
+                Description = "Submit passport copy"
+                                                                                                                                                   ,
+                Item = "DocumentSubmitted"
+                                                                                                                                                   ,
+                Type = "DocumentSubmitted"
+                                                                                                                                                   ,
+                InstructionText = "Upload a copy of your Passport.  May be electronic copy, scanned or photographed."
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
                 Office = _hrOffice,
-                Description = "Attend the newcomer orientation"
-                                                                                   , Item = "PhysicalActivity"
-                                                                                   , Type = "PhysicalActivity"
-                                                                                   , InstructionText = "GSO Office: Ext. 2225, 3rd Floor - Room 357. The orientation is helo on Wednesday"
-                                                                                   , AlertDays = "3" });
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
+                Description = "Submit visa"
+                                                                                                                                                   ,
+                Item = "DocumentSubmitted"
+                                                                                                                                                   ,
+                Type = "DocumentSubmitted"
+                                                                                                                                                   ,
+                InstructionText = "Upload a copy of your Mexico Visa.  May be electronic copy, scanned or photographed."
+                                                                                                                                                   ,
+                AlertDays = "3"
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
                 Office = _hrOffice,
-                Description = "Provide copy of diplomatic passport, Mexican visa, travel orders"
-                                                                                   , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted",
-                                                                              SystemFile = template1
-                                                                                   , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
+                Description = "Sign Standards of Conduct"
+                                                                                                                                                   ,
+                Item = "DocumentWriting"
+                                                                                                                                                   ,
+                Type = "DocumentWriting"
+                                                                                                                                                   ,
+                InstructionText = "Download the Standards of Conduct, read and sign.  Then upload copy."
+                                                                                                                                                   ,
+                AlertDays = "3"
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
                 Office = _hrOffice,
-                Description = "Provide copy of diplomatic carnet and supporting documentation"
-                                                                                   , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted",
-                                                                               SystemFile = template1
-                                                                                   , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
-                Office = _hrOffice,
-                Description = "Fill out Travel Card application"
-                                                                                   , Item = "DocumentSubmitted"
-                                                                                   , Type = "DocumentSubmitted",
-                                                                                    SystemFile = template1
-                                                                                   , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3"});
-            template.CheckListItemTemplates.Add(new CheckListItemTemplate()
-            {
-                Office = _hrOffice,
-                Description = "Acknowledge receipt of Mgmt Announcement 11-78"
-                                                                                   , Item = "DocumentApproval"
-                                                                                   , Type = "DocumentApproval"
-                                                                                   , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
-                                                                                   ,AlertDays = "3",SystemFile = template1});
-            
+                Description = "Submit bio form"
+                                                                                                                                                   ,
+                Item = "DocumentWriting"
+                                                                                                                                                   ,
+                Type = "DocumentWriting",
+                SystemFile = template1
+                                                                                                                                                   ,
+                InstructionText = "Download & complete the Biographical History form.  Then upload copy."
+                                                                                                                                                   ,
+                AlertDays = "3"
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _gsoOffice,
+                Description = "Attend orientation"
+                                                                                                                                                   ,
+                Item = "PhysicalActivity"
+                                                                                                                                                   ,
+                Type = "PhysicalActivity",
+                SystemFile = template1
+                                                                                                                                                   ,
+                InstructionText = "Schedule and attend the Newcomer Orientation session.  Contact GSO at this address to schedule your attendence."
+                                                                                                                                                   ,
+                AlertDays = "3"
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _rsoOffice,
+                Description = "RSO security briefing"
+                                                                                                                                                   ,
+                Item = "PhysicalActivity"
+                                                                                                                                                   ,
+                Type = "PhysicalActivity",
+                SystemFile = template1
+                                                                                                                                                   ,
+                InstructionText = "Schedule and attend the RSO Security Briefing.  Contact RSO at this address to schedule your attendence."
+                                                                                                                                                   ,
+                AlertDays = "3"
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _fmcOffice,
+                Description = "Submit EFT form"
+                                                                                                                                                   ,
+                Item = "DocumentWriting"
+                                                                                                                                                   ,
+                Type = "DocumentWriting"
+                                                                                                                                                   ,
+                InstructionText = "Download & complete the Electronic Funds Transfer form.  Then upload copy."
+                                                                                                                                                   ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _imOffice,
+                Description = "Computer security requirements"
+                                                                                                                                                   ,
+                Item = "DocumentSubmitted"
+                                                                                                                                                   ,
+                Type = "DocumentSubmitted"
+                                                                                                                                                   ,
+                InstructionText = "Download the Computer Security Requirements document, then indicate your agreement by checking the box."
+                                                                                                                                                   ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _imOffice,
+                Description = "Unclass ISC user form"
+                                                                                                                                                  ,
+                Item = "DocumentWriting"
+                                                                                                                                                  ,
+                Type = "DocumentWriting"
+                                                                                                                                                  ,
+                InstructionText = "Download & complete the Unclassified System User form.  Then upload copy."
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _huOffice,
+                Description = "Deliver medical records"
+                                                                                                                                                  ,
+                Item = "DocumentWriting"
+                                                                                                                                                  ,
+                Type = "DocumentWriting"
+                                                                                                                                                  ,
+                InstructionText = "Hand deliver a copy of your and your dependents' medical records to the Health Unit ASAP after arrival."
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _cloOffice,
+                Description = "Family network data sheet"
+                                                                                                                                                  ,
+                Item = "DocumentWriting"
+                                                                                                                                                  ,
+                Type = "DocumentWriting"
+                                                                                                                                                  ,
+                InstructionText = "Download & complete the Family Network Data Sheet.  Then upload copy."
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _admOffice,
+                Description = "Schedule mtg with Ambassador"
+                                                                                                                                                  ,
+                Item = "PhysicalActivity"
+                                                                                                                                                  ,
+                Type = "PhysicalActivity"
+                                                                                                                                                  ,
+                InstructionText = "Schedule a meeting with the Ambassador by contacting Anna in ADM at anne@state.gov"
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _gsoOffice,
+                Description = "Submit housing questionaire"
+                                                                                                                                                  ,
+                Item = "DocumentWriting"
+                                                                                                                                                  ,
+                Type = "DocumentWriting"
+                                                                                                                                                  ,
+                InstructionText = "Download & complete the Housing Questionaire form.  Then upload copy."
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+            template.CheckListItemTemplates.Add(new CheckListItemTemplate() {
+                Office = _gsoOffice,
+                Description = "Submit HHE inventory"
+                                                                                                                                                  ,
+                Item = "DocumentWriting"
+                                                                                                                                                  ,
+                Type = "DocumentWriting"
+                                                                                                                                                  ,
+                InstructionText = "Download & complete the HHE/UAB Inventory form.  Then upload copy."
+                                                                                                                                                  ,
+                AlertDays = "3",
+                SystemFile = template1
+            });
+
             context.CheckListTemplates.Add(template);
 
-            
+
             AddSystemForms(context);
             context.SaveChanges();
-           
+
         }
 
-        private void AddSystemForms(CicoContext context)
-        {
+        private void AddSystemForms(CicoContext context) {
             context.DropdownItems.Add(new DropdownItem() { Key = "Form1", Description = "Form 1", ValueType = "SystemForms" });
             context.DropdownItems.Add(new DropdownItem() { Key = "Form2", Description = "Form 2", ValueType = "SystemForms" });
             context.DropdownItems.Add(new DropdownItem() { Key = "Form3", Description = "Form 3", ValueType = "SystemForms" });
         }
 
-        private void AddStates(CicoContext context)
-        {
+        private void AddStates(CicoContext context) {
             context.DropdownItems.Add(new DropdownItem() { Key = "AL", Description = "Alabama", ValueType = "States" });
             context.DropdownItems.Add(new DropdownItem() { Key = "AK", Description = "Alaska", ValueType = "States" });
-            context.DropdownItems.Add(new DropdownItem(){ Key = "AZ", Description = "Arizona", ValueType = "States" });
+            context.DropdownItems.Add(new DropdownItem() { Key = "AZ", Description = "Arizona", ValueType = "States" });
             context.DropdownItems.Add(new DropdownItem() { Key = "AR", Description = "Arkansas", ValueType = "States" });
             context.DropdownItems.Add(new DropdownItem() { Key = "CA", Description = "California", ValueType = "States" });
             context.DropdownItems.Add(new DropdownItem() { Key = "CO", Description = "Colorado", ValueType = "States" });
@@ -197,19 +329,19 @@ namespace Cico.Models
 
 
             _hrOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "HR" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "ADM" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "GSO" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "FMC" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "RSO" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "IM" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "HU" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "CLO" });
-            context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "AMB" });
-            
+            _admOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "ADM" });
+            _gsoOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "GSO" });
+            _fmcOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "FMC" });
+            _rsoOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "RSO" });
+            _imOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "IM" });
+            _huOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "HU" });
+            _cloOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "CLO" });
+            _ambOffice = context.Offices.Add(new Office() { ContactUser = "Ken Hambright", Name = "AMB" });
 
 
 
 
-        } 
+
+        }
     }
 }
