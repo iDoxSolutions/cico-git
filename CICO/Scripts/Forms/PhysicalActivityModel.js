@@ -3,7 +3,7 @@
     self.FormBase = new CicoFormBase(item);
     self.templateName = "PhysicalActivity";
     self.complete = function () {
-        item.Checked(true);
+        item.ItemChecked(true);
         alert('');
     };
 }
