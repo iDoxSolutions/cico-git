@@ -159,9 +159,11 @@
 
 
 <script type="text/html" id="DocumentSubmitted">
-   <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
+    Submit the file.
+    <a href="#" data-bind="click:submitDoc">Submit</a>
+    <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
-        <input type="submit" value="Submit" />
+        
     </form>
     <div data-bind="with:submittedFile">
         Submitted file:
@@ -177,12 +179,17 @@
 
 <script type="text/html" id="DocumentWriting">
     
-    Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
-
+    Step 1: Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
+    <div>
+            Step 2: Submit the file.
+            <a href="#" data-bind="click:submitDoc">Submit</a>
+        </div>        
     <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
-        <input type="submit" value="Submit" />
+        
+        
     </form>
+    <div></div>
     <div data-bind="with:submittedFile">
         Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
