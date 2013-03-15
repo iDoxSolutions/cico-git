@@ -7,12 +7,7 @@
 
     </style>
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript">
-/*    tinyMCE.init({
-        mode: "textareas",
-        theme: "simple"
-    });*/
-</script>
+
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
@@ -48,17 +43,18 @@
                         <div class="homescreen-label">
                             <label>Due Date:</label>
                         </div>
-                        
-                            <div  class="duedate homescreen-display" data-bind="text:DueDate"></div>
-                            
+                            <div  class="homescreen-display" data-bind="text:DueDate"></div>
                         <div class="homescreen-label">
                             <label>Action To Take:</label>
                         </div> 
-                    </div>
-                    <div data-bind="stopBindings: true">
-                        <div id="selectedForm" data-bind="template:{name:templateName}">
+                        <div data-bind="with:classModel">
+                          
+                            <div id="selectedForm" data-bind="template:{name:templateName}">
+                            </div>
                         </div>
+
                     </div>
+                    
                     <div data-bind="with:selectedItem">
                         <div class="homescreen-label">
                             <label>Notes</label>
@@ -133,7 +129,7 @@
                             <div style="float:right;padding-right: 5px;text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
                                 <div class="checkbox">
-                                    <input data-bind="checked: Checked" type="checkbox" disabled="disabled" />
+                                    <input data-bind="checked: ItemChecked" type="checkbox" disabled="disabled" />
                                 </div>
                             </div>
                             <div style="clear: both"></div>
@@ -156,8 +152,8 @@
 </script>
 
 <script type="text/html" id="PhysicalActivity">
-    PhysicalActivity
     
+    <button data-bind="click:complete">Complete</button>
 </script>
 
 <script type="text/html" id="DocumentSubmitted">
@@ -170,7 +166,7 @@
     </form>
     <div data-bind="with:submittedFile">
         Submitted file:
-        <a  data-bind="attr: { href: Url },text:Description"></a>
+        <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
     </div>
 
 </script>
@@ -229,27 +225,6 @@
                     ii.selected(false);
                 });
                 item.selected(true);
-                ko.cleanNode($("#selectedForm")[0]);
-                switch (item.ItemTemplate) {
-                    case "DocumentSubmitted":
-                        ko.applyBindings(new DocumentSubmittedModel(item), $("#selectedForm")[0]);
-                        break;
-                    case "SelfContainedForm":
-                        ko.applyBindings(new SelfContainedFormModel(item.item), $("#selectedForm")[0]);
-                        break;
-                    case "DocumentWriting":
-                        ko.applyBindings(new DocumentWritingModel(item.item), $("#selectedForm")[0]);
-                        break;
-                    case "PhysicalActivity":
-                        ko.applyBindings(new PhysicalActivityModel(item.item), $("#selectedForm")[0]);
-                        break;
-                    default:
-                }
-                //ko.cleanNode(document.getElementById("note-list"));
-                //ko.applyBindings(new NoteListModel(item.item), $("#note-list")[0]);
-                
-
-
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
                 tinyMCE.init({
@@ -262,7 +237,7 @@
 
 
         self.Id = id;
-        self.Checked = ko.observable(checked);
+        self.ItemChecked = ko.observable(checked);
         self.Description = ko.observable(description);
         self.menuItems = ko.observableArray([]);
         self.selected = ko.observable(false);
@@ -271,16 +246,32 @@
         self.notes = new NoteListModel(this.item);
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.DueDate = ditem.DueDate;
+        self.classModel = ko.observable();
+
+        switch (ItemTemplate) {
+            case "DocumentSubmitted":
+                //ko.applyBindings(new DocumentSubmittedModel(item), $("#selectedForm")[0]);
+                self.classModel = ko.observable(new DocumentSubmittedModel(this));
+                break;
+            case "SelfContainedForm":
+                //ko.applyBindings(new SelfContainedFormModel(item.item), $("#selectedForm")[0]);
+                self.classModel = ko.observable(new SelfContainedFormModel(this));
+                break;
+            case "DocumentWriting":
+                //ko.applyBindings(new DocumentWritingModel(item.item), $("#selectedForm")[0]);
+                self.classModel = ko.observable(DocumentWritingModel(this));
+                break;
+            case "PhysicalActivity":
+                //ko.applyBindings(new PhysicalActivityModel(item.item), $("#selectedForm")[0]);
+                self.classModel = ko.observable(new PhysicalActivityModel(this));
+                break;
+            default:
+        }
+
         self.checkIn = function () {
 
         };
-        self.Checked.subscribe(
-            function (newValue) {
-                $.post("/checklist/updateitem", self, function (data) {
-
-                });
-            }
-        );
+        
     }
 
     function HomeViewModel() {

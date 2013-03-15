@@ -171,7 +171,9 @@ namespace Cico.Models.SharePoint
             var copy = new Copy { Url = url + "/" + siteName + "/_vti_bin/copy.asmx", Credentials = new NetworkCredential(userName, password) };
 
 
-            var dest = string.Format("{0}/{3}/{1}/{2}", url, libraryName, name, siteName);//_siteUrl + "/" + _libraryName + "/" + Path.GetFileName(filename);
+            var dest = !string.IsNullOrEmpty(siteName)
+                           ? string.Format("{0}/{3}/{1}/{2}", url, libraryName, name, siteName)
+                           : string.Format("{0}/{1}/{2}", url, libraryName, name);
             string[] destinationUrlColl = { dest };
 
             var fieldInfo = new List<FieldInformation>();
