@@ -55,10 +55,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Cico.Commons\Cico.Commons.csproj">
+      <Project>{d0956fdb-1a67-42d7-995f-6928eabc4a84}</Project>
+      <Name>Cico.Commons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CICO\CICO.csproj">
       <Project>{8d77bf76-b221-4542-bef1-7330a37abb00}</Project>
       <Name>CICO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commons\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

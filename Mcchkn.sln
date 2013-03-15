@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CICO", "CICO\CICO.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{DACA75F0-E2B3-489A-B97F-05C546F29C86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cico.Commons", "Cico.Commons\Cico.Commons.csproj", "{D0956FDB-1A67-42D7-995F-6928EABC4A84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{DACA75F0-E2B3-489A-B97F-05C546F29C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DACA75F0-E2B3-489A-B97F-05C546F29C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DACA75F0-E2B3-489A-B97F-05C546F29C86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0956FDB-1A67-42D7-995F-6928EABC4A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0956FDB-1A67-42D7-995F-6928EABC4A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0956FDB-1A67-42D7-995F-6928EABC4A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0956FDB-1A67-42D7-995F-6928EABC4A84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
