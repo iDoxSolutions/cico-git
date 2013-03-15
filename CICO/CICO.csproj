@@ -253,6 +253,7 @@
     <Content Include="Images\us_embassy_logo.jpg" />
     <Content Include="Scripts\DocSubmitted\DocSubmitted.js" />
     <Content Include="Scripts\Forms\CicoFormBase.js" />
+    <Content Include="Scripts\Forms\DocumentApprovalModel.js" />
     <Content Include="Scripts\Forms\DocumentSubmittedModel.js" />
     <Content Include="Scripts\Forms\DocumentWritingModel.js" />
     <Content Include="Scripts\Forms\PhysicalActivityModel.js" />

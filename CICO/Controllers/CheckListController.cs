@@ -161,6 +161,13 @@ namespace Cico.Controllers
             return Json(new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+filename});
         }
 
+        public ActionResult Check(int id)
+        {
+            var track = UserSession.GetTrack(id);
+            track.Checked = true;
+            return Json(true);
+        }
+
         public ActionResult CloseCurrentSession()
         {
             this.UserSession.GetCurrent().Active = false;

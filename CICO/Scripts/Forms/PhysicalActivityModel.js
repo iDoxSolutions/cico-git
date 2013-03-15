@@ -4,6 +4,5 @@
     self.templateName = "PhysicalActivity";
     self.complete = function () {
         item.ItemChecked(true);
-        alert('');
     };
 }

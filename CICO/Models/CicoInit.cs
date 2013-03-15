@@ -15,6 +15,7 @@ namespace Cico.Models
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "SelfContainedForm", Description = "Self-Contained Form" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentSubmitted", Description = "Document Submitted" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentWriting", Description = "Document w/Writing" });
+            context.CheckListItemTypes.Add(new CheckListItemType() { Name = "DocumentApproval", Description = "Document w/Approval" });
             context.CheckListItemTypes.Add(new CheckListItemType() { Name = "PhysicalActivity", Description = "Physical Activity" });
             
             
@@ -89,6 +90,7 @@ namespace Cico.Models
                                                                                    , Item = "DocumentApproval"
                                                                                    , Type = "DocumentApproval"
                                                                                    , InstructionText = "Management Office: Ext. 2300, 3rd Floor - Room 357"
+                                                                                   ,ApprovalText = " This is sample approval text"
                                                                                    ,AlertDays = "3",SystemFile = template1});
             
             context.CheckListTemplates.Add(template);

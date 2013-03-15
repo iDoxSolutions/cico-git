@@ -53,6 +53,10 @@ namespace Cico.Models
         
         [Display(Name = "Item Instructions ")]
         public string InstructionText { get; set; }
+
+        [Display(Name = "Approval Text")]
+        public string ApprovalText { get; set; }
+
         [Display(Name = "Item Group")]
         public string Group { get; set; }
         [Display(Name = "Item Alert Days")]
@@ -63,13 +67,10 @@ namespace Cico.Models
         public virtual CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
-        
+        [Display(Name = "File")]
         public virtual SystemFile SystemFile{get; set; }
 
-        
         [Display(Name = "Number of days to complete item")]
-        public int DueDays
-        {
-            get; set; }
+        public int DueDays{get; set; }
     }
 }
