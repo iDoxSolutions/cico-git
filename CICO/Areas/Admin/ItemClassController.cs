@@ -126,6 +126,7 @@ namespace Cico.Areas.Admin
                 item.NotesAccess = model.CheckListItemTemplate.NotesAccess;
                 item.Dependents = model.CheckListItemTemplate.Dependents;
                 item.InstructionText = model.CheckListItemTemplate.InstructionText;
+                item.ApprovalText = model.CheckListItemTemplate.ApprovalText;
                 db.SaveChanges();
                 return RedirectToAction("Edit", "ChecklistBuilder",new {id=model.TemplateId} );
             }

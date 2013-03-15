@@ -4,6 +4,8 @@
     self.templateName = "DocumentApproval";
     self.FileUrl = item.item.FileUrl;
     self.FileDesc = item.item.FileDesc;
+    
+    self.ApprovalText = ko.observable(item.item.ApprovalText);
     self.docDownloaded = function () {
         $.post('/checklist/check/', { id: item.item.Id },function() {
             item.ItemChecked(true);

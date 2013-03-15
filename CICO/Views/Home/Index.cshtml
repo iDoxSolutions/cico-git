@@ -46,7 +46,7 @@
                         </div>
                         <div  class="homescreen-display" data-bind="text:DueDate"></div>
                         
-                        <div data-bind="text:ItemTemplate" ></div>
+                        
                         <div class="homescreen-label">
                             <label>Action To Take:</label>
                         </div> 
@@ -151,7 +151,8 @@
 </div>
 
 <script type="text/html" id="DocumentApproval">
-    
+  
+        <div data-bind="html:ApprovalText" ></div>
         Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a>
     
 </script>
@@ -162,8 +163,9 @@
 </script>
 
 <script type="text/html" id="PhysicalActivity">
+    <div data-bind="html:ApprovalText" ></div>
     
-    <button data-bind="click:complete">Complete</button>
+    <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Complete</button>
 </script>
 
 <script type="text/html" id="DocumentSubmitted">
