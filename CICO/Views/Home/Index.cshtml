@@ -158,8 +158,15 @@
 </script>
 
 
-<script type="text/html" id="DocumentWriting">
-    DocumentWriting
+<script type="text/html" id="DocumentSubmitted">
+   <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
+        <input name="docSubmitted" type="file" />
+        <input type="submit" value="Submit" />
+    </form>
+    <div data-bind="with:submittedFile">
+        Submitted file:
+        <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
+    </div>
 </script>
 
 <script type="text/html" id="PhysicalActivity">
@@ -168,7 +175,7 @@
     <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Complete</button>
 </script>
 
-<script type="text/html" id="DocumentSubmitted">
+<script type="text/html" id="DocumentWriting">
     
     Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
 
