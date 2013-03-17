@@ -68,6 +68,24 @@ namespace Cico.Controllers
             }
         }
 
+        // GET: /Admin/Office/Delete/5
+
+        public ActionResult Delete(int id) {
+            var dependent = Db.Dependents.Find(id);
+            return View(dependent);
+        }
+
+        //
+        // POST: /Admin/Office/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id) {
+            var dependent = Db.Dependents.Find(id);
+            Db.Dependents.Remove(dependent);
+            Db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

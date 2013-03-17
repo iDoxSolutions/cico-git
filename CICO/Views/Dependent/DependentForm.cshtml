@@ -16,11 +16,18 @@
         <div class="editor-label">
             @Html.LabelFor(model => model.Dependent.DateOfBirth)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.DateOfBirth)
-            @Html.ValidationMessageFor(model => model.Dependent.DateOfBirth)
+           <div class="editor-field">
+               @Html.EditorFor(model => model.Dependent.DateOfBirth)
+               @Html.ValidationMessageFor(model => model.Dependent.DateOfBirth)
+           </div>
+            <div class="editor-label">
+            @Html.LabelFor(model => model.Dependent.Relationship)
         </div>
-
+           <div class="editor-field">
+               @Html.DropDownListFor(model => model.Dependent, Html.GetDropdownItems("Relationship"), "")
+               @Html.ValidationMessageFor(model => model.Dependent.DateOfBirth)
+           </div>
+          
         <div class="editor-label">
             @Html.LabelFor(model => model.Dependent.Title)
         </div>

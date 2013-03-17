@@ -42,7 +42,7 @@
                         <div class="homescreen-label">
                             <label>Instructions:</label>
                         </div>
-                        <div style="min-height: 50px" class="instructions homescreen-display" data-bind="html:InstructionText"></div>
+                        <div style="min-height: 50px" class="instructions homescreen-instructions" data-bind="html:InstructionText"></div>
                         <div class="homescreen-label">
                             <label>Due Date:</label>
                         </div>
@@ -123,8 +123,8 @@
                 <li><a href="#checkOut">Check-out</a></li>
             </ul>
             
-            <div id="checkIn">
-                <div class="homescreen-label">
+            <div id="checkIn" style="overflow-y:scroll; height: 750px" >
+                <div class="homescreen-instructions">
                     <label>Click on an item from the list to complete</label>
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">

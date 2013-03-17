@@ -1,12 +1,18 @@
-﻿ <h3>Admin</h3>
+﻿@using Cico.Models.Helpers
+ <h3>Select Admin Option</h3>
     <p>
-        Use this area to provide additional information.
+        <select id="admin" name="admin">
+		<option value="">Checklist builder </option>
+		<option value=" ">Office</option>
+         <option value=" ">Users</option>
+           <option value=" ">Checklist management</option>
+	</select>
+
     </p>
     <ul>
         <li>@Html.ActionLink("Checklist builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
         <li>@Html.ActionLink("Office", "Index", "Office", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Staff", "Index", "Staff", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Employee", "Index", "Employee", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Users", "Index", "Employee", new { area = "Admin" }, null)</li>
         
         <li>@Html.ActionLink("CheckLists", "Index", "CheckLists")</li>
     </ul>

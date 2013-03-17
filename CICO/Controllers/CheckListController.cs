@@ -125,13 +125,13 @@ namespace Cico.Controllers
                 checkListItemSubmitionTracks.FirstOrDefault(
                     c =>
                     c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
-            if (track == null)
+            if (!track.Checked)
             {
                 return "red";
             }
             else
             {
-                if (checkListItemTemplate.Provisional)
+                if (checkListItemTemplate.Provisional & track.Checked)
                 {
                     return "yellow";
                 }

@@ -23,12 +23,18 @@
             <td>
                 @dep.GivenName
             </td>
-        
+         <td>
+                @dep.Surname
+            </td>
             <td>
                 @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
             </td>
+             <td>
+                @dep.Relationship
+            </td>
             <td>
-                @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})
+                @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
+                @Html.ActionLink("Delete", "Edit",  new {id=dep.Id.ToString()})
             </td>
         </tr>
     }

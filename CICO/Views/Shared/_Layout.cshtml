@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using Cico.Models.Helpers
 
 
 <!DOCTYPE html>
@@ -48,16 +49,14 @@
         <div id="body">
             @RenderSection("featured", required: false)
             <section class="content-wrapper main-content clear-fix">
+                @Html.Partial("AsideMenu")
                 @RenderBody()
-                <aside>
-                    @Html.Partial("AsideMenu")
-                </aside>
             </section>
         </div>
         <footer>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p>&copy; IDOX</p>
+                    <p></p>
                 </div>
             </div>
         </footer>
