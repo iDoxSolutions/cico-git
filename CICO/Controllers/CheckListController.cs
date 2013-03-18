@@ -80,7 +80,7 @@ namespace Cico.Controllers
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
-                        SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+track.SubmittedFile.Description},
+                        SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
@@ -163,7 +163,7 @@ namespace Cico.Controllers
             var storage = new FileStorage();
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
-            return Json(new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+filename});
+            return Json(new FileModel() { Description = track.SubmittedFile.Description, Url = "/filestorage?id=" + track.SubmittedFile.Id });
         }
 
         public ActionResult Check(int id)
