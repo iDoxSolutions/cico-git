@@ -53,6 +53,28 @@ namespace Cico.Models.SharePoint
 
         }
 
+        public byte[] GetFile(string url)
+        {
+            var client = new WebClient();
+            client.Credentials = new NetworkCredential(userName, password);
+            var bytes = client.DownloadData(url);
+            return bytes;
+        }
+
+        public string CreateFolder( string folder)
+        {
+            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
+
+            string xmlconst = "<Batch OnError='Continue'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
+            XmlDocument doc = new XmlDocument();
+            string xmlFolder = xmlconst.Replace("!@foldername", folder);
+            doc.LoadXml(xmlFolder);
+            XmlNode batchNode = doc.SelectSingleNode("//Batch");
+            XmlNode resultNode = listProxy.UpdateListItems(libraryName, batchNode);
+            return resultNode.InnerXml;
+        }
+       
+
         public SharePointDocumentsQuery()
         {
             var config = (CicoConfiguration)ConfigurationManager.GetSection("cicoconfiguration");
@@ -168,7 +190,17 @@ namespace Cico.Models.SharePoint
         {
             string msg = String.Empty;
 
-            var copy = new Copy { Url = url + "/" + siteName + "/_vti_bin/copy.asmx", Credentials = new NetworkCredential(userName, password) };
+            var copy = !string.IsNullOrEmpty(siteName)
+                           ? new Copy
+                               {
+                                   Url = url + "/" + siteName + "/_vti_bin/copy.asmx",
+                                   Credentials = new NetworkCredential(userName, password)
+                               }
+                           : new Copy
+                               {
+                                   Url = url +  "/_vti_bin/copy.asmx",
+                                   Credentials = new NetworkCredential(userName, password)
+                               };
 
 
             var dest = !string.IsNullOrEmpty(siteName)
