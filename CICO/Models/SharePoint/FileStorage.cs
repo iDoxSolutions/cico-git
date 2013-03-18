@@ -12,9 +12,15 @@ namespace Cico.Models.SharePoint
         SharePointDocumentsQuery _query = new SharePointDocumentsQuery();
         public void PutFile(HttpPostedFileBase postedFile, SystemFile systemFile)
         {
+            var username = HttpContext.Current.User.Identity.Name;
+            if (username.Contains("\\"))
+            {
+                username = username.Substring(username.IndexOf("\\") + 1);
+            }
+            
             var buffer = new byte[postedFile.InputStream.Length];
             postedFile.InputStream.Read(buffer, 0, (int) postedFile.InputStream.Length);
-            var fName = "/test/"+DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture) + Path.GetFileName(postedFile.FileName);
+            var fName = DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture) + Path.GetFileName(postedFile.FileName);
             var path = _query.Save(buffer, new Dictionary<string, object>(),fName );
             systemFile.Description = fName;
             systemFile.Patch = path;

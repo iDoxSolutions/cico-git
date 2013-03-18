@@ -168,7 +168,17 @@ namespace Cico.Models.SharePoint
         {
             string msg = String.Empty;
 
-            var copy = new Copy { Url = url + "/" + siteName + "/_vti_bin/copy.asmx", Credentials = new NetworkCredential(userName, password) };
+            var copy = !string.IsNullOrEmpty(siteName)
+                           ? new Copy
+                               {
+                                   Url = url + "/" + siteName + "/_vti_bin/copy.asmx",
+                                   Credentials = new NetworkCredential(userName, password)
+                               }
+                           : new Copy
+                               {
+                                   Url = url +  "/_vti_bin/copy.asmx",
+                                   Credentials = new NetworkCredential(userName, password)
+                               };
 
 
             var dest = !string.IsNullOrEmpty(siteName)
