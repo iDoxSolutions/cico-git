@@ -5,7 +5,7 @@
     
 }
 
-<h2>Checklist  Builder</h2>
+<h2>Check List  Builder</h2>
 
 <table>
     <tr>
@@ -20,9 +20,15 @@
                 @Html.ActionLink(item.Name,"Edit",new {id=item.CheckListTemplateId})
                 
             </td>
+            <td>
+                @if (!item.Published)
+                {
+                    <form action="/admin/checklistbuilder/publish"><button type="submit">Publish</button><input type="hidden" value="@item.CheckListTemplateId"/></form>
+                }
+            </td>
         </tr>
     }
          
-    @Html.ActionLink("Create Template","Create")
+    
 
 </table>

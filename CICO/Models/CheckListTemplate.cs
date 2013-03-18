@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
 {
-    public class CheckListTemplate
+    public class CheckListTemplate:EntityBase
     {
         public CheckListTemplate()
         {
@@ -26,6 +26,8 @@ namespace Cico.Models
         public DateTime? EndDate { get; set; }
         [Display(Name = "CheckList Due Date")]
         public DateTime? DueDate { get; set; }
+        public bool Published { get; set; }
+
         public virtual IList<CheckListItemTemplate> CheckListItemTemplates { get; set; }
         public virtual IList<CheckListSession> CheckListSessions { get; set; }
    }

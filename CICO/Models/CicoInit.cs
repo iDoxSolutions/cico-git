@@ -59,7 +59,9 @@ namespace Cico.Models
             var template = context.CheckListTemplates.Create();
             //(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
             template.Name = "Check In";
-            template.Type = "Mexico";
+            template.Type = "CheckIn";
+            template.Published = true;
+
             AddStates(context);
             AddOffices(context);
 

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -37,7 +39,7 @@ namespace Cico.Areas.Admin
     }
 
 
-    public class CheckListBuilderController : Controller
+    public class CheckListBuilderController : Cico.Controllers.ControllerBase
     {
         //
         // GET: /Admin/CheckListBuilder/
@@ -45,9 +47,10 @@ namespace Cico.Areas.Admin
 
         public ActionResult Index()
         {
-            var list = db.CheckListTemplates.ToList();
-
-            return View(list);
+            //var list = db.CheckListTemplates.ToList();
+            var temp = Db.CheckListTemplates.SingleOrDefault(c => c.Active == true && c.Published==false);
+            //if(temp)
+            return View(new List<CheckListTemplate>(){temp});
         }
 
 
@@ -105,7 +108,11 @@ namespace Cico.Areas.Admin
 
         public ActionResult Edit(int id,TemplateModel filter)
         {
-            var item = db.CheckListTemplates.Single(c => c.CheckListTemplateId == id);
+            var item = Db.CheckListTemplates.SingleOrDefault(c=>c.Active && c.Published==false);
+            if (item == null)
+            {
+                item = DuplicateCurrent();
+            }
             var itemTemplates = filter.SelectedOffice == null ? item.CheckListItemTemplates : item.CheckListItemTemplates.Where(c=>c.Office.OfficeId == filter.SelectedOffice);
             var model = new TemplateModel()
                 {
@@ -125,6 +132,31 @@ namespace Cico.Areas.Admin
             model.Load(db);
 
             return View(model);
+        }
+
+        public ActionResult Publish()
+        {
+            var current = Db.CheckListTemplates.SingleOrDefault(c => c.Active && c.Published == true);
+            var newone  = Db.CheckListTemplates.SingleOrDefault(c => c.Active && c.Published == false);
+            current.Active = false;
+            newone.Published = true;
+            Db.Entry(current).State = EntityState.Modified;
+            Db.Entry(newone).State = EntityState.Modified;
+            return RedirectToAction("edit",new {id=0});
+        }
+
+        private CheckListTemplate DuplicateCurrent()
+        {
+            var current = Db.CheckListTemplates.Include("CheckListItemTemplates").Include("CheckListItemTemplates.Office").First(c => c.Published == true && c.Active);
+            current.Published = false;
+            foreach (var checkListItemTemplate in current.CheckListItemTemplates)
+            {
+                Db.Entry(checkListItemTemplate).State = EntityState.Added;
+            }
+
+            Db.Entry(current).State = EntityState.Added;
+            
+            return current;
         }
     }
 }

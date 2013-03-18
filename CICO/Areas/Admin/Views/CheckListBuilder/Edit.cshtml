@@ -6,10 +6,9 @@
 }
 
 <h2>Edit checklist template</h2>
-
-@Html.TextBoxFor(c=>c.CheckListTemplate.Name)
-
-@Html.ActionLink("New Items","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
+<div>
+    @Html.ActionLink("New Item","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
+</div>
 
 @using (Html.BeginForm())
 {

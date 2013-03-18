@@ -22,10 +22,11 @@ namespace Cico.Models.Authentication
         public CheckListSession GetCurrent()
         {
             var uname = _httpContext.User.Identity.Name;
-            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active);
+            var template = GetCurrentTemplate();
+            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active );
             if (session == null)
             {
-                var template = GetCurrentTemplate();
+                
 
                 var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
                 if (employee == null)
@@ -59,7 +60,7 @@ namespace Cico.Models.Authentication
         {
             var template = _db.Settings.First(c => c.Name == "checklisttemplate");
             var templateId = Int32.Parse(template.Value);
-            return _db.CheckListTemplates.First(c => c.CheckListTemplateId == templateId);
+            return _db.CheckListTemplates.Single(c => c.Published && c.Active);
         }
 
         public CheckListItemSubmitionTrack GetTrack(int checklistItemTemplateId)
