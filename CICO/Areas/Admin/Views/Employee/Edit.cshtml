@@ -5,6 +5,11 @@
     ViewBag.Title = "Edit Employee";
 }
 
+<div>
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
 <h2>Edit</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
@@ -354,5 +359,6 @@
     </fieldset>
 }
 <div>
+     <input type="submit" value="Save" />
     @Html.ActionLink("Back to List", "Index")
 </div>

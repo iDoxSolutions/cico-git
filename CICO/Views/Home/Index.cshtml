@@ -20,6 +20,7 @@
 <script type="text/javascript" src="/Scripts/Forms/SelfContainedFormModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/DocumentWritingModel.js"></script>
 <script type="text/javascript" src="/Scripts/Forms/PhysicalActivityModel.js"></script>
+
 <div class="columnsContainer">
     <div class="rightColumn">
         <div id="infoTabs">
@@ -33,7 +34,6 @@
             <div id="completion">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                        <a style="float: right">Please complete the form</a>
                         <div style="clear:both"></div>
                     </div>
                     <div data-bind="with:selectedItem">
@@ -41,7 +41,7 @@
                         <div class="homescreen-label">
                             <label>Instructions:</label>
                         </div>
-                        <div style="min-height: 50px" class="instructions homescreen-display" data-bind="html:InstructionText"></div>
+                        <div style="min-height: 50px" class="instructions homescreen-instructions" data-bind="html:InstructionText"></div>
                         <div class="homescreen-label">
                             <label>Due Date:</label>
                         </div>
@@ -122,8 +122,8 @@
                 <li><a href="#checkOut">Check-out</a></li>
             </ul>
             
-            <div id="checkIn">
-                <div class="homescreen-label">
+            <div id="checkIn" style="overflow-y:scroll; height: 750px" >
+                <div class="homescreen-instructions">
                     <label>Click on an item from the list to complete</label>
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">

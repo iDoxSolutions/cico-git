@@ -4,7 +4,8 @@
 {
     @Html.ValidationSummary(true)
         <fieldset class="two-column-form" style="width:80%">
-          <legend>Employee</legend>
+            <legend>Employee</legend>
+            <input type="submit" value="Submit"/>
             <div>
                 <div class="float-left" style="width: 47%" >
                     <h3>Personal Data</h3>
@@ -22,7 +23,13 @@
                         @Html.EditorFor(model => model.GivenName)
                         @Html.ValidationMessageFor(model => model.GivenName)
                     </div>
-                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Surname)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Surname)
+                        @Html.ValidationMessageFor(model => model.Surname)
+                    </div>
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Title)
@@ -150,17 +157,25 @@
                         @Html.ValidationMessageFor(model => model.RoutingNumber)
                     </div>
 
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.Surname)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.Surname)
-                        @Html.ValidationMessageFor(model => model.Surname)
-                    </div>
+                    
                </div>
                 <div class="float-right" style="width: 47%">
                     <h3>Posting Information</h3>
                     
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.TourEndDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TourEndDate)
+                        @Html.ValidationMessageFor(model => model.TourEndDate)
+                    </div>
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.ArrivalDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ArrivalDate)
+                        @Html.ValidationMessageFor(model => model.ArrivalDate)
+                    </div>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Location)
                     </div>
@@ -204,13 +219,7 @@
                         @Html.DropDownListFor(model => model.LegalResidenceState, Html.GetDropdownItems("States"), "")
                         @Html.ValidationMessageFor(model => model.PriorPostState)
                     </div>
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.TourEndDate)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.TourEndDate)
-                        @Html.ValidationMessageFor(model => model.TourEndDate)
-                    </div>
+                   
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.VisaExpiration)
@@ -244,13 +253,7 @@
                         @Html.ValidationMessageFor(model => model.AgencyOrSection)
                     </div>
 
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.ArrivalDate)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.ArrivalDate)
-                        @Html.ValidationMessageFor(model => model.ArrivalDate)
-                    </div>
+                   
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.BankAccount)

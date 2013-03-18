@@ -16,6 +16,9 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Surname")]
         [StringLength(65)]
         public string Surname { get; set; }
+        [DisplayName("Relationship")]
+        [StringLength(20)]
+        public string Relationship { get; set; }
         [DisplayName("Date of Birth")]
         public DateTime? DateOfBirth { get; set; }
         [DisplayName("Title/Salutation")]

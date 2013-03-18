@@ -944,7 +944,7 @@ div.tabcontents div.content h2 {
     }
     .homescreen-label label{
         font-style: normal;
-        font-size: xx-small;
+        font-size: medium;
         font-weight: normal;
         padding-top: 1px;
         padding-bottom: 1px;
@@ -955,13 +955,25 @@ div.tabcontents div.content h2 {
     .homescreen-display {
         padding-left: 5px;
         font-size: small;
-
+	    color: brown;
         min-height: 20px;
         padding-top: 2px;
         padding-bottom: 2px;
         border: 1px solid #e2e2e2;
         vertical-align: central
     }
+	.homescreen-instructions {
+        font-style: normal;
+		color: blue;
+        font-size: small;
+        font-weight: normal;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        margin-top: 3px;
+        margin-bottom: 1px;
+        
+    }
+	    
 
     .two-column-form {
         
