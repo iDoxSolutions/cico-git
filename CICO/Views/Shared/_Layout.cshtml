@@ -28,7 +28,11 @@
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
-                    <p class="site-title"><img src="/Images/us_embassy_logo.jpg"/>Check-In & Check-Out</p>
+                    <p class="site-title"><img src="/Images/us_embassy_logo.jpg"/>Check-In & Check-Out
+                       @User.Identity.Name
+                       
+                    </p>
+
                     @Html.MvcSiteMap().SiteMapPath()
                 </div>
                 <div class="float-right">

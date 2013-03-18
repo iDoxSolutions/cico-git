@@ -7,7 +7,7 @@
         <legend>Employee</legend>
         <div>
             <div class="float-left" style="width: 48%">
-                <h5>Personal data</h5>
+                <h5>Personal Data</h5>
 
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.DateOfBirth)
@@ -199,6 +199,20 @@
             </div>
             <div class="float-right" style="width: 48%">
                 <h5>Posting Information</h5>
+                <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.ArrivalDate)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.ArrivalDate)
+                    @Html.ValidationMessageFor(model => model.Employee.ArrivalDate)
+                </div>
+                 <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.TourEndDate)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.TourEndDate)
+                    @Html.ValidationMessageFor(model => model.Employee.TourEndDate)
+                </div>
                  <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.Location)
                 </div>
@@ -214,20 +228,8 @@
                     @Html.DisplayFor(model => model.Employee.Office)
                     @Html.ValidationMessageFor(model => model.Employee.Office)
                 </div>
-                <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.ArrivalDate)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.ArrivalDate)
-                    @Html.ValidationMessageFor(model => model.Employee.ArrivalDate)
-                </div>
-                <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.TourEndDate)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.TourEndDate)
-                    @Html.ValidationMessageFor(model => model.Employee.TourEndDate)
-                </div>
+                
+               
 
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.VisaExpiration)
@@ -278,10 +280,6 @@
                     @Html.DisplayFor(model => model.Employee.CellPhone)
                     @Html.ValidationMessageFor(model => model.Employee.CellPhone)
                 </div>
-
-
-
-
 
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactEmail)
