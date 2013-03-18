@@ -21,6 +21,21 @@ namespace Cico.Models.SharePoint
         protected string siteName = "TeamSite";
         protected string libId = "{AFF799FF-F870-4A3A-9A14-2C6121F828D2}";
         protected string libraryName = "DocLib";
+
+
+        public string CreateFolder(string baseFolder, string folder)
+        {
+            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
+
+            string xmlconst = "<Batch OnError='Continue' RootFolder='" + baseFolder + "'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
+            XmlDocument doc = new XmlDocument();
+            string xmlFolder = xmlconst.Replace("!@foldername", folder);
+            doc.LoadXml(xmlFolder);
+            XmlNode batchNode = doc.SelectSingleNode("//Batch");
+            XmlNode resultNode = listProxy.UpdateListItems("testLib", batchNode);
+            return resultNode.InnerXml;
+        }
+       
     
         private CookieContainer _cc;
         private CookieContainer cc
