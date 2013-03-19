@@ -99,22 +99,7 @@ namespace Cico.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult UpdateEmployeeData(Employee model)
-        {
-            if (ModelState.IsValid)
-            {
-                return null;
-            }
-            else
-            {
-                var empModel = new Employee() { GivenName = "Len Hambright", EmployeeId = 10000 };
-                var homemodel = new HomeModel()
-                {
-                    Employee = empModel
-                };
-                return View(homemodel);
-            }
-        }
+        
     }
 }
 

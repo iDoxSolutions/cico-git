@@ -86,7 +86,7 @@ namespace Cico.Controllers
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
                         Checked = track.Checked,
-                        CssClass = itemCssClass,
+                        CssClass = track.CssClass(),
                         Notes = notes,
                         InstructionText = checkListItemTemplate.InstructionText,
                         FileUrl = checkListItemTemplate.SystemFile==null ? "":"/content/"+checkListItemTemplate.SystemFile.Patch,
@@ -154,19 +154,30 @@ namespace Cico.Controllers
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
             string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
-            track.SubmittedFile.Description = filename;
+            track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
             track.Checked = true;
             var storage = new FileStorage();
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
-            return Json(new FileModel() { Description = track.SubmittedFile.Description, Url = "/filestorage?id=" + track.SubmittedFile.Id });
+            var model = new CheckListItemModel();
+            model.SubmittedFile = new FileModel()
+                {
+                    Description = track.SubmittedFile.Description,
+                    Url = "/filestorage?id=" + track.SubmittedFile.Id
+                };
+            model.CssClass = track.CssClass();
+            return Json(model);
         }
 
         public ActionResult Check(int id)
         {
             var track = UserSession.GetTrack(id);
             track.Checked = true;
-            return Json(true);
+            return Json(new CheckListItemModel()
+                {
+                    CssClass = track.CssClass(),
+                    Checked = true
+                });
         }
 
         public ActionResult CloseCurrentSession()

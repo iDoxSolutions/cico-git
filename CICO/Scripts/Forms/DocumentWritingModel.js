@@ -11,8 +11,9 @@
 
             //beforeSubmit: showRequest,  // pre-submit callback 
             success: function (data) {
-                self.submittedFile(data);
+                self.submittedFile(data.SubmittedFile);
                 item.ItemChecked(true);
+                item.CssClass(data.CssClass);
                 $(".loader").hide();
                 return false;
             },

@@ -21,7 +21,7 @@ namespace Cico.Commons.Mapi
                 if (item is MailItem)
                 {
                     var mail = item as MailItem;
-                    
+                    mail.UnRead = false;
                     //var ur = mail.UnRead=false;
                     //Console.WriteLine(item.SenderEmailAddress + " " + item.Subject + "\n" + item.Body);
                     list.Add(new EMail()
@@ -39,7 +39,7 @@ namespace Cico.Commons.Mapi
         {
             var mailNamespace = MailNamespace();
 
-            mailNamespace.Logon(_user, _password, false, true);
+            mailNamespace.Logon();//;.Logon(_user, _password, false, true);
             var folder = mailNamespace.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox);
             return folder;
         }
