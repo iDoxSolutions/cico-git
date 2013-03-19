@@ -10,30 +10,53 @@ namespace Cico.Commons.Mapi
 {
     public class MapiQuery : IMailStorage
     {
-        private string _user = "wasilewski.pawel@gmail.com";
-        private string _password = "pomodoro74";
-        public IList<Mail.EMail> GetInbox()
+        private string _user = "kenhambright@lightkeeper.onmicrosoft.com";
+        private string _password = "26rtYsxGL";
+        public IList<Mail.EMail> GetUnreadInbox()
         {
             var list = new List<EMail>();
-            var mailSession = new Application();
-            var mailNamespace = mailSession.GetNamespace("MAPI");
-            mailNamespace.Logon(_user,_password, false, true);
-            var folder =  mailNamespace.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox);
-            foreach (object item in folder.Items)
+            var folder = MapiFolder();
+            foreach (object item in folder.Items.Restrict("[Unread]=true"))
             {
                 if (item is MailItem)
                 {
                     var mail = item as MailItem;
+                    
+                    //var ur = mail.UnRead=false;
                     //Console.WriteLine(item.SenderEmailAddress + " " + item.Subject + "\n" + item.Body);
                     list.Add(new EMail()
                         {
                             Body = mail.Body,
-                            From = mail.SenderEmailAddress
-
+                            From = mail.SenderEmailAddress,
+                            EmailId = mail.EntryID
                         });
                 }
             }
             return list;
+        }
+
+        private MAPIFolder MapiFolder()
+        {
+            var mailNamespace = MailNamespace();
+
+            mailNamespace.Logon(_user, _password, false, true);
+            var folder = mailNamespace.GetDefaultFolder(Microsoft.Office.Interop.Outlook.OlDefaultFolders.olFolderInbox);
+            return folder;
+        }
+
+        private static NameSpace MailNamespace()
+        {
+            var mailSession = new Application();
+
+            var mailNamespace = mailSession.GetNamespace("MAPI");
+            return mailNamespace;
+        }
+
+        public void MarkAsRead(string id)
+        {
+            var ns = MailNamespace();
+            var mailItem = ns.GetItemFromID(id) as MailItem;
+            mailItem.UnRead = false;
         }
     }
 }

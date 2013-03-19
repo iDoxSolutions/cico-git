@@ -128,9 +128,9 @@
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
-                        <div data-bind="css: { selected: selected }" class="checkInItem ui-corner-all">
-                            <div data-bind="text: Description, click:selectItem" class="description" style="width: 190px;float:left"></div>
-                            <div style="float:right;padding-right: 5px;text-align: center">
+                        <div data-bind="css: { selected: selected }, click:selectItem" class="checkInItem ui-corner-all">
+                            <div data-bind="text: Description" class="description" style="width: 190px;float:left"></div>
+                            <div style="float:right;text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
                                 <div class="checkbox">
                                     <input data-bind="checked: ItemChecked" type="checkbox" disabled="disabled" />
@@ -162,6 +162,7 @@
 <script type="text/html" id="DocumentSubmitted">
     Submit the file.
     <a href="#" data-bind="click:submitDoc">Submit</a>
+    <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
     <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
         
@@ -182,8 +183,9 @@
     
     Step 1: Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
     <div>
-            Step 2: Submit the file.
-            <a href="#" data-bind="click:submitDoc">Submit</a>
+        Step 2: Submit the file.
+        <a href="#" data-bind="click:submitDoc">Submit</a>
+        <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
         </div>        
     <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />

@@ -15,7 +15,12 @@ namespace Test.Commons.Mapi
         public void TestGetInbox()
         {
             var query = new MapiQuery();
-            var res = query.GetInbox();
+            var res = query.GetUnreadInbox();
+
+            foreach (var eMail in res)
+            {
+                query.MarkAsRead(eMail.EmailId);
+            }
         }
     }
 }

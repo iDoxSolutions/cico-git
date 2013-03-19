@@ -70,6 +70,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cico.Commons\Cico.Commons.csproj">
+      <Project>{d0956fdb-1a67-42d7-995f-6928eabc4a84}</Project>
+      <Name>Cico.Commons</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

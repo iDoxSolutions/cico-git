@@ -6,16 +6,19 @@
     self.templateName = "DocumentSubmitted";
     self.submittedFile = ko.observable(item.item.SubmittedFile);
     self.submitDoc = function (e) {
+        $(".loader").show();
         var options = {
             
             //beforeSubmit: showRequest,  // pre-submit callback 
             success: function(data) {
                 self.submittedFile(data);
                 item.ItemChecked(true);
+                $(".loader").hide();
                 return false;
             },
             error:function(e) {
                 alert("File is required");
+                $(".loader").hide();
             },
             type: 'post',
             enctype: 'multipart/form-data',

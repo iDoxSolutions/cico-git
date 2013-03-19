@@ -4,6 +4,7 @@ namespace Cico.Commons.Mail
 {
     public interface IMailStorage
     {
-        IList<EMail> GetInbox();
+        IList<EMail> GetUnreadInbox();
+        void MarkAsRead(string id);
     }
 }

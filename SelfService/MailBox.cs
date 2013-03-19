@@ -3,18 +3,40 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using Cico.Commons.Mapi;
 using OpenPop.Mime;
 using OpenPop.Mime.Header;
 using OpenPop.Pop3;
 
 namespace SelfService
 {
-    class MailBox
+    public interface IMailBox
+    {
+        IList<MailBoxItem> GetItems();
+    }
+
+    public class MapiMailBox : IMailBox
+    {
+        MapiQuery _query = new MapiQuery();
+        public IList<MailBoxItem> GetItems()
+        {
+            var items = _query.GetUnreadInbox();
+            foreach (var eMail in items)
+            {
+                
+
+            }
+
+        }
+    }
+
+
+    class MailBox : IMailBox
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger
                 (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        internal IList<MailBoxItem> GetItems()
+        public IList<MailBoxItem> GetItems()
         {
             using (var client = new Pop3Client())
             {

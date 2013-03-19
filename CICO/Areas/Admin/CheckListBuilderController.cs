@@ -49,7 +49,10 @@ namespace Cico.Areas.Admin
         {
             //var list = db.CheckListTemplates.ToList();
             var temp = Db.CheckListTemplates.SingleOrDefault(c => c.Active == true && c.Published==false);
-            //if(temp)
+            if (temp == null)
+            {
+                temp = DuplicateCurrent();
+            }
             return View(new List<CheckListTemplate>(){temp});
         }
 

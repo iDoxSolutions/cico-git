@@ -7,5 +7,7 @@
         public string From { get; set; }
 
         public string Body { get; set; }
+
+        public string EmailId{get; set; }
     }
 }
