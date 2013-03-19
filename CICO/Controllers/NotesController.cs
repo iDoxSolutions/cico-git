@@ -38,7 +38,7 @@ namespace Cico.Controllers
             var note = new Note() {CheckListItemSubmitionTrack = track,Content = model.Content};
             Db.Notes.Add(note);
             Db.SaveChanges();
-            return Json(new NoteViewModel() {Content = note.Content, Id = note.Id,DateCreated = note.DateEdited.ToString()});
+            return Json(new NoteViewModel() {Content = note.Content, Id = note.Id,DateCreated = note.DateEdited.ToString(),UserCreated = UserSession.GetUserName()});
         }
 
         public ActionResult Delete(int id)

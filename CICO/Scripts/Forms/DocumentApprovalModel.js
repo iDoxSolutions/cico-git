@@ -14,4 +14,15 @@
         
     };
 
+    self.approve = function() {
+        $.post('/checklist/check/', { id: item.item.Id }, function () {
+            item.ItemChecked(true);
+            
+        });
+    };
+    
+    this.buttonEnabled = ko.computed(function () {
+        return !item.ItemChecked();
+    }, this);
+
 }

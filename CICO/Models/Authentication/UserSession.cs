@@ -19,6 +19,11 @@ namespace Cico.Models.Authentication
         private readonly CicoContext _db = null;
         private readonly HttpContextBase _httpContext;
 
+        public string GetUserName()
+        {
+            return _httpContext.User.Identity.Name;
+        }
+
         public CheckListSession GetCurrent()
         {
             var uname = _httpContext.User.Identity.Name;
