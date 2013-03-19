@@ -22,6 +22,8 @@ public class ItemClassModel
         return !string.IsNullOrEmpty(FormType);
     }
 
+    public bool Editable { get; set; }
+
     public static ItemClassModel Load(CicoContext db,ItemClassModel model)
     {
         model = model?? new ItemClassModel();
@@ -48,6 +50,8 @@ namespace Cico.Areas.Admin
         {
             var model = ItemClassModel.Load(db,null);
             model.TemplateId = templateId;
+            var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
+            model.Editable = !template.Published;
             model.CheckListItemTemplate = new CheckListItemTemplate();
             return View(model);
         }
@@ -85,13 +89,18 @@ namespace Cico.Areas.Admin
                 {
                     
                     CheckListItemTemplate = template,
-                    TemplateId = template.CheckListTemplate.CheckListTemplateId
+                    TemplateId = template.CheckListTemplate.CheckListTemplateId,
+                    Editable = !template.CheckListTemplate.Published && template.CheckListTemplate.Active
                  
                 };
             ItemClassModel.Load(db, model);
             model.SelectedFile = template.SystemFile == null ? (int?) null : template.SystemFile.Id;
             return View(model);
         }
+
+        
+        
+
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(ItemClassModel model)
@@ -133,6 +142,8 @@ namespace Cico.Areas.Admin
             else
             {
                 ItemClassModel.Load(db, model);
+                var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
+                model.Editable = !template.Published && template.Active;
                 return View(model);
             }
         }

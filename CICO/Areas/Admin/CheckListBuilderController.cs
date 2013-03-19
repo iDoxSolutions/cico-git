@@ -48,12 +48,15 @@ namespace Cico.Areas.Admin
         public ActionResult Index()
         {
             //var list = db.CheckListTemplates.ToList();
-            var temp = Db.CheckListTemplates.SingleOrDefault(c => c.Active == true && c.Published==false);
-            if (temp == null)
+            var noPoublished = Db.CheckListTemplates.SingleOrDefault(c => c.Active && c.Published == false);
+
+            if (noPoublished == null)
             {
-                temp = DuplicateCurrent();
+                DuplicateCurrent();
             }
-            return View(new List<CheckListTemplate>(){temp});
+            var temp = Db.CheckListTemplates.OrderByDescending(c=>c.CheckListTemplateId);
+
+            return View(temp);
         }
 
 
@@ -111,7 +114,7 @@ namespace Cico.Areas.Admin
 
         public ActionResult Edit(int id,TemplateModel filter)
         {
-            var item = Db.CheckListTemplates.SingleOrDefault(c=>c.Active && c.Published==false);
+            var item = Db.CheckListTemplates.SingleOrDefault(c=>c.CheckListTemplateId == id);
             if (item == null)
             {
                 item = DuplicateCurrent();
@@ -145,7 +148,7 @@ namespace Cico.Areas.Admin
             newone.Published = true;
             Db.Entry(current).State = EntityState.Modified;
             Db.Entry(newone).State = EntityState.Modified;
-            return RedirectToAction("edit",new {id=0});
+            return RedirectToAction("index",new {id=0});
         }
 
         private CheckListTemplate DuplicateCurrent()
@@ -158,7 +161,7 @@ namespace Cico.Areas.Admin
             }
 
             Db.Entry(current).State = EntityState.Added;
-            
+            db.SaveChanges();
             return current;
         }
     }

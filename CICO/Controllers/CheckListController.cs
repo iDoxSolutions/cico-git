@@ -77,7 +77,6 @@ namespace Cico.Controllers
                         c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
                 if(track==null)
                     track = new CheckListItemSubmitionTrack();
-                var itemCssClass = GetItemCssClass(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
@@ -97,6 +96,7 @@ namespace Cico.Controllers
                         
                         
                     });
+                model.CheckListItems = model.CheckListItems.OrderByDescending(c => c.DueDate).ToList();
             }
             return Json(model);
         }
@@ -153,19 +153,21 @@ namespace Cico.Controllers
                 track.SubmittedFile = new SystemFile();
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
-            string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
+
             track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
             track.Checked = true;
             var storage = new FileStorage();
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
-            var model = new CheckListItemModel();
-            model.SubmittedFile = new FileModel()
+            var model = new CheckListItemModel
                 {
-                    Description = track.SubmittedFile.Description,
-                    Url = "/filestorage?id=" + track.SubmittedFile.Id
+                    SubmittedFile = new FileModel()
+                        {
+                            Description = track.SubmittedFile.Description,
+                            Url = "/filestorage?id=" + track.SubmittedFile.Id
+                        },
+                    CssClass = track.CssClass()
                 };
-            model.CssClass = track.CssClass();
             return Json(model);
         }
 
