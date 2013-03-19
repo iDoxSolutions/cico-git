@@ -80,7 +80,7 @@ namespace Cico.Controllers
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
-                        SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+track.SubmittedFile.Description},
+                        SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
@@ -153,17 +153,17 @@ namespace Cico.Controllers
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
             string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
-            if(!Directory.Exists(Server.MapPath("/Files")))
+           /* if(!Directory.Exists(Server.MapPath("/Files")))
             {
                 Directory.CreateDirectory(Server.MapPath("/Files"));
             }
-            docSubmitted.SaveAs(Server.MapPath("/Files/")+filename);
+            docSubmitted.SaveAs(Server.MapPath("/Files/")+filename);*/
             track.SubmittedFile.Description = filename;
             track.Checked = true;
             var storage = new FileStorage();
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
-            return Json(new FileModel(){Description = track.SubmittedFile.Description,Url = "/files/"+filename});
+            return Json(new FileModel() { Description = track.SubmittedFile.Description, Url = "/filestorage?id=" + track.SubmittedFile.Id });
         }
 
         public ActionResult Check(int id)

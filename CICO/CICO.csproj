@@ -142,6 +142,7 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\DependentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Global.asax.cs">
