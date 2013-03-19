@@ -38,19 +38,14 @@
                     </div>
                     <div data-bind="with:selectedItem">
 
-                        <div class="homescreen-label">
-                            <label>Instructions:</label>
+                        <div class="homescreen-instructions">
+                            <label>Step 1: Read and follow the instructions below</label>
                         </div>
-                        <div style="min-height: 50px" class="instructions homescreen-instructions" data-bind="html:InstructionText"></div>
-                        <div class="homescreen-label">
-                            <label>Due Date:</label>
-                        </div>
-                        <div  class="homescreen-display" data-bind="text:DueDate"></div>
+
+                        <div style="min-height: 50px" class="instructions" data-bind="html:InstructionText"></div>
                         
+                       
                         
-                        <div class="homescreen-label">
-                            <label>Action To Take:</label>
-                        </div> 
                         <div data-bind="with:classModel">
                             
                             <div id="selectedForm" data-bind="template:{name:templateName}">
@@ -60,9 +55,11 @@
                     </div>
                     
                     <div data-bind="with:selectedItem">
-                        <div class="homescreen-label">
-                            <label>Notes</label>
+                        <div class="homescreen-instructions">
+                            <br/>
+                            Questions? Send a note to the staff
                         </div> 
+                        <br/>
                         <div id="note-list">
                             <div>
                                 <form id="notesForm" data-bind="submit:notes.addNote" >
@@ -89,7 +86,12 @@
                                 </li>
                             </ul>
                         </div>
+                         <div class="homescreen-label">
+                        <label>Due Date:</label>
+                         <div  class="homescreen-display" data-bind="text:DueDate"></div>
                     </div>
+                    </div>
+                   
                 </div>
             </div>
             <div id="myinfo">
@@ -124,7 +126,7 @@
             
             <div id="checkIn" style="overflow-y:scroll; height: 750px" >
                 <div class="homescreen-instructions">
-                    <label>Click on an item from the list to complete</label>
+                    <label>  Please select a task from the list below</label>
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
@@ -154,20 +156,24 @@
 <script type="text/html" id="DocumentApproval">
   
     <div data-bind="html:ApprovalText" ></div>
-    <div>Step 1:Please download the document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a></div>
-    <div>Step 2: Approve the document: <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
+    <div><div class="homescreen-instructions">Step 2approval: Please click on the followin link to download the form:</div> <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a></div>
+    <div><div class="homescreen-instructions">Step 3: Upload the completed form:</div> <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
     
 </script>
 
 
-<script type="text/html" id="DocumentSubmitted">
-    Submit the file.
-    <a href="#" data-bind="click:submitDoc">Submit</a>
-    <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
+<script type="text/html"  id="DocumentSubmitted">
+    <div class="homescreen-instructions">Step 2: Browse to the document to upload</div>
+    <br/>
     <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
         
     </form>
+    <div class="homescreen-instructions">Step 3: Upload the selected document</div>
+    <br/>
+    <a href="#" data-bind="click:submitDoc">Upload</a>
+    <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
+    
     <div data-bind="with:submittedFile">
         Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
@@ -177,27 +183,30 @@
 <script type="text/html" id="PhysicalActivity">
     <div data-bind="html:ApprovalText" ></div>
     
-    <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Complete</button>
+    <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Action Complete</button>
 </script>
 
-<script type="text/html" id="DocumentWriting">
+<script type="text/html" class="homescreen-instructions" id="DocumentWriting">
     
-    Step 1: Please download document: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
-    <div>
-        Step 2: Submit the file.
-        <a href="#" data-bind="click:submitDoc">Submit</a>
-        <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
-        </div>        
-    <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
-        <input name="docSubmitted" type="file" />
-        
-        
-    </form>
-    <div></div>
-    <div data-bind="with:submittedFile">
+    Step 2: Please click on the following link to download the form: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
+    <div class="homescreen-instructions">
+        <br />
+        Step 3: Browse to your completed form.
+        <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
+            <input name="docSubmitted" type="file" />  
+        </form>
+        <br/>
+        <div data-bind="with:submittedFile">
         Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
     </div>
+        Step 4: Upload the completed form.
+        <a href="#" data-bind="click:submitDoc">Upload</a>
+        <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
+        </div>        
+    
+    <div></div>
+    
 
 </script>
 
