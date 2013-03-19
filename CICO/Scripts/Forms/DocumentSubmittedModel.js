@@ -17,7 +17,7 @@
                 return false;
             },
             error:function(e) {
-                alert("File is required");
+                alert(e.responseText);
                 $(".loader").hide();
             },
             type: 'post',

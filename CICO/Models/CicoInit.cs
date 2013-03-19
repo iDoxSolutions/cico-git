@@ -53,6 +53,11 @@ namespace Cico.Models
                     Name = "PhysicalActivity",
                     Description = "Physical Activity"
                 });
+            context.CheckListItemTypes.Add(new CheckListItemType()
+            {
+                Name = "DocumentApproval",
+                Description = "Document w/Online Approval"
+            });
 
             context.Settings.Add(new Setting() {Name = "checklisttemplate", Value = "1"});
             var x = context.CheckListSessions.Create();

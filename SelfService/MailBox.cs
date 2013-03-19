@@ -20,13 +20,14 @@ namespace SelfService
         MapiQuery _query = new MapiQuery();
         public IList<MailBoxItem> GetItems()
         {
+            var list = new List<MailBoxItem>();
             var items = _query.GetUnreadInbox();
             foreach (var eMail in items)
             {
                 
 
             }
-
+            return list;
         }
     }
 

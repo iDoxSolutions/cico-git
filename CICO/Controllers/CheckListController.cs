@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Cico.Controllers.ViewModels;
 using Cico.Models;
+using Cico.Models.Helpers;
 using Cico.Models.SharePoint;
 
 namespace Cico.Controllers.ViewModels
@@ -141,11 +142,11 @@ namespace Cico.Controllers
                 }
             }
         }
-
+        [HandleModelStateException]
         public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId)
         {
             if (docSubmitted == null)
-                return new HttpStatusCodeResult(400, "File Is required");
+                throw new ModelStateException("File is Required");
             var track = UserSession.GetTrack(itemTemplateId);
             if (track.SubmittedFile == null)
             {
@@ -153,11 +154,6 @@ namespace Cico.Controllers
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
             string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
-           /* if(!Directory.Exists(Server.MapPath("/Files")))
-            {
-                Directory.CreateDirectory(Server.MapPath("/Files"));
-            }
-            docSubmitted.SaveAs(Server.MapPath("/Files/")+filename);*/
             track.SubmittedFile.Description = filename;
             track.Checked = true;
             var storage = new FileStorage();
