@@ -10,12 +10,19 @@
 <table>
     <tr>
         <th>
+            Revision Id
+        </th>
+        <th>
             Name
         </th>
+        <th>Publish</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
+            <td>
+                @item.CheckListTemplateId
+            </td>
             <td>
                 @Html.ActionLink(item.Name,"Edit",new {id=item.CheckListTemplateId})
                 

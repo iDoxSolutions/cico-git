@@ -5,8 +5,9 @@
     self.templateName = "PhysicalActivity";
     self.ApprovalText = ko.observable(item.item.ApprovalText);
     self.complete = function () {
-        $.post('/checklist/check/', { id: item.item.Id }, function () {
+        $.post('/checklist/check/', { id: item.item.Id }, function (data) {
             item.ItemChecked(true);
+            item.CssClass(data.CssClass);
         });
     };
     

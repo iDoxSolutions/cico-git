@@ -23,7 +23,7 @@ namespace Cico.Models.SharePoint
             postedFile.InputStream.Read(buffer, 0, (int) postedFile.InputStream.Length);
             var fName = DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture) + Path.GetFileName(postedFile.FileName);
             var path = _query.Save(buffer, new Dictionary<string, object>(),username+"/"+fName );
-            systemFile.Description = fName;
+            systemFile.Description = Path.GetFileName(postedFile.FileName);
             systemFile.Patch = path;
         }
 

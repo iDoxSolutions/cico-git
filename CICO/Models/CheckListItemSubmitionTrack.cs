@@ -6,6 +6,18 @@ using System.Web;
 
 namespace Cico.Models
 {
+    public static class CicoHelper
+    {
+        public static string CssClass(this CheckListItemSubmitionTrack track)
+        {
+            if (!track.Checked)
+                return "red";
+            if (track.Checked && track.CheckListItemTemplate.Provisional && !track.Provisioned)
+                return "yellow";
+            return "green";
+        }
+    }
+
     public class CheckListItemSubmitionTrack:EntityBaseWithKey
     {
         public virtual CheckListSession CheckListSession { get; set; }
@@ -14,5 +26,6 @@ namespace Cico.Models
         public DateTime? DueDate { get; set; }
         public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
+        public bool Provisioned { get; set; }
     }
 }

@@ -1,18 +1,12 @@
 ﻿@using Cico.Models.Helpers
  <h3>Select Admin Option</h3>
     <p>
-        <select id="admin" name="admin">
-		<option value="">Checklist builder </option>
-		<option value=" ">Office</option>
-         <option value=" ">Users</option>
-           <option value=" ">Checklist management</option>
-	</select>
-
+       
     </p>
-    <ul>
-        <li>@Html.ActionLink("Checklist builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Office", "Index", "Office", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Users", "Index", "Employee", new { area = "Admin" }, null)</li>
-        
-        <li>@Html.ActionLink("CheckLists", "Index", "CheckLists")</li>
-    </ul>
+<ul style="padding-left: 5px">
+    <li>@Html.ActionLink("Check Lists", "Index", "CheckLists")</li>
+    <li>@Html.ActionLink("Check List builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Offices", "Index", "Office", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Users", "Index", "Employee", new { area = "Admin" }, null)</li>
+
+</ul>

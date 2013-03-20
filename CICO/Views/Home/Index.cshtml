@@ -8,7 +8,7 @@
     </style>
 <script type="text/javascript" src="/scripts/modernizr-1.7.js"></script>
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
-
+<script type="text/javascript" src="/scripts/sammy.js"></script>
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
@@ -34,6 +34,9 @@
             <div id="completion">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
+                        <div data-bind="with:selectedItem">
+                            <div data-bind="text:Description"></div>
+                            </div>
                         <div style="clear:both"></div>
                     </div>
                     <div data-bind="with:selectedItem">
@@ -130,7 +133,7 @@
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
-                        <div data-bind="css: { selected: selected }, click:selectItem" class="checkInItem ui-corner-all">
+                        <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
                             <div data-bind="text: Description" class="description" style="width: 190px;float:left"></div>
                             <div style="float:right;text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
@@ -230,6 +233,20 @@
 @Html.Partial("_SystemForms")
 
 <script type="text/javascript">
+    
+    @if (Model.CheckListId.HasValue)
+    {
+        <text>
+        var checklistId = @(Model.CheckListId.Value) ;
+        </text>
+    }else
+    {
+        <text>
+    var checklistId = 0;
+        </text>
+    }
+    
+
     ko.bindingHandlers.stopBindings = {
         init: function () {
             return { 'controlsDescendantBindings': true };
@@ -245,17 +262,7 @@
     });
 
 
-    function ComplationDetailsModel(item) {
-        var self = this;
-
-        self.submitDoc = function (e) {
-            $.post('/checklist/UploadFile', { itemTemplateId: item.Id }, function (data) {
-                item.Checked(data.Checked);
-                item.CssClass(data.CssClass);
-            });
-            return false;
-        };
-    }
+    
 
 
     function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem) {
@@ -278,8 +285,12 @@
             }
         };
 
+        self.selectUrl = function(item) {
+            location.hash = "#checkpoint/"+item.TrackId;
+        };
 
-
+        self.ItemUrl = ditem.ItemUrl;
+        self.TrackId = ditem.TrackId;
         self.Id = id;
         self.ItemChecked = ko.observable(checked);
         self.Description = ko.observable(description);
@@ -293,23 +304,23 @@
         //self.classModel = ko.observable();
 
         switch (ItemTemplate) {
-            case "DocumentSubmitted":
-                self.classModel = ko.observable(new DocumentSubmittedModel(this));
-                break;
-            case "SelfContainedForm":
-                self.classModel = ko.observable(new SelfContainedFormModel(this));
-                break;
-            case "DocumentWriting":
-                self.classModel = ko.observable(new DocumentWritingModel(this));
-                break;
-            case "DocumentApproval":
-                self.classModel = ko.observable(new DocumentApprovalModel(this));
-                break;
-            case "PhysicalActivity":
-                self.classModel = ko.observable(new PhysicalActivityModel(this));
-                break;
-            default:
-                alert('unknown model ' + ItemTemplate);
+        case "DocumentSubmitted":
+            self.classModel = ko.observable(new DocumentSubmittedModel(this));
+            break;
+        case "SelfContainedForm":
+            self.classModel = ko.observable(new SelfContainedFormModel(this));
+            break;
+        case "DocumentWriting":
+            self.classModel = ko.observable(new DocumentWritingModel(this));
+            break;
+        case "DocumentApproval":
+            self.classModel = ko.observable(new DocumentApprovalModel(this));
+            break;
+        case "PhysicalActivity":
+            self.classModel = ko.observable(new PhysicalActivityModel(this));
+            break;
+        default:
+            alert('unknown model ' + ItemTemplate);
         }
 
         self.checkIn = function () {
@@ -323,13 +334,33 @@
         self.selectedItem = ko.observable();
         self.selectedTemplate = ko.observable("none");
         self.checklist = ko.observableArray();
-        $.post("/checklist", {}, function (data) {
+        var postData = null;
+        if (checklistId!=0) {
+            postData = { id: checklistId };
+        } 
+
+        $.post("/checklist", postData, function (data) {
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
                 self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item));
             });
+            homeModel.sammy.run();
         });
 
-        self.complationDetails = ko.observable(new ComplationDetailsModel());
+        self.sammy = Sammy(function () {
+            
+            
+            this.get('#checkpoint/:id', function (context) {
+                var id = context.params['id'];
+                ko.utils.arrayForEach(self.checklist(), function (item) {
+                    if (item.TrackId == id) {
+                        item.selectItem(item);
+                    }
+                });
+            });
+            
+        });
+        
+
     }
 
     var homeModel = new HomeViewModel();

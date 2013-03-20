@@ -36,26 +36,23 @@ namespace Cico.Controllers.ViewModels
         public bool Checked { get; set; }
         public string CssClass{get; set; }
         public string InstructionText { get; set; }
-        public IList<NoteViewModel> Notes
-        {
-            get; set; }
+        public IList<NoteViewModel> Notes{get; set; }
 
-        public string FileUrl
-        {get; set; }
+        public string FileUrl{get; set; }
 
-        public string FileDesc
-        {
-            get; set; }
+        public string FileDesc{get; set; }
 
-        public string Form
-        {get; set; }
+        public string Form{get; set; }
 
-        public string DueDate
-        {get; set; }
+        public string DueDate{get; set; }
 
         public FileModel SubmittedFile { get; set; }
 
-        public string ApprovalText
+        public string ApprovalText{get; set; }
+
+        public int TrackId{get; set; }
+
+        public string ItemUrl
         {
             get; set; }
     }
@@ -65,9 +62,17 @@ namespace Cico.Controllers
 {
     public class CheckListController : ControllerBase
     {
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            CheckListSession session = UserSession.GetCurrent();
+            CheckListSession session = null;
+            if (!id.HasValue)
+            {
+                session = UserSession.GetCurrent();
+            }
+            else
+            {
+                session = Db.CheckListSessions.Include("CheckListTemplate").Single(c => c.Id == id.Value && c.Active);
+            }
             var model = new CheckListModel();
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
             {
@@ -77,8 +82,11 @@ namespace Cico.Controllers
                         c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
                 if(track==null)
                     track = new CheckListItemSubmitionTrack();
-                var itemCssClass = GetItemCssClass(checkListItemTemplate, session.CheckListItemSubmitionTracks);
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
+                var param = string.Format("?id={0}#checkpoint/{1}", session.Id, track.Id);
+                var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
+                //itemUri. = Request.Url.Authority;
+
                 model.CheckListItems.Add(new CheckListItemModel
                     {
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
@@ -86,17 +94,20 @@ namespace Cico.Controllers
                         ItemTemplate = checkListItemTemplate.Item,
                         Description = checkListItemTemplate.Description,
                         Checked = track.Checked,
-                        CssClass = itemCssClass,
+                        CssClass = track.CssClass(),
                         Notes = notes,
                         InstructionText = checkListItemTemplate.InstructionText,
                         FileUrl = checkListItemTemplate.SystemFile==null ? "":"/content/"+checkListItemTemplate.SystemFile.Patch,
                         FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
                         DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null,
-                        ApprovalText = checkListItemTemplate.ApprovalText
+                        ApprovalText = checkListItemTemplate.ApprovalText,
+                        TrackId = track.Id,
+                        ItemUrl = itemUri.ToString()
                         
                         
                     });
+                model.CheckListItems = model.CheckListItems.OrderByDescending(c => c.DueDate).ToList();
             }
             return Json(model);
         }
@@ -153,20 +164,33 @@ namespace Cico.Controllers
                 track.SubmittedFile = new SystemFile();
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
-            string filename = DateTime.Now.Ticks.ToString()+"-" + Path.GetFileName(docSubmitted.FileName);
-            track.SubmittedFile.Description = filename;
+
+            track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
             track.Checked = true;
             var storage = new FileStorage();
             storage.PutFile(docSubmitted,track.SubmittedFile);
             Db.SaveChanges();
-            return Json(new FileModel() { Description = track.SubmittedFile.Description, Url = "/filestorage?id=" + track.SubmittedFile.Id });
+            var model = new CheckListItemModel
+                {
+                    SubmittedFile = new FileModel()
+                        {
+                            Description = track.SubmittedFile.Description,
+                            Url = "/filestorage?id=" + track.SubmittedFile.Id
+                        },
+                    CssClass = track.CssClass()
+                };
+            return Json(model);
         }
 
         public ActionResult Check(int id)
         {
             var track = UserSession.GetTrack(id);
             track.Checked = true;
-            return Json(true);
+            return Json(new CheckListItemModel()
+                {
+                    CssClass = track.CssClass(),
+                    Checked = true
+                });
         }
 
         public ActionResult CloseCurrentSession()
