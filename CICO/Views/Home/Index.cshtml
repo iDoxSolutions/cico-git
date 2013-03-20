@@ -57,7 +57,7 @@
                     <div data-bind="with:selectedItem">
                         <div class="homescreen-instructions">
                             <br/>
-                            Questions? Send a note to the staff
+                            <label>Questions? Send a note to the staff</label>
                         </div> 
                         <br/>
                         <div id="note-list">
@@ -156,20 +156,23 @@
 <script type="text/html" id="DocumentApproval">
   
     <div data-bind="html:ApprovalText" ></div>
-    <div><div class="homescreen-instructions">Step 2approval: Please click on the followin link to download the form:</div> <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a></div>
-    <div><div class="homescreen-instructions">Step 3: Upload the completed form:</div> <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
+    <div><div class="homescreen-instructions"><label>Step 2: Please click the link to download the form:</label></div> <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a></div>
+    <br />
+    <div><div class="homescreen-instructions"><label>Step 3: Upload the completed form:</label></div> <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
     
 </script>
 
 
 <script type="text/html"  id="DocumentSubmitted">
-    <div class="homescreen-instructions">Step 2: Browse to the document to upload</div>
+    <br />
+    <div class="homescreen-instructions"><label>Step 2: Browse to the document to upload</label></div>
     <br/>
     <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" />
         
     </form>
-    <div class="homescreen-instructions">Step 3: Upload the selected document</div>
+    <br/>
+    <div class="homescreen-instructions"><label>Step 3: Upload the selected document</label></div>
     <br/>
     <a href="#" data-bind="click:submitDoc">Upload</a>
     <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
@@ -188,10 +191,12 @@
 
 <script type="text/html" class="homescreen-instructions" id="DocumentWriting">
     
-    Step 2: Please click on the following link to download the form: <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template</a>
+   
     <div class="homescreen-instructions">
+        <label>Step 2:  Please click the link to download the form:</label><a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template </a>
         <br />
-        Step 3: Browse to your completed form.
+        <label>Step 3: Browse to your completed form.</label>
+        <br />
         <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
             <input name="docSubmitted" type="file" />  
         </form>
@@ -200,7 +205,7 @@
         Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
     </div>
-        Step 4: Upload the completed form.
+        <label>Step 4: Upload the completed form.</label>
         <a href="#" data-bind="click:submitDoc">Upload</a>
         <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
         </div>        
