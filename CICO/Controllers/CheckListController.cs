@@ -51,6 +51,10 @@ namespace Cico.Controllers.ViewModels
         public string ApprovalText{get; set; }
 
         public int TrackId{get; set; }
+
+        public string ItemUrl
+        {
+            get; set; }
     }
 }
 
@@ -67,7 +71,7 @@ namespace Cico.Controllers
             }
             else
             {
-                session = Db.CheckListSessions.Single(c => c.Id == id.Value);
+                session = Db.CheckListSessions.Include("CheckListTemplate").Single(c => c.Id == id.Value && c.Active);
             }
             var model = new CheckListModel();
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
@@ -79,6 +83,10 @@ namespace Cico.Controllers
                 if(track==null)
                     track = new CheckListItemSubmitionTrack();
                 var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
+                var param = string.Format("?id={0}#checkpoint/{1}", session.Id, track.Id);
+                var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
+                //itemUri. = Request.Url.Authority;
+
                 model.CheckListItems.Add(new CheckListItemModel
                     {
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
@@ -94,7 +102,8 @@ namespace Cico.Controllers
                         Form = checkListItemTemplate.Form,
                         DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null,
                         ApprovalText = checkListItemTemplate.ApprovalText,
-                        TrackId = track.Id
+                        TrackId = track.Id,
+                        ItemUrl = itemUri.ToString()
                         
                         
                     });

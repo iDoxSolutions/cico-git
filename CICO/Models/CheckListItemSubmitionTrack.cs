@@ -12,7 +12,7 @@ namespace Cico.Models
         {
             if (!track.Checked)
                 return "red";
-            if (track.Checked && track.CheckListItemTemplate.Provisional)
+            if (track.Checked && track.CheckListItemTemplate.Provisional && !track.Provisioned)
                 return "yellow";
             return "green";
         }
@@ -26,5 +26,6 @@ namespace Cico.Models
         public DateTime? DueDate { get; set; }
         public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
+        public bool Provisioned { get; set; }
     }
 }

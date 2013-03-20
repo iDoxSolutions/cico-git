@@ -2,7 +2,29 @@
 @model Cico.Areas.Admin.CheckListsModel
            
 
-<h1>Active Check Lists</h1>
+<h1>Management Dashboard</h1>
+
+<style>
+    .admin-table th,td{
+        padding: 2px 2px 2px 2px;
+        margin: 2px 2px 2px 2px
+    }
+    .admin-table .numeric{
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .admin-table .provisional a{
+        color: yellow;
+    }
+    .admin-table .complete {
+        color: green;
+    }
+    .admin-table .to-complete {
+        color: red;
+    }
+</style>
 
 <table class="admin-table">
     <tr>
@@ -10,7 +32,9 @@
         <th>User Id</th>
         <th>Date Started</th>
         <th>Template Rev.</th>
-        <th>Checked</th>
+        <th  class="numeric">Completed</th>
+        <th  class="numeric">Provisional</th>
+        <th  class="numeric">Left</th>
     </tr>
     @foreach (var c in Model.CheckListModels)
     {
@@ -19,7 +43,43 @@
             <td>@c.Employee.UserId</td>
             <td>@c.DateCreated</td>
             <td>@Html.ActionLink(c.Session.CheckListTemplate.CheckListTemplateId.ToString(CultureInfo.InvariantCulture),"edit","checklistbuilder",new{id=c.Session.CheckListTemplate.CheckListTemplateId},null)</td>
-            <td>@c.ItemsChecked</td>
+            <td class="numeric complete">@c.ItemsChecked</td>
+            <td class="numeric provisional" data-id="@c.Session.Id" data-item-type="provisional"><a href="/admin/checklists/Show?id=@c.Session.Id">@c.ItemsProvision</a></td>
+            <td class="numeric to-complete">@c.ItemsLeft</td>
         </tr>
+        
     }
 </table>
+<div id="dialog">
+    <ul data-bind="foreach:items">
+        <li >
+            <input style="display: inline" type="checkbox" data-bind="checked:Checked" disabled="disabled" />
+            <a style="display: inline" data-bind="text:Description,attr:{href:ItemUrl}"   ></a>
+            
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    function PageModel() {
+        var self = this;
+        self.items = ko.observableArray([]);
+    }
+
+    var model = new PageModel();
+    ko.applyBindings(model);
+
+   /* $(".numeric").click(
+        function () {
+            var id=$(this).attr("data-id");
+            $.post("checklist", {id:id},
+                function (data) {
+                    model.items(data.CheckListItems);
+                }
+            );
+            $("#dialog").dialog();
+        }
+    );*/
+     
+
+    
+</script>

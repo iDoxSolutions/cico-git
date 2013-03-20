@@ -636,6 +636,7 @@
     <Content Include="Mvc.sitemap" />
     <Content Include="Areas\Admin\Views\Shared\AsideMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -34,6 +34,9 @@
             <div id="completion">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
+                        <div data-bind="with:selectedItem">
+                            <div data-bind="text:Description"></div>
+                            </div>
                         <div style="clear:both"></div>
                     </div>
                     <div data-bind="with:selectedItem">
@@ -130,7 +133,7 @@
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
-                        <div data-bind="css: { selected: selected }, click:selectItem" class="checkInItem ui-corner-all">
+                        <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
                             <div data-bind="text: Description" class="description" style="width: 190px;float:left"></div>
                             <div style="float:right;text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
@@ -277,7 +280,11 @@
             }
         };
 
+        self.selectUrl = function(item) {
+            location.hash = "#checkpoint/"+item.TrackId;
+        };
 
+        self.ItemUrl = ditem.ItemUrl;
         self.TrackId = ditem.TrackId;
         self.Id = id;
         self.ItemChecked = ko.observable(checked);
@@ -338,7 +345,6 @@
             
             
             this.get('#checkpoint/:id', function (context) {
-                //alert('');
                 var id = context.params['id'];
                 ko.utils.arrayForEach(self.checklist(), function (item) {
                     if (item.TrackId == id) {
