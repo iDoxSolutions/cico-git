@@ -58,9 +58,17 @@ namespace Cico.Controllers
 {
     public class CheckListController : ControllerBase
     {
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            CheckListSession session = UserSession.GetCurrent();
+            CheckListSession session = null;
+            if (!id.HasValue)
+            {
+                session = UserSession.GetCurrent();
+            }
+            else
+            {
+                session = Db.CheckListSessions.Single(c => c.Id == id.Value);
+            }
             var model = new CheckListModel();
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
             {

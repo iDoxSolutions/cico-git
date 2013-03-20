@@ -49,6 +49,9 @@ namespace Cico.Controllers
     {
         public Employee Employee { get; set; }
         public IList<Dependent> Dependents { get; set; }
+
+        public int? CheckListId{get; set; }
+
         public void Load(CicoContext db)
         {
             Dependents = db.Dependents.ToList();
@@ -60,7 +63,7 @@ namespace Cico.Controllers
     {
         //private CICOEntities db = new CICOEntities();
         
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
             
             CicoContext db = new CicoContext();
@@ -70,7 +73,8 @@ namespace Cico.Controllers
             var empModel = new Employee(){ GivenName = "Len Hambright", EmployeeId = 100000};
             var model = new HomeModel()
                 {
-                    Employee = user.Employee
+                    Employee = user.Employee,
+                    CheckListId = id
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";
