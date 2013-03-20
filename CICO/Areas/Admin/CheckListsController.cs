@@ -11,10 +11,9 @@ namespace Cico.Areas.Admin
     {
         public string EmployeeName { get; set; }
         public Employee Employee { get; set; }
-
-        public string DateCreated
-        {
-            get; set; }
+        public CheckListSession Session { get; set; }
+        public string DateCreated{get; set; }
+        public int ItemsChecked { get; set; }
     }
     public class CheckListsModel
     {
@@ -32,12 +31,14 @@ namespace Cico.Areas.Admin
                 {
                     
                 };
-            var sessions = Db.CheckListSessions.Where(c=>c.Active).Include("Employee").ToList();
+            var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate").ToList();
             model.CheckListModels = sessions.Select(c => new CheckListModel
                 {
                     EmployeeName = c.Employee.Surname + ", " + c.Employee.GivenName,
                     Employee = c.Employee,
-                    DateCreated = c.DateCreated.HasValue?c.DateCreated.Value.ToShortDateString():""
+                    DateCreated = c.DateCreated.HasValue?c.DateCreated.Value.ToShortDateString():"",
+                    Session = c,
+                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked)
                 }).ToList();
             return View(model);
         }

@@ -36,28 +36,21 @@ namespace Cico.Controllers.ViewModels
         public bool Checked { get; set; }
         public string CssClass{get; set; }
         public string InstructionText { get; set; }
-        public IList<NoteViewModel> Notes
-        {
-            get; set; }
+        public IList<NoteViewModel> Notes{get; set; }
 
-        public string FileUrl
-        {get; set; }
+        public string FileUrl{get; set; }
 
-        public string FileDesc
-        {
-            get; set; }
+        public string FileDesc{get; set; }
 
-        public string Form
-        {get; set; }
+        public string Form{get; set; }
 
-        public string DueDate
-        {get; set; }
+        public string DueDate{get; set; }
 
         public FileModel SubmittedFile { get; set; }
 
-        public string ApprovalText
-        {
-            get; set; }
+        public string ApprovalText{get; set; }
+
+        public int TrackId{get; set; }
     }
 }
 
@@ -92,7 +85,8 @@ namespace Cico.Controllers
                         FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
                         DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null,
-                        ApprovalText = checkListItemTemplate.ApprovalText
+                        ApprovalText = checkListItemTemplate.ApprovalText,
+                        TrackId = track.Id
                         
                         
                     });

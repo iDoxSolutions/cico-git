@@ -8,7 +8,7 @@
     </style>
 <script type="text/javascript" src="/scripts/modernizr-1.7.js"></script>
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
-
+<script type="text/javascript" src="/scripts/sammy.js"></script>
 
 <script type="text/javascript" src="/Scripts/jquery.form.js">
 </script>
@@ -231,17 +231,7 @@
     });
 
 
-    function ComplationDetailsModel(item) {
-        var self = this;
-
-        self.submitDoc = function (e) {
-            $.post('/checklist/UploadFile', { itemTemplateId: item.Id }, function (data) {
-                item.Checked(data.Checked);
-                item.CssClass(data.CssClass);
-            });
-            return false;
-        };
-    }
+    
 
 
     function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem) {
@@ -265,7 +255,7 @@
         };
 
 
-
+        self.TrackId = ditem.TrackId;
         self.Id = id;
         self.ItemChecked = ko.observable(checked);
         self.Description = ko.observable(description);
@@ -313,13 +303,32 @@
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
                 self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item));
             });
+            homeModel.sammy.run();
         });
 
-        self.complationDetails = ko.observable(new ComplationDetailsModel());
+        self.sammy = Sammy(function () {
+            
+            
+            this.get('#checkpoint/:id', function (context) {
+                //alert('');
+                var id = context.params['id'];
+                ko.utils.arrayForEach(self.checklist(), function (item) {
+                    //self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item));
+                    if (item.TrackId == id) {
+
+                        //alert('');
+                        item.selectItem(item);
+                    }
+                });
+            });
+            
+        });
+        
+
     }
 
     var homeModel = new HomeViewModel();
     ko.applyBindings(homeModel);
-
+    
 </script>
 

@@ -1,13 +1,16 @@
-﻿@model Cico.Areas.Admin.CheckListsModel
+﻿@using System.Globalization
+@model Cico.Areas.Admin.CheckListsModel
            
 
-
+<h1>Active Check Lists</h1>
 
 <table class="admin-table">
     <tr>
-        <th>Active Check Lists</th>
+        <th>Emplotee Name</th>
         <th>User Id</th>
         <th>Date Started</th>
+        <th>Template Rev.</th>
+        <th>Checked</th>
     </tr>
     @foreach (var c in Model.CheckListModels)
     {
@@ -15,6 +18,8 @@
             <td>@c.EmployeeName</td>
             <td>@c.Employee.UserId</td>
             <td>@c.DateCreated</td>
+            <td>@Html.ActionLink(c.Session.CheckListTemplate.CheckListTemplateId.ToString(CultureInfo.InvariantCulture),"edit","checklistbuilder",new{id=c.Session.CheckListTemplate.CheckListTemplateId},null)</td>
+            <td>@c.ItemsChecked</td>
         </tr>
     }
 </table>
