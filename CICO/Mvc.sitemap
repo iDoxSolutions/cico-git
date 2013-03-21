@@ -7,6 +7,8 @@
   <mvcSiteMapNode title="Home" controller="Home" action="Index">
     <mvcSiteMapNode title="Edit Employee" controller="Employee" action="Edit"/>
     <mvcSiteMapNode title="Add Dependent" controller="dependent" action="Create"/>
+    <mvcSiteMapNode title="Edit Dependent" controller="dependent" action="Edit"/>
+    <mvcSiteMapNode title="Delete Dependent" controller="dependent" action="Delete"/>
     <mvcSiteMapNode title="Admin" controller="Checklists" action="Index" area="admin">
       <mvcSiteMapNode title="Employees" controller="Employee" action="Index" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Offices" controller="Office" action="Index" area="admin"></mvcSiteMapNode>

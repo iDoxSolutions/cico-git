@@ -73,5 +73,7 @@ namespace Cico.Models
 
         [Display(Name = "Number of days to complete item")]
         public int DueDays{get; set; }
+
+        public bool CompletingChecklist { get; set; }
     }
 }
