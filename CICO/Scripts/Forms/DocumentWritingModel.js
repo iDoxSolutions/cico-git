@@ -11,6 +11,7 @@
 
             //beforeSubmit: showRequest,  // pre-submit callback 
             success: function (data) {
+                data = JSON.parse(data);
                 self.submittedFile(data.SubmittedFile);
                 item.ItemChecked(true);
                 item.CssClass(data.CssClass);
@@ -25,7 +26,8 @@
             enctype: 'multipart/form-data',
             // other available options: 
             url: "/checklist/UploadFile",   //  ,    // override for form's 'action' attribute 
-            data: { itemTemplateId: item.item.Id }
+            data: { itemTemplateId: item.item.Id },
+            dataType: 'text'
         };
         // $(e).ajaxForm(options);
         $("#docSubmitted").ajaxSubmit(options);

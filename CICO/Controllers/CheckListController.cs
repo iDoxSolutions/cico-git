@@ -179,7 +179,12 @@ namespace Cico.Controllers
                         },
                     CssClass = track.CssClass()
                 };
-            return Json(model);
+            if (Request.UserAgent.Contains("MSIE 8.0"))
+                return Json(model, "text/html");
+            else
+            {
+                return Json(model);
+            }
         }
 
         public ActionResult Check(int id)

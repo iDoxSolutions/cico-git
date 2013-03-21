@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
+using Cico.Models.Authentication;
 
 
 namespace Cico.Controllers
@@ -59,18 +62,40 @@ namespace Cico.Controllers
     }
 
 
+  
+
     public class HomeController : ControllerBase
     {
-        //private CICOEntities db = new CICOEntities();
+        public ActionResult Initialize()
+        {
+            if (UserSession.IsInitialized)
+                return RedirectToAction("index");
+            
+            //return RedirectToAction("index");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Initialize(InitModel initModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var session = UserSession.InitCheckListSession(initModel);
+                return RedirectToAction("index");
+            }
+            else
+            {
+                return View();
+            }
+            
+        }
         
         public ActionResult Index(int? id)
         {
-            
-            CicoContext db = new CicoContext();
-            var cklistTypes = db.CheckListItemTypes;
-            var staffmembers = db.Staffs;
+            if (!UserSession.IsInitialized && !id.HasValue)
+            {
+                return RedirectToAction("initialize");
+            }
             var user = UserSession.GetCurrent();
-            var empModel = new Employee(){ GivenName = "Len Hambright", EmployeeId = 100000};
             var model = new HomeModel()
                 {
                     Employee = user.Employee,
@@ -86,22 +111,10 @@ namespace Cico.Controllers
 
         public ActionResult About()
         {
-            //var data = from student in db.Students
-            //           group student by student.EnrollmentDate into dateGroup
-            //           select new EnrollmentDateGroup()
-            //           {
-            //               EnrollmentDate = dateGroup.Key,
-            //               StudentCount = dateGroup.Count()
-            //           };
             
             return View();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            
-            base.Dispose(disposing);
-        }
 
         
     }

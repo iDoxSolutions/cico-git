@@ -152,11 +152,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Authentication\InitModel.cs" />
     <Compile Include="Models\Authentication\UserSession.cs" />
     <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
     <Compile Include="Models\CheckListItemType.cs" />
     <Compile Include="Models\CheckListSession.cs" />
-    <Compile Include="Models\CocoContext.cs" />
+    <Compile Include="Models\CicoContext.cs" />
     <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
@@ -665,6 +666,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\AsideMenu.cshtml" />
     <Content Include="Views\Dependent\Delete.cshtml" />
+    <Content Include="Views\Home\Initialize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

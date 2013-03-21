@@ -6,17 +6,15 @@ using System.Web;
 
 namespace Cico.Models.Authentication
 {
-
-
     public class UserSession
     {
-        public UserSession(CicoContext db,HttpContextBase httpContext)
+        public UserSession(ICicoContext db,HttpContextBase httpContext)
         {
             _db = db;
             _httpContext = httpContext;
         }
 
-        private readonly CicoContext _db = null;
+        private readonly ICicoContext _db = null;
         private readonly HttpContextBase _httpContext;
 
         public string GetUserName()
@@ -24,41 +22,56 @@ namespace Cico.Models.Authentication
             return _httpContext.User.Identity.Name;
         }
 
+        public bool IsInitialized
+        {
+            get
+            {
+                var uname = _httpContext.User.Identity.Name;
+                var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active);
+                return session != null;
+            }
+        }
+
         public CheckListSession GetCurrent()
         {
             var uname = _httpContext.User.Identity.Name;
-            var template = GetCurrentTemplate();
             var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active );
-            if (session == null)
+            if(session==null)
+                throw new InvalidOperationException("Session not initialized!");
+            return session;
+        }
+        public CheckListSession InitCheckListSession(InitModel initmodel)
+        {
+            var uname = _httpContext.User.Identity.Name;
+            var template = GetCurrentTemplate();
+            return InitCheckListSession(uname,template ,initmodel);
+        }
+        private CheckListSession InitCheckListSession(string uname, CheckListTemplate template, InitModel initmodel)
+        {
+            CheckListSession session;
+            var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
+            if (employee == null)
             {
-                
-
-                var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
-                if (employee == null)
-                {
-                    employee = new Employee() {UserId = uname};
-                    _db.Employees.Add(employee);
-                }
-                session = _db.CheckListSessions.Create();
-                session.UserId = uname;
-                session.CheckListTemplate = template;
-                session.Employee = employee;
-                var res = _db.CheckListSessions.Add(session);
-                foreach (var checkListItemTemplate in template.CheckListItemTemplates)
-                {
-                    _db.CheckListItemSubmitionTracks.Add(new CheckListItemSubmitionTrack()
-                        {
-                            CheckListItemTemplate = checkListItemTemplate,CheckListSession = res,
-                            DueDate = DateTime.Today.AddDays(checkListItemTemplate.DueDays)
-                        });
-                }
-                _db.SaveChanges();
-                return res;
+                employee = new Employee() {UserId = uname,GivenName = initmodel.GivenName,Surname = initmodel.Surname,DateOfBirth = initmodel.Dob};
+                _db.Employees.Add(employee);
             }
-            else
+            session = _db.CheckListSessions.Create();
+            session.UserId = uname;
+            session.CheckListTemplate = template;
+            session.Employee = employee;
+            session.ArrivalDate = initmodel.ArrivalDate;
+            var res = _db.CheckListSessions.Add(session);
+            foreach (var checkListItemTemplate in template.CheckListItemTemplates)
             {
-                return session;
+                _db.CheckListItemSubmitionTracks.Add(new CheckListItemSubmitionTrack()
+                    {
+                        CheckListItemTemplate = checkListItemTemplate,
+                        CheckListSession = res,
+                        DueDate = initmodel.ArrivalDate.AddDays(checkListItemTemplate.DueDays)
+                    });
             }
+            _db.SaveChanges();
+            return res;
         }
 
         public CheckListTemplate GetCurrentTemplate()
