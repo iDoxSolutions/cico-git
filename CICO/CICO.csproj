@@ -156,7 +156,7 @@
     <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
     <Compile Include="Models\CheckListItemType.cs" />
     <Compile Include="Models\CheckListSession.cs" />
-    <Compile Include="Models\CICOContext.cs" />
+    <Compile Include="Models\CocoContext.cs" />
     <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
