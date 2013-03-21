@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
+namespace Cico.Models    
 {
     public class Dependent:EntityBaseWithKey
     {
@@ -14,7 +14,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string PreferredName { get; set; }
         [DisplayName("Surname")]
-        [StringLength(65)]
+        [StringLength(66)]
         public string Surname { get; set; }
         [DisplayName("Relationship")]
         [StringLength(20)]
