@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model ItemClassModel
 
 @{
     ViewBag.Title = "Edit Checklist Item";
@@ -9,3 +9,57 @@
 <h2>Edit Checklist Item</h2>
 
 @Html.Partial("_Form")
+
+<h2>Subscriptions</h2>
+<h3>Put emails you want to be notified about completion</h3>    
+
+<div>
+    Email:
+    <input type="text" data-bind="value:email"/>
+    <button type="button" data-bind="click:addSubscription">Add</button>
+</div>
+
+<ul data-bind="foreach:emailSubscriptions">
+    <li>
+         <div data-bind="text:Email"></div>
+        <a style="display: inline" href="#" data-bind="click:$parent.delete">Delete</a>
+    </li>
+</ul>
+
+
+<script type="text/javascript">
+    function PageModel() {
+        var itemId = @(Model.CheckListItemTemplate.CheckListItemTemplateId);
+        var self = this;
+        self.emailSubscriptions = ko.observableArray([]);
+        self.email = ko.observable();
+        self.delete = function(item) {
+            $.post("/admin/EmailSubscriptions/delete",{Id:item.Id},function(data) {
+                self.emailSubscriptions.remove(item);
+            });
+        };
+        $.post("/admin/EmailSubscriptions",{itemTemplate:@(Model.CheckListItemTemplate.CheckListItemTemplateId)},function(data) {
+            self.emailSubscriptions(data);
+        });
+
+        self.addSubscription = function() {
+            $.ajax(
+            {
+                type:'POST',
+                url:'/admin/EmailSubscriptions/create',
+                data:{ItemTemplateId:@(Model.CheckListItemTemplate.CheckListItemTemplateId),Email:self.email()},
+                success:function(data) {
+                    self.emailSubscriptions.push(data);
+                    self.email('');
+                },
+                error:function(data) {
+                    alert(data.responseText);
+                }
+                
+            }
+            );
+        };
+    }
+
+    ko.applyBindings(new PageModel());
+</script>

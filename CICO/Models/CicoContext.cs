@@ -17,6 +17,8 @@ namespace Cico.Models
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
+
+        public IDbSet<EmailSubscription> EmailSubscriptions { get; set; }
         public IDbSet<SystemFile> SystemFiles { get; set; }
         public IDbSet<DropdownItem> DropdownItems { get; set; }
         public IDbSet<CheckListTemplate> CheckListTemplates { get; set; }
@@ -34,10 +36,6 @@ namespace Cico.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            /*modelBuilder.Entity<CheckListTemplate>().HasMany(c => c.CheckListItemTemplates).WithRequired(c => c.CheckListTemplate).WillCascadeOnDelete();
-            modelBuilder.Entity<CheckListItemTemplate>()
-                        .HasRequired(c => c.CheckListTemplate)
-                        .WithMany(c => c.CheckListItemTemplates);*/
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.SystemFile)
                         .WithMany(c => c.CheckListItemTemplates);
@@ -46,13 +44,6 @@ namespace Cico.Models
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
 
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
-           
-            /*
-            modelBuilder.Entity<CheckListSession>()
-                .HasMany(c => c.CheckListItemSubmitionTracks)
-                .WithRequired(c=>c.CheckListSession).WillCascadeOnDelete();
-           
-            base.OnModelCreating(modelBuilder);*/
         }
 
         public override int SaveChanges()

@@ -75,5 +75,7 @@ namespace Cico.Models
         public int DueDays{get; set; }
 
         public bool CompletingChecklist { get; set; }
+
+        public virtual IList<EmailSubscription> EmailSubscriptions { get; set; }
     }
 }
