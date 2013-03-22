@@ -1,13 +1,16 @@
 ﻿function PhysicalActivityModel(item) {
     var self = this;
+    ko.utils.extend(self, new CicoFormBase(item));
     self.item = item;
-    self.FormBase = new CicoFormBase(item);
     self.templateName = "PhysicalActivity";
     self.ApprovalText = ko.observable(item.item.ApprovalText);
     self.complete = function () {
         $.post('/checklist/check/', { id: item.item.Id }, function (data) {
             item.ItemChecked(true);
             item.CssClass(data.CssClass);
+            if (data.CompleteChecklist) {
+                item.completeChecklist();
+            }
         });
     };
     

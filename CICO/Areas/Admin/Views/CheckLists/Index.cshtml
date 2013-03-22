@@ -35,17 +35,19 @@
         <th  class="numeric">Completed</th>
         <th  class="numeric">Provisional</th>
         <th  class="numeric">Left</th>
+        <th  >Completed</th>
     </tr>
     @foreach (var c in Model.CheckListModels)
     {
         <tr>
-            <td>@c.EmployeeName</td>
+            <td>@Html.ActionLink(c.EmployeeName, "index", "home", new {id=c.Session.Id ,area=""},null);</td>
             <td>@c.Employee.UserId</td>
             <td>@c.DateCreated</td>
             <td>@Html.ActionLink(c.Session.CheckListTemplate.CheckListTemplateId.ToString(CultureInfo.InvariantCulture),"edit","checklistbuilder",new{id=c.Session.CheckListTemplate.CheckListTemplateId},null)</td>
             <td class="numeric complete">@c.ItemsChecked</td>
             <td class="numeric provisional" data-id="@c.Session.Id" data-item-type="provisional"><a href="/admin/checklists/Show?id=@c.Session.Id">@c.ItemsProvision</a></td>
             <td class="numeric to-complete">@c.ItemsLeft</td>
+            <td class="numeric to-complete">@c.Session.Completed</td>
         </tr>
         
     }

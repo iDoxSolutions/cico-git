@@ -1,5 +1,7 @@
 ﻿function DocumentApprovalModel(item) {
     var self = this;
+    ko.utils.extend(self, new CicoFormBase(item));
+
     self.FormBase = new CicoFormBase(item);
     self.templateName = "DocumentApproval";
     self.FileUrl = item.item.FileUrl;

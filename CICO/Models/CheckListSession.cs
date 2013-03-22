@@ -13,6 +13,6 @@ namespace Cico.Models
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
         public DateTime ArrivalDate{get; set; }
-        public bool Complete { get; set; }
+        public bool Completed { get; set; }
     }
 }
