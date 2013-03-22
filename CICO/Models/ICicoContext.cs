@@ -5,6 +5,7 @@ namespace Cico.Models
 {
     public interface ICicoContext
     {
+        IDbSet<SystemRole> SystemRoles { get; set; }
         IDbSet<EmailSubscription> EmailSubscriptions { get; set; }
         IDbSet<SystemFile> SystemFiles { get; set; }
         IDbSet<DropdownItem> DropdownItems { get; set; }

@@ -183,6 +183,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Authentication\CicoRoleProvider.cs" />
     <Compile Include="Models\Authentication\InitModel.cs" />
     <Compile Include="Models\Authentication\UserSession.cs" />
     <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
@@ -216,6 +217,7 @@
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
     <Compile Include="Models\SystemFile.cs" />
+    <Compile Include="Models\SystemRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

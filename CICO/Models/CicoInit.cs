@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using Cico.Models.Helpers;
 
 namespace Cico.Models
@@ -15,9 +16,19 @@ namespace Cico.Models
         private Office _ambOffice;
 
 
+        private void InitStaff(CicoContext context)
+        {
+            var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin"});
+            context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin" });
+
+            var user = context.Staffs.Add(new Staff(){Name = "ABAPER-W8\\Pawel"});
+            user.SystemRoles = new Collection<SystemRole>();
+            user.SystemRoles.Add(globalAdmin);
+        }
+
         protected override void Seed(CicoContext context)
         {
-
+            InitStaff(context);
             var template1 =
                 context.SystemFiles.Add(new SystemFile()
                     {

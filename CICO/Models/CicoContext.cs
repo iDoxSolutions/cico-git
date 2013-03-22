@@ -18,6 +18,7 @@ namespace Cico.Models
             this.Configuration.LazyLoadingEnabled = true;
         }
 
+        public IDbSet<SystemRole> SystemRoles { get; set; }
         public IDbSet<EmailSubscription> EmailSubscriptions { get; set; }
         public IDbSet<SystemFile> SystemFiles { get; set; }
         public IDbSet<DropdownItem> DropdownItems { get; set; }
@@ -42,7 +43,7 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.Office);
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
-
+            modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
         }
 
