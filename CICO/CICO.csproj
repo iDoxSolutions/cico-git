@@ -703,6 +703,7 @@
     <Content Include="Views\Shared\AsideMenu.cshtml" />
     <Content Include="Views\Dependent\Delete.cshtml" />
     <Content Include="Views\Home\Initialize.cshtml" />
+    <Content Include="Views\Home\DeleteDependents.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

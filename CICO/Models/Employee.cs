@@ -40,6 +40,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(10)]
         public string Nationality { get; set; }
         [DisplayName("Home Phone")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string HomePhone { get; set; }
         [DisplayName("Mexico - Personal Cell Phone")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
@@ -79,6 +80,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string PriorPostState { get; set; }
         [DisplayName("Email - Personal")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public  string PersonalEmail { get; set; }
         [DisplayName("Email - Work (Agency)")]
         [DataType(DataType.EmailAddress)]
@@ -108,6 +110,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string PreArrivalPhone { get; set; }
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string EmergencyContactEmail { get; set; }
         [DisplayName("Emergency Contact Given Name(s)")]
         [StringLength(65)]

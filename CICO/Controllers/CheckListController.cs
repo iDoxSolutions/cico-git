@@ -112,7 +112,7 @@ namespace Cico.Controllers
                 
             }
             model.CheckListItems =
-                model.CheckListItems.OrderBy(c => c.CompleteChecklist).ThenByDescending(c => c.DueDate).ToList();
+                model.CheckListItems.OrderBy(c => c.DueDate).ThenBy(c => c.CompleteChecklist).ToList();
             model.Completed = session.Completed;
             return Json(model);
         }

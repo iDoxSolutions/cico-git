@@ -107,7 +107,21 @@ namespace Cico.Controllers
             return View(model);
         }
 
-       
+        public ActionResult DeleteDependents(int id) {
+            var dependent = Db.Dependents.Find(id);
+            return View(dependent);
+        }
+
+        //
+        // POST: /Admin/Office/Delete/5
+
+        [HttpPost, ActionName("DeleteDependents")]
+        public ActionResult DeleteDependentConfirmed(int id) {
+            var dependent = Db.Dependents.Find(id);
+            Db.Dependents.Remove(dependent);
+            Db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         public ActionResult About()
         {

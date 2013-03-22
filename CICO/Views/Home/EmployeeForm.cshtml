@@ -8,15 +8,6 @@
         <div>
             <div class="float-left" style="width: 48%">
                 <h5>Personal Data</h5>
-
-                <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.DateOfBirth)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.DateOfBirth)
-                    @Html.ValidationMessageFor(model => model.Employee.DateOfBirth)
-                </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.GivenName)
                 </div>
@@ -31,8 +22,20 @@
                     @Html.DisplayFor(model => model.Employee.Surname)
                     @Html.ValidationMessageFor(model => model.Employee.Surname)
                 </div>
-
-
+                <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.EmployeeId)
+                </div>
+                <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.PersonalEmail)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.PersonalEmail)
+                    @Html.ValidationMessageFor(model => model.Employee.PersonalEmail)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.EmployeeId)
+                    @Html.ValidationMessageFor(model => model.Employee.EmployeeId)
+                </div>
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.Title)
                 </div>
@@ -41,20 +44,19 @@
                     @Html.ValidationMessageFor(model => model.Employee.Title)
                 </div>
                 <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.DateOfBirth)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.DateOfBirth)
+                    @Html.ValidationMessageFor(model => model.Employee.DateOfBirth)
+                </div>
+                <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.Nationality)
                 </div>
                 <div class="homescreen-display">
                     @Html.DisplayFor(model => model.Employee.Nationality)
                     @Html.ValidationMessageFor(model => model.Employee.Nationality)
                 </div>
-                <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.EmployeeId)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.EmployeeId)
-                    @Html.ValidationMessageFor(model => model.Employee.EmployeeId)
-                </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.DiplomaticTitle)
                 </div>
@@ -91,8 +93,6 @@
                     @Html.DisplayFor(model => model.Employee.LegalResidenceState)
                     @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
                 </div>
-
-               
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.PassportExpiration)
                 </div>
@@ -115,13 +115,6 @@
                     @Html.ValidationMessageFor(model => model.Employee.PassportType)
                 </div>
                 <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.PersonalEmail)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.PersonalEmail)
-                    @Html.ValidationMessageFor(model => model.Employee.PersonalEmail)
-                </div>
-                <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.OfficeCellPhone)
                 </div>
                 <div class="homescreen-display">
@@ -135,7 +128,6 @@
                     @Html.DisplayFor(model => model.Employee.OfficePhone)
                     @Html.ValidationMessageFor(model => model.Employee.OfficePhone)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.PositionTitle)
                 </div>
@@ -178,7 +170,6 @@
                     @Html.DisplayFor(model => model.Employee.PriorPostCountry)
                     @Html.ValidationMessageFor(model => model.Employee.PriorPostCountry)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.PriorPostState)
                 </div>
@@ -194,8 +185,6 @@
                     @Html.DisplayFor(model => model.Employee.RoutingNumber)
                     @Html.ValidationMessageFor(model => model.Employee.RoutingNumber)
                 </div>
-
-
             </div>
             <div class="float-right" style="width: 48%">
                 <h5>Posting Information</h5>
@@ -220,7 +209,6 @@
                     @Html.DisplayFor(model => model.Employee.Location)
                     @Html.ValidationMessageFor(model => model.Employee.Location)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.Office)
                 </div>
@@ -228,9 +216,6 @@
                     @Html.DisplayFor(model => model.Employee.Office)
                     @Html.ValidationMessageFor(model => model.Employee.Office)
                 </div>
-                
-               
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.VisaExpiration)
                 </div>
@@ -238,7 +223,6 @@
                     @Html.DisplayFor(model => model.Employee.VisaExpiration)
                     @Html.ValidationMessageFor(model => model.Employee.VisaExpiration)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.VisaNumber)
                 </div>
@@ -246,7 +230,6 @@
                     @Html.DisplayFor(model => model.Employee.VisaNumber)
                     @Html.ValidationMessageFor(model => model.Employee.VisaNumber)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.WorkEmail)
                 </div>
@@ -254,7 +237,6 @@
                     @Html.DisplayFor(model => model.Employee.WorkEmail)
                     @Html.ValidationMessageFor(model => model.Employee.WorkEmail)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.AgencyOrSection)
                 </div>
@@ -262,9 +244,6 @@
                     @Html.DisplayFor(model => model.Employee.AgencyOrSection)
                     @Html.ValidationMessageFor(model => model.Employee.AgencyOrSection)
                 </div>
-
-                
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.BankAccount)
                 </div>
@@ -272,7 +251,6 @@
                     @Html.DisplayFor(model => model.Employee.BankAccount)
                     @Html.ValidationMessageFor(model => model.Employee.BankAccount)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.CellPhone)
                 </div>
@@ -280,7 +258,6 @@
                     @Html.DisplayFor(model => model.Employee.CellPhone)
                     @Html.ValidationMessageFor(model => model.Employee.CellPhone)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactEmail)
                 </div>
@@ -288,7 +265,6 @@
                     @Html.DisplayFor(model => model.Employee.EmergencyContactEmail)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactEmail)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactGivenName)
                 </div>
@@ -304,7 +280,6 @@
                     @Html.DisplayFor(model => model.Employee.EmergencyContactOfficePhone)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactOfficePhone)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactPhone)
                 </div>
@@ -320,7 +295,6 @@
                     @Html.DisplayFor(model => model.Employee.EmergencyContactPhone2)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactPhone2)
                 </div>
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactRelationship)
                 </div>
@@ -336,9 +310,6 @@
                     @Html.DisplayFor(model => model.Employee.EmergencyContactSurname)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactSurname)
                 </div>
-
-
-
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.Extension)
                 </div>

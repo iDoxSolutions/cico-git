@@ -470,26 +470,6 @@ namespace Cico.Models
                 });
             context.DropdownItems.Add(new DropdownItem() {Key = "WI", Description = "Wisconsin", ValueType = "States"});
             context.DropdownItems.Add(new DropdownItem() {Key = "WY", Description = "Wyoming", ValueType = "States"});
-
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Spouse",
-                    Description = "Spouse",
-                    ValueType = "Relationship"
-                });
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Dependent",
-                    Description = "Dependent",
-                    ValueType = "Relationship"
-                });
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Other",
-                    Description = "Other",
-                    ValueType = "Relationship"
-                });
-
             context.DropdownItems.Add(new DropdownItem() {Key = "IT", Description = "IT", ValueType = "Office"});
             context.DropdownItems.Add(new DropdownItem() {Key = "HR", Description = "HR", ValueType = "Office"});
             context.DropdownItems.Add(new DropdownItem() {Key = "FMC", Description = "FMC", ValueType = "Office"});

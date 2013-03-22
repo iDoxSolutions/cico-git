@@ -10,9 +10,6 @@ namespace Cico.Models
         [DisplayName("Given Name(s)")]
         [StringLength(65)]
         public string GivenName { get; set; }
-        [DisplayName("Preferred Name")]
-        [StringLength(65)]
-        public string PreferredName { get; set; }
         [DisplayName("Surname")]
         [StringLength(66)]
         public string Surname { get; set; }
@@ -24,6 +21,9 @@ namespace Cico.Models
         [DisplayName("Title/Salutation")]
         [StringLength(65)]
         public string Title { get; set; }
+        [DisplayName("Preferred Name")]
+        [StringLength(65)]
+        public string PreferredName { get; set; }
         [DisplayName("Nationality")]
         [StringLength(10)]
         public string Nationality { get; set; }
@@ -42,6 +42,7 @@ namespace Cico.Models
         public string HomeAddress { get; set; }
         [DisplayName("Email - Personal")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public  string PersonalEmail { get; set; }
         [DisplayName("Passport Number")]
         public string PassportNumber { get; set; }
@@ -61,6 +62,7 @@ namespace Cico.Models
         public string Extension { get; set; }
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string EmergencyContactEmail { get; set; }
         [DisplayName("Emergency Contact Given Name(s)")]
         [StringLength(65)]
