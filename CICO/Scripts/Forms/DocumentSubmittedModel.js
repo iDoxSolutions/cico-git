@@ -1,11 +1,16 @@
 ﻿function DocumentSubmittedModel(item) {
     var self = this;
+    ko.utils.extend(self, new CicoFormBase(item));
     self.FileUrl = item.item.FileUrl;
     self.FileDesc = item.item.FileDesc;
-    self.FormBase = new CicoFormBase(item);
+    
     self.templateName = "DocumentSubmitted";
     self.submittedFile = ko.observable(item.item.SubmittedFile);
     self.submitDoc = function (e) {
+        if (!self.Enabled()) {
+            alert("Checklist is completed");
+            return false;
+        }
         $(".loader").show();
         var options = {
             

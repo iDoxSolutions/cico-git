@@ -40,7 +40,9 @@
                         <div style="clear:both"></div>
                     </div>
                     <div data-bind="with:selectedItem">
-
+                        <div class="homescreen-instructions" data-bind="with:Completed" style="color:red">
+                            Check List is completed
+                        </div>
                         <div class="homescreen-instructions">
                             <label>Step 1: Read and follow the instructions below</label>
                         </div>
@@ -73,7 +75,7 @@
                                         <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
                                     </div>
                                     <div class="editor-field">
-                                        <button type="button" data-bind="click:notes.addNote">Add Note</button>
+                                        <button type="button" data-bind="click:notes.addNote,enable:Enabled">Add Note</button>
                                     </div>
                                 </form>
                             </div>
@@ -128,6 +130,9 @@
             </ul>
             
             <div id="checkIn" style="overflow-y:scroll; height: 750px" >
+                <div class="homescreen-instructions" data-bind="with:completed" style="color:red">
+                    Check List is completed
+                </div>
                 <div class="homescreen-instructions">
                     <label>  Please select a task from the list below</label>
                 </div>
@@ -170,26 +175,29 @@
     <br />
     <div class="homescreen-instructions"><label>Step 2: Browse to the document to upload</label></div>
     <br/>
-    <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
-        <input name="docSubmitted" type="file" />
+    
+    <form id="docSubmitted" data-bind="submit:submitDoc,disabled:!Enabled"  enctype="multipart/form-data" method="POST">
+        <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
         
     </form>
     <br/>
+    
     <div class="homescreen-instructions"><label>Step 3: Upload the selected document</label></div>
     <br/>
-    <a href="#" data-bind="click:submitDoc">Upload</a>
+    <a href="#" data-bind="click:submitDoc,disabled:Enabled">Upload</a>
     <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
     
     <div data-bind="with:submittedFile">
         Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
+        
     </div>
 </script>
 
 <script type="text/html" id="PhysicalActivity">
     <div data-bind="html:ApprovalText" ></div>
     
-    <button data-bind="click:complete,enable: buttonEnabled,text:buttonText">Action Complete</button>
+    <button data-bind="click:complete,enable: (buttonEnabled && Enabled),text:buttonText">Action Complete</button>
 </script>
 
 <script type="text/html" class="homescreen-instructions" id="DocumentWriting">
@@ -201,7 +209,7 @@
         <label>Step 3: Browse to your completed form.</label>
         <br />
         <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
-            <input name="docSubmitted" type="file" />  
+            <input name="docSubmitted" type="file" data-bind="enable:Enabled" />  
         </form>
         <br/>
         <div data-bind="with:submittedFile">
@@ -265,9 +273,10 @@
     
 
 
-    function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem) {
+    function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem,parent) {
         var self = this;
         self.item = ditem;
+        self.parent = parent;
         self.selectItem = function (item) {
             // item.Checked(false);
             if (item) {
@@ -289,6 +298,14 @@
             location.hash = "#checkpoint/"+item.TrackId;
         };
 
+        self.Enabled = ko.computed(function () {
+            return !parent.completed();
+        }, self);
+
+        self.Completed = ko.computed(function () {
+            return parent.completed();
+        }, self);
+
         self.ItemUrl = ditem.ItemUrl;
         self.TrackId = ditem.TrackId;
         self.Id = id;
@@ -298,26 +315,31 @@
         self.selected = ko.observable(false);
         self.ItemTemplate = ItemTemplate;
         self.CssClass = ko.observable(CssClass);
-        self.notes = new NoteListModel(this.item);
+        self.notes = new NoteListModel(this);
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.DueDate = ditem.DueDate;
+        
+        self.completeChecklist = function() {
+            parent.completed(true);
+        };
+        
         //self.classModel = ko.observable();
 
         switch (ItemTemplate) {
         case "DocumentSubmitted":
-            self.classModel = ko.observable(new DocumentSubmittedModel(this));
+            self.classModel = ko.observable(new DocumentSubmittedModel(self));
             break;
         case "SelfContainedForm":
-            self.classModel = ko.observable(new SelfContainedFormModel(this));
+            self.classModel = ko.observable(new SelfContainedFormModel(self));
             break;
         case "DocumentWriting":
-            self.classModel = ko.observable(new DocumentWritingModel(this));
+            self.classModel = ko.observable(new DocumentWritingModel(self));
             break;
         case "DocumentApproval":
-            self.classModel = ko.observable(new DocumentApprovalModel(this));
+            self.classModel = ko.observable(new DocumentApprovalModel(self));
             break;
         case "PhysicalActivity":
-            self.classModel = ko.observable(new PhysicalActivityModel(this));
+            self.classModel = ko.observable(new PhysicalActivityModel(self));
             break;
         default:
             alert('unknown model ' + ItemTemplate);
@@ -331,6 +353,7 @@
 
     function HomeViewModel() {
         var self = this;
+        self.completed = ko.observable(false);
         self.selectedItem = ko.observable();
         self.selectedTemplate = ko.observable("none");
         self.checklist = ko.observableArray();
@@ -340,15 +363,14 @@
         } 
 
         $.post("/checklist", postData, function (data) {
+            self.completed(data.Completed);
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
-                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item));
+                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item,self));
             });
             homeModel.sammy.run();
         });
 
         self.sammy = Sammy(function () {
-            
-            
             this.get('#checkpoint/:id', function (context) {
                 var id = context.params['id'];
                 ko.utils.arrayForEach(self.checklist(), function (item) {

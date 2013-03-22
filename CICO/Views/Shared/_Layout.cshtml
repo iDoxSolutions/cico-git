@@ -42,7 +42,10 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("Admin", "Index", "CheckLists", new { area = "Admin" }, null)</li>
+                            @if (User.IsInRole("GlobalAdmin"))
+                            {
+                                <li>@Html.ActionLink("Admin", "Index", "CheckLists", new {area = "Admin"}, null)</li>
+                            }
                         </ul>
                     </nav>
                    

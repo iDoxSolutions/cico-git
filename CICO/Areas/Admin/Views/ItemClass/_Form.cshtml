@@ -80,12 +80,23 @@
         <div class="editor-field">
             @Html.CheckBoxFor(c=>c.CheckListItemTemplate.Dependents)
         </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.CheckListItemTemplate.CompleteCheckList)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(c=>c.CheckListItemTemplate.CompleteCheckList)
+        </div>
+
         <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.InstructionText)
         </div>
         <div class="editor-field">
             @Html.TextAreaFor(c=>c.CheckListItemTemplate.InstructionText)
         </div>
+        
+        
+        
         
         <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.ApprovalText)

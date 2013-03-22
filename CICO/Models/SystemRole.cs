@@ -1,16 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
 namespace Cico.Models
 {
-    public class Staff:EntityBase
+    public class SystemRole:EntityBase
     {
-        
-        [Required]
         [Key]
         public string Name { get; set; }
-        public virtual IList<SystemRole> SystemRoles { get; set; }
-        
+        public virtual IList<Staff> Staffs { get; set; }  
     }
+
+    
 }

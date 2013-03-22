@@ -9,13 +9,14 @@ function NoteModel(note) {
 
 function NoteListModel(item) {
     var self = this;
-    self.notes = ko.observableArray(item?item.Notes:[]);
+    ko.utils.extend(self, new CicoFormBase(item));
+    self.notes = ko.observableArray(item?item.item.Notes:[]);
     self.Content = ko.observable();
     self.addNote = function () {
         
         //alert(tinyMCE.get('note-editor').getContent());
         var noteContent = tinyMCE.get('note-editor').getContent({ format: 'raw' });
-        $.post("/notes/create", { TemplateItemId: item.Id, Content: noteContent },
+        $.post("/notes/create", { TemplateItemId: item.item.Id, Content: noteContent },
             function (data) {
                 self.notes.unshift(new NoteModel(data));
                 tinyMCE.get('note-editor').setContent('');

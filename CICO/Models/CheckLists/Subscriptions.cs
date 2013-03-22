@@ -16,7 +16,7 @@ namespace Cico.Models.CheckLists
             _context = context;
         }
 
-        public void Process(CheckListItemSubmitionTrack track)
+        public void Process(CheckListItemSubmitionTrack track,string textMessage)
         {
             if (track.CheckListItemTemplate.EmailSubscriptions.Count == 0)
             {
@@ -32,10 +32,10 @@ namespace Cico.Models.CheckLists
                 message.To.Add(emailSubscription.Email);
             }
 
-            message.Subject = track.CheckListItemTemplate.Description +" - NOTIFICATION";
+            message.Subject = track.CheckListItemTemplate.Description +" - CICO NOTIFICATION";
             var param = string.Format("?id={0}#checkpoint/{1}", track.CheckListSession.Id, track.Id);
             var itemUri = new UriBuilder(_context.Request.Url.Scheme, _context.Request.Url.Host, _context.Request.Url.Port, "home", param);
-            message.Body = "item completed "+itemUri;
+            message.Body = textMessage + " " + itemUri;
             Object userState = message;
             smtp.SendCompleted += new SendCompletedEventHandler(smtp_SendCompleted);
             smtp.Send(message);
