@@ -37,7 +37,8 @@ namespace Cico.Models
         // TODO: prefix phone with 044
         public string HomePhone2 { get; set; }
         public string AgencyOrSection { get; set; }
-        [DisplayName("Position Title")]
+        [DisplayName("Nationality")]
+        [StringLength(100)]
         public string HomeAddress { get; set; }
         [DisplayName("Email - Personal")]
         [DataType(DataType.EmailAddress)]
