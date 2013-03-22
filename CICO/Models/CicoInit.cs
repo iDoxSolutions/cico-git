@@ -164,6 +164,8 @@ namespace Cico.Models
                     InstructionText =
                         "Schedule and attend the Newcomer Orientation session.  Contact GSO at this address to schedule your attendence."
                     ,
+                    Provisional = true
+                    ,
                     AlertDays = "3"
                 });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate()
@@ -178,6 +180,8 @@ namespace Cico.Models
                     ,
                     InstructionText =
                         "Schedule and attend the RSO Security Briefing.  Contact RSO at this address to schedule your attendence."
+                    ,
+                    Provisional = true
                     ,
                     AlertDays = "3"
                 });
@@ -269,21 +273,23 @@ namespace Cico.Models
                         "Schedule a meeting with the Ambassador by contacting Anna in ADM at anne@state.gov"
                     ,
                     AlertDays = "3",
+                    Provisional = true,
                     SystemFile = template1
                 });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate()
                 {
                     Office = _admOffice,
-                    Description = "Schedule mtg with Ambassador"
+                    Description = "Schedule mtg with IT"
                     ,
                     Item = "PhysicalActivity"
                     ,
                     Type = "PhysicalActivity"
                     ,
                     InstructionText =
-                        "Schedule a meeting with the Ambassador by contacting Anna in ADM at anne@state.gov"
+                        "Schedule a meeting with the the IT group by contacting James in IT at James@state.gov"
                     ,
                     AlertDays = "3",
+                    Provisional = true,
                     SystemFile = template1
                 });
             template.CheckListItemTemplates.Add(new CheckListItemTemplate()

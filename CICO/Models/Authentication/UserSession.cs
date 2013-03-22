@@ -52,7 +52,7 @@ namespace Cico.Models.Authentication
             var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
             if (employee == null)
             {
-                employee = new Employee() {UserId = uname,GivenName = initmodel.GivenName,Surname = initmodel.Surname,DateOfBirth = initmodel.Dob};
+                employee = new Employee() {UserId = uname,GivenName = initmodel.GivenName,Surname = initmodel.Surname,PersonalEmail = initmodel.EmailAddress,EmployeeId = initmodel.EmployeeId };
                 _db.Employees.Add(employee);
             }
             session = _db.CheckListSessions.Create();

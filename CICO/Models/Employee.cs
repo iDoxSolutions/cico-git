@@ -53,7 +53,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         // TODO: prefix phone with 044
         public string OfficeCellPhone { get; set; }
-        [DisplayName("Arrival Date (ETD)")]
+        [DisplayName("Arrival Date (ETA)")]
         public DateTime? ArrivalDate { get; set; }
         [DisplayName("Tour End Date")]
         public DateTime? TourEndDate { get; set; }

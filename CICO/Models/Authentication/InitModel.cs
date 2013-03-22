@@ -17,8 +17,12 @@ namespace Cico.Models.Authentication
         [Required]
         [DisplayName("Surname")]
         public string Surname { get; set; }
-        [DisplayName("Date of Birth")]
+        [DisplayName("Email")]
         [Required]
-        public DateTime Dob { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public string EmailAddress { get; set; }
+        [DisplayName("Employee Id")]
+        [Required]
+        public int EmployeeId { get; set; }
     }
 }

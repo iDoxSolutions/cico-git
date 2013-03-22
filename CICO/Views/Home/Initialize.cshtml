@@ -33,11 +33,18 @@
             @Html.ValidationMessageFor(c=>c.Surname)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(c=>c.Dob)
+            @Html.LabelFor(c=>c.EmailAddress)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(c=>c.Dob)
-            @Html.ValidationMessageFor(c=>c.Dob)
+            @Html.EditorFor(c=>c.EmailAddress)
+            @Html.ValidationMessageFor(c=>c.EmailAddress)
+        </div>
+         <div class="editor-label">
+            @Html.LabelFor(c=>c.EmployeeId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c=>c.EmployeeId)
+            @Html.ValidationMessageFor(c=>c.EmployeeId)
         </div>
         <div class="editor-field">
             <button type="submit">Submit</button>
