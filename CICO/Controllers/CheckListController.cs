@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Cico.Controllers.ViewModels;
 using Cico.Models;
+using Cico.Models.CheckLists;
 using Cico.Models.Helpers;
 using Cico.Models.SharePoint;
 
@@ -179,18 +180,20 @@ namespace Cico.Controllers
                         },
                     CssClass = track.CssClass()
                 };
-            if (Request.UserAgent.Contains("MSIE 8.0"))
+            //if (Request.UserAgent.Contains("MSIE 8.0"))
                 return Json(model, "text/html");
-            else
-            {
-                return Json(model);
-            }
+            //else
+            //{
+                //return Json(model);
+            //}
         }
 
         public ActionResult Check(int id)
         {
             var track = UserSession.GetTrack(id);
             track.Checked = true;
+            var subs = new Subscriptions(HttpContext);
+            subs.Process(track);
             return Json(new CheckListItemModel()
                 {
                     CssClass = track.CssClass(),
