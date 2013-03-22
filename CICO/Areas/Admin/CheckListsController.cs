@@ -66,5 +66,11 @@ namespace Cico.Areas.Admin
             return RedirectToAction("show", new {id = item.CheckListSession.Id});
         }
 
+        public ActionResult RejectProvisional(int ItemId)
+        {
+            var item = Db.CheckListItemSubmitionTracks.Single(c => c.Id == ItemId);
+            item.Checked = false;
+            return RedirectToAction("show", new { id = item.CheckListSession.Id });
+        }
     }
 }

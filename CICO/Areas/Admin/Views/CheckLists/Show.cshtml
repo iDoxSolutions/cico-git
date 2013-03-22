@@ -23,6 +23,11 @@
                     <input type="hidden" name="ItemId" value="@item.Id"/>
                     <input style="font-size: small;padding: 1px 1px 1px 1px" type="submit" value="Approve Provisional"/>
                 </form>
+                
+                <form style="float: left"  action="/admin/checklists/rejectProvisional" method="POST">
+                    <input type="hidden" name="ItemId" value="@item.Id"/>
+                    <input style="font-size: small;padding: 1px 1px 1px 1px" type="submit" value="Reject Provisional"/>
+                </form>
             }
             <div style="clear:both"></div>
         </li>
