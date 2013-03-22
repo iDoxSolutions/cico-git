@@ -195,9 +195,9 @@
 </script>
 
 <script type="text/html" id="PhysicalActivity">
-    <div data-bind="html:ApprovalText" ></div>
     
-    <button data-bind="click:complete,enable: (buttonEnabled && Enabled),text:buttonText">Action Complete</button>
+    
+    <button data-bind="click:complete,enable: (buttonEnabled() && Enabled()),text:buttonText">Action Complete</button>
 </script>
 
 <script type="text/html" class="homescreen-instructions" id="DocumentWriting">
