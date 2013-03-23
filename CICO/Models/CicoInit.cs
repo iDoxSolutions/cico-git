@@ -70,6 +70,8 @@ namespace Cico.Models
                 Description = "Document w/Online Approval"
             });
 
+
+            //Check In Template
             context.Settings.Add(new Setting() {Name = "checklisttemplate", Value = "1"});
             var x = context.CheckListSessions.Create();
             var template = context.CheckListTemplates.Create();
@@ -77,6 +79,16 @@ namespace Cico.Models
             template.Name = "Check In";
             template.Type = "CheckIn";
             template.Published = true;
+
+
+            //Check Out Template
+            context.Settings.Add(new Setting() { Name = "checkouttemplate", Value = "2" });
+            var cko_x = context.CheckListSessions.Create();
+            var cko_template = context.CheckListTemplates.Create();
+            //(new CheckListTemplate(){Name = "Name of the template",Type="Test"});
+            cko_template.Name = "Check Out";
+            cko_template.Type = "CheckOut";
+            cko_template.Published = true;
 
             AddStates(context);
             AddOffices(context);

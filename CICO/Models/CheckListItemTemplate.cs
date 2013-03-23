@@ -71,7 +71,7 @@ namespace Cico.Models
         [Display(Name = "File")]
         public virtual SystemFile SystemFile{get; set; }
 
-        [Display(Name = "Number of days to complete item")]
+        [Display(Name = "Due Date")]
         public int DueDays{get; set; }
 
         public bool CompletingChecklist { get; set; }

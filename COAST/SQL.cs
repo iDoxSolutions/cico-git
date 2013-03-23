@@ -28,10 +28,13 @@ namespace COAST{
             _findStatusCmd.CommandText = _findStatusCmd.CommandText.Replace("myvouchernumber", voucherNumber);
             _findReceiveDateCmd.CommandText = _findReceiveDateCmd.CommandText.Replace("myvouchernumber", voucherNumber);
 
+            var voucherStatus = _findStatusCmd.ExecuteScalar().ToString();
+            var voucherReceiveDate = (DateTime) _findReceiveDateCmd.ExecuteScalar();
+
             var voucher = new Voucher
                 {
-                    VoucherStatus = _findStatusCmd.ExecuteScalar().ToString(),
-                    VoucherReceiveDate = (DateTime) _findReceiveDateCmd.ExecuteScalar()
+                    VoucherStatus = voucherStatus,
+                    VoucherReceiveDate = voucherReceiveDate
                 };
 
             return voucher;

@@ -60,7 +60,8 @@ namespace Cico.Controllers
                 model.Dependent.Employee = UserSession.GetCurrent().Employee;
                 Db.Entry(model.Dependent).State = EntityState.Modified;
                 Db.SaveChanges();
-                return RedirectToAction("index");
+                //return RedirectToAction("index");
+                return RedirectToAction("index", "home");
             }
             else
             {

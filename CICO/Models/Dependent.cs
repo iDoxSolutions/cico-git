@@ -59,6 +59,12 @@ namespace Cico.Models
         [DisplayName("Office Phone")]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string OfficePhone { get; set; }
+        [DisplayName("Emergency Info Same as Primary")]
+
+        public bool SameECData { get; set; }
+        [DisplayName("Extension")]
+        [StringLength(5)]
+        
         public string Extension { get; set; }
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]

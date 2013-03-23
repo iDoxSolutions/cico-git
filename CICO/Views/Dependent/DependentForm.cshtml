@@ -2,6 +2,7 @@
 @using Cico.Models.Helpers;
 @using (Html.BeginForm())
 {
+    <input type="submit" value="Submit" />
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
         <legend>Dependent</legend>
@@ -125,6 +126,13 @@
                 @Html.EditorFor(model => model.Dependent.CellPhone)
                 @Html.ValidationMessageFor(model => model.Dependent.CellPhone)
             </div>
+            <div class="editor-label">
+            @Html.LabelFor(model => model.Dependent.SameECData)
+        </div>
+            <div class="checkbox">
+            @Html.EditorFor(model => model.Dependent.SameECData)
+            @Html.ValidationMessageFor(model => model.Dependent.SameECData)
+        </div>
               <div class="editor-label">
             @Html.LabelFor(model => model.Dependent.EmergencyContactEmail)
         </div>
@@ -180,92 +188,9 @@
             @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactRelationship)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.Extension)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.Extension)
-            @Html.ValidationMessageFor(model => model.Dependent.Extension)
-        </div>
-        </div>
-        @*
         
-          
-       
-        
-        
-        
-        
-       
-        
-        
-        
-        
-        
-        
-      
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactEmail)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactEmail)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactEmail)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactGivenName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactGivenName)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactGivenName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactOfficePhone)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactOfficePhone)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactOfficePhone)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactPhone)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactPhone)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactPhone)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactPhone2)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactPhone2)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactPhone2)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactRelationship)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactRelationship)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactRelationship)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.EmergencyContactSurname)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.EmergencyContactSurname)
-            @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactSurname)
-        </div>
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Dependent.Extension)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Dependent.Extension)
-            @Html.ValidationMessageFor(model => model.Dependent.Extension)
-        </div>*@
+  
 
     </fieldset>
     @Html.HiddenFor(model => model.Dependent.Id)
