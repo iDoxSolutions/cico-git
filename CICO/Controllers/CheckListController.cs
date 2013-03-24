@@ -173,7 +173,7 @@ namespace Cico.Controllers
             track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
             track.Checked = true;
             var storage = new FileStorage();
-            storage.PutFile(docSubmitted,track.SubmittedFile);
+            //storage.PutFile(docSubmitted,track.SubmittedFile);
             var subs = new Subscriptions(HttpContext);
             subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
             Db.SaveChanges();
