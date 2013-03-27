@@ -50,10 +50,7 @@ namespace Cico.Areas.Admin
             //var list = db.CheckListTemplates.ToList();
             var noPoublished = Db.CheckListTemplates.SingleOrDefault(c => c.Active && c.Published == false);
 
-            if (noPoublished == null)
-            {
-                DuplicateCurrent();
-            }
+            
             var temp = Db.CheckListTemplates.OrderByDescending(c=>c.CheckListTemplateId);
 
             return View(temp);

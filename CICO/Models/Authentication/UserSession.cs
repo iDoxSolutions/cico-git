@@ -77,7 +77,7 @@ namespace Cico.Models.Authentication
         {
             var template = _db.Settings.First(c => c.Name == "checklisttemplate");
             var templateId = Int32.Parse(template.Value);
-            return _db.CheckListTemplates.Single(c => c.Published && c.Active);
+            return _db.CheckListTemplates.Single(c => c.CheckListTemplateId==templateId);
         }
 
         public CheckListItemSubmitionTrack GetTrack(int checklistItemTemplateId)

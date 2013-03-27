@@ -22,7 +22,7 @@ public class ItemClassModel
         return !string.IsNullOrEmpty(FormType);
     }
 
-    public bool Editable { get; set; }
+    public bool Editable { get { return true; } }
 
     public static ItemClassModel Load(CicoContext db,ItemClassModel model)
     {
@@ -51,7 +51,7 @@ namespace Cico.Areas.Admin
             var model = ItemClassModel.Load(db,null);
             model.TemplateId = templateId;
             var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
-            model.Editable = !template.Published;
+           // model.Editable = !template.Published;
             model.CheckListItemTemplate = new CheckListItemTemplate();
             return View(model);
         }
@@ -90,7 +90,7 @@ namespace Cico.Areas.Admin
                     
                     CheckListItemTemplate = template,
                     TemplateId = template.CheckListTemplate.CheckListTemplateId,
-                    Editable = !template.CheckListTemplate.Published && template.CheckListTemplate.Active
+                    //Editable = !template.CheckListTemplate.Published && template.CheckListTemplate.Active
                  
                 };
             ItemClassModel.Load(db, model);
@@ -144,7 +144,7 @@ namespace Cico.Areas.Admin
             {
                 ItemClassModel.Load(db, model);
                 var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
-                model.Editable = !template.Published && template.Active;
+               // model.Editable = !template.Published && template.Active;
                 return View(model);
             }
         }

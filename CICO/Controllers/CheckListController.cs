@@ -83,12 +83,9 @@ namespace Cico.Controllers
                 if (track.Id == 0)
                 {
                     Db.CheckListItemSubmitionTracks.Add(track);
+                    Db.SaveChanges();
                 }
-                /*  session.CheckListItemSubmitionTracks.FirstOrDefault(
-                        c =>
-                        c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
-                if(track==null)
-                    track = new CheckListItemSubmitionTrack();*/
+               
                 var notes = GetNotes(session, checkListItemTemplate);
                 var param = string.Format("?id={0}#checkpoint/{1}", session.Id, track.Id);
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);

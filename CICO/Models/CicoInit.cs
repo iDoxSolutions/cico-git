@@ -335,7 +335,7 @@ namespace Cico.Models
                 });
 
             context.CheckListTemplates.Add(template);
-
+            context.CheckListTemplates.Add(cko_template);
             AddRelationships(context);
             AddSystemForms(context);
 
