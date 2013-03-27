@@ -61,15 +61,14 @@ namespace Cico.Models.Authentication
             session.Employee = employee;
             session.ArrivalDate = initmodel.ArrivalDate;
             var res = _db.CheckListSessions.Add(session);
-            foreach (var checkListItemTemplate in template.CheckListItemTemplates)
+           /* foreach (var checkListItemTemplate in template.CheckListItemTemplates)
             {
                 _db.CheckListItemSubmitionTracks.Add(new CheckListItemSubmitionTrack()
                     {
                         CheckListItemTemplate = checkListItemTemplate,
-                        CheckListSession = res,
-                        DueDate = initmodel.ArrivalDate.AddDays(checkListItemTemplate.DueDays)
+                        CheckListSession = res
                     });
-            }
+            }*/
             _db.SaveChanges();
             return res;
         }

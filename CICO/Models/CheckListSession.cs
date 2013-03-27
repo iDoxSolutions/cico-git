@@ -10,6 +10,18 @@ namespace Cico.Models
     {
         public string UserId { get; set; }
         public virtual ICollection<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
+        public CheckListItemSubmitionTrack GetTrack(int templateId)
+        {
+            var track = CheckListItemSubmitionTracks.FirstOrDefault(c => c.CheckListItemTemplate.CheckListItemTemplateId == templateId);
+            if (track == null)
+            {
+                var temp =
+                    CheckListTemplate.CheckListItemTemplates.FirstOrDefault(c => c.CheckListItemTemplateId == templateId);
+                track = new CheckListItemSubmitionTrack() {CheckListItemTemplate = temp,CheckListSession = this};
+                CheckListItemSubmitionTracks.Add(track);
+            }
+            return track;
+        }
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
         public DateTime ArrivalDate{get; set; }

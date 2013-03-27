@@ -79,17 +79,19 @@ namespace Cico.Controllers
             var model = new CheckListModel();
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
             {
-                var track =
-                    session.CheckListItemSubmitionTracks.FirstOrDefault(
+                var track = session.GetTrack(checkListItemTemplate.CheckListItemTemplateId);
+                if (track.Id == 0)
+                {
+                    Db.CheckListItemSubmitionTracks.Add(track);
+                }
+                /*  session.CheckListItemSubmitionTracks.FirstOrDefault(
                         c =>
                         c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
                 if(track==null)
-                    track = new CheckListItemSubmitionTrack();
-                var notes = GetNotes(checkListItemTemplate, session.CheckListItemSubmitionTracks);
+                    track = new CheckListItemSubmitionTrack();*/
+                var notes = GetNotes(session, checkListItemTemplate);
                 var param = string.Format("?id={0}#checkpoint/{1}", session.Id, track.Id);
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
-                //itemUri. = Request.Url.Authority;
-
                 model.CheckListItems.Add(new CheckListItemModel
                     {
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
@@ -117,47 +119,19 @@ namespace Cico.Controllers
             return Json(model);
         }
 
-        private IList<NoteViewModel> GetNotes(CheckListItemTemplate checkListItemTemplate, ICollection<CheckListItemSubmitionTrack> checkListItemSubmitionTracks)
+        private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
         {
-            var track =
-                checkListItemSubmitionTracks.FirstOrDefault(
-                    c =>
-                    c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
-            if(track==null)
-                return new List<NoteViewModel>();
-            else
-            {
-                return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel()
+            var track = session.GetTrack(template.CheckListItemTemplateId);
+            return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel()
                     {
                         Content = HttpUtility.HtmlDecode( c.Content), 
                         DateCreated = c.DateCreated.ToString(),Id = c.Id,
                         UserCreated = c.UserCreated
                     }).ToList();
-            }
+            
         }
 
-        private string GetItemCssClass(CheckListItemTemplate checkListItemTemplate, ICollection<CheckListItemSubmitionTrack> checkListItemSubmitionTracks)
-        {
-            var track =
-                checkListItemSubmitionTracks.FirstOrDefault(
-                    c =>
-                    c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId);
-            if (!track.Checked)
-            {
-                return "red";
-            }
-            else
-            {
-                if (checkListItemTemplate.Provisional & track.Checked)
-                {
-                    return "yellow";
-                }
-                else
-                {
-                    return "green";
-                }
-            }
-        }
+        
         [HandleModelStateException]
         public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId)
         {
