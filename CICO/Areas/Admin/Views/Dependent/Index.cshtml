@@ -1,7 +1,18 @@
-﻿@model IList<Cico.Models.Dependent>
+﻿@model ICollection< Cico.Models.Dependent>
+
+@{
+    ViewBag.Title = "Dependents";
+ 
+}
 
 
+<h2>Dependents of </h2>
 
+@Html.ActionLink("New Dependent", "Create")
+@Html.ActionLink("Back to list","Index")
+
+<div>
+    
     <table cols="4" >
         <tr>
             <th colspan="2">
@@ -29,10 +40,11 @@
                 <td>
                     @dep.Relationship
                 </td>
-            <td>
-                @Html.ActionLink("Edit","Edit","Dependent",new{id=dep.Id},null)
-                @Html.ActionLink("Delete", "DeleteDependents",  new {id=dep.Id.ToString()})
-            </td>
-        </tr>
-    }
-</table>
+                <td>
+                    @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
+                    @Html.ActionLink("Delete", "Delete",  new {id=dep.Id.ToString()})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

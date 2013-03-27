@@ -128,13 +128,17 @@
             @Html.ValidationMessageFor(model => model.Document)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Form)
-        </div>
-        <div class="editor-field">
+        @if (Model.Type.Equals("SelfContainedForm"))
+        {
+           <div class="editor-label">
+              @Html.LabelFor(model => model.Form)
+          </div>
+          <div class="editor-field">
             @Html.EditorFor(model => model.Form)
             @Html.ValidationMessageFor(model => model.Form)
-        </div>
+          </div>
+        }
+      
 
         <div class="editor-label">
             @Html.LabelFor(model => model.InstructionText)
@@ -169,7 +173,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Submit" name="Save" />
         </p>
     </fieldset>
 }

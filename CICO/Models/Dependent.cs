@@ -53,7 +53,7 @@ namespace Cico.Models
         [DisplayName("Visa Number")]
         [RegularExpression(@"[^a-zA-Z0-9]+", ErrorMessage = "Visa Number can not contain special characters.")]
         public string VisaNumber { get; set; }
-        [DisplayName("Visa expiration")]
+        [DisplayName("Visa Expiration")]
         public DateTime? VisaExpiration { get; set; }
         public string PostOfAssignment { get; set; }
         [DisplayName("Office Phone")]
@@ -80,10 +80,11 @@ namespace Cico.Models
         [StringLength(30)]
         public string EmergencyContactRelationship { get; set; }
         [DisplayName("Emergency Contact Phone")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [RegularExpression(@"^52\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string EmergencyContactPhone { get; set; }
         [DisplayName("Emergency Contact Phone 2")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [RegularExpression(@"^52\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
+        [DefaultValue(52)]
         public string EmergencyContactPhone2 { get; set; }
         public string EmergencyContactOfficePhone { get; set; }
         public virtual Employee Employee { get; set; }

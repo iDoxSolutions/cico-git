@@ -163,6 +163,7 @@
     <Compile Include="Areas\Admin\CheckListBuilderController.cs" />
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
+    <Compile Include="Areas\Admin\DependentController.cs" />
     <Compile Include="Areas\Admin\EmailSubscriptionsController.cs" />
     <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
@@ -673,6 +674,14 @@
     <Content Include="Areas\Admin\Views\Shared\AsideMenu.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
+    <Content Include="Areas\Admin\Views\EmailSubscriptions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\EmailSubscriptions\Show.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\DependentForm.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\DependentIndex.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

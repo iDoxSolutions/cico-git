@@ -9,16 +9,21 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class EmployeeController : Controller
+    public class EmployeeController : Cico.Controllers.ControllerBase
     {
-        private CicoContext db = new CicoContext();
+       
 
         //
         // GET: /Admin/Employees/
 
         public ViewResult Index()
         {
-            return View(db.Employees.ToList());
+            return View(Db.Employees.ToList());
+        }
+
+        public ViewResult DependentIndex(int? id) {
+            Employee employee = Db.Employees.Find(id);
+            return View(employee);
         }
 
         //
@@ -26,7 +31,7 @@ namespace Cico.Areas.Admin
 
         public ViewResult Details(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = Db.Employees.Find(id);
             return View(employee);
         }
 
@@ -46,8 +51,8 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                Db.Employees.Add(employee);
+                Db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
@@ -59,7 +64,7 @@ namespace Cico.Areas.Admin
  
         public ActionResult Edit(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = Db.Employees.Find(id);
             return View(employee);
         }
 
@@ -71,8 +76,8 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
-                db.SaveChanges();
+                Db.Entry(employee).State = EntityState.Modified;
+                Db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(employee);
@@ -83,7 +88,7 @@ namespace Cico.Areas.Admin
  
         public ActionResult Delete(int id)
         {
-            Employee employee = db.Employees.Find(id);
+            Employee employee = Db.Employees.Find(id);
             return View(employee);
         }
 
@@ -93,16 +98,16 @@ namespace Cico.Areas.Admin
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {            
-            Employee employee = db.Employees.Find(id);
-            db.Employees.Remove(employee);
-            db.SaveChanges();
+            Employee employee = Db.Employees.Find(id);
+            Db.Employees.Remove(employee);
+            Db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    Db.Dispose();
+        //    base.Dispose(disposing);
+        //}
     }
 }

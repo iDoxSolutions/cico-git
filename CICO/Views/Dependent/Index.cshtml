@@ -1,41 +1,50 @@
 ﻿@model ICollection< Cico.Models.Dependent>
 
 @{
-    ViewBag.Title = "Dependents1 ";
+    ViewBag.Title = "Dependents";
  
 }
 
-<h2>Dependents</h2>
 
+<h2>Dependents of </h2>
 
-<table>
-    <tr>
-        <th>
-            Given Name
-        </th>
-        <th>
-           DOB
-        </th>
-    </tr>
-    @foreach (var dep in Model)
-    {
+@Html.ActionLink("Add Dependent", "Create")
+@Html.ActionLink("Back to Checklist","Index")
+
+<div>
+    
+    <table cols="4" >
         <tr>
-            <td>
-                @dep.GivenName
-            </td>
-         <td>
-                @dep.Surname
-            </td>
-            <td>
-                @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
-            </td>
-             <td>
-                @dep.Relationship
-            </td>
-            <td>
-                @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
-                @Html.ActionLink("Delete", "Delete",  new {id=dep.Id.ToString()})
-            </td>
+            <th colspan="2">
+                Name
+            </th>
+            <th>
+                DOB
+            </th>
+            <th>
+                Relationship
+            </th>
         </tr>
-    }
-</table>
+        @foreach (var dep in Model)
+        {
+            <tr>
+                <td>
+                    @dep.GivenName
+                </td>
+                <td>
+                    @dep.Surname
+                </td>
+                <td>
+                    @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+                </td>
+                <td>
+                    @dep.Relationship
+                </td>
+                <td>
+                    @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
+                    @Html.ActionLink("Delete", "Delete",  new {id=dep.Id.ToString()})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

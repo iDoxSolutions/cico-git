@@ -9,66 +9,66 @@ namespace Cico.Models
         [Key]
         public int CheckListItemTemplateId { get; set; }
         [Required]
-        [Display(Name = "Item Type")]
+        [Display(Name = "Type")]
         public string Item { get; set; }
 
         [Required]
-        [Display(Name = "Item Description")]
+        [Display(Name = "Description")]
         public string Description {get; set; }
-        [Display(Name = "Item Office")]
+        [Display(Name = "Office")]
         public virtual Office Office { get; set; }
-        [Display(Name = "Item Priority")]
+        [Display(Name = "Priority")]
         public string Priority { get; set; }
-        [Display(Name = "Item Status")]
+        [Display(Name = "Status")]
         public string Status { get; set; }
-        [Display(Name = "Item Viewable")]
+        [Display(Name = "Viewable")]
         public string Viewable { get; set; }
-        [Display(Name = "Item Subscriber")]
+        [Display(Name = "Subscriber")]
         public string Subscriber { get; set; }
-        [Display(Name = "Item CheckListId")]
+        [Display(Name = "CheckList Id")]
         public string CheckListId { get; set; }
-        [Display(Name = "Item DueDate ")]
+        [Display(Name = "Due Date")]
         public DateTime? DueDate { get; set; }
-        [Display(Name = "Item Instructions")]
+        [Display(Name = "Instructions")]
         public string Instructions { get; set; }
         [Display(Name = "Employee Complete ")]
         public string  EmployeeComplete{ get; set; }
         
-        [Display(Name = "Item Office Complete ")]
+        [Display(Name = "Office Complete ")]
         public string OfficeComplete { get; set; }
 
         [Display(Name = "Complete Check List")]
         public bool CompleteCheckList { get; set; }
         [Display(Name = "Notes Access")]
         public bool NotesAccess { get; set; }
-        [Display(Name = "Item Provisional ")]
+        [Display(Name = "Provisional ")]
         public bool Provisional { get; set; }
-        [Display(Name = "Item Document ")]
+        [Display(Name = "Document ")]
         public string  Document { get; set; }
-        [Display(Name = "Item Form ")]
+        [Display(Name = "Download Template ")]
         public string Form { get; set; }
         [Display(Name = "Dependents ")]
         public bool Dependents { get; set; }
 
         
         
-        [Display(Name = "Item Instructions ")]
+        [Display(Name = "Instructions ")]
         public string InstructionText { get; set; }
 
         [Display(Name = "Approval Text")]
         public string ApprovalText { get; set; }
 
-        [Display(Name = "Item Group")]
+        [Display(Name = "Group")]
         public string Group { get; set; }
-        [Display(Name = "Item Alert Days")]
+        [Display(Name = "Alert Days")]
         public string  AlertDays{ get; set; }
-        [Display(Name = "Item Alert Frequency")]
+        [Display(Name = "Alert Frequency")]
         public string  AlertFrenquency{ get; set; }
 
         public virtual CheckListTemplate CheckListTemplate { get; set; }
         public virtual IList<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public string Type{get; set; }
-        [Display(Name = "File")]
+        [Display(Name = "Custom Form")]
         public virtual SystemFile SystemFile{get; set; }
 
         [Display(Name = "Due Date")]
