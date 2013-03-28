@@ -5,6 +5,7 @@
     tinyMCE.init({
         mode: "textareas",
         theme: "simple",
+        font_sizes_style_values: medium,
         //plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
         //theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
         //theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
@@ -42,16 +43,14 @@
             @Html.DropDownListFor(c => c.SelectedOffice, Model.OfficeList, "")
         </div>
        
-        @if (Model.CheckListItemTemplate.Item.Equals("SelfContainedForm") )
-        { 
-           <div class="editor-label">
+         <div class="editor-label">
               @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div class="homescreen-display">*select a custom form from the dropdown to allow employess fill out the form data</div>
           
             </div>
             <div class="editor-field">
                 @Html.DropDownListFor(c => c.CheckListItemTemplate.Form, Html.GetDropdownItems("SystemForms"), "")
             </div>
-        }
+        
          <div class="editor-label">
             @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-display">*select a template from the dropdown to allow employess to download it</div>
         </div>
