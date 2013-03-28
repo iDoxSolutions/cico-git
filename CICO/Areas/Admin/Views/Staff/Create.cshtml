@@ -1,5 +1,11 @@
 ﻿@model Cico.Areas.Admin.StaffModel
-           
+
+@{
+    ViewBag.Title = "Staff Create";
+    
+}
+
+<h2>Staff Create</h2>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
@@ -9,8 +15,7 @@
             @Html.LabelFor(c=>c.Staff.UserId)
         </div>
         <div>
-            @Html.DisplayFor(c=>c.Staff.UserId)
-             @Html.HiddenFor(c=>c.Staff.UserId)
+            @Html.TextBoxFor(c=>c.Staff.UserId)
         </div>
         <div>
             @Html.LabelFor(c=>c.Staff.Email)
@@ -24,9 +29,7 @@
         <div>
             @Html.DropDownListFor(c=>c.SelectedOffice,Model.Offices,"")
         </div>
-        <label>
-            Roles
-        </label>
+        <label>Roles</label>
         <ul>
             @foreach (var role in Model.Roles)
             {

@@ -7,11 +7,13 @@
 
 <h2>Staff</h2>
 
+@Html.ActionLink("Create","Create")
 
 <table class="admin-table">
     <tr>
         <th>User Id</th>
         <th>Email</th>
+         <th>Office</th>
     </tr>
     @foreach (var item in Model)
     {
@@ -21,6 +23,9 @@
             </td>
             <td>
                 @item.Email
+            </td>
+            <td>
+                @(item.Office==null?"":item.Office.Name)
             </td>
             <td>
                 @Html.ActionLink("Edit","Edit",new{userid=item.UserId})

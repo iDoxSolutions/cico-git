@@ -12,6 +12,10 @@ namespace Cico.Areas.Admin
 {
     public class StaffModel
     {
+        public StaffModel()
+        {
+            SelectedRoles = new string[]{};
+        }
         public Staff Staff { get; set; }
         public IList<SelectListItem> Roles { get; set; }
         public IList<SelectListItem> Offices { get; set; }
@@ -32,9 +36,61 @@ namespace Cico.Areas.Admin
     {
         public ActionResult Index()
         {
-            var staff = Db.Staffs.ToList();
+            var staff = Db.Staffs.Include("Office").ToList();
             return View(staff);
         }
+
+        public void Validate(StaffModel model)
+        {
+            if (model.SelectedRoles == null || model.SelectedRoles.Length==0)
+            {
+                ModelState.AddModelError("", "At least one role have to be selected");
+                return;
+            }
+            if (model.SelectedRoles.Contains("OfficeAdmin") && !model.SelectedOffice.HasValue)
+            {
+                ModelState.AddModelError("","You need to pick the office for OfficeAdmin");
+            }
+
+        }
+
+        public ActionResult Create()
+        {
+            var model = new StaffModel() {Staff = new Staff(){SystemRoles = new List<SystemRole>()}};
+            model.Load(Db);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Create(StaffModel model)
+        {
+            Validate(model);
+            if (ModelState.IsValid)
+            {
+                if (model.SelectedOffice.HasValue)
+                {
+                    model.Staff.Office = Db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
+                }
+                Db.Staffs.Add(model.Staff);
+               if (model.SelectedRoles != null)
+               {
+                   model.Staff.SystemRoles = model.Staff.SystemRoles ?? new List<SystemRole>();
+                   foreach (var role in model.SelectedRoles)
+                   {
+                       var orole = Db.SystemRoles.Single(c => c.Name == role);
+                       orole.Staffs.Add(model.Staff);
+                   }
+               }
+                return RedirectToAction("index");
+            }
+            else
+            {
+                model.Staff.SystemRoles = new List<SystemRole>();
+                model.Load(Db);
+                return View(model);
+            }
+            
+        }
+
 
         public ActionResult Edit(string userid)
         {
@@ -46,6 +102,7 @@ namespace Cico.Areas.Admin
         [HttpPost]
         public ActionResult Edit(StaffModel model)
         {
+            Validate(model);
             var staff = Db.Staffs.Single(c => c.UserId == model.Staff.UserId);
             if (ModelState.IsValid)
             {
@@ -63,13 +120,18 @@ namespace Cico.Areas.Admin
                             var orole = Db.SystemRoles.Single(c => c.Name == selRole);
                             staff.SystemRoles.Add(orole);
                             orole.Staffs.Add(staff);
+                            //Db.Entry(staff).Member()
                         }
                     }
-                    var toRemove = staff.SystemRoles.Where(c => model.SelectedRoles.Any(d => d == c.Name)).ToList();
+                    var toRemove = staff.SystemRoles.Where(c => !model.SelectedRoles.Any(d => d == c.Name)).ToList();
                     foreach (var systemRole in toRemove)
                     {
                         staff.SystemRoles.Remove(systemRole);
                     }
+                }
+                else
+                {
+                    staff.SystemRoles.Clear();
                 }
                 return RedirectToAction("index");
             }

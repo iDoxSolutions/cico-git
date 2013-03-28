@@ -13,6 +13,6 @@ namespace Cico.Models
         [Required]
         public string Email { get; set; }
         public virtual IList<SystemRole> SystemRoles { get; set; }
-        public Office Office { get; set; }
+        public virtual Office Office { get; set; }
     }
 }
