@@ -4,19 +4,11 @@
        
     </p>
 <ul style="padding-left: 5px">
-    @if (User.IsInRole("GlobalAdmin"))
-    {
-        <li>@Html.ActionLink("Management Dashboard", "Index", "CheckLists")</li>
-        <li>@Html.ActionLink("Check List builder", "Index", "ChecklistBuilder", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Offices", "Index", "Office", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Users", "Index", "Employee", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Dependents", "Index", "Dependent", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Subscriptions", "Index", "EmailSubscriptions", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Staff", "Index", "Staff", new {area = "Admin"}, null)</li>
-    }
-    
-    @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
-    {
-       <li>@Html.ActionLink("Admin", "Index", "OfficeAdminDashboard", new {area = "Admin"}, null)</li>
-    }
+    <li>@Html.ActionLink("Management Dashboard", "Index", "CheckLists")</li>
+    <li>@Html.ActionLink("Checklist Builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Offices", "Index", "Office", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Users", "Index", "Employee", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Dependents", "Index", "Dependent", new { area = "Admin" }, null)</li>
+    <li>@Html.ActionLink("Subscriptions", "Index", "EmailSubscriptions", new { area = "Admin" }, null)</li>
+ <li>@Html.ActionLink("Staff", "Index", "Staff", new { area = "Admin" }, null)</li>
 </ul>

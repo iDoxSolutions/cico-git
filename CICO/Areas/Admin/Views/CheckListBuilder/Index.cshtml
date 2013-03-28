@@ -5,34 +5,30 @@
     
 }
 
-<h2>Check List  Builder</h2>
+<h2>Checklist  Manager</h2>
 
 <table>
     <tr>
-        <th>
-            Revision Id
-        </th>
+        
         <th>
             Name
         </th>
-        <th>Publish</th>
+        
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @item.CheckListTemplateId
-            </td>
+            
             <td>
                 @Html.ActionLink(item.Name,"Edit",new {id=item.CheckListTemplateId})
                 
             </td>
-            <td>
+            @*<td>
                 @if (!item.Published)
                 {
                     <form action="/admin/checklistbuilder/publish"><button type="submit">Publish</button><input type="hidden" value="@item.CheckListTemplateId"/></form>
                 }
-            </td>
+            </td>*@
         </tr>
     }
          
