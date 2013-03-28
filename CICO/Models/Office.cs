@@ -19,6 +19,6 @@ namespace Cico.Models
         public string ContactUser{get; set; }
 
         public virtual IList<Staff> Staffs { get; set; }
-        
+        public virtual IList<CheckListItemTemplate> CheckListItemTemplates { get; set; }
     }
 }

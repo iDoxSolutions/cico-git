@@ -4,5 +4,6 @@ namespace Cico.Models
     {
         public string Email { get; set; }
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

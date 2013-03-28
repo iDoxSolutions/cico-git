@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\DependentController.cs" />
     <Compile Include="Areas\Admin\EmailSubscriptionsController.cs" />
     <Compile Include="Areas\Admin\ItemClassController.cs" />
+    <Compile Include="Areas\Admin\OfficeAdminDashboardController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
@@ -681,6 +682,7 @@
     <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\_StaffForm.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\OfficeAdminDashboard\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

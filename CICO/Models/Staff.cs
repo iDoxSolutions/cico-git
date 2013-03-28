@@ -14,5 +14,6 @@ namespace Cico.Models
         public string Email { get; set; }
         public virtual IList<SystemRole> SystemRoles { get; set; }
         public virtual Office Office { get; set; }
+        public virtual IList<EmailSubscription> EmailSubscriptions { get; set; }
     }
 }

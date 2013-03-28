@@ -46,6 +46,14 @@
                             {
                                 <li>@Html.ActionLink("Admin", "Index", "CheckLists", new {area = "Admin"}, null)</li>
                             }
+                            else
+                            {
+                                if (User.IsInRole("OfficeAdmin"))
+                                {
+                                    <li>@Html.ActionLink("Admin", "Index", "OfficeAdminDashboard", new {area = "Admin"}, null)</li>
+                                }
+                            }
+                            
                         </ul>
                     </nav>
                    

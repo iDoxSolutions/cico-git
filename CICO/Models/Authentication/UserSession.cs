@@ -80,6 +80,12 @@ namespace Cico.Models.Authentication
             return _db.CheckListTemplates.Single(c => c.CheckListTemplateId==templateId);
         }
 
+        public Staff GetCurrentStaff()
+        {
+            var staff = _db.Staffs.Include("Office").Single(c => c.UserId == _httpContext.User.Identity.Name);
+            return staff;
+        }
+
         public CheckListItemSubmitionTrack GetTrack(int checklistItemTemplateId)
         {
             var session = GetCurrent();
