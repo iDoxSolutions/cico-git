@@ -12,9 +12,9 @@
     <mvcSiteMapNode title="Admin" controller="Checklists" action="Index" area="admin">
       <mvcSiteMapNode title="Employees" controller="Employee" action="Index" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Offices" controller="Office" action="Index" area="admin"></mvcSiteMapNode>
-      <mvcSiteMapNode title="Check List Builder" controller="ChecklistBuilder" action="Index" area="admin">
-        <mvcSiteMapNode title="Edit Check List" controller="ChecklistBuilder" action="Edit" area="admin">
-          <mvcSiteMapNode title="Edit Check List Item" controller="ItemClass" action="Edit" area="admin">
+      <mvcSiteMapNode title="Checklist Builder" controller="ChecklistBuilder" action="Index" area="admin">
+        <mvcSiteMapNode title="Edit Checklist" controller="ChecklistBuilder" action="Edit" area="admin">
+          <mvcSiteMapNode title="Edit Checklist Item" controller="ItemClass" action="Edit" area="admin">
 
           </mvcSiteMapNode>
         </mvcSiteMapNode>
