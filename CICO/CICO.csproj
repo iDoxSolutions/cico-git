@@ -637,11 +637,6 @@
     <Content Include="Areas\Admin\Views\Employee\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Staff\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Office\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Office\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Office\Create.cshtml" />
@@ -671,8 +666,6 @@
     <Content Include="Content\DocTemplates\Template2.docx" />
     <Content Include="Areas\Admin\Views\CheckLists\Index.cshtml" />
     <Content Include="Mvc.sitemap" />
-    <Content Include="Areas\Admin\Views\Shared\AsideMenu.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
     <Content Include="Areas\Admin\Views\EmailSubscriptions\Index.cshtml" />
     <Content Include="Areas\Admin\Views\EmailSubscriptions\Show.cshtml" />
@@ -682,6 +675,11 @@
     <Content Include="Areas\Admin\Views\Dependent\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\DependentIndex.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AsideMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\_StaffForm.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

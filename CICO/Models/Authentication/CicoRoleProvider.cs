@@ -12,7 +12,7 @@ namespace Cico.Models.Authentication
         {
             using (var db = new CicoContext())
             {
-                var staff = db.Staffs.FirstOrDefault(c => c.Name == username);
+                var staff = db.Staffs.FirstOrDefault(c => c.UserId == username);
                 if (staff != null)
                 {
                     return staff.SystemRoles.Any(c => c.Name == roleName);
@@ -29,7 +29,7 @@ namespace Cico.Models.Authentication
         {
             using (var db = new CicoContext())
             {
-                var staff = db.Staffs.FirstOrDefault(c => c.Name == username);
+                var staff = db.Staffs.FirstOrDefault(c => c.UserId == username);
                 if (staff != null)
                 {
                     var roles = staff.SystemRoles.ToList();

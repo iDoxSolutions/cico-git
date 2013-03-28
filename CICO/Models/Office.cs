@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -16,6 +17,8 @@ namespace Cico.Models
         [DisplayName ("Office Contact")]
         [StringLength(65)]
         public string ContactUser{get; set; }
+
+        public virtual IList<Staff> Staffs { get; set; }
         
     }
 }

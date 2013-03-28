@@ -20,16 +20,16 @@ namespace Cico.Models
         private void InitStaff(CicoContext context)
         {
             var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin"});
-            context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin" });
+            var officeAdmin = context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin" });
 
-            var user = context.Staffs.Add(new Staff(){Name = "ABAPER-W8\\Pawel"});
+            var user = context.Staffs.Add(new Staff(){UserId = "ABAPER-W8\\Pawel",Office=_hrOffice,Email = "wasilewski.pawel@gmail.com"});
             user.SystemRoles = new Collection<SystemRole>();
             user.SystemRoles.Add(globalAdmin);
         }
 
         protected override void Seed(CicoContext context)
         {
-            InitStaff(context);
+            
             var template1 =
                 context.SystemFiles.Add(new SystemFile()
                     {
@@ -93,7 +93,7 @@ namespace Cico.Models
 
             AddStates(context);
             AddOffices(context);
-
+            InitStaff(context);
             template.CheckListItemTemplates.Add(new CheckListItemTemplate()
                 {
                     Office = _hrOffice,

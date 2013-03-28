@@ -9,103 +9,79 @@ using System.Web.Mvc;
 using Cico.Models;
 
 namespace Cico.Areas.Admin
-{ 
-    public class StaffController : Controller
+{
+    public class StaffModel
     {
-        private CicoContext db = new CicoContext();
-        
-        
-        
-        //
-        // GET: /Admin/Staff/
-
-        public ViewResult Index()
+        public Staff Staff { get; set; }
+        public IList<SelectListItem> Roles { get; set; }
+        public IList<SelectListItem> Offices { get; set; }
+        public int? SelectedOffice { get; set; }
+        public string[] SelectedRoles { get; set; }
+        public void Load(ICicoContext context)
         {
-            return View(db.Staffs.ToList());
-        }
-
-        //
-        // GET: /Admin/Staff/Details/5
-
-        public ViewResult Details(int id)
-        {
-            Staff staff = db.Staffs.Find(id);
-            return View(staff);
-        }
-
-        //
-        // GET: /Admin/Staff/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        } 
-
-        //
-        // POST: /Admin/Staff/Create
-
-        [HttpPost]
-        public ActionResult Create(Staff staff)
-        {
-            if (ModelState.IsValid)
+            Roles = context.SystemRoles.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.Name,Selected = Staff.SystemRoles.Any(d=>d.Name==c.Name)}).ToList();
+            Offices = context.Offices.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.OfficeId.ToString()}).ToList();
+            if (Staff.Office != null)
             {
-                db.Staffs.Add(staff);
-                db.SaveChanges();
-                return RedirectToAction("Index");  
+                SelectedOffice = Staff.Office.OfficeId;
+
             }
-
-            return View(staff);
-        }
-        
-        //
-        // GET: /Admin/Staff/Edit/5
- 
-        public ActionResult Edit(int id)
-        {
-            Staff staff = db.Staffs.Find(id);
-            return View(staff);
-        }
-
-        //
-        // POST: /Admin/Staff/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(Staff staff)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(staff).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(staff);
-        }
-
-        //
-        // GET: /Admin/Staff/Delete/5
- 
-        public ActionResult Delete(int id)
-        {
-            Staff staff = db.Staffs.Find(id);
-            return View(staff);
-        }
-
-        //
-        // POST: /Admin/Staff/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {            
-            Staff staff = db.Staffs.Find(id);
-            db.Staffs.Remove(staff);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
+    public class StaffController : Cico.Controllers.ControllerBase
+    {
+        public ActionResult Index()
+        {
+            var staff = Db.Staffs.ToList();
+            return View(staff);
+        }
+
+        public ActionResult Edit(string userid)
+        {
+            var staff = Db.Staffs.Single(c => c.UserId == userid);
+            var model = new StaffModel(){Staff = staff};
+            model.Load(Db);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult Edit(StaffModel model)
+        {
+            var staff = Db.Staffs.Single(c => c.UserId == model.Staff.UserId);
+            if (ModelState.IsValid)
+            {
+                if (model.SelectedOffice.HasValue)
+                {
+                    staff.Office = Db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
+                }
+                staff.Email = model.Staff.Email;
+                if (model.SelectedRoles != null)
+                {
+                    foreach (var selRole in model.SelectedRoles)
+                    {
+                        if (staff.SystemRoles.All(c => c.Name != selRole))
+                        {
+                            var orole = Db.SystemRoles.Single(c => c.Name == selRole);
+                            staff.SystemRoles.Add(orole);
+                            orole.Staffs.Add(staff);
+                        }
+                    }
+                    var toRemove = staff.SystemRoles.Where(c => model.SelectedRoles.Any(d => d == c.Name)).ToList();
+                    foreach (var systemRole in toRemove)
+                    {
+                        staff.SystemRoles.Remove(systemRole);
+                    }
+                }
+                return RedirectToAction("index");
+            }
+            else
+            {
+                model.Staff = staff;
+                model.Load(Db);
+                return View(model);
+            }
+            
+
+        }
+    }
+
 }

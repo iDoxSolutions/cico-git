@@ -9,8 +9,10 @@ namespace Cico.Models
         
         [Required]
         [Key]
-        public string Name { get; set; }
+        public string UserId { get; set; }
+        [Required]
+        public string Email { get; set; }
         public virtual IList<SystemRole> SystemRoles { get; set; }
-        
+        public Office Office { get; set; }
     }
 }

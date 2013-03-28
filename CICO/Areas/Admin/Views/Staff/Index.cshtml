@@ -1,33 +1,31 @@
 ﻿@model IEnumerable<Cico.Models.Staff>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Staff";
+   
 }
 
-<h2>Index</h2>
+<h2>Staff</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
+
+<table class="admin-table">
     <tr>
-        <th>
-            Email
-        </th>
-        <th></th>
+        <th>User Id</th>
+        <th>Email</th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.StaffId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.StaffId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.StaffId })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.UserId
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new{userid=item.UserId})
+            </td>
+        </tr>
+    }
+    
 </table>

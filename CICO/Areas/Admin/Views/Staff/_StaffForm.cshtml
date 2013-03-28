@@ -1,0 +1,41 @@
+﻿@model Cico.Areas.Admin.StaffModel
+           
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Staff Form</legend>
+        <div>
+            @Html.LabelFor(c=>c.Staff.UserId)
+        </div>
+        <div>
+            @Html.TextBoxFor(c=>c.Staff.UserId)
+        </div>
+        <div>
+            @Html.LabelFor(c=>c.Staff.Email)
+        </div>
+        <div>
+            @Html.TextBoxFor(c=>c.Staff.Email)
+        </div>
+        <div>
+            @Html.LabelFor(c=>c.Staff.Office)
+        </div>
+        <div>
+            @Html.DropDownListFor(c=>c.SelectedOffice,Model.Offices,"")
+        </div>
+        
+        <ul>
+            @foreach (var role in Model.Roles)
+            {
+                
+                <li>
+                    @role.Text <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected?"checked":"")/>
+                </li>
+            }
+        </ul>
+        
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+
+    </fieldset>
+}
