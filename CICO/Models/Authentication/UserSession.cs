@@ -32,6 +32,11 @@ namespace Cico.Models.Authentication
             }
         }
 
+        public bool IsOfficeAdmin
+        {
+            get { return _httpContext.User.IsInRole("OfficeAdmin"); }
+        }
+
         public CheckListSession GetCurrent()
         {
             var uname = _httpContext.User.Identity.Name;

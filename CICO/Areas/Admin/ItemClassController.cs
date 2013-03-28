@@ -72,6 +72,10 @@ namespace Cico.Areas.Admin
                 model.CheckListItemTemplate.Office = db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
                 var template = db.CheckListItemTemplates.Add(model.CheckListItemTemplate);
                 db.SaveChanges();
+                if (UserSession.IsOfficeAdmin)
+                {
+                    return RedirectToAction("index", "OfficeAdminDashboard");
+                }
                 return RedirectToAction("edit","checklistbuilder",new{id=model.TemplateId});
                 
             }
@@ -138,6 +142,10 @@ namespace Cico.Areas.Admin
                 item.ApprovalText = model.CheckListItemTemplate.ApprovalText;
                 item.CompleteCheckList = model.CheckListItemTemplate.CompleteCheckList;
                 db.SaveChanges();
+                if (UserSession.IsOfficeAdmin)
+                {
+                    return RedirectToAction("index", "OfficeAdminDashboard");
+                }
                 return RedirectToAction("Edit", "ChecklistBuilder",new {id=model.TemplateId} );
             }
             else

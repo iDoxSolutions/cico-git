@@ -34,14 +34,22 @@
         <div class="editor-field">
             @Html.TextBoxFor(c => c.CheckListItemTemplate.Description)
         </div>
-        
-        <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.Office)
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(c => c.SelectedOffice, Model.OfficeList, "")
-        </div>
-       
+        @if (User.IsInRole("GlobalAdmin"))
+        {
+            <div class="editor-label">
+                @Html.LabelFor(c => c.CheckListItemTemplate.Office)
+            </div>
+
+            <div class="editor-field">
+            
+                @Html.DropDownListFor(c => c.SelectedOffice, Model.OfficeList, "")
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(c=>c.SelectedOffice,Model.CheckListItemTemplate.Office.OfficeId)
+        }
+
         @if (Model.CheckListItemTemplate.Item.Equals("SelfContainedForm") )
         { 
            <div class="editor-label">
