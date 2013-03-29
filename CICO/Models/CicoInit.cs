@@ -20,28 +20,27 @@ namespace Cico.Models
 
         private void InitStaff(CicoContext context)
         {
-            var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin"});
-            var officeAdmin = context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin" });
+            var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin",Staffs = new List<Staff>()});
+            var officeAdmin = context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin",Staffs = new List<Staff>()});
 
             var user = context.Staffs.Add(new Staff(){UserId = "ABAPER-W8\\Pawel",Office=_hrOffice,Email = "wasilewski.pawel@gmail.com"});
             user.SystemRoles = new Collection<SystemRole>();
             user.SystemRoles.Add(globalAdmin);
 
-            user = context.Staffs.Add(new Staff() { UserId = "LightKeeperDev\\Ken", Office = _cloOffice, Email = "kenhambright@gmail.com" });
-            user.SystemRoles = new Collection<SystemRole>();
-            user.SystemRoles.Add(globalAdmin);
+            var hradmin = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\HrAdmin", Office = _hrOffice, Email = "wasilewski.pawel@gmail.com" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
 
-            user = context.Staffs.Add(new Staff() { UserId = "Ltkserver\\CICOUser", Office = _cloOffice, Email = "kenhambright@gmail.com" });
-            user.SystemRoles = new Collection<SystemRole>();
-            user.SystemRoles.Add(globalAdmin);
+            var gsodmin = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\GsoAdmin", Office = _hrOffice, Email = "wasilewski.pawel@gmail.com" });
+            gsodmin.SystemRoles = new List<SystemRole>();
+            gsodmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(gsodmin);
 
-            user = context.Staffs.Add(new Staff() { UserId = "Ltkserver\\HRAdmin", Office = _cloOffice, Email = "kenhambright@gmail.com" });
-            user.SystemRoles = new Collection<SystemRole>();
-            user.SystemRoles.Add(officeAdmin);
-
-            user = context.Staffs.Add(new Staff() { UserId = "Ltkserver\\GSOAdmin", Office = _cloOffice, Email = "kenhambright@gmail.com" });
-            user.SystemRoles = new Collection<SystemRole>();
-            user.SystemRoles.Add(officeAdmin);
+            var global = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\GlobalAdmin", Office = _hrOffice, Email = "wasilewski.pawel@gmail.com" });
+            global.SystemRoles = new Collection<SystemRole>();
+            global.SystemRoles.Add(globalAdmin);
+            globalAdmin.Staffs.Add(global);
         }
 
         protected override void Seed(CicoContext context)
