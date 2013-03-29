@@ -1,76 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
-using Cico.Models.Helpers;
 
 namespace Cico.Areas.Admin
-{
-
-    public class RemindersModel : EntityBaseWithKey {
-        public string Checklisttype { get; set; }
-
-        public int DateToSend { get; set; }
-
-        public string MessageSubject { get; set; }
-
-        public string MessagePreface { get; set; }
-
-        public string MessageClosing { get; set; }
-
-        public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
-    }
-    
-    public class ReminderController : Cico.Controllers.ControllerBase
+{ 
+    public class OfficeController : Cico.Controllers.ControllerBase
     {
-        //
-        // GET: /Admin/EmailSubscriptions/
+       
 
-        public ActionResult Index(int itemTemplate)
+        //
+        // GET: /Admin/Office/
+
+        public ViewResult Index()
         {
-            var reminders =
-                Db.EmailSubscriptions.Include("CheckListItemTemplate")
-                .Where(c => c.CheckListItemTemplate.CheckListItemTemplateId == itemTemplate)
-                .Select(c=>new EmailSubscriptionModel(){Email = c.Email,Id = c.Id})
-                .ToList();
-            return Json(reminders);
+            return View(Db.Offices.ToList());
         }
 
+        //
+        // GET: /Admin/Office/Details/5
+
+        public ViewResult Details(int id)
+        {
+            Office Office = Db.Offices.Find(id);
+            return View(Office);
+        }
+
+        //
+        // GET: /Admin/Office/Create
+
+        public ActionResult Create()
+        {
+            return View();
+        } 
+
+        //
+        // POST: /Admin/Office/Create
+
         [HttpPost]
-        [HandleModelStateException]
-        public ActionResult Create(Reminders model)
+        public ActionResult Create(Office Office)
         {
             if (ModelState.IsValid)
             {
-               // var template = Db.CheckListItemTemplates.Single(c => c.CheckListItemTemplateId == model.ItemTemplateId);
-                var subs = Db.EmailSubscriptions.Add(new EmailSubscription()
-                    {
-                        //CheckListItemTemplate = template,
-                        //Email = model.Email
-                    });
+                Db.Offices.Add(Office);
                 Db.SaveChanges();
-                model.Id = subs.Id;
-                return Json(model);
+                return RedirectToAction("Index");  
             }
-            else
-            {
-                throw new ModelStateException(ModelState);
-            }
+
+            return View(Office);
         }
+        
+        //
+        // GET: /Admin/Office/Edit/5
+ 
+        public ActionResult Edit(int id)
+        {
+            Office Office = Db.Offices.Find(id);
+            return View(Office);
+        }
+
+        //
+        // POST: /Admin/Office/Edit/5
 
         [HttpPost]
-        [HandleModelStateException]
-        public ActionResult Delete(Reminders model)
+        public ActionResult Edit(Office Office)
         {
-            var subs = Db.EmailSubscriptions.Single(c => c.Id == model.Id);
-            Db.EmailSubscriptions.Remove(subs);
-            Db.SaveChanges();
-            return Json(model);
+            if (ModelState.IsValid)
+            {
+                Db.Entry(Office).State = EntityState.Modified;
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(Office);
         }
 
+        //
+        // GET: /Admin/Office/Delete/5
+ 
+        public ActionResult Delete(int id)
+        {
+            Office Office = Db.Offices.Find(id);
+            return View(Office);
+        }
+
+        //
+        // POST: /Admin/Office/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Office Office = Db.Offices.Find(id);
+            Db.Offices.Remove(Office);
+            Db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    Db.Dispose();
+        //    base.Dispose(disposing);
+        //}
     }
 }
