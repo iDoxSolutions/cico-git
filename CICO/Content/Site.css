@@ -984,7 +984,7 @@ div.tabcontents div.content h2 {
     }
     .two-column-form .editor-field select {
         width: 100%;
-        font-size: 1.2em;
+        font-size: medium;
         border: 1px solid #e2e2e2;
         margin: 5px 0 6px 0;
         padding: 5px;
@@ -992,7 +992,7 @@ div.tabcontents div.content h2 {
 
     .two-column-form .editor-field textarea {
         width: 100%;
-        font-size: 1.2em;
+        font-size: medium;
         border: 1px solid #e2e2e2;
         margin: 5px 0 6px 0;
         padding: 5px;

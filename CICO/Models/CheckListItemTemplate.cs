@@ -37,7 +37,7 @@ namespace Cico.Models
         [Display(Name = "Office Complete ")]
         public string OfficeComplete { get; set; }
 
-        [Display(Name = "Complete Check List")]
+        [Display(Name = "Complete Checklist")]
         public bool CompleteCheckList { get; set; }
         [Display(Name = "Notes Access")]
         public bool NotesAccess { get; set; }
