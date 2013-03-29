@@ -90,26 +90,27 @@
             @Html.TextBoxFor(c=>c.CheckListItemTemplate.Document)
         </div>*@
         
-        <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.DueDays) <div class="homescreen-display">*negative is # days befor Key Date, positive is # days after Key Date</div>
+        <div class="editor-label" >
+            @Html.LabelFor(c => c.CheckListItemTemplate.DueDays)</div><div class="homescreen-inline-instructions">*negative is # days before Key Date, positive is # days after Key Date
         </div>
+        
         <div class="editor-field">
-            @Html.TextBoxFor(c => c.CheckListItemTemplate.DueDays)
+            @Html.TextBoxFor(c => c.CheckListItemTemplate.DueDays) 
         </div>
         <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.Provisional)<div class="homescreen-display">*if checked, only a staff member can fully complete the item</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.Provisional)<div class="homescreen-inline-instructions">*if checked, only a staff member can fully complete the item</div>
         </div>
         <div class="editor-field">
             @Html.CheckBoxFor(c => c.CheckListItemTemplate.Provisional)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.NotesAccess)<div class="homescreen-display">*if checked, allows users from other departments to view (not edit) notes</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.NotesAccess)<div class="homescreen-inline-instructions">*if checked, allows users from other departments to view (not edit) notes</div>
         </div>
         <div class="editor-field">
             @Html.CheckBoxFor(c => c.CheckListItemTemplate.NotesAccess)
         </div>
          <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.Dependents)<div class="homescreen-display">*if checked, signifies that this item also applies to dependents</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.Dependents)<div class="homescreen-inline-instructions">*if checked, signifies that this item also applies to dependents</div>
         </div>
         <div class="editor-field">
             @Html.CheckBoxFor(c => c.CheckListItemTemplate.Dependents)
