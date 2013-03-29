@@ -19,7 +19,7 @@
             Office
         </div>
         <div>
-            @Html.DropDownListFor(c=>c.SelectedOffice,Model.OfficeList,"")
+            @Html.DropDownListFor(c=>c.SelectedOffice,Model.OfficeList,"",Model.OfficeDisabled?new {disabled="disabled"}:new object())
         </div>
         <div>
             <button type="submit"> Filter</button>
@@ -30,31 +30,34 @@
 
 
 <h2>Items</h2>
-<ul>
-    
+<table class="admin-table">
+    <tr>
+        <th>Description</th>
+        <th>Item Type</th>
+        <th>Office</th>
+    </tr>
     @foreach (var item in Model.TemplateItems)
     {
-        <li>
-            <div>
-                <div style="float: left;width:300px">
-                    <div>Description: </div>
+        <tr>
+            
+                <td >
+                    
                     @Html.ActionLink(@item.Description, "Edit", "ItemClass", new { id = item.Id }, null)
-                </div>
-                <div style="float: left;width:150px">
-                    <div>Item Type:</div>
+                </td>
+                <td >
+                    
                     @item.Type
-                </div>
+                </td>
                 
-                <div style="float: left">
-                    <div>Office:</div>
+                <td >
+                    
                     @item.Office
-                </div>
-                <div style="clear: both"></div>
-            </div>
-            <hr/>
-        </li>
+                </td>
+            
+            
+        </tr>
     }
-</ul>
+    </table>
 
 
 
