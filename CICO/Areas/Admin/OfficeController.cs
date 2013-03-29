@@ -9,16 +9,16 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class OfficeController : Controller
+    public class OfficeController : Cico.Controllers.ControllerBase
     {
-        private  CicoContext db = new CicoContext();
+       
 
         //
         // GET: /Admin/Office/
 
         public ViewResult Index()
         {
-            return View(db.Offices.ToList());
+            return View(Db.Offices.ToList());
         }
 
         //
@@ -26,7 +26,7 @@ namespace Cico.Areas.Admin
 
         public ViewResult Details(int id)
         {
-            Office Office = db.Offices.Find(id);
+            Office Office = Db.Offices.Find(id);
             return View(Office);
         }
 
@@ -46,8 +46,8 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                db.Offices.Add(Office);
-                db.SaveChanges();
+                Db.Offices.Add(Office);
+                Db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
@@ -59,7 +59,7 @@ namespace Cico.Areas.Admin
  
         public ActionResult Edit(int id)
         {
-            Office Office = db.Offices.Find(id);
+            Office Office = Db.Offices.Find(id);
             return View(Office);
         }
 
@@ -71,8 +71,8 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                db.Entry(Office).State = EntityState.Modified;
-                db.SaveChanges();
+                Db.Entry(Office).State = EntityState.Modified;
+                Db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(Office);
@@ -83,7 +83,7 @@ namespace Cico.Areas.Admin
  
         public ActionResult Delete(int id)
         {
-            Office Office = db.Offices.Find(id);
+            Office Office = Db.Offices.Find(id);
             return View(Office);
         }
 
@@ -92,16 +92,16 @@ namespace Cico.Areas.Admin
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            Office Office = db.Offices.Find(id);
-            db.Offices.Remove(Office);
-            db.SaveChanges();
+        {
+            Office Office = Db.Offices.Find(id);
+            Db.Offices.Remove(Office);
+            Db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            Db.Dispose();
             base.Dispose(disposing);
         }
     }
