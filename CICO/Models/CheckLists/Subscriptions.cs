@@ -29,7 +29,7 @@ namespace Cico.Models.CheckLists
             var message = new MailMessage() { From = new MailAddress("krzysiek@lightkeeper.co") };
             foreach (var emailSubscription in track.CheckListItemTemplate.EmailSubscriptions)
             {
-                message.To.Add(emailSubscription.Email);
+                message.To.Add(emailSubscription.Staff.Email);
             }
 
             message.Subject = track.CheckListItemTemplate.Description +" - CICO NOTIFICATION";

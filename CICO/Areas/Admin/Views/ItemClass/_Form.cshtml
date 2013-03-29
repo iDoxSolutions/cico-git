@@ -3,6 +3,9 @@
 <script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
     tinyMCE.init({
+        content_css: "/content/custom-tinymce.css",
+        theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+        font_size_style_values: "10px,12px,13px,14px,16px,18px,20px",
         mode: "textareas",
         theme: "simple",
         //plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
@@ -13,6 +16,20 @@
         theme_advanced_toolbar_location: "top",
         theme_advanced_toolbar_align: "left",
         theme_advanced_statusbar_location: "bottom"
+    });
+
+    $(function () {
+        $("#CheckListItemTemplate_Item").change(
+           manageItems
+        );
+        
+        function manageItems() {
+            //alert($("#CheckListItemTemplate_Item").val());
+            $(".managed-visibility").hide();
+            $("."+$("#CheckListItemTemplate_Item").val()).show();
+        }
+
+        manageItems();
     });
 </script>
 
@@ -49,22 +66,23 @@
             @Html.HiddenFor(c=>c.SelectedOffice,Model.CheckListItemTemplate.Office.OfficeId)
         }
 
-        @if (Model.CheckListItemTemplate.Item.Equals("SelfContainedForm") )
-        { 
-           <div class="editor-label">
-              @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div class="homescreen-display">*select a custom form from the dropdown to allow employess fill out the form data</div>
+        
+        <div class="editor-label SelfContainedForm  managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div class="homescreen-display">*select a custom form from the dropdown to allow employess fill out the form data</div>
           
-            </div>
-            <div class="editor-field">
+        </div>
+        <div class="editor-label  DocumentWriting DocumentApproval  managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-display">*select a template from the dropdown to allow employess to download it</div>
+        </div>
+        <div class="editor-field DocumentWriting DocumentApproval managed-visibility">
+            @Html.DropDownListFor(c => c.SelectedFile, Model.FileList, "")
+        </div>    
+        
+         
+        
+        <div class="editor-field  SelfContainedForm managed-visibility">
                 @Html.DropDownListFor(c => c.CheckListItemTemplate.Form, Html.GetDropdownItems("SystemForms"), "")
             </div>
-        
-         <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-inline-instructions">*select a template from the dropdown to allow employess to download it</div>
-        </div>
-        <div class="editor-field">
-            @Html.DropDownListFor(c => c.SelectedFile, Model.FileList, "")
-        </div>
        @* <div class="editor-label">
             @Html.LabelFor(c=>c.CheckListItemTemplate.Document)
         </div>
@@ -98,10 +116,10 @@
             @Html.CheckBoxFor(c => c.CheckListItemTemplate.Dependents)
         </div>
         
-        <div class="editor-label">
-            @Html.LabelFor(c => c.CheckListItemTemplate.CompleteCheckList)<div class="homescreen-inline-instructions">*if checked, signifies that completing this item will complete the entire checklist</div>
+        <div class="editor-label PhysicalActivity managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.CompleteCheckList)<div class="homescreen-display">*if checked, signifies that completing this item will complete the entire checklist</div>
         </div>
-        <div class="editor-field">
+        <div class="editor-field PhysicalActivity managed-visibility">
             @Html.CheckBoxFor(c => c.CheckListItemTemplate.CompleteCheckList)
         </div>
 
@@ -115,10 +133,10 @@
         
         
         
-        <div class="editor-label">
+        <div class="editor-label PhysicalActivity DocumentApproval managed-visibility">
             @Html.LabelFor(c => c.CheckListItemTemplate.ApprovalText)
         </div>
-        <div class="editor-field">
+        <div class="editor-field PhysicalActivity DocumentApproval managed-visibility">
             @Html.TextAreaFor(c => c.CheckListItemTemplate.ApprovalText)
         </div>
 
