@@ -1,0 +1,42 @@
+﻿@model Cico.Models.Reminder
+
+@{
+    ViewBag.Title = "Reminder Details";
+}
+
+<h2>Reminder Details</h2>
+
+<fieldset>
+    <legend>Reminder</legend>
+
+    <div class="display-label">Type</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Checklisttype)
+    </div>
+
+    <div class="display-label">Send Days</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateToSend)
+    </div>
+    
+    <div class="display-label">Subject</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageSubject)
+    </div>
+    
+    <div class="display-label">Preface</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessagePreface)
+    </div>
+    
+    <div class="display-label">Closing</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MessageClosing)
+    </div>
+    
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

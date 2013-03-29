@@ -198,7 +198,7 @@
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\CicoInit.cs" />
-    <Compile Include="Models\Reminders.cs" />
+    <Compile Include="Models\Reminder.cs" />
     <Compile Include="Models\Dependent.cs" />
     <Compile Include="Models\EmailSubscription.cs" />
     <Compile Include="Models\EntityBase.cs" />
@@ -686,11 +686,11 @@
     <Content Include="Areas\Admin\Views\Staff\_StaffForm.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\Create.cshtml" />
     <Content Include="Areas\Admin\Views\OfficeAdminDashboard\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Reminders\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Reminders\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Reminders\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Reminders\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Reminders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Reminder\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Reminder\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Reminder\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Reminder\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Reminder\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
