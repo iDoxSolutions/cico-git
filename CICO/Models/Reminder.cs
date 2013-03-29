@@ -7,8 +7,8 @@ namespace Cico.Models
     {
 
         public string Checklisttype { get; set; }
-        [DisplayName("Send Date")]
-        [StringLength(65)]
+        [DisplayName("Days To Send")]
+        [StringLength(66)]
         public int DateToSend { get; set; }
         [DisplayName("Subject")]
         [StringLength(66)]

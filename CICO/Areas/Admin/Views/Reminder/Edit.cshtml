@@ -1,4 +1,5 @@
-﻿@model Cico.Models.Reminder
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Reminder
 
 @{
     ViewBag.Title = "Edit Reminder";
@@ -15,6 +16,16 @@
         <legend>Reminder</legend>
 
         @Html.HiddenFor(model => model.Id)
+        
+        
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Checklisttype)
+        </div>
+        <div class="editor-field">
+             @Html.DropDownListFor(model => model.Checklisttype, Html.GetDropdownItems("CheckListType"), "")
+            @Html.ValidationMessageFor(model => model.Checklisttype)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.DateToSend)

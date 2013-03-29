@@ -358,6 +358,7 @@ namespace Cico.Models
             context.CheckListTemplates.Add(cko_template);
             AddRelationships(context);
             AddSystemForms(context);
+            AddChecklistTypes(context);
 
             context.SaveChanges();
 
@@ -398,6 +399,21 @@ namespace Cico.Models
                     ValueType = "SystemForms"
                 });
         }
+
+    private void AddChecklistTypes(CicoContext context) {
+        context.DropdownItems.Add(new DropdownItem() {
+            Key = "Checkin",
+            Description = "Checkin",
+            ValueType = "CheckListType"
+        });
+        context.DropdownItems.Add(new DropdownItem() {
+            Key = "Checkout",
+            Description = "Checkout",
+            ValueType = "CheckListType"
+        });
+       
+    }
+
 
            
 
