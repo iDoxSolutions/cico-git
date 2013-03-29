@@ -27,6 +27,10 @@ namespace Cico.Models
             user.SystemRoles = new Collection<SystemRole>();
             user.SystemRoles.Add(globalAdmin);
 
+            user = context.Staffs.Add(new Staff() { UserId = "Lightkeeperdev\\Ken", Office = _hrOffice, Email = "kenhambright@gmail.com" });
+            user.SystemRoles = new Collection<SystemRole>();
+            user.SystemRoles.Add(globalAdmin);
+
             var hradmin = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\HrAdmin", Office = _hrOffice, Email = "wasilewski.pawel@gmail.com" });
             hradmin.SystemRoles = new List<SystemRole>();
             hradmin.SystemRoles.Add(officeAdmin);
