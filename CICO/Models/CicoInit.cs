@@ -27,6 +27,10 @@ namespace Cico.Models
             user.SystemRoles = new Collection<SystemRole>();
             user.SystemRoles.Add(globalAdmin);
 
+            user = context.Staffs.Add(new Staff() { UserId = "Lightkeeperdev\\Ken", Office = _hrOffice, Email = "kenhambright@gmail.com" });
+            user.SystemRoles = new Collection<SystemRole>();
+            user.SystemRoles.Add(globalAdmin);
+
             var hradmin = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\HrAdmin", Office = _hrOffice, Email = "wasilewski.pawel@gmail.com" });
             hradmin.SystemRoles = new List<SystemRole>();
             hradmin.SystemRoles.Add(officeAdmin);
@@ -354,6 +358,7 @@ namespace Cico.Models
             context.CheckListTemplates.Add(cko_template);
             AddRelationships(context);
             AddSystemForms(context);
+            AddChecklistTypes(context);
 
             context.SaveChanges();
 
@@ -394,6 +399,21 @@ namespace Cico.Models
                     ValueType = "SystemForms"
                 });
         }
+
+    private void AddChecklistTypes(CicoContext context) {
+        context.DropdownItems.Add(new DropdownItem() {
+            Key = "Checkin",
+            Description = "Checkin",
+            ValueType = "CheckListType"
+        });
+        context.DropdownItems.Add(new DropdownItem() {
+            Key = "Checkout",
+            Description = "Checkout",
+            ValueType = "CheckListType"
+        });
+       
+    }
+
 
            
 
