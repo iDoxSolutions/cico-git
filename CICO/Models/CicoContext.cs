@@ -18,6 +18,7 @@ namespace Cico.Models
             this.Configuration.LazyLoadingEnabled = true;
         }
 
+        public IDbSet<DependentFile> DependentFiles { get; set; }
         public IDbSet<SystemRole> SystemRoles { get; set; }
         public IDbSet<EmailSubscription> EmailSubscriptions { get; set; }
         public IDbSet<SystemFile> SystemFiles { get; set; }

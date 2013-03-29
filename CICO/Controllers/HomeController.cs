@@ -55,6 +55,8 @@ namespace Cico.Controllers
 
         public int? CheckListId{get; set; }
 
+        public string CheckListName{get; set; }
+
         public void Load(CicoContext db)
         {
             Dependents = db.Dependents.ToList();
@@ -95,11 +97,20 @@ namespace Cico.Controllers
             {
                 return RedirectToAction("initialize");
             }
-            var user = UserSession.GetCurrent();
+            CheckListSession user = null;
+            if (!id.HasValue)
+            {
+                user = UserSession.GetCurrent();
+            }
+            else
+            {
+                user = Db.CheckListSessions.Find(id.Value);
+            }
             var model = new HomeModel()
                 {
                     Employee = user.Employee,
-                    CheckListId = id
+                    CheckListId = id,
+                    CheckListName = user.CheckListTemplate.Name
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";

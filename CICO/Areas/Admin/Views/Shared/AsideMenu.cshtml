@@ -9,13 +9,14 @@
     @if (User.IsInRole("GlobalAdmin"))
     {
         <li>@Html.ActionLink("Offices", "Index", "Office", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Checklist Builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+        
     }
     <li>@Html.ActionLink("Users", "Index", "Employee", new { area = "Admin" }, null)</li>
     <li>@Html.ActionLink("Dependents", "Index", "Dependent", new { area = "Admin" }, null)</li>
     @if (User.IsInRole("OfficeAdmin"))
     {
-        <li>@Html.ActionLink("Subscriptions", "Index", "OfficeAdminDashboard", new {area = "Admin"}, null)</li>
+        
+        <li>@Html.ActionLink("Checklist Builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
     }
      @if (User.IsInRole("GlobalAdmin"))
      {

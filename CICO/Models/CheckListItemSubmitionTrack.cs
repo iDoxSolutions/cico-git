@@ -8,18 +8,6 @@ using System.Web;
 
 namespace Cico.Models
 {
-    public static class CicoHelper
-    {
-        public static string CssClass(this CheckListItemSubmitionTrack track)
-        {
-            if (!track.Checked)
-                return "red";
-            if (track.Checked && track.CheckListItemTemplate.Provisional && !track.Provisioned)
-                return "yellow";
-            return "green";
-        }
-    }
-
     public class CheckListItemSubmitionTrack:EntityBaseWithKey
     {
         public CheckListItemSubmitionTrack()
@@ -28,6 +16,7 @@ namespace Cico.Models
             {
                 Notes = new Collection<Note>();
             }
+            //DependentFiles = new List<DependentFile>();
         }
         public virtual CheckListSession CheckListSession { get; set; }
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
@@ -41,5 +30,6 @@ namespace Cico.Models
         public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
         public bool Provisioned { get; set; }
+        public virtual IList<DependentFile> DependentFiles { get; set; } 
     }
 }

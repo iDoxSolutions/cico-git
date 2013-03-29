@@ -35,6 +35,22 @@ namespace Cico.Areas.Admin
             return View(employee);
         }
 
+        [HttpPost]
+        public ActionResult Details(Employee model)
+        {
+            Employee employee = Db.Employees.Find(model.Id);
+            if (!employee.TourEndDate.HasValue)
+            {
+                ModelState.AddModelError("", "Tour End Date is required");
+                return View(employee);
+            }
+            else
+            {
+                UserSession.InitCheckOutSession(employee);
+                return RedirectToAction("index", "home",new{area=""});
+            }
+            
+        }
         //
         // GET: /Admin/Employees/Create
 
@@ -103,6 +119,8 @@ namespace Cico.Areas.Admin
             Db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        
 
         //protected override void Dispose(bool disposing)
         //{

@@ -4,6 +4,7 @@
     self.FileUrl = item.item.FileUrl;
     self.FileDesc = item.item.FileDesc;
     self.FormBase = new CicoFormBase(item);
+    self.DependentsFiles = ko.observable(item.item.DependentsFiles);
     self.templateName = "DocumentWriting";
     self.submittedFile = ko.observable(item.item.SubmittedFile);
     self.submitDoc = function (e) {
@@ -20,6 +21,7 @@
                 self.submittedFile(data.SubmittedFile);
                 item.ItemChecked(true);
                 item.CssClass(data.CssClass);
+                self.DependentsFiles(data.DependentsFiles);
                 $(".loader").hide();
                 return false;
             },

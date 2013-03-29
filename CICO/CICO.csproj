@@ -197,7 +197,9 @@
     <Compile Include="Models\CheckListItemTemplate.cs" />
     <Compile Include="Models\CheckListTemplate.cs" />
     <Compile Include="Models\CheckList.cs" />
+    <Compile Include="Models\CicoHelper.cs" />
     <Compile Include="Models\CicoInit.cs" />
+    <Compile Include="Models\DependentFile.cs" />
     <Compile Include="Models\Reminders.cs" />
     <Compile Include="Models\Dependent.cs" />
     <Compile Include="Models\EmailSubscription.cs" />
@@ -318,6 +320,7 @@
     <Content Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\json3.min.js" />
     <Content Include="Scripts\knockout-2.2.1.debug.js" />
     <Content Include="Scripts\knockout-2.2.1.js" />
     <Content Include="Scripts\modernizr-1.7.js" />

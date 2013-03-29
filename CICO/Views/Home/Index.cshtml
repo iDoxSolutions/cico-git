@@ -29,18 +29,18 @@
                 <li><a href="#completion">Completion Details</a></li>
                 <li><a href="#mydependents">My dependents</a></li>
             </ul>
-            
+
 
             <div id="completion">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
                         <div data-bind="with:selectedItem">
                             <div data-bind="text:Description"></div>
-                            </div>
-                        <div style="clear:both"></div>
+                        </div>
+                        <div style="clear: both"></div>
                     </div>
                     <div data-bind="with:selectedItem">
-                        <div class="homescreen-instructions" data-bind="with:Completed" style="color:red">
+                        <div class="homescreen-instructions" data-bind="with:Completed" style="color: red">
                             Checklist is completed
                         </div>
                         <div class="homescreen-instructions">
@@ -48,28 +48,27 @@
                         </div>
 
                         <div style="min-height: 50px" class="instructions" data-bind="html:InstructionText"></div>
-                        
-                       
-                        
+
+
+
                         <div data-bind="with:classModel">
-                            
+
                             <div id="selectedForm" data-bind="template:{name:templateName}">
                             </div>
                         </div>
 
                     </div>
-                    
+
                     <div data-bind="with:selectedItem">
                         <div class="homescreen-instructions">
-                            <br/>
+                            <br />
                             <label>Questions? Send a note to the staff</label>
-                        </div> 
-                        <br/>
+                        </div>
+                        <br />
                         <div id="note-list">
                             <div>
-                                <form id="notesForm" data-bind="submit:notes.addNote" >
+                                <form id="notesForm" data-bind="submit:notes.addNote">
                                     <div class="editor-label">
-                                        
                                     </div>
                                     <div class="editor-field">
                                         <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
@@ -91,20 +90,20 @@
                                 </li>
                             </ul>
                         </div>
-                         <div class="homescreen-label">
-                        <label>Due Date:</label>
-                         <div  class="homescreen-display" data-bind="text:DueDate"></div>
+                        <div class="homescreen-label">
+                            <label>Due Date:</label>
+                            <div class="homescreen-display" data-bind="text:DueDate"></div>
+                        </div>
                     </div>
-                    </div>
-                   
+
                 </div>
             </div>
             <div id="myinfo">
 
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                       <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
-                        <div style="clear:both"></div>
+                        <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                        <div style="clear: both"></div>
                     </div>
                     @Html.Partial("EmployeeForm", Model)
                 </div>
@@ -114,36 +113,36 @@
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
                         <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
-                        <div style="clear:both"></div>
+                        <div style="clear: both"></div>
                     </div>
-                    </div>
+                </div>
                 @Html.Partial("_DependentsList", Model.Dependents)
             </div>
-           
+
         </div>
     </div>
     <div class="leftColumn">
         <div id="checkInTabs">
             <ul>
-                <li><a href="#checkIn">Check-In</a></li>
-                <li><a href="#checkOut">Check-out</a></li>
+                <li><a href="#checkIn">@Model.CheckListName</a></li>
+                
             </ul>
-            
-            <div id="checkIn" style="overflow-y:scroll; height: 750px" >
-                <div class="homescreen-instructions" data-bind="with:completed" style="color:red">
+
+            <div id="checkIn" style="overflow-y: scroll; height: 750px">
+                <div class="homescreen-instructions" data-bind="with:completed" style="color: red">
                     Checklist is completed
                 </div>
                 <div class="homescreen-instructions">
-                    <label>  Please select a task from the list below</label>
+                    <label>Please select a task from the list below</label>
                 </div>
                 <ul data-bind="foreach: checklist " class="checklist ">
                     <li>
                         <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
-                            <div data-bind="text: Description" class="description" style="width: 190px;float:left"></div>
-                            <div style="float:right;text-align: center">
+                            <div data-bind="text: Description" class="description" style="width: 190px; float: left"></div>
+                            <div style="float: right; text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
                                 <div class="checkbox">
-                                    <input data-bind="checked: ItemChecked" type="checkbox" disabled="disabled"/>
+                                    <input data-bind="checked: ItemChecked" type="checkbox" disabled="disabled" />
                                 </div>
                             </div>
                             <div style="clear: both"></div>
@@ -162,74 +161,115 @@
 </div>
 
 <script type="text/html" id="DocumentApproval">
-  
-    <div data-bind="html:ApprovalText" ></div>
-    <div><div class="homescreen-instructions"><label>Step 2: Please click the link to download the form:</label></div> <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded" >Document Template</a></div>
-    <br> <br />
-    <div><div class="homescreen-instructions"><label>Step 3: Upload the completed form:</label></div> <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
-    
+
+    <div data-bind="html:ApprovalText"></div>
+    <div>
+        <div class="homescreen-instructions">
+            <label>Step 2: Please click the link to download the form:</label></div>
+        <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded">Document Template</a></div>
+    <br>
+    <br />
+    <div>
+        <div class="homescreen-instructions">
+            <label>Step 3: Upload the completed form:</label></div>
+        <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
+
 </script>
 
 
-<script type="text/html"  id="DocumentSubmitted">
+<script type="text/html" id="DocumentSubmitted">
     <br />
-    <div class="homescreen-instructions"><label>Step 2: Browse to the document to upload</label></div>
-    <br/>
-    
-    <form id="docSubmitted" data-bind="submit:submitDoc,disabled:!Enabled"  enctype="multipart/form-data" method="POST">
+    <div class="homescreen-instructions">
+        <label>Step 2: Browse to the document to upload</label></div>
+    <br />
+
+    <form id="docSubmitted" data-bind="submit:submitDoc,disabled:!Enabled" enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
-        
+        <div data-bind="with:submittedFile">
+            Submitted file:
+            <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
+        </div>
+        <div data-bind="with:DependentsFiles">
+            <ul data-bind="foreach:$data">
+                <li>
+                    <div data-bind="text:DependentName"></div>
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}" />
+                    <div></div>
+                    <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
+                </li>
+                
+            </ul>
+        </div>
     </form>
-    <br/>
-    
-    <div class="homescreen-instructions"><label>Step 3: Upload the selected document</label></div>
-    <br/>
+    <br />
+
+    <div class="homescreen-instructions">
+        <label>Step 3: Upload the selected document</label></div>
+    <br />
     <a href="#" data-bind="click:submitDoc,disabled:Enabled">Upload</a>
-    <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
+    <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
+
     
-    <div data-bind="with:submittedFile">
-        Submitted file:
-        <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
-        
-    </div>
 </script>
 
 <script type="text/html" id="PhysicalActivity">
-    
-    
     <button data-bind="click:complete,enable: (buttonEnabled() && Enabled()),text:buttonText">Action Complete</button>
 </script>
 
 <script type="text/html" class="homescreen-instructions" id="DocumentWriting">
-    
-   
+
+
     <div class="homescreen-instructions">
-        <label>Step 2:  Please click the link to download the form:</label><a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc" >Document Template </a>
+        <label>Step 2:  Please click the link to download the form:</label><a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc">Document Template </a>
         <br />
         <br></br>
         <label>Step 3: Browse to your completed form.</label>
-        
-        <form id="docSubmitted" data-bind="submit:submitDoc"  enctype="multipart/form-data" method="POST">
-            <input name="docSubmitted" type="file" data-bind="enable:Enabled" />  
-        </form>
-        <br/>
-        <div data-bind="with:submittedFile">
-        Submitted file:
+
+        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST">
+            <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
+             <div data-bind="with:submittedFile">
+            Submitted file:
         <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
-    </div>
+        </div>
+            
+            <div data-bind="with:DependentsFiles">
+            <ul data-bind="foreach:$data">
+                <li>
+                    <div data-bind="text:DependentName"></div>
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}" />
+                    <div></div>
+                    <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
+                </li>
+                
+            </ul>
+        </div>
+        </form>
+        <br />
+       
         <label>Step 4: Upload the completed form.</label>
         <a href="#" data-bind="click:submitDoc">Upload</a>
-        <img style="display: none" class="loader" src="/Images/ajaxWait.gif"/>
-        </div>        
-    
+        <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
+    </div>
+
     <div></div>
-    
+
+
+</script>
+
+<script type="text/html" id="dependentFiles">
+    <ul data-bind="foreach:$data">
+        <li>
+            <div data-bind="text:DependentName"></div>
+        </li>
+
+    </ul>
+
+
 
 </script>
 
 <script type="text/html" id="SelfContainedForm">
     <div data-bind="template:{name:Form}">
-
     </div>
 
 </script>
@@ -246,9 +286,10 @@
     @if (Model.CheckListId.HasValue)
     {
         <text>
-        var checklistId = @(Model.CheckListId.Value) ;
+    var checklistId = @(Model.CheckListId.Value) ;
         </text>
-    }else
+    }
+    else
     {
         <text>
     var checklistId = 0;
@@ -322,7 +363,7 @@
         self.notes = new NoteListModel(this);
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.DueDate = ditem.DueDate;
-        
+        self.dependentFiles = ko.observable(null);
         self.completeChecklist = function() {
             parent.completed(true);
         };
@@ -330,23 +371,23 @@
         //self.classModel = ko.observable();
 
         switch (ItemTemplate) {
-        case "DocumentSubmitted":
-            self.classModel = ko.observable(new DocumentSubmittedModel(self));
-            break;
-        case "SelfContainedForm":
-            self.classModel = ko.observable(new SelfContainedFormModel(self));
-            break;
-        case "DocumentWriting":
-            self.classModel = ko.observable(new DocumentWritingModel(self));
-            break;
-        case "DocumentApproval":
-            self.classModel = ko.observable(new DocumentApprovalModel(self));
-            break;
-        case "PhysicalActivity":
-            self.classModel = ko.observable(new PhysicalActivityModel(self));
-            break;
-        default:
-            alert('unknown model ' + ItemTemplate);
+            case "DocumentSubmitted":
+                self.classModel = ko.observable(new DocumentSubmittedModel(self));
+                break;
+            case "SelfContainedForm":
+                self.classModel = ko.observable(new SelfContainedFormModel(self));
+                break;
+            case "DocumentWriting":
+                self.classModel = ko.observable(new DocumentWritingModel(self));
+                break;
+            case "DocumentApproval":
+                self.classModel = ko.observable(new DocumentApprovalModel(self));
+                break;
+            case "PhysicalActivity":
+                self.classModel = ko.observable(new PhysicalActivityModel(self));
+                break;
+            default:
+                alert('unknown model ' + ItemTemplate);
         }
 
         self.checkIn = function () {

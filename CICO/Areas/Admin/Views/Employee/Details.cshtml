@@ -8,7 +8,11 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c=>c.Id)
+    <input type="submit" value="Start Checkout"/>
+}
    @Html.ValidationSummary(true)
     <fieldset>
         <legend>Employee</legend>

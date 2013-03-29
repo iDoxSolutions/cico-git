@@ -51,6 +51,26 @@ namespace Cico.Models.Authentication
             var template = GetCurrentTemplate();
             return InitCheckListSession(uname,template ,initmodel);
         }
+
+        public CheckListSession InitCheckOutSession(Employee employee)
+        {
+            var existing = _db.CheckListSessions.Include("Employee").FirstOrDefault(c => c.Employee.Id == employee.Id);
+            if (existing != null)
+            {
+                existing.Active = false;
+            }
+            var uname = _httpContext.User.Identity.Name;
+            var template = _db.CheckListTemplates.Single(c => c.Type == "CheckOut");
+            var session = _db.CheckListSessions.Create();
+            session.UserId = uname;
+            session.CheckListTemplate = template;
+            session.Employee = employee;
+            session.ArrivalDate = DateTime.Now;
+            var res = _db.CheckListSessions.Add(session);
+            _db.SaveChanges();
+            return res;
+        }
+
         private CheckListSession InitCheckListSession(string uname, CheckListTemplate template, InitModel initmodel)
         {
             CheckListSession session;

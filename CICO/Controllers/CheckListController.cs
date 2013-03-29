@@ -58,6 +58,17 @@ namespace Cico.Controllers.ViewModels
         public string ItemUrl{get; set; }
 
         public bool CompleteChecklist{get; set; }
+
+        public IList<DependentsFile> DependentsFiles{ get; set; }
+    }
+
+    public  class DependentsFile
+    {
+        public string Url { get; set; }
+        public string DependentName { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public int DependentId { get; set; }
     }
 }
 
@@ -106,7 +117,8 @@ namespace Cico.Controllers
                         ApprovalText = checkListItemTemplate.ApprovalText,
                         TrackId = track.Id,
                         ItemUrl = itemUri.ToString(),
-                        CompleteChecklist = checkListItemTemplate.CompleteCheckList
+                        CompleteChecklist = checkListItemTemplate.CompleteCheckList,
+                        DependentsFiles = GetDependetsFiles(track)
                     });
                 
             }
@@ -114,6 +126,31 @@ namespace Cico.Controllers
                 model.CheckListItems.OrderBy(c => c.DueDate).ThenBy(c => c.CompleteChecklist).ToList();
             model.Completed = session.Completed;
             return Json(model);
+        }
+
+        public IList<DependentsFile> GetDependetsFiles(CheckListItemSubmitionTrack track)
+        {
+            var employee = track.CheckListSession.Employee;
+            if (!track.CheckListItemTemplate.Dependents || employee.Dependents.Count()==0)
+                return null;
+            var dependents = track.CheckListSession.Employee.Dependents;
+            var list = new List<DependentsFile>();
+            foreach (var dependent in dependents)
+            {
+                var file = new DependentsFile();
+                file.DependentName = dependent.GivenName + ", " + dependent.Surname;
+                file.DependentId = dependent.Id;
+                var dependentFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
+                if (dependentFile != null)
+                {
+                    file.FileName = dependentFile.SystemFile.Description;
+                    file.Url = "/filestorage?id=" + dependentFile.SystemFile.Id;
+
+                }
+                
+                list.Add(file);
+            }
+            return list;
         }
 
         private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
@@ -140,11 +177,42 @@ namespace Cico.Controllers
                 track.SubmittedFile = new SystemFile();
                 Db.SystemFiles.Add(track.SubmittedFile);
             }
+            var storage = new FileStorage();
+            foreach (string key in Request.Files.AllKeys)
+            {
+                if (key.StartsWith("dependent"))
+                {
+                    var ofile = Request.Files[key];
+                    var id = key.Split("-".ToCharArray())[1];
+                    var dependent = Db.Dependents.Find(Int32.Parse(id));
+
+                    var depFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == int.Parse(id));
+                    if (depFile == null)
+                    {
+                        var file = new SystemFile()
+                        {
+                            Description = Path.GetFileName(ofile.FileName),
+                        };
+                        Db.SystemFiles.Add(file);
+                        //storage.PutFile(ofile,track.SubmittedFile);
+                        depFile = new DependentFile()
+                        {
+                            CheckListItemSubmitionTrack = track,
+                            SystemFile = file,
+                            Dependent = dependent
+                        };
+                        Db.DependentFiles.Add(depFile);    
+                    }
+                    depFile.SystemFile.Description = Path.GetFileName(ofile.FileName);
+                    storage.PutFile(ofile, depFile.SystemFile);
+                }
+                Db.SaveChanges();
+            }
 
             track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
             track.Checked = true;
-            var storage = new FileStorage();
-            //storage.PutFile(docSubmitted,track.SubmittedFile);
+            
+            storage.PutFile(docSubmitted,track.SubmittedFile);
             var subs = new Subscriptions(HttpContext);
             subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
             Db.SaveChanges();
@@ -156,6 +224,7 @@ namespace Cico.Controllers
                             Url = "/filestorage?id=" + track.SubmittedFile.Id
                         },
                     CssClass = track.CssClass(),
+                    DependentsFiles = GetDependetsFiles(track)
                     
                 };
             
