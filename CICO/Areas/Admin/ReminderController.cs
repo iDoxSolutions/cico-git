@@ -9,29 +9,29 @@ using Cico.Models;
 
 namespace Cico.Areas.Admin
 { 
-    public class OfficeController : Cico.Controllers.ControllerBase
+    public class ReminderController : Cico.Controllers.ControllerBase
     {
        
 
         //
-        // GET: /Admin/Office/
+        // GET: /Admin/Reminder/
 
         public ViewResult Index()
         {
-            return View(Db.Offices.ToList());
+            return View(Db.Reminders.ToList());
         }
 
         //
-        // GET: /Admin/Office/Details/5
+        // GET: /Admin/Reminder/Details/5
 
         public ViewResult Details(int id)
         {
-            Office Office = Db.Offices.Find(id);
-            return View(Office);
+            Reminder Reminder = Db.Reminders.Find(id);
+            return View(Reminder);
         }
 
         //
-        // GET: /Admin/Office/Create
+        // GET: /Admin/Reminder/Create
 
         public ActionResult Create()
         {
@@ -39,70 +39,66 @@ namespace Cico.Areas.Admin
         } 
 
         //
-        // POST: /Admin/Office/Create
+        // POST: /Admin/Reminder/Create
 
         [HttpPost]
-        public ActionResult Create(Office Office)
+        public ActionResult Create(Reminder Reminder)
         {
             if (ModelState.IsValid)
             {
-                Db.Offices.Add(Office);
+                Db.Reminders.Add(Reminder);
                 Db.SaveChanges();
                 return RedirectToAction("Index");  
             }
 
-            return View(Office);
+            return View(Reminder);
         }
         
         //
-        // GET: /Admin/Office/Edit/5
+        // GET: /Admin/Reminder/Edit/5
  
         public ActionResult Edit(int id)
         {
-            Office Office = Db.Offices.Find(id);
-            return View(Office);
+            Reminder Reminder = Db.Reminders.Find(id);
+            return View(Reminder);
         }
 
         //
-        // POST: /Admin/Office/Edit/5
+        // POST: /Admin/Reminder/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Office Office)
+        public ActionResult Edit(Reminder Reminder)
         {
             if (ModelState.IsValid)
             {
-                Db.Entry(Office).State = EntityState.Modified;
+                Db.Entry(Reminder).State = EntityState.Modified;
                 Db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(Office);
+            return View(Reminder);
         }
 
         //
-        // GET: /Admin/Office/Delete/5
+        // GET: /Admin/Reminder/Delete/5
  
         public ActionResult Delete(int id)
         {
-            Office Office = Db.Offices.Find(id);
-            return View(Office);
+            Reminder Reminder = Db.Reminders.Find(id);
+            return View(Reminder);
         }
 
         //
-        // POST: /Admin/Office/Delete/5
+        // POST: /Admin/Reminder/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Office Office = Db.Offices.Find(id);
-            Db.Offices.Remove(Office);
+            Reminder Reminder = Db.Reminders.Find(id);
+            Db.Reminders.Remove(Reminder);
             Db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        //protected override void Dispose(bool disposing)
-        //{
-        //    Db.Dispose();
-        //    base.Dispose(disposing);
-        //}
+       
     }
 }

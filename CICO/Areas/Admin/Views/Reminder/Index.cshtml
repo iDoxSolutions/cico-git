@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Cico.Models.Reminder>
+
+@{
+    ViewBag.Title = "List Reminders";
+}
+
+<h2>Reminders List</h2>
+
+<p>
+    @Html.ActionLink("Create New Reminder", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Type 
+        </th>
+
+        <th>
+            Send Days
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Checklisttype)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.DateToSend)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
