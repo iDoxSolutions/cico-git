@@ -8,7 +8,7 @@ namespace Cico.Models
     public class Dependent:EntityBaseWithKey
     {
         [DisplayName("Given Name(s)")]
-        [StringLength(68)]
+        [StringLength(65)]
         public string GivenName { get; set; }
         [DisplayName("Surname")]
         [StringLength(65)]
