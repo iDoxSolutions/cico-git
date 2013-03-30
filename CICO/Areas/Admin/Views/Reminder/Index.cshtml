@@ -14,7 +14,9 @@
         <th>
             Type 
         </th>
-
+         <th>
+            Checklist Description 
+        </th>
         <th>
             Send Days
         </th>
@@ -26,7 +28,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Checklisttype)
         </td>
-
+        <td>
+            @Html.DisplayFor(modelItem => item.ChecklistDescription)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateToSend)
         </td>

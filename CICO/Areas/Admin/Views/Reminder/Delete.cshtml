@@ -15,9 +15,13 @@
         @Html.DisplayFor(model => model.DateToSend)
     </div>
 
-    <div class="display-label">ContactUser</div>
+    <div class="display-label">Days To Send</div>
     <div class="display-field">
         @Html.DisplayFor(model => model.DateToSend)
+    </div>
+    <div class="display-label">Checklist Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ChecklistDescription)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

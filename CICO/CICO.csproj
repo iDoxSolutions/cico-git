@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
     <PublishDatabaseSettings>
       <Objects>
-        <ObjectGroup Name="SchoolContext-Deployment" Order="1">
+        <ObjectGroup Name="SchoolContext-Deployment" Order="1" Enabled="False">
           <Destination Path="Data Source=ltkserver\sqlexpress%3bInitial Catalog=cicodb%3bIntegrated Security=false%3buid=app%3bpwd=26rtYsxGL%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" />
           <Object Type="DbFullSql">
             <PreSource Path="Data Source=%28localdb%29\v11.0%3bInitial Catalog=Cico.Models.CicoContext%3bIntegrated Security=True%3bConnect Timeout=15%3bEncrypt=False%3bTrustServerCertificate=False" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
@@ -200,7 +200,6 @@
     <Compile Include="Models\CicoHelper.cs" />
     <Compile Include="Models\CicoInit.cs" />
     <Compile Include="Models\DependentFile.cs" />
-    <Compile Include="Models\Reminders.cs" />
     <Compile Include="Models\Reminder.cs" />
     <Compile Include="Models\Dependent.cs" />
     <Compile Include="Models\EmailSubscription.cs" />
@@ -726,6 +725,7 @@
     <Content Include="Views\Dependent\Delete.cshtml" />
     <Content Include="Views\Home\Initialize.cshtml" />
     <Content Include="Views\Home\DeleteDependents.cshtml" />
+    <None Include="Properties\PublishProfiles\Mexico.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

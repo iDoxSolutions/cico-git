@@ -5,11 +5,14 @@ namespace Cico.Models
 {
     public class Reminder : EntityBaseWithKey
     {
-
+        [DisplayName("Type")]
         public string Checklisttype { get; set; }
         [DisplayName("Days To Send")]
-        [StringLength(66)]
+        [RegularExpression("([1-9][0-9]*)")]
         public int DateToSend { get; set; }
+        [DisplayName("Checklist Description")]
+        [StringLength(66)]
+        public string ChecklistDescription { get; set; }
         [DisplayName("Subject")]
         [StringLength(66)]
         public string  MessageSubject { get; set; }

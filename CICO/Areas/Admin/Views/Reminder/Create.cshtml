@@ -1,4 +1,5 @@
-﻿@model Cico.Models.Reminder
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Reminder
 
 @{
     ViewBag.Title = "Create Office";
@@ -18,7 +19,7 @@
             @Html.LabelFor(model => model.Checklisttype)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Checklisttype)
+            @Html.DropDownListFor(model => model.Checklisttype, Html.GetDropdownItems("CheckListType"), "")
             @Html.ValidationMessageFor(model => model.Checklisttype)
         </div>
 
@@ -52,7 +53,7 @@
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.MessageClosing)
-            @Html.ValidationMessageFor(model => model.MessageClosing)
+            @*@Html.ValidationMessageFor(model => model.MessageClosing)*@
         </div>
 
         <p>
