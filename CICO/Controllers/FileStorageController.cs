@@ -17,7 +17,7 @@ namespace Cico.Controllers
         {
             var file = Db.SystemFiles.Single(c => c.Id == id);
             var storage = new FileStorage();
-            var content = storage.GetFile(file.Patch);
+            var content = storage.GetFile(file.Path);
             return File(content, "application/octet",file.Description);
         }
 

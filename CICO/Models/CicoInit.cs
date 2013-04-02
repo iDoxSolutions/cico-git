@@ -55,14 +55,14 @@ namespace Cico.Models
                     {
                         FileType = "DocTemplate",
                         Description = "Doc Template1",
-                        Patch = "DocTemplates/Template1.docx"
+                        Path = "DocTemplates/Template1.docx"
                     });
             var template2 =
                 context.SystemFiles.Add(new SystemFile()
                     {
                         FileType = "DocTemplate",
                         Description = "Doc Template2",
-                        Patch = "DocTemplates/Template2.docx"
+                        Path = "DocTemplates/Template2.docx"
                     });
 
             context.CheckListItemTypes.Add(new CheckListItemType()

@@ -32,9 +32,9 @@
         <th>
             Subscribe
         </th>
-        <th>
+       @* <th>
             Edit
-        </th>
+        </th>*@
     </tr>
     @foreach (var item in Model.SubscriptionLines)
     {
@@ -45,9 +45,9 @@
             <td>
                 <input type="checkbox" @(item.Subscribed?"checked":"") data-id="@item.SubsctiptionId" data-template-id="@item.CheckListItemTemplateId"/>
             </td>
-            <td>
+            @*<td>
                 @Html.ActionLink("Edit","Edit","ItemClass",new{id=item.CheckListItemTemplateId},null)
-            </td>
+            </td>*@
         </tr>
     }
 

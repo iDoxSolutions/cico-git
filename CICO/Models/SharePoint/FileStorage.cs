@@ -24,7 +24,7 @@ namespace Cico.Models.SharePoint
             var fName = DateTime.Now.Ticks.ToString(CultureInfo.InvariantCulture) + Path.GetFileName(postedFile.FileName);
             var path = _query.Save(buffer, new Dictionary<string, object>(),username+"/"+fName );
             systemFile.Description = Path.GetFileName(postedFile.FileName);
-            systemFile.Patch = path;
+            systemFile.Path = path;
         }
 
         public byte[] GetFile(string url)

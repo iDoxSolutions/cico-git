@@ -705,6 +705,7 @@
     <Content Include="Areas\Admin\Views\DocumentTemplate\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DocumentTemplate\_Form.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -737,6 +738,7 @@
     <Content Include="Views\Home\Initialize.cshtml" />
     <Content Include="Views\Home\DeleteDependents.cshtml" />
     <None Include="Properties\PublishProfiles\Mexico.pubxml" />
+    <Content Include="Views\Shared\DisplayTemplates\SystemFile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
