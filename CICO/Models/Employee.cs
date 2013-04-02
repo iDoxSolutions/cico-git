@@ -131,6 +131,10 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("State of U.S. Legal Residence")]
         [StringLength(2)]
         public string LegalResidenceState { get; set; }
+        [DisplayName("Proxy")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+        public string ProxyEmail { get; set; }
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
 
         [Required(ErrorMessage = "Domain user id is required")]
