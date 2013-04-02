@@ -65,7 +65,7 @@ namespace Cico.Models.Authentication
             session.UserId = uname;
             session.CheckListTemplate = template;
             session.Employee = employee;
-            session.ArrivalDate = DateTime.Now;
+            session.ArrivalDate = employee.TourEndDate.Value;
             var res = _db.CheckListSessions.Add(session);
             _db.SaveChanges();
             return res;
