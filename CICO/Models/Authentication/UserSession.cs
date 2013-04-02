@@ -65,7 +65,7 @@ namespace Cico.Models.Authentication
             session.UserId = uname;
             session.CheckListTemplate = template;
             session.Employee = employee;
-            session.ArrivalDate = employee.TourEndDate.Value;
+            session.ReferenceDate = employee.TourEndDate.Value;
             var res = _db.CheckListSessions.Add(session);
             _db.SaveChanges();
             return res;
@@ -84,7 +84,7 @@ namespace Cico.Models.Authentication
             session.UserId = uname;
             session.CheckListTemplate = template;
             session.Employee = employee;
-            session.ArrivalDate = initmodel.ArrivalDate;
+            session.ReferenceDate = initmodel.ArrivalDate;
             var res = _db.CheckListSessions.Add(session);
            /* foreach (var checkListItemTemplate in template.CheckListItemTemplates)
             {

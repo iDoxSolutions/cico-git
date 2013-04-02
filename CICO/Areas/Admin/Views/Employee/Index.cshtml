@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Cico.Models.Employee>
+﻿@using Cico.Areas.Admin
+@model Cico.Areas.Admin.EmployeeIndexModel
 
 @{
     ViewBag.Title = "Employee List";
@@ -7,8 +8,20 @@
 <h2>Employee List</h2>
 
     @Html.ActionLink("Create New Employee", "Create")
-</p>
-<table class="admin-table" cellpadding="2">
+
+<form method="GET">
+    <fieldset>
+        <legend>Employee Search Form</legend>
+        
+        <label>
+            Employee Name    
+        </label>
+        @Html.TextBoxFor(c=>c.SearchString)
+        <input type="submit" value="Search"/>
+    </fieldset>
+</form>
+
+<table class="admin-table" >
     <tr>
         <th>Employee Name</th>
         <th>Dep</th>
@@ -16,7 +29,7 @@
         <th>End Date</th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Employees) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.GivenName)
@@ -45,3 +58,34 @@
 }
 
 </table>
+
+<div>
+    Page @(Model.Employees.PageCount < Model.Employees.PageNumber ? 0 : Model.Employees.PageNumber)
+    of @Model.Employees.PageCount
+     
+    @if (Model.Employees.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new EmployeeIndexModel{ Page = 1,  SearchString= Model.SearchString  })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber - 1,  SearchString= Model.SearchString  })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+    }
+     
+    @if (Model.Employees.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber + 1, SearchString  = Model.SearchString})
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageCount, SearchString  = Model.SearchString})
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ")
+        @:>>
+    }
+</div>

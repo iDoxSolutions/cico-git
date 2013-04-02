@@ -24,7 +24,7 @@ namespace Cico.Models
         
         public DateTime? DueDate {
             get { 
-                return CheckListSession.ArrivalDate.AddDays(CheckListItemTemplate.DueDays); 
+                return CheckListSession.ReferenceDate.AddDays(CheckListItemTemplate.DueDays); 
             }
         }
         public virtual SystemFile SubmittedFile { get; set; }

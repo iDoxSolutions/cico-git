@@ -24,7 +24,7 @@ namespace Cico.Models
         }
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
-        public DateTime ArrivalDate{get; set; }
+        public DateTime ReferenceDate{get; set; }
         public DateTime? DepartureDate { get; set; }
         public bool Completed { get; set; }
     }
