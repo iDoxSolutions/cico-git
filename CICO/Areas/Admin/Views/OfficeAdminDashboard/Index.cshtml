@@ -7,6 +7,22 @@
 
 <h2>Office Admin Dashboard</h2>
 
+<form>
+    <label>Select the process </label>
+
+    @Html.DropDownListFor(c=>c.SelectedTemplate,Model.Templates,"")
+
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("select").change(function () {
+            $(this).closest("form").submit();
+        });
+    });
+
+</script>
+
 
 <table class="admin-table">
     <tr>

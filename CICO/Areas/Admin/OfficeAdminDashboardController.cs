@@ -43,12 +43,20 @@ namespace Cico.Areas.Admin
     }
     public class IndexDashboardOfficeModel
     {
+        public IList<SelectListItem> Templates { get; set; }
+        public int? SelectedTemplate { get; set; }
         public Staff Staff { get; set; }
         public IList<SubscriptionLine> SubscriptionLines { get; set; }
-        public void Load(Staff staff)
+        public void Load(Staff staff,ICicoContext db)
         {
             Staff = staff;
-            SubscriptionLines = staff.Office.CheckListItemTemplates.Select(c=>new SubscriptionLine(c,staff)).ToList();
+            var filteredItems = db.CheckListItemTemplates as IQueryable<CheckListItemTemplate>;
+            if (SelectedTemplate.HasValue)
+            {
+                filteredItems = filteredItems.Where(c => c.CheckListTemplate.CheckListTemplateId == SelectedTemplate);
+            }
+            SubscriptionLines = filteredItems.ToList().Select(c=>new SubscriptionLine(c,staff)).ToList();
+            Templates = db.CheckListTemplates.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.CheckListTemplateId.ToString()}).ToList();
         }
     }
 
@@ -57,11 +65,11 @@ namespace Cico.Areas.Admin
         //
         // GET: /Admin/OfficeAdminDashboard/
 
-        public ActionResult Index()
+        public ActionResult Index( IndexDashboardOfficeModel model)
         {
             var staff = UserSession.GetCurrentStaff();
-            var model = new IndexDashboardOfficeModel();
-            model.Load(staff);
+
+            model.Load(staff,Db);
             return View(model);
         }
         [HttpPost]

@@ -165,13 +165,13 @@
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\ReminderController.cs" />
     <Compile Include="Areas\Admin\DependentController.cs" />
-    <Compile Include="Areas\Admin\EmailSubscriptionsController.cs" />
     <Compile Include="Areas\Admin\ItemClassController.cs" />
     <Compile Include="Areas\Admin\OfficeAdminDashboardController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Areas\Admin\CheckListsController.cs" />
+    <Compile Include="Areas\Admin\SubscriptionsController.cs" />
     <Compile Include="Areas\Forms\Controllers\TestFormController.cs" />
     <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -674,8 +674,6 @@
     <Content Include="Areas\Admin\Views\CheckLists\Index.cshtml" />
     <Content Include="Mvc.sitemap" />
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
-    <Content Include="Areas\Admin\Views\EmailSubscriptions\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\EmailSubscriptions\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\DependentForm.cshtml" />
@@ -694,6 +692,7 @@
     <Content Include="Areas\Admin\Views\Reminder\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Reminder\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Reminder\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscriptions\Index.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
