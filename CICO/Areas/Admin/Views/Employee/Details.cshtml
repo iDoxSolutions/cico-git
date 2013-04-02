@@ -36,6 +36,17 @@
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.EmployeeId)
                 </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.EmployeeId)
+                    @Html.ValidationMessageFor(model => model.EmployeeId)
+                </div>
+                <div class="homescreen-label">
+                    @Html.LabelFor(model => model.ProxyEmail)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.ProxyEmail)
+                    @Html.ValidationMessageFor(model => model.ProxyEmail)
+                </div>
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.PersonalEmail)
                 </div>

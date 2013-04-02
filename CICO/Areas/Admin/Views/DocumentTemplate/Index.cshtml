@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Cico.Models.DocumentTemplate>
+
+@{
+    ViewBag.Title = "List Document Template";
+}
+
+<h2>Document Template List</h2>
+
+<p>
+    @Html.ActionLink("Create New Document Template", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Title 
+        </th>
+        <th>
+            Description
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

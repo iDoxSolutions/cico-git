@@ -34,6 +34,7 @@ namespace Cico.Models
         public IDbSet<Setting> Settings { get; set; }
         public IDbSet<Note> Notes { get; set; }
         public IDbSet<Reminder> Reminders { get; set; }
+        public IDbSet<DocumentTemplate> DocumentTemplates { get; set; }
         public IDbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public IDbSet<CheckListSession> CheckListSessions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
