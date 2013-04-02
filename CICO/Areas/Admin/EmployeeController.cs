@@ -53,14 +53,14 @@ namespace Cico.Areas.Admin
 
         public ViewResult Details(int id)
         {
-            Employee employee = Db.Employees.Find(id);
+            Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == id);
             return View(employee);
         }
 
         [HttpPost]
         public ActionResult Details(Employee model)
         {
-            Employee employee = Db.Employees.Find(model.Id);
+            Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == model.Id);
             if (!employee.TourEndDate.HasValue)
             {
                 ModelState.AddModelError("", "Tour End Date is required");

@@ -8,6 +8,63 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<table>
+    <tr>
+        <th>
+            Process Type
+        </th>
+        <th>
+            Date Started
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+    <tr>
+        <th colspan="3">
+            Active Process
+        </th>
+    </tr>
+    @foreach (var pr in Model.CheckListSessions.Where(c=>c.Active))
+    {
+        <tr>
+            <td>
+                @pr.CheckListTemplate.Name
+            </td>
+            <td>
+                @pr.DateCreated
+            </td>
+            <td>
+                @Html.ActionLink("Details","Show","CheckLists",new {id=pr.Id},null)
+            </td>
+        </tr>
+    }
+    
+    <tr>
+        <th colspan="3">
+            Historical Processes
+        </th>
+    </tr>
+    
+    @foreach (var pr in Model.CheckListSessions.Where(c=>!c.Active).OrderByDescending(c=>c.Id))
+    {
+        <tr>
+            <td>
+                @pr.CheckListTemplate.Name
+            </td>
+            <td>
+                @pr.DateCreated
+            </td>
+            
+            <td>
+                @Html.ActionLink("Details","Show","CheckLists",new {id=pr.Id},null)
+            </td>
+        </tr>
+    }
+</table>
+
+
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(c=>c.Id)

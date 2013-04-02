@@ -72,5 +72,12 @@ namespace Cico.Areas.Admin
             item.Checked = false;
             return RedirectToAction("show", new { id = item.CheckListSession.Id });
         }
+
+        public ActionResult Cancel(int id)
+        {
+            var session = Db.CheckListSessions.Find(id);
+            session.Active = false;
+            return RedirectToAction("index");
+        }
     }
 }

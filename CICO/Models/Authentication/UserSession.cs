@@ -27,8 +27,8 @@ namespace Cico.Models.Authentication
             get
             {
                 var uname = _httpContext.User.Identity.Name;
-                var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active);
-                return session != null;
+                return _db.CheckListSessions.Any(c => c.UserId == uname && c.Active);
+                
             }
         }
 

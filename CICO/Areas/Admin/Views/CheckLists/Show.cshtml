@@ -10,6 +10,21 @@
     
 </style>
 
+<div>
+    Employee Name:
+    <div>
+        @Model.Employee.GivenName , @Model.Employee.Surname
+    </div>
+</div>
+
+@if (Model.Active)
+{
+    <form action="/admin/checklists/cancel">
+        @Html.HiddenFor(c => c.Id)
+        <input type="submit" value="Cancel Check List"/>
+    </form>
+}
+
 <ul>
     @foreach (var item in Model.CheckListItemSubmitionTracks)
     {
