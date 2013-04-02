@@ -59,7 +59,7 @@ namespace Cico.Models.Authentication
             {
                 existing.Active = false;
             }
-            var uname = _httpContext.User.Identity.Name;
+            var uname = employee.UserId;
             var template = _db.CheckListTemplates.Single(c => c.Type == "CheckOut");
             var session = _db.CheckListSessions.Create();
             session.UserId = uname;

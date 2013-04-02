@@ -132,7 +132,8 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(2)]
         public string LegalResidenceState { get; set; }
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
-       
+
+        [Required(ErrorMessage = "Domain user id is required")]
         public string UserId { get; set; }
 
         public virtual ICollection<Dependent> Dependents { get; set; }
