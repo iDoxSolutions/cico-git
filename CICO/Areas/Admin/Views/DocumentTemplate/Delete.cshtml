@@ -1,24 +1,25 @@
-﻿@model Cico.Models.Office
+﻿@model Cico.Models.DocumentTemplate
 
 @{
-    ViewBag.Title = "Delete Office";
+    ViewBag.Title = "Delete Template";
 }
 
-<h2>Delete Office</h2>
+<h2>Delete Template</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <fieldset>
     <legend>Office</legend>
 
-    <div class="display-label">Name</div>
+    <div class="display-label">Date</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Name)
+        @Html.DisplayFor(model => model.DocumentTitle)
     </div>
 
-    <div class="display-label">ContactUser</div>
+    <div class="display-label">Days To Send</div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ContactUser)
+        @Html.DisplayFor(model => model.Description)
     </div>
+  
 </fieldset>
 @using (Html.BeginForm()) {
     <p>

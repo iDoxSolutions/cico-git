@@ -17,7 +17,8 @@
     @if (User.IsInRole("OfficeAdmin"))
     {
         
-        <li>@Html.ActionLink("Checklist Builder", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Checklist Manager", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Document Templates", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
     }
      @if (User.IsInRole("GlobalAdmin"))
      {
