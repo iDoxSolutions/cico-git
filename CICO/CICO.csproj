@@ -185,6 +185,10 @@
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Controllers\ViewModels\CheckListItemModel.cs" />
+    <Compile Include="Controllers\ViewModels\CheckListModel.cs" />
+    <Compile Include="Controllers\ViewModels\DependentsFile.cs" />
+    <Compile Include="Controllers\ViewModels\FileModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

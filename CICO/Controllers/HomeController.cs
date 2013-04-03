@@ -98,20 +98,20 @@ namespace Cico.Controllers
             {
                 return RedirectToAction("initialize");
             }
-            CheckListSession user = null;
+            CheckListSession session = null;
             if (!id.HasValue)
             {
-                user = UserSession.GetCurrent();
+                session = UserSession.GetCurrent();
             }
             else
             {
-                user = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
+                session = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
             }
             var model = new HomeModel()
                 {
-                    Employee = user.Employee,
+                    Employee = session.Employee,
                     CheckListId = id,
-                    CheckListName = user.CheckListTemplate.Name
+                    CheckListName = session.CheckListTemplate.Name
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";
