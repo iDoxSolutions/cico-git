@@ -13,63 +13,6 @@ using Cico.Models.SharePoint;
 
 namespace Cico.Controllers.ViewModels
 {
-   
-    public class FileModel
-    {
-        public string Url { get; set; }
-        public string Description { get; set; }
-    }
-
-    public class CheckListModel
-    {
-        public CheckListModel()
-        {
-            CheckListItems = new List<CheckListItemModel>();
-        }
-        public IList<CheckListItemModel> CheckListItems { get; set; }
-
-        public bool Completed{get; set; }
-    }
-
-    public class CheckListItemModel
-    {
-        public int Id { get; set; }
-        public string Description { get; set; }
-        public string ItemTemplate { get; set; }
-        public bool Checked { get; set; }
-        public string CssClass{get; set; }
-        public string InstructionText { get; set; }
-        public IList<NoteViewModel> Notes{get; set; }
-
-        public string FileUrl{get; set; }
-
-        public string FileDesc{get; set; }
-
-        public string Form{get; set; }
-
-        public string DueDate{get; set; }
-
-        public FileModel SubmittedFile { get; set; }
-
-        public string ApprovalText{get; set; }
-
-        public int TrackId{get; set; }
-
-        public string ItemUrl{get; set; }
-
-        public bool CompleteChecklist{get; set; }
-
-        public IList<DependentsFile> DependentsFiles{ get; set; }
-    }
-
-    public  class DependentsFile
-    {
-        public string Url { get; set; }
-        public string DependentName { get; set; }
-        public string FileName { get; set; }
-        public string FilePath { get; set; }
-        public int DependentId { get; set; }
-    }
 }
 
 namespace Cico.Controllers
@@ -88,6 +31,7 @@ namespace Cico.Controllers
                 session = Db.CheckListSessions.Include("CheckListTemplate").Single(c => c.Id == id.Value && c.Active);
             }
             var model = new CheckListModel();
+            model.Id = session.Id;
             foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
             {
                 var track = session.GetTrack(checkListItemTemplate.CheckListItemTemplateId);
@@ -156,7 +100,13 @@ namespace Cico.Controllers
         private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
         {
             var track = session.GetTrack(template.CheckListItemTemplateId);
-            return track.Notes.OrderByDescending(c=>c.DateCreated).Select(c => new NoteViewModel()
+            var notes = track.Notes;
+            if (!template.NotesAccess)
+            {
+                
+               // notes = notes.
+            }
+            return notes.OrderByDescending(c => c.DateCreated).Select(c => new NoteViewModel()
                     {
                         Content = HttpUtility.HtmlDecode( c.Content), 
                         DateCreated = c.DateCreated.ToString(),Id = c.Id,
@@ -167,11 +117,11 @@ namespace Cico.Controllers
 
         
         [HandleModelStateException]
-        public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId)
+        public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId,int checklistId)
         {
             if (docSubmitted == null)
                 throw new ModelStateException("File is Required");
-            var track = UserSession.GetTrack(itemTemplateId);
+            var track = UserSession.GetTrack(itemTemplateId,checklistId);
             if (track.SubmittedFile == null)
             {
                 track.SubmittedFile = new SystemFile();
@@ -232,11 +182,11 @@ namespace Cico.Controllers
             
         }
 
-        public ActionResult Check(int id)
+        public ActionResult Check(int id, int checklistId)
         {
-            var track = UserSession.GetTrack(id);
+            var track = UserSession.GetTrack(id,checklistId);
             track.Checked = true;
-            var session = UserSession.GetCurrent();
+            var session = track.CheckListSession;
             if (track.CheckListItemTemplate.CompleteCheckList)
             {
                 session.Completed = true;

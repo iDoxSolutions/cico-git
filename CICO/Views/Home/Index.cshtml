@@ -364,6 +364,7 @@
         self.InstructionText = ditem ? ditem.InstructionText : "";
         self.DueDate = ditem.DueDate;
         self.dependentFiles = ko.observable(null);
+        self.CheckListId = parent.Id;
         self.completeChecklist = function() {
             parent.completed(true);
         };
@@ -402,12 +403,14 @@
         self.selectedItem = ko.observable();
         self.selectedTemplate = ko.observable("none");
         self.checklist = ko.observableArray();
+        
         var postData = null;
         if (checklistId!=0) {
             postData = { id: checklistId };
         } 
 
         $.post("/checklist", postData, function (data) {
+            self.Id = data.Id;
             self.completed(data.Completed);
             ko.utils.arrayForEach(data.CheckListItems, function (item) {
                 self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item,self));

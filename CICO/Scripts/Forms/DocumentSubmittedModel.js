@@ -32,7 +32,7 @@
             enctype: 'multipart/form-data',
             // other available options: 
             url: "/checklist/UploadFile",   //  ,    // override for form's 'action' attribute 
-            data: { itemTemplateId: item.item.Id },
+            data: { itemTemplateId: item.item.Id, checklistId: item.CheckListId },
             dataType:'text'
         };
         // $(e).ajaxForm(options);

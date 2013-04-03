@@ -5,7 +5,7 @@ using Cico.Models.Helpers;
 
 namespace Cico.Models
 {
-    public class CicoInit : System.Data.Entity.DropCreateDatabaseIfModelChanges<Cico.Models.CicoContext>
+    public class CicoInit : System.Data.Entity.DropCreateDatabaseIfModelChanges <Cico.Models.CicoContext>
     {
         private Office _hrOffice;
         private Office _cloOffice;
