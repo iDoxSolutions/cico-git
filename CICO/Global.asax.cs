@@ -37,6 +37,7 @@ namespace Cico
 
         protected void Application_Start()
         {
+            log4net.Config.XmlConfigurator.Configure();
             Database.SetInitializer<CicoContext>(new CicoInit());
             AreaRegistration.RegisterAllAreas();
             

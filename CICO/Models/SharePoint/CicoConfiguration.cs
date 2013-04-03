@@ -23,6 +23,16 @@ namespace Cico.Models.SharePoint
     }
     public class SharePointConfig : ConfigurationElement
     {
+
+        [ConfigurationProperty("secure", IsRequired = true)]
+        public bool Secure
+        {
+            get
+            { return (bool)this["secure"]; }
+            set
+            { this["secure"] = value; }
+        }
+
         [ConfigurationProperty("libraryName", IsRequired = true)]
         public string LibraryName
         {

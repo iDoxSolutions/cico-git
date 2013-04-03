@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Net;
+using System.Security.Principal;
 using System.Web;
 using System.Xml;
 using Cico.Models.SharePoint.SpWs;
@@ -23,10 +24,15 @@ namespace Cico.Models.SharePoint
         protected string libraryName = "DocLib";
 
 
+
         public string CreateFolder(string baseFolder, string folder)
         {
             var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
-
+            if (_secure)
+            {
+                listProxy.UseDefaultCredentials = true;
+                listProxy.Credentials=System.Net.CredentialCache.DefaultNetworkCredentials;
+            }
             string xmlconst = "<Batch OnError='Continue' RootFolder='" + baseFolder + "'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
             XmlDocument doc = new XmlDocument();
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
@@ -38,6 +44,8 @@ namespace Cico.Models.SharePoint
        
     
         private CookieContainer _cc;
+        private bool _secure;
+
         private CookieContainer cc
         {
             get
@@ -72,20 +80,39 @@ namespace Cico.Models.SharePoint
         {
             var client = new WebClient();
             client.Credentials = new NetworkCredential(userName, password);
+            if (_secure)
+            {
+                client.UseDefaultCredentials = true;
+                client.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+            }
             var bytes = client.DownloadData(url);
             return bytes;
         }
 
         public string CreateFolder( string folder)
         {
-            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
 
+            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
+            /*
+                //AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
+                log.DebugFormat("Http user:{0}",HttpContext.Current.User.Identity.Name);
+                log.DebugFormat("Default creedentials user:{0}", System.Net.CredentialCache.DefaultNetworkCredentials.UserName);
+                listProxy.PreAuthenticate = true;
+                listProxy.UseDefaultCredentials = true;
+               listProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;*/
+            if (_secure)
+            {
+                listProxy.UseDefaultCredentials = true;
+                listProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+            }
+            
             string xmlconst = "<Batch OnError='Continue'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
             XmlDocument doc = new XmlDocument();
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
             doc.LoadXml(xmlFolder);
             XmlNode batchNode = doc.SelectSingleNode("//Batch");
             XmlNode resultNode = listProxy.UpdateListItems(libraryName, batchNode);
+            
             return resultNode.InnerXml;
         }
        
@@ -100,36 +127,20 @@ namespace Cico.Models.SharePoint
             siteName = config.SharePointConfig.SiteName;
             libId = config.SharePointConfig.ListId;
             libraryName = config.SharePointConfig.LibraryName;
+            _secure = config.SharePointConfig.Secure;
         }
 
-        /*private CookieContainer GetCookie()
-        {
-            if (cc == null)
-            {
-                var claimsHelper = new MsOnlineClaimsHelper(url,
-                                                            userName, password);
-                log.DebugFormat("Url:{0} user:{1} password:{2}", url, userName, password);
-                using (ClientContext context = new ClientContext(url))
-                {
-                    context.ExecutingWebRequest += claimsHelper.clientContext_ExecutingWebRequest;
-
-                    context.Load(context.Web);
-
-                    context.ExecuteQuery();
-                }
-                return claimsHelper.CookieContainer;
-            }
-            else
-            {
-                return cc;
-            }
-        }*/
+      
 
         public IList<DocumentDto> GetByContract(string contractNo)
         {
 
             var proxy = new Lists();
-
+            if (_secure)
+            {
+                proxy.UseDefaultCredentials = true;
+                proxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+            }
             //proxy.CookieContainer = GetCookie();
             //proxy.Url = "http://lightkeeper2.sharepoint.com/TeamSite/_vti_bin/Lists.asmx";
             //proxy.Credentials = new NetworkCredential(userName, password, domain);
@@ -217,7 +228,12 @@ namespace Cico.Models.SharePoint
                                    Credentials = new NetworkCredential(userName, password)
                                };
 
-
+            if (_secure)
+            {
+                copy.PreAuthenticate = true;
+                copy.UseDefaultCredentials = true;
+                copy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
+            }
             var dest = !string.IsNullOrEmpty(siteName)
                            ? string.Format("{0}/{3}/{1}/{2}", url, libraryName, name, siteName)
                            : string.Format("{0}/{1}/{2}", url, libraryName, name);

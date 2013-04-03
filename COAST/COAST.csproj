@@ -68,6 +68,15 @@
   <PropertyGroup>
     <StartupObject>COAST.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Secure|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Secure\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CsvReader">
       <HintPath>..\packages\CsvTools.1.0.8\lib\CsvReader.dll</HintPath>
