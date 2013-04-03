@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -38,7 +39,10 @@ namespace Cico
         protected void Application_Start()
         {
             log4net.Config.XmlConfigurator.Configure();
-            Database.SetInitializer<CicoContext>(new CicoInit());
+            if (ConfigurationManager.AppSettings["InitializeDb"] == "true")
+            {
+                Database.SetInitializer<CicoContext>(new CicoInit());
+            }
             AreaRegistration.RegisterAllAreas();
             
             RegisterGlobalFilters(GlobalFilters.Filters);
