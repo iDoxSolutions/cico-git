@@ -1,2 +1,0 @@
-2013-04-03 10:28:22,044 [7] DEBUG SharePointDocumentsQuery - Http user:ABAPER-W8\Pawel
-2013-04-03 10:28:22,054 [7] DEBUG SharePointDocumentsQuery - Default creedentials user:
