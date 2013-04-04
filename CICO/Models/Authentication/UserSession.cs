@@ -22,14 +22,20 @@ namespace Cico.Models.Authentication
             return _httpContext.User.Identity.Name;
         }
 
-        public bool IsInitialized
+        
+        public bool IsInitialized(int? empId)
         {
-            get
+            if (empId.HasValue)
+            {
+                return _db.CheckListSessions.Include("Employee").Any(c => c.Employee.Id == empId.Value && c.Active);
+            }
+            else
             {
                 var uname = _httpContext.User.Identity.Name;
-                return _db.CheckListSessions.Any(c => c.UserId == uname && c.Active);
-                
+                return _db.CheckListSessions.Include("Employee").Any(c => c.UserId == uname && c.Active);
             }
+            
+           
         }
 
         public bool IsOfficeAdmin
@@ -49,7 +55,13 @@ namespace Cico.Models.Authentication
         {
             var uname = _httpContext.User.Identity.Name;
             var template = GetCurrentTemplate();
-            return InitCheckListSession(uname,template ,initmodel);
+            var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
+            if (employee == null)
+            {
+                employee = new Employee() { UserId = uname, GivenName = initmodel.GivenName, Surname = initmodel.Surname, PersonalEmail = initmodel.EmailAddress, EmployeeId = initmodel.EmployeeId, ArrivalDate = initmodel.ArrivalDate };
+                _db.Employees.Add(employee);
+            }
+            return InitCheckListSession(employee,template ,initmodel);
         }
 
         public CheckListSession InitCheckOutSession(Employee employee)
@@ -71,17 +83,13 @@ namespace Cico.Models.Authentication
             return res;
         }
 
-        private CheckListSession InitCheckListSession(string uname, CheckListTemplate template, InitModel initmodel)
+        private CheckListSession InitCheckListSession(Employee employee, CheckListTemplate template, InitModel initmodel)
         {
             CheckListSession session;
-            var employee = _db.Employees.FirstOrDefault(c => c.UserId == uname);
-            if (employee == null)
-            {
-                employee = new Employee() {UserId = uname,GivenName = initmodel.GivenName,Surname = initmodel.Surname,PersonalEmail = initmodel.EmailAddress,EmployeeId = initmodel.EmployeeId,ArrivalDate = initmodel.ArrivalDate};
-                _db.Employees.Add(employee);
-            }
+            
+            
             session = _db.CheckListSessions.Create();
-            session.UserId = uname;
+            session.UserId = employee.UserId;
             session.CheckListTemplate = template;
             session.Employee = employee;
             session.ReferenceDate = initmodel.ArrivalDate;
@@ -107,7 +115,7 @@ namespace Cico.Models.Authentication
 
         public Staff GetCurrentStaff()
         {
-            var staff = _db.Staffs.Include("Office").Single(c => c.UserId == _httpContext.User.Identity.Name);
+            var staff = _db.Staffs.Include("Office").Include("Proxied").SingleOrDefault(c => c.UserId == _httpContext.User.Identity.Name);
             return staff;
         }
 

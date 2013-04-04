@@ -141,5 +141,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string UserId { get; set; }
 
         public virtual ICollection<Dependent> Dependents { get; set; }
+
+        public virtual Staff Proxy { get; set; }
     }
 }

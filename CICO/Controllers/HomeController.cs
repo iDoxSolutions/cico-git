@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
 using Cico.Models.Authentication;
+using Cico.Models.Services;
 
 
 namespace Cico.Controllers
@@ -35,29 +36,16 @@ namespace Cico.Controllers
         public IList<MenuItem> MenuItems { get; set; }
     }
 
-    public partial class Staff
-    {
-
-    }
-
-    
-
-
-//public class EmployeeModel
-    //{
-    //   Employee employee = new Employee();
-    //}
-
-
     public class HomeModel
     {
         public Employee Employee { get; set; }
         public IList<Dependent> Dependents { get; set; }
-
+        public bool HasProxied { get; set; }
         public int? CheckListId{get; set; }
 
         public string CheckListName{get; set; }
 
+        public ProxyModel ProxyModel{get; set; }
         public void Load(CicoContext db)
         {
             Dependents = db.Dependents.ToList();
@@ -69,13 +57,13 @@ namespace Cico.Controllers
 
     public class HomeController : ControllerBase
     {
-        public ActionResult Initialize()
+        public ActionResult Initialize(int? employeeId)
         {
-            if (UserSession.IsInitialized)
-                return RedirectToAction("index");
-            
+          if (UserSession.IsInitialized(employeeId))
+                    return RedirectToAction("index");
+
             //return RedirectToAction("index");
-            return View();
+            return View(new InitModel(){EmpId = employeeId});
         }
         [HttpPost]
         public ActionResult Initialize(InitModel initModel)
@@ -83,7 +71,7 @@ namespace Cico.Controllers
             if (ModelState.IsValid)
             {
                 var session = UserSession.InitCheckListSession(initModel);
-                return RedirectToAction("index");
+                return RedirectToAction("index",new {id=session.Id});
             }
             else
             {
@@ -91,10 +79,12 @@ namespace Cico.Controllers
             }
             
         }
+
+
         
         public ActionResult Index(int? id)
         {
-            if (!UserSession.IsInitialized && !id.HasValue)
+            if (!UserSession.IsInitialized(null) && !id.HasValue)
             {
                 return RedirectToAction("initialize");
             }
@@ -107,11 +97,13 @@ namespace Cico.Controllers
             {
                 session = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
             }
+            
             var model = new HomeModel()
                 {
                     Employee = session.Employee,
                     CheckListId = id,
-                    CheckListName = session.CheckListTemplate.Name
+                    CheckListName = session.CheckListTemplate.Name,
+            
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";
@@ -141,7 +133,14 @@ namespace Cico.Controllers
             return View();
         }
 
-
+        public ActionResult Proxy()
+        {
+            var proxyService = new ProxyService(HttpContext, Db);
+            var model = proxyService.GetModel();
+            if (model == null)
+                return RedirectToAction("index");
+            return View(model);
+        }
         
     }
 }
