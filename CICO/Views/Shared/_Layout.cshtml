@@ -1,7 +1,7 @@
 ﻿@using System.Web.Optimization
 @using Cico.Models
 @using Cico.Models.Helpers
-
+@using Cico.Models.Versioning
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
         <title>@ViewBag.Title</title>
         <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="stylesheet" href="/Content/site.css" />
+        <link rel="stylesheet" href="@Html.VerRes("/Content/site.css")" />
         <link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" />
         <script src="/Scripts/json3.min.js"></script>
        <script type="text/javascript" src="/scripts/modernizr-1.7.js"></script>
@@ -23,6 +23,27 @@
                 $(".date").datepicker({
 
                 });
+               /* $("#sign-in-menu").hide();
+                $("#sign-in-menu").menu();
+                
+                $(".username").mouseout(
+                    function() {
+                        $("#sign-in-menu").hide();
+                    }
+                );
+                $(".username").mouseover(
+                    function () {
+                        $("#sign-in-menu").show();
+                    }
+                );*/
+                
+                $("#sign-out").click(
+                    function () {
+                        
+                        document.execCommand("ClearAuthenticationCache","false");
+                        window.location = "/home/SignOut";
+                    }
+                );
             });
 </script>
     </head>
@@ -39,8 +60,16 @@
                 </div>
                 <div class="float-right">
                     <section id="login">
-                        <span class="username">@User.Identity.Name</span>
+                        <span class="username" style="cursor: pointer">@User.Identity.Name
+                            @*<ul id="sign-in-menu" style="position: absolute">
+                                <li><a id="sign-out" href="#">Sign Out</a></li>
+                            </ul> *@        
+                        </span>
+                     
+                        
                     </section>
+                     
+
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>

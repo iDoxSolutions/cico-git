@@ -136,6 +136,14 @@ namespace Cico.Controllers
             return View();
         }
 
+        public ActionResult SignOut()
+        {
+            Response.StatusCode = 401;
+            Response.StatusDescription = "Unauthorized";
+            Response.End();
+            return Content("");
+        }
+
         public ActionResult Proxy()
         {
             var proxyService = new ProxyService(HttpContext, Db);

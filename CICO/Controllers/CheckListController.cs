@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -99,18 +100,27 @@ namespace Cico.Controllers
 
         private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
         {
+            var user = UserSession.GetUserName();
             var track = session.GetTrack(template.CheckListItemTemplateId);
             var notes = track.Notes;
             if (!template.NotesAccess)
             {
-                
-               // notes = notes.
+                var staff = UserSession.GetCurrentStaff();
+                if (staff != null)
+                {
+                    if (staff.Office.OfficeId != template.Office.OfficeId)
+                    {
+                        notes = new Collection<Note>();
+                    }
+                }
+                // notes = notes.
             }
             return notes.OrderByDescending(c => c.DateCreated).Select(c => new NoteViewModel()
                     {
                         Content = HttpUtility.HtmlDecode( c.Content), 
                         DateCreated = c.DateCreated.ToString(),Id = c.Id,
-                        UserCreated = c.UserCreated
+                        UserCreated = c.UserCreated,
+                        Deletable = c.UserCreated == user
                     }).ToList();
             
         }

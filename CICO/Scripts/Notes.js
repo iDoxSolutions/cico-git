@@ -5,6 +5,7 @@ function NoteModel(note) {
     self.DateCreated = note.DateCreated;
     self.Id = note.Id;
     self.UserCreated = note.UserCreated;
+    self.Deletable = note.Deletable;
 }
 
 function NoteListModel(item) {
