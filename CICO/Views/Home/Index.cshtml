@@ -1,3 +1,4 @@
+@using Cico.Models.Versioning
 @model Cico.Controllers.HomeModel
 @{
     ViewBag.Title = "Home Page";
@@ -6,20 +7,20 @@
    
 
     </style>
-<script type="text/javascript" src="/scripts/modernizr-1.7.js"></script>
-<script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
-<script type="text/javascript" src="/scripts/sammy.js"></script>
+<script type="text/javascript" src="@Html.VerRes("/scripts/modernizr-1.7.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/scripts/tiny_mce/tiny_mce.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/scripts/sammy.js")"></script>
 
-<script type="text/javascript" src="/Scripts/jquery.form.js">
+<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.form.js")">
 </script>
-<script type="text/javascript" src="/Scripts/Forms/CicoFormBase.js">
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/CicoFormBase.js")">
 </script>
-<script type="text/javascript" src="/Scripts/notes.js"></script>
-<script type="text/javascript" src="/Scripts/Forms/DocumentApprovalModel.js"></script>
-<script type="text/javascript" src="/Scripts/Forms/DocumentSubmittedModel.js"></script>
-<script type="text/javascript" src="/Scripts/Forms/SelfContainedFormModel.js"></script>
-<script type="text/javascript" src="/Scripts/Forms/DocumentWritingModel.js"></script>
-<script type="text/javascript" src="/Scripts/Forms/PhysicalActivityModel.js"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentApprovalModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentSubmittedModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/SelfContainedFormModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
 
 <div class="columnsContainer">
     <div class="rightColumn">

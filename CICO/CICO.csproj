@@ -233,6 +233,7 @@
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
     <Compile Include="Models\SystemFile.cs" />
     <Compile Include="Models\SystemRole.cs" />
+    <Compile Include="Models\Versioning\VersionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

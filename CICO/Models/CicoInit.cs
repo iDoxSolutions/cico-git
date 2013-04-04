@@ -50,7 +50,7 @@ namespace Cico.Models
 
         protected override void Seed(CicoContext context)
         {
-            
+            context.Settings.Add(new Setting() { Name = "AppVersion",Value = "1.0"});
             var template1 =
                 context.SystemFiles.Add(new SystemFile()
                     {
