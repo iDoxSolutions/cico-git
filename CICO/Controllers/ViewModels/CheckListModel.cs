@@ -11,5 +11,6 @@ namespace Cico.Controllers.ViewModels
         public IList<CheckListItemModel> CheckListItems { get; set; }
         public int Id { get; set; }
         public bool Completed{get; set; }
+        
     }
 }

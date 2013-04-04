@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
@@ -103,8 +104,15 @@ namespace Cico.Controllers
             var notes = track.Notes;
             if (!template.NotesAccess)
             {
-                
-               // notes = notes.
+                var staff = UserSession.GetCurrentStaff();
+                if (staff != null)
+                {
+                    if (staff.Office.OfficeId != template.Office.OfficeId)
+                    {
+                        notes = new Collection<Note>();
+                    }
+                }
+                // notes = notes.
             }
             return notes.OrderByDescending(c => c.DateCreated).Select(c => new NoteViewModel()
                     {
