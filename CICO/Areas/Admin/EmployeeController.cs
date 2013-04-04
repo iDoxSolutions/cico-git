@@ -38,7 +38,7 @@ namespace Cico.Areas.Admin
         public string SelectedProxy { get; set; }
         public void Load(ICicoContext db)
         {
-            Proxies = db.Staffs.Select(c => new SelectListItem() {Text = c.UserId,Value = c.UserId}).ToList();
+            Proxies = db.Staffs.Include("SystemRoles").Where(c=>c.SystemRoles.Any(d=>d.Name==SystemRole.UserProxy)).ToList().Select(c => new SelectListItem() {Text = c.UserId,Value = c.UserId}).ToList();
             if (Employee != null && Employee.Proxy != null)
             {
                 SelectedProxy = Employee.Proxy.UserId;

@@ -59,11 +59,14 @@ namespace Cico.Controllers
     {
         public ActionResult Initialize(int? employeeId)
         {
-          if (UserSession.IsInitialized(employeeId))
-                    return RedirectToAction("index");
+            if (UserSession.IsInitialized(employeeId))
+            {
+                var session = Db.CheckListSessions.Single(c => c.Employee.Id == employeeId.Value);
+                return RedirectToAction("index",new{id=session.Id});
+            }
 
             //return RedirectToAction("index");
-            return View(new InitModel(){EmpId = employeeId});
+            return View(new InitModel(){EmpId = employeeId,ArrivalDate = DateTime.Today});
         }
         [HttpPost]
         public ActionResult Initialize(InitModel initModel)
