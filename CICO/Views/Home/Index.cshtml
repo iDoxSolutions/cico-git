@@ -85,7 +85,7 @@
                                     <div class="note-tools">
                                         <div data-bind="text:'Date Created: '+ DateCreated"></div>
                                         <div data-bind="text:'Created by: '+ UserCreated" style="width: 180px"></div>
-                                        <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote" style="width: 50px">Delete</div>
+                                        <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote,visible:Deletable" style="width: 50px">Delete</div>
                                     </div>
                                     <div style="clear: both"></div>
                                 </li>

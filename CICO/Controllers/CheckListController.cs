@@ -100,6 +100,7 @@ namespace Cico.Controllers
 
         private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
         {
+            var user = UserSession.GetUserName();
             var track = session.GetTrack(template.CheckListItemTemplateId);
             var notes = track.Notes;
             if (!template.NotesAccess)
@@ -118,7 +119,8 @@ namespace Cico.Controllers
                     {
                         Content = HttpUtility.HtmlDecode( c.Content), 
                         DateCreated = c.DateCreated.ToString(),Id = c.Id,
-                        UserCreated = c.UserCreated
+                        UserCreated = c.UserCreated,
+                        Deletable = c.UserCreated == user
                     }).ToList();
             
         }

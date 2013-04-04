@@ -18,6 +18,7 @@ namespace Cico.Controllers
         public int Id { get; set; }
         public string DateCreated { get; set; }
         public string UserCreated { get; set; }
+        public bool Deletable { get; set; }
     }
     public class NotesController : ControllerBase
     {
