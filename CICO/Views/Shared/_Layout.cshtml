@@ -1,4 +1,5 @@
 ﻿@using System.Web.Optimization
+@using Cico.Models
 @using Cico.Models.Helpers
 
 
@@ -48,6 +49,10 @@
                                 <li>@Html.ActionLink("Admin", "Index", "CheckLists", new {area = "Admin"}, null)</li>
                             }
                             
+                            @if (User.IsInRole(SystemRole.UserProxy) )
+                            {
+                                <li>@Html.ActionLink("Proxy", "Proxy", "Home", new {area = ""}, null)</li>
+                            }
                             
                         </ul>
                     </nav>
