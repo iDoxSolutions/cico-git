@@ -750,6 +750,7 @@
     <Content Include="Views\Shared\DisplayTemplates\SystemFile.cshtml" />
     <Content Include="Views\Home\_Proxy.cshtml" />
     <Content Include="Views\Home\Proxy.cshtml" />
+    <Content Include="Views\Home\SignOut.cshtml" />
     <None Include="Web.Secure.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
