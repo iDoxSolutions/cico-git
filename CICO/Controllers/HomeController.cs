@@ -66,7 +66,7 @@ namespace Cico.Controllers
             }
 
             //return RedirectToAction("index");
-            return View(new InitModel(){EmpId = employeeId});
+            return View(new InitModel(){EmpId = employeeId,ArrivalDate = DateTime.Today});
         }
         [HttpPost]
         public ActionResult Initialize(InitModel initModel)

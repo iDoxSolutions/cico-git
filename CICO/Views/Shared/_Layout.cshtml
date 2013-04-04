@@ -44,15 +44,16 @@
                     <nav>
                         <ul id="menu">
                             <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                            @if (User.IsInRole(SystemRole.UserProxy) )
+                            {
+                                <li>@Html.ActionLink("Proxy", "Proxy", "Home", new {area = ""}, null)</li>
+                            }
                             @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
                             {
                                 <li>@Html.ActionLink("Admin", "Index", "CheckLists", new {area = "Admin"}, null)</li>
                             }
                             
-                            @if (User.IsInRole(SystemRole.UserProxy) )
-                            {
-                                <li>@Html.ActionLink("Proxy", "Proxy", "Home", new {area = ""}, null)</li>
-                            }
+                            
                             
                         </ul>
                     </nav>
