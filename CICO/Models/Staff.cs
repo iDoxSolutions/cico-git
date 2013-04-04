@@ -15,5 +15,6 @@ namespace Cico.Models
         public virtual IList<SystemRole> SystemRoles { get; set; }
         public virtual Office Office { get; set; }
         public virtual IList<EmailSubscription> EmailSubscriptions { get; set; }
+        public virtual IList<Employee> Proxied { get; set; } 
     }
 }

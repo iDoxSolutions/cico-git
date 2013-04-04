@@ -219,6 +219,7 @@
     <Compile Include="Models\ICicoContext.cs" />
     <Compile Include="Models\Note.cs" />
     <Compile Include="Models\Services\Emailer.cs" />
+    <Compile Include="Models\Services\ProxyService.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\SharePoint\FileStorage.cs" />
     <Compile Include="Models\Staff.cs" />
@@ -712,6 +713,7 @@
     <Content Include="Areas\Admin\Views\DocumentTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\_Form.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -745,6 +747,8 @@
     <Content Include="Views\Home\DeleteDependents.cshtml" />
     <None Include="Properties\PublishProfiles\Mexico.pubxml" />
     <Content Include="Views\Shared\DisplayTemplates\SystemFile.cshtml" />
+    <Content Include="Views\Home\_Proxy.cshtml" />
+    <Content Include="Views\Home\Proxy.cshtml" />
     <None Include="Web.Secure.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
