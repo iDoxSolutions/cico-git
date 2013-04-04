@@ -31,6 +31,21 @@ namespace Cico.Areas.Admin
        
     }
 
+    public class EmployeeModel
+    {
+        public Employee Employee { get; set; }
+        public IList<SelectListItem> Proxies { get; set; }
+        public string SelectedProxy { get; set; }
+        public void Load(ICicoContext db)
+        {
+            Proxies = db.Staffs.Include("SystemRoles").Where(c=>c.SystemRoles.Any(d=>d.Name==SystemRole.UserProxy)).ToList().Select(c => new SelectListItem() {Text = c.UserId,Value = c.UserId}).ToList();
+            if (Employee != null && Employee.Proxy != null)
+            {
+                SelectedProxy = Employee.Proxy.UserId;
+            }
+        }
+    }
+
     public class EmployeeController : Cico.Controllers.ControllerBase
     {
         //
@@ -78,23 +93,35 @@ namespace Cico.Areas.Admin
 
         public ActionResult Create()
         {
-            return View();
+            var model = new EmployeeModel(){Employee = new Employee()};
+            model.Load(Db);
+            return View(model);
         } 
+
+
+        private void AddProxyOptions()
+        {
+            
+        }
 
         //
         // POST: /Admin/Employees/Create
 
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        public ActionResult Create(EmployeeModel model)
         {
             if (ModelState.IsValid)
             {
-                Db.Employees.Add(employee);
+                if (!string.IsNullOrEmpty(model.SelectedProxy))
+                {
+                    model.Employee.Proxy = Db.Staffs.Find(model.SelectedProxy);
+                }
+                Db.Employees.Add(model.Employee);
                 Db.SaveChanges();
                 return RedirectToAction("Index");  
             }
-
-            return View(employee);
+            model.Load(Db);
+            return View(model);
         }
         
         //
@@ -103,22 +130,57 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(int id)
         {
             Employee employee = Db.Employees.Find(id);
-            return View(employee);
+            var model = new EmployeeModel() {Employee = employee};
+            model.Load(Db);
+            return View(model);
+        }
+
+
+        public void CopyValues<TSource, TTarget>(TSource source, TTarget target)
+        {
+            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead);
+
+            foreach (var property in sourceProperties)
+            {
+                var targetProperty = typeof(TTarget).GetProperty(property.Name);
+
+                if (targetProperty != null && targetProperty.CanWrite && targetProperty.PropertyType.IsAssignableFrom(property.PropertyType))
+                {
+                    var value = property.GetValue(source, null);
+
+                    targetProperty.SetValue(target, value, null);
+                }
+            }
         }
 
         //
         // POST: /Admin/Employees/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Employee employee)
+        public ActionResult Edit(EmployeeModel model)
         {
             if (ModelState.IsValid)
             {
-                Db.Entry(employee).State = EntityState.Modified;
+                var employeee = Db.Employees.Single(c=>c.Id ==  model.Employee.Id);
+                CopyValues(model.Employee,employeee);
+                if (!string.IsNullOrEmpty(model.SelectedProxy))
+                {
+                    var staff = Db.Staffs.Find(model.SelectedProxy);
+                    employeee.Proxy = staff;
+                    //model.Employee.Proxy = new Staff() {UserId = model.SelectedProxy};
+                }
+                else
+                {
+                    employeee.Proxy = null;
+                    Db.Entry(employeee).Reference(c => c.Proxy).CurrentValue = null;
+                }
+                
+                
                 Db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            model.Load(Db);
+            return View(model);
         }
 
         //

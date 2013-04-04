@@ -22,6 +22,7 @@ namespace Cico.Models
         {
             var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin",Staffs = new List<Staff>()});
             var officeAdmin = context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin",Staffs = new List<Staff>()});
+            var proxy = context.SystemRoles.Add(new SystemRole() { Name = SystemRole.UserProxy, Staffs = new List<Staff>() });
 
             var user = context.Staffs.Add(new Staff(){UserId = "ABAPER-W8\\Pawel",Office=_hrOffice,Email = "wasilewski.pawel@gmail.com"});
             user.SystemRoles = new Collection<SystemRole>();

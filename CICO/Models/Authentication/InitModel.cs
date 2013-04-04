@@ -25,5 +25,6 @@ namespace Cico.Models.Authentication
         [DisplayName("Employee Id")]
         [Required]
         public int EmployeeId { get; set; }
+        public int? EmpId { get; set; }
     }
 }

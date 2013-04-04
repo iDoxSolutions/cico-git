@@ -39,6 +39,7 @@ namespace Cico.Models
         public IDbSet<CheckListSession> CheckListSessions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Employee>().HasOptional(c => c.Proxy).WithMany(c => c.Proxied).Map(m => m.MapKey("staffId"));
 
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.SystemFile)
