@@ -62,7 +62,7 @@
                 @Html.LabelFor(model => model.Dependent.Nationality)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Dependent.Nationality, Html.GetDropdownItems("Nationality"), "")
+                @Html.DropDownListFor(model => model.Dependent.Nationality, Html.GetDropdownItems("Nations"), "")
                 @Html.ValidationMessageFor(model => model.Dependent.Nationality)
             </div>
            <div class="editor-label">
