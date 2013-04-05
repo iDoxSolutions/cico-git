@@ -810,41 +810,24 @@ namespace Cico.Models
                     ValueType = "Location"
                 });
 
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Nation1",
-                    Description = "Nation1",
-                    ValueType = "Nationality"
-                });
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Nation2",
-                    Description = "Nation2",
-                    ValueType = "Nationality"
-                });
-            context.DropdownItems.Add(new DropdownItem()
-                {
-                    Key = "Nation3",
-                    Description = "Nation3",
-                    ValueType = "Nationality"
-                });
+           
 
             context.DropdownItems.Add(new DropdownItem()
                 {
-                    Key = "PassportType1",
-                    Description = "PassportType1",
+                    Key = "Official",
+                    Description = "Official",
                     ValueType = "PassportType"
                 });
             context.DropdownItems.Add(new DropdownItem()
                 {
-                    Key = "PassportType2",
-                    Description = "PassportType2",
+                    Key = "Tourist",
+                    Description = "Tourist",
                     ValueType = "PassportType"
                 });
             context.DropdownItems.Add(new DropdownItem()
                 {
-                    Key = "PassportType3",
-                    Description = "PassportType3",
+                    Key = "Diplomatic",
+                    Description = "Diplomatic",
                     ValueType = "PassportType"
                 });
 
