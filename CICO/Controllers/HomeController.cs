@@ -46,9 +46,12 @@ namespace Cico.Controllers
         public string CheckListName{get; set; }
 
         public ProxyModel ProxyModel{get; set; }
+
+        public string Tab{ get; set; }
+
         public void Load(CicoContext db)
         {
-            Dependents = db.Dependents.ToList();
+            Dependents = db.Dependents.Include("Employee").Where(c => c.Employee.Id == Employee.Id).ToList();
         }
     }
 
@@ -85,7 +88,7 @@ namespace Cico.Controllers
 
 
         
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id,string tab)
         {
             if (!UserSession.IsInitialized(null) && !id.HasValue)
             {
@@ -106,7 +109,7 @@ namespace Cico.Controllers
                     Employee = session.Employee,
                     CheckListId = id,
                     CheckListName = session.CheckListTemplate.Name,
-            
+                    Tab = tab
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";

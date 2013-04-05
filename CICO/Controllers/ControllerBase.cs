@@ -1,5 +1,6 @@
 ﻿using System.Data.Common;
 using System.Data.Entity.Infrastructure;
+using System.Linq;
 using System.Web.Mvc;
 using Cico.Models;
 using Cico.Models.Authentication;
@@ -32,6 +33,23 @@ namespace Cico.Controllers
                 _transaction.Rollback();
             }
             base.OnActionExecuted(filterContext);
+        }
+
+        public void CopyValues<TSource, TTarget>(TSource source, TTarget target)
+        {
+            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead);
+
+            foreach (var property in sourceProperties)
+            {
+                var targetProperty = typeof(TTarget).GetProperty(property.Name);
+
+                if (targetProperty != null && targetProperty.CanWrite && targetProperty.PropertyType.IsAssignableFrom(property.PropertyType))
+                {
+                    var value = property.GetValue(source, null);
+
+                    targetProperty.SetValue(target, value, null);
+                }
+            }
         }
     }
 }

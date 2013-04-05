@@ -308,6 +308,12 @@
     $(function () {
         $("#infoTabs").tabs();
         $("#infoTabs").tabs("select", "#myinfo");
+        @if (Model.Tab == "dependents")
+        {
+            <text>
+        $("#infoTabs").tabs("select", "#mydependents");
+            </text>
+        }
         //$('#infoTabs').tabs('option', 'selected', 0);
         $("#checkInTabs").tabs();
     });

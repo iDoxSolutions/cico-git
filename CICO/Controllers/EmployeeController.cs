@@ -27,13 +27,12 @@ namespace Cico.Controllers
         public ActionResult Edit(Employee model) {
             if (ModelState.IsValid)
             {
-                
-                Db.Entry(model).State = EntityState.Modified;
-                Db.Entry(model).Property(c => c.UserCreated).IsModified = false;
-                Db.Entry(model).Property(c => c.UserId).IsModified = false;
-                Db.Entry(model).Property(c => c.DateCreated).IsModified = false;
+                var emp = Db.Employees.Single(c => c.Id == model.Id);
+                Db.Entry(emp).State = EntityState.Modified;
+                CopyValues(model,emp);
                 Db.SaveChanges();
-                return RedirectToAction("index", "home");
+                var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == emp.Id && c.Active);
+                return RedirectToAction("index", "home",new {id=checklist.Id});
             }
             else
             {

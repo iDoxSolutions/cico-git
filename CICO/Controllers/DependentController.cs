@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Cico.Models;
 
 namespace Cico.Controllers
@@ -11,6 +12,7 @@ namespace Cico.Controllers
     public class DepententModel
     {
         public Dependent Dependent { get; set; }
+        public int EmployeeId { get; set; }
     }
 
     public class DependentController : ControllerBase
@@ -24,9 +26,10 @@ namespace Cico.Controllers
             return View(employee.Dependents);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            return View(new DepententModel(){Dependent = new Dependent(){}});
+            var employee = Db.Employees.Single(c => c.Id == id);
+            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee},EmployeeId = employee.Id});
         }
 
         [HttpPost]
@@ -34,10 +37,10 @@ namespace Cico.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Dependent.Employee = UserSession.GetCurrent().Employee;
+                model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
                 Db.Dependents.Add(model.Dependent);
                 Db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("index", "home", new { tab = "dependents", id = GetSessionByEmployee(model.Dependent.Employee) });
             }
             else
             {
@@ -57,11 +60,12 @@ namespace Cico.Controllers
         public ActionResult Edit(DepententModel model) {
             if (ModelState.IsValid)
             {
-                model.Dependent.Employee = UserSession.GetCurrent().Employee;
-                Db.Entry(model.Dependent).State = EntityState.Modified;
+                var dependent = Db.Dependents.Single(c => c.Id == model.Dependent.Id);
+                CopyValues(model.Dependent,dependent);
+                Db.Entry(dependent).State = EntityState.Modified;
                 Db.SaveChanges();
                 //return RedirectToAction("index");
-                return RedirectToAction("index", "home");
+                return RedirectToAction("index", "home", new { tab = "dependents",id=GetSessionByEmployee(dependent.Employee) });
             }
             else
             {
@@ -87,6 +91,19 @@ namespace Cico.Controllers
             return RedirectToAction("Index");
         }
 
+
+        public int GetSessionByEmployee(Employee emp)
+        {
+            var session = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == emp.Id && c.Active);
+            if (session != null)
+            {
+                return session.Id;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
     }
 }
