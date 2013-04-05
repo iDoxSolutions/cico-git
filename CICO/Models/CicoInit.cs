@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Web;
 using Cico.Models.Helpers;
 
 namespace Cico.Models
@@ -360,7 +362,19 @@ namespace Cico.Models
             AddRelationships(context);
             AddSystemForms(context);
             AddChecklistTypes(context);
-
+            using (var file = File.OpenText(HttpContext.Current.Server.MapPath("/content/SQLServer.sql.txt")))
+            {
+                
+                var sql = file.ReadToEnd();
+                var commands = sql.Split("|".ToCharArray());
+                foreach (var command in commands)
+                {
+                    if(!string.IsNullOrEmpty(command))
+                        context.Database.ExecuteSqlCommand(command);    
+                }
+                
+            }
+            
             context.SaveChanges();
 
         }

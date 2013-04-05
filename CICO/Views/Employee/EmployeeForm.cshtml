@@ -10,7 +10,7 @@
             <div>
                 <div class="float-left" style="width: 47%" >
                     <h2>Personal Data</h2>
-                    
+                    @Html.HiddenFor(c=>c.UserId)
                     <div class="editor-label">
                         @Html.LabelFor(model => model.GivenName)
                     </div>

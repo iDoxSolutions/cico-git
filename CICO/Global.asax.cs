@@ -8,6 +8,10 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Data.Entity;
 using Cico.Models;
+using Cico.Models.SharePoint;
+using log4net;
+using log4net.Appender;
+using log4net.Repository.Hierarchy;
 
 namespace Cico
 {
@@ -16,6 +20,7 @@ namespace Cico
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(MvcApplication).Name);
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -39,14 +44,33 @@ namespace Cico
         protected void Application_Start()
         {
             log4net.Config.XmlConfigurator.Configure();
+            ConfigureLog4Net();
             if (ConfigurationManager.AppSettings["InitializeDb"] == "true")
             {
                 Database.SetInitializer<CicoContext>(new CicoInit());
             }
             AreaRegistration.RegisterAllAreas();
-            
+            log.Debug("Application Started");
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+
+        private static void ConfigureLog4Net()
+        {
+            Hierarchy hierarchy = LogManager.GetRepository() as Hierarchy;
+            if (hierarchy != null && hierarchy.Configured)
+            {
+                foreach (IAppender appender in hierarchy.GetAppenders())
+                {
+                    if (appender is AdoNetAppender)
+                    {
+                        var adoNetAppender = (AdoNetAppender)appender;
+                        adoNetAppender.ConnectionString = ConfigurationManager.ConnectionStrings["Cico.Models.CicoContext"].ToString();
+                        adoNetAppender.ActivateOptions(); //Refresh AdoNetAppenders Settings
+                    }
+                }
+            }
         }
     }
 }

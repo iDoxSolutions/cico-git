@@ -15,6 +15,8 @@ namespace Cico.Areas.Admin
         public IPagedList<Employee> Employees { get; set; }
         public string SearchString { get; set; }
         public int? Page { get; set; }
+        public bool EditEnabled{get; set; }
+
         public void Requery(ICicoContext db)
         {
             this.Page = Page ?? 1;
@@ -54,6 +56,16 @@ namespace Cico.Areas.Admin
         public ViewResult Index(EmployeeIndexModel model)
         {
             model.Requery(Db);
+            bool edit = false;
+            if (User.IsInRole(SystemRole.OfficeAdmin))
+            {
+                var staff = UserSession.GetCurrentStaff();
+                if (staff.Office.Name == "HR")
+                {
+                    edit = true;
+                }
+            }
+            model.EditEnabled = edit || User.IsInRole(SystemRole.GlobalAdmin);
             
             return View(model);
         }
@@ -135,23 +147,6 @@ namespace Cico.Areas.Admin
             return View(model);
         }
 
-
-        public void CopyValues<TSource, TTarget>(TSource source, TTarget target)
-        {
-            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead);
-
-            foreach (var property in sourceProperties)
-            {
-                var targetProperty = typeof(TTarget).GetProperty(property.Name);
-
-                if (targetProperty != null && targetProperty.CanWrite && targetProperty.PropertyType.IsAssignableFrom(property.PropertyType))
-                {
-                    var value = property.GetValue(source, null);
-
-                    targetProperty.SetValue(target, value, null);
-                }
-            }
-        }
 
         //
         // POST: /Admin/Employees/Edit/5
