@@ -68,11 +68,11 @@
 
         
         <div class="editor-label SelfContainedForm  managed-visibility">
-            @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div style="display: inline" class="homescreen-display">*select a custom form from the dropdown to allow employess fill out the form data</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div style="display: inline" class="homescreen-inline-instructions">*select a custom form from the dropdown to allow employess fill out the form data</div>
           
         </div>
         <div class="editor-label  DocumentWriting DocumentApproval  managed-visibility">
-            @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-display">*select a template from the dropdown to allow employess to download it</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-inline-instructions">*select a template from the dropdown to allow employess to download it</div>
         </div>
         <div class="editor-field DocumentWriting DocumentApproval managed-visibility">
             @Html.DropDownListFor(c => c.SelectedFile, Model.FileList, "")
