@@ -18,6 +18,7 @@
 <script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentApprovalModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentSubmittedModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/SelfContainedFormModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
@@ -269,7 +270,7 @@
 
 </script>
 
-<script type="text/html" id="SelfContainedForm">
+<script type="text/html" id="OnlineForm">
     <div data-bind="template:{name:Form}">
     </div>
 
@@ -381,6 +382,9 @@
         switch (ItemTemplate) {
             case "DocumentSubmitted":
                 self.classModel = ko.observable(new DocumentSubmittedModel(self));
+                break;
+            case "OnlineForm":
+                self.classModel = ko.observable(new OnlineFormModel(self));
                 break;
             case "SelfContainedForm":
                 self.classModel = ko.observable(new SelfContainedFormModel(self));
