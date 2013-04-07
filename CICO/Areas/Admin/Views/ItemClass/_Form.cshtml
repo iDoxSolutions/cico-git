@@ -36,7 +36,7 @@
 @Html.ValidationSummary()
 @using (Html.BeginForm()) {
     <fieldset>
-        <legend>Self-Contained Form</legend>
+        <legend>Online Form</legend>
         <div class="editor-label">
             @Html.Label("Select item type:")
         </div>
@@ -154,7 +154,7 @@
         </div>
         if (Model.Editable) {
          <div class="editor-field">
-             <input type="submit" value="Submit" name="Save"/>
+             <input type="submit" value="Save" name="Save"/>
          </div>
         }
 

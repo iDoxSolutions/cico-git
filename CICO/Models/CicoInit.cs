@@ -71,7 +71,7 @@ namespace Cico.Models
             context.CheckListItemTypes.Add(new CheckListItemType()
                 {
                     Name = "SelfContainedForm",
-                    Description = "Self-Contained Form"
+                    Description = "Online Form"
                 });
             context.CheckListItemTypes.Add(new CheckListItemType()
                 {

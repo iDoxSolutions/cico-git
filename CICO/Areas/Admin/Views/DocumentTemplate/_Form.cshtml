@@ -2,7 +2,7 @@
 <form enctype="multipart/form-data" method="POST">
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>Reminder</legend>
+        <legend>Form</legend>
 
 
         <div class="editor-label">
@@ -28,7 +28,7 @@
 
         @Html.HiddenFor(c=>c.DocumentTemplate.Id)
         <p>
-            <input type="submit" value="Sumbit" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
     </form>

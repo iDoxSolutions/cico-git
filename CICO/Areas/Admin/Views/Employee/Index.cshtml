@@ -53,10 +53,18 @@
 
             @if (Model.EditEnabled)
             {
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id}) <text>|</text>
-                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+                <text>|</text>
             }
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+               
+            @Html.ActionLink("Details", "Details", new {id = item.Id}) 
+            <text>|</text>
+            
+            @if (Model.EditEnabled)
+            {
+                 @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+              
+            }
             
         </td>
     </tr>

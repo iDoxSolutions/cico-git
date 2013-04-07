@@ -17,7 +17,7 @@ function Form3() {
 }
 
 function SelfContainedFormModel(item) {
-    var self = this;
+  var self = this;
     self.Form = item.Form;
     
     switch (self.Form) {
