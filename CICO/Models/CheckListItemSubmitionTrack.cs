@@ -29,6 +29,30 @@ namespace Cico.Models
         }
         public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
+        public bool Completed { 
+            get
+            {
+                if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
+                    || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
+                {
+                    foreach (var dependent in this.CheckListSession.Employee.Dependents)
+                    {
+                        var depFile = this.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
+                        if (depFile == null)
+                            return false;
+                    }
+                    return true;
+                }
+                else
+                {
+                    return true;
+                }
+            } 
+        }
+        public bool ForDependents
+        {
+            get { return this.CheckListItemTemplate.Dependents; }
+        }
         public bool Provisioned { get; set; }
         public virtual IList<DependentFile> DependentFiles { get; set; } 
     }

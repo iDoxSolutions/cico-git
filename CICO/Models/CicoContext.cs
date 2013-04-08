@@ -47,6 +47,8 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.Office);
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c=>c.DueDate);
+            modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.Completed);
+            modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.ForDependents);
 
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);

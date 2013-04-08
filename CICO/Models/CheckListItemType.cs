@@ -2,8 +2,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
 {
+    public enum ChckItemTypes
+    {
+        DocumentSubmitted,
+        DocumentWriting,
+        PhysicalActivity,
+        DocumentApproval
+    }
+
     public class CheckListItemType
     {
+        
         [Key]
         public int CheckListTypeId { get; set; }
         [Required]

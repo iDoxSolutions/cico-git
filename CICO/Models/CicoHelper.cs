@@ -6,6 +6,9 @@
         {
             if (!track.Checked)
                 return "red";
+            if (track.ForDependents && track.Checked && !track.Completed)
+                return "yellow";
+
             if (track.Checked && track.CheckListItemTemplate.Provisional && !track.Provisioned)
                 return "yellow";
             return "green";
