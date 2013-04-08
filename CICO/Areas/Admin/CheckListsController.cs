@@ -23,8 +23,10 @@ namespace Cico.Areas.Admin
     public class CheckListsModel
     {
         public IPagedList<CheckListModel> CheckListModels { get; set; }
+        public string EmployeeeName { get; set; }
+        public DateTime? ReceiveDate { get; set; }
+        public int? Page { get; set; }
     }
-
     public class TrackItems
     {
         
@@ -36,14 +38,21 @@ namespace Cico.Areas.Admin
         //
         // GET: /CheckLists/
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(CheckListsModel model)
         {
-            page = page ?? 1;
-            var model = new CheckListsModel()
-                {
-                    
-                };
-            var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate").OrderByDescending(c=>c.Id);
+            model.Page = model.Page ?? 1;
+            
+            var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate");
+            if (!string.IsNullOrEmpty(model.EmployeeeName))
+            {
+                sessions = sessions.Where(c => c.Employee.GivenName.Contains(model.EmployeeeName) || c.Employee.Surname.Contains(model.EmployeeeName));
+            }
+            if (model.ReceiveDate.HasValue)
+            {
+               // sessions = sessions.Where(c => c.Employee.GivenName.Contains(model.EmployeeeName) || c.Employee.Surname.Contains(model.EmployeeeName));
+            }
+
+            sessions = sessions.OrderByDescending(c => c.Id);
             model.CheckListModels = sessions.Select(c => new CheckListModel
                 {
                     EmployeeName = c.Employee.Surname + ", " + c.Employee.GivenName,
@@ -54,7 +63,7 @@ namespace Cico.Areas.Admin
                     ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
                     ItemsLeft = c.CheckListItemSubmitionTracks.Count(d=>!d.Checked)
-                }).ToPagedList(page.Value,50);
+                }).ToPagedList(model.Page.Value, 50);
             return View(model);
         }
 

@@ -25,7 +25,21 @@
         color: red;
     }
 </style>
-
+<form method="GET">
+    <fieldset>
+        <legend>Search for a list</legend>
+        <div>
+            Employee Name:
+        </div>
+        @Html.TextBoxFor(c=>c.EmployeeeName)
+        <div>
+            Recieve date:
+        </div>
+        @Html.TextBoxFor(c=>c.ReceiveDate)
+        <div></div>
+        <input type="submit" value="Search"/>
+    </fieldset>
+</form>
 <table class="admin-table">
     <tr>
         <th>Employee Name</th>
@@ -82,35 +96,13 @@
     }
 </div>
 
-<div id="dialog">
-    <ul data-bind="foreach:items">
-        <li >
-            <input style="display: inline" type="checkbox" data-bind="checked:Checked" disabled="disabled" />
-            <a style="display: inline" data-bind="text:Description,attr:{href:ItemUrl}"   ></a>
-            
-        </li>
-    </ul>
-</div>
+
 <script type="text/javascript">
-    function PageModel() {
-        var self = this;
-        self.items = ko.observableArray([]);
-    }
+    $(function () {
+        $("#ReceiveDate").datepicker({});
+    });
 
-    var model = new PageModel();
-    ko.applyBindings(model);
-
-   /* $(".numeric").click(
-        function () {
-            var id=$(this).attr("data-id");
-            $.post("checklist", {id:id},
-                function (data) {
-                    model.items(data.CheckListItems);
-                }
-            );
-            $("#dialog").dialog();
-        }
-    );*/
+  
      
 
     
