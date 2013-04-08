@@ -8,13 +8,13 @@
     self.FileDesc = item.item.FileDesc;
     
     self.ApprovalText = ko.observable(item.item.ApprovalText);
-    /*self.docDownloaded = function () {
+    self.docDownloaded = function () {
         $.post('/checklist/check/', { id: item.item.Id },function() {
-            //item.ItemChecked(true);
-            //window.open(self.FileUrl);
+            item.ItemChecked(true);
+            window.open(self.FileUrl);
         });
         
-    };*/
+    };/*kwh removed comment*/
 
     self.approve = function() {
         $.post('/checklist/check/', { id: item.item.Id, checklistId: item.CheckListId }, function (data) {
