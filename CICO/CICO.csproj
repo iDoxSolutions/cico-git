@@ -181,6 +181,7 @@
     <Compile Include="Controllers\CheckListController.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\DependentController.cs" />
+    <Compile Include="Controllers\EmergencyDataController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -318,6 +319,8 @@
     <Content Include="Images\us_embassy_logo.jpg" />
     <Content Include="Scripts\DocSubmitted\DocSubmitted.js" />
     <Content Include="Scripts\Forms\CicoFormBase.js" />
+    <Content Include="Scripts\Forms\EmergencyContact.js" />
+    <Content Include="Scripts\Forms\OnlineFormBase.js" />
     <Content Include="Scripts\Forms\SelfContainedFormModel.js" />
     <Content Include="Scripts\Forms\DocumentApprovalModel.js" />
     <Content Include="Scripts\Forms\DocumentSubmittedModel.js" />

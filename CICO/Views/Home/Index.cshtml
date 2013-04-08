@@ -13,13 +13,15 @@
 
 <script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.form.js")">
 </script>
-<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/CicoFormBase.js")">
-</script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/CicoFormBase.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormBase.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentApprovalModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentSubmittedModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormModel.js")"></script>
-<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/SelfContainedFormModel.js")"></script>
+
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/EmergencyContact.js")"></script>
+
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
 
@@ -272,9 +274,10 @@
 
 <script type="text/html" id="OnlineForm">
     <div data-bind="template:{name:Form}">
+        
     </div>
-
 </script>
+
 <script type="text/html" id="none">
     <form method="post">
     </form>

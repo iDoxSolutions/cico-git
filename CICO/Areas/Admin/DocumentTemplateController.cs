@@ -65,7 +65,7 @@ namespace Cico.Areas.Admin
             {
                 var fileName = Path.GetFileName(model.File.FileName);
                 model.File.SaveAs(Request.MapPath("/content/doctemplates/"+fileName));
-                model.DocumentTemplate.SystemFile = new SystemFile(model.File, "DocTemplate",model.DocumentTemplate.DocumentTitle);
+                model.DocumentTemplate.SystemFile = new SystemFile(model.File, "DocTemplate", model.DocumentTemplate.DocumentTitle) { Path = "/content/doctemplates/" + fileName };
                 Db.DocumentTemplates.Add(model.DocumentTemplate);
                 Db.SaveChanges();
                 return RedirectToAction("Index");  
