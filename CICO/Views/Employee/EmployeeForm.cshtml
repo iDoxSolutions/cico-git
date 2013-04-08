@@ -5,7 +5,7 @@
     @Html.ValidationSummary(true)
         <fieldset class="two-column-form" style="width:80%">
             <legend>Employee</legend>
-            <input type="submit" value="Submit" name="Save"/>
+            <input type="submit" value="Save" name="Save"/>
              @Html.ValidationSummary()
             <div>
                 <div class="float-left" style="width: 47%" >
@@ -57,7 +57,7 @@
                         @Html.LabelFor(model => model.Nationality)
                     </div>
                     <div class="editor-field">
-                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nationality"), "")
+                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nations"), "")
                         @Html.ValidationMessageFor(model => model.Nationality)
                     </div>
                      
@@ -211,7 +211,7 @@
                         @Html.LabelFor(model => model.PriorPostCountry)
                     </div>
                     <div class="editor-field">
-                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nationality"), "")
+                        @Html.DropDownListFor(model => model.Nationality, Html.GetDropdownItems("Nations"), "")
                         @Html.ValidationMessageFor(model => model.PriorPostCountry)
                     </div>
 
@@ -354,5 +354,5 @@
     </fieldset>
      @Html.HiddenFor(model => model.Id)
    
-    <input type="submit" value="Submit" name="Save"/>
+    <input type="submit" value="Save" name="Save"/>
 }

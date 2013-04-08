@@ -128,7 +128,7 @@
             @Html.ValidationMessageFor(model => model.Document)
         </div>
 
-        @if (Model.Type.Equals("SelfContainedForm"))
+        @if (Model.Type.Equals("OnlineForm"))
         {
            <div class="editor-label">
               @Html.LabelFor(model => model.Form)
@@ -173,7 +173,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Submit" name="Save" />
+            <input type="submit" value="Save" name="Save" />
         </p>
     </fieldset>
 }

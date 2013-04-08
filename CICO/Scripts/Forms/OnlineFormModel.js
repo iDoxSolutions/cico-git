@@ -16,7 +16,7 @@ function Form3() {
 
 }
 
-function SelfContainedFormModel(item) {
+function OnlineFormModel(item) {
   var self = this;
     self.Form = item.Form;
     
@@ -33,5 +33,5 @@ function SelfContainedFormModel(item) {
     }
 
     self.FormBase = new CicoFormBase(item);
-    self.templateName = "SelfContainedForm";
+    self.templateName = "OnlineForm";
 }
