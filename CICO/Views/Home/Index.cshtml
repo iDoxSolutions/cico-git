@@ -54,7 +54,7 @@
 
                         <div data-bind="with:classModel">
 
-                            <div id="selectedForm" data-bind="template:{name:templateName}">
+                            <div id="selectedForm" data-bind="template:{name:templateName},afterRender: animateTrans">
                             </div>
                         </div>
 
@@ -284,6 +284,9 @@
 
 <script type="text/javascript">
     
+    function animateTrans() {
+        }
+
     @if (Model.CheckListId.HasValue)
     {
         <text>
@@ -337,6 +340,8 @@
                 homeModel.selectedTemplate(item.ItemTemplate);
                 homeModel.selectedItem(item);
                 tinyMCE.init({
+                    plugins : 'autoresize',
+                    width: '100%',
                     content_css: "/content/custom-tinymce.css",
                     theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
                     font_size_style_values: "10px,12px,13px,14px,16px,18px,20px",
@@ -426,11 +431,15 @@
         });
 
         self.sammy = Sammy(function () {
+            //animateTrans();
+            // $('#completion').hide(); $('#completion').fadeIn(3000);
             this.get('#checkpoint/:id', function (context) {
                 var id = context.params['id'];
+                $('#completion').hide(); 
                 ko.utils.arrayForEach(self.checklist(), function (item) {
                     if (item.TrackId == id) {
                         item.selectItem(item);
+                        $('#completion').fadeIn(300);
                     }
                 });
             });

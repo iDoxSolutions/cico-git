@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -53,6 +54,15 @@ namespace Cico
             log.Debug("Application Started");
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            // Useful for debugging
+            var ex = Server.GetLastError();
+            var reflectionTypeLoadException = ex as ReflectionTypeLoadException;
+            log.Fatal(ex);
         }
 
 
