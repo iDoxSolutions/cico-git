@@ -64,8 +64,9 @@
 
 <script type="text/html" id="EmergencyContact">
     <div data-bind="with: formModel">
+        
         <form>
-            
+            <div data-bind="text: message,  css: messageCss "></div>
             <div data-bind="with:data">
                 <div class="editor-label">
                     <label for="DateOfBirth">Emergency Contact Email Address</label>
@@ -93,13 +94,6 @@
                     <input data-bind="value: ContactRepationship" type="text" />
                 </div>
             </div>
-            
-            
-            
-
-            
-            
-
             
             <button type="button" data-bind="click: save">Save</button>
         </form>
