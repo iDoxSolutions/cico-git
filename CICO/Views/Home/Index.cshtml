@@ -18,7 +18,7 @@
 <script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentApprovalModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentSubmittedModel.js")"></script>
-<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/SelfContainedFormModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
@@ -168,7 +168,7 @@
     <div>
         <div class="homescreen-instructions">
             <label>Step 2: Please click the link to download the form:</label></div>
-        <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc,click:docDownloaded">Document Template</a></div>
+        <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc">Document Template</a></div>
     <br>
     <br />
     <div>

@@ -14,7 +14,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string GivenName { get; set; }
         [DisplayName("Agency")]
-        [StringLength(64)]
+        [StringLength(65)]
         public string Agency {get; set; }
         [DisplayName("Preferred Name")]
         [StringLength(65)]
