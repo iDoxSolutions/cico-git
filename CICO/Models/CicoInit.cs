@@ -18,11 +18,16 @@ namespace Cico.Models
         private Office _fmcOffice;
         private Office _rsoOffice;
         private Office _ambOffice;
+        private AppFeature _editChecklistFeature;
 
 
         private void InitStaff(CicoContext context)
         {
+            var checklistEditor = context.SystemRoles.Add(new SystemRole() { Name = SystemRole.CheckListEditor, Staffs = new List<Staff>() });
+
             var globalAdmin = context.SystemRoles.Add(new SystemRole(){Name = "GlobalAdmin",Staffs = new List<Staff>()});
+            globalAdmin.AppFeatures.Add(_editChecklistFeature);
+            _editChecklistFeature.SystemRoles.Add(globalAdmin);
             var officeAdmin = context.SystemRoles.Add(new SystemRole() { Name = "OfficeAdmin",Staffs = new List<Staff>()});
             var proxy = context.SystemRoles.Add(new SystemRole() { Name = SystemRole.UserProxy, Staffs = new List<Staff>() });
 
@@ -52,6 +57,8 @@ namespace Cico.Models
 
         protected override void Seed(CicoContext context)
         {
+
+            _editChecklistFeature =  context.AppFeatures.Add(new AppFeature(){Name = "EDIT_CHECKLIST"});
             context.Settings.Add(new Setting() { Name = "AppVersion",Value = "1.0"});
             var template1 =
                 context.SystemFiles.Add(new SystemFile()
@@ -413,6 +420,12 @@ namespace Cico.Models
                     Description = "Form 3",
                     ValueType = "SystemForms"
                 });
+            context.DropdownItems.Add(new DropdownItem()
+            {
+                Key = "EmergencyContact",
+                Description = "Emergency Contact",
+                ValueType = "EmergencyContact"
+            });
         }
 
     private void AddChecklistTypes(CicoContext context) {

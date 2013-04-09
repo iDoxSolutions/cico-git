@@ -90,6 +90,16 @@ namespace Cico.Controllers
         
         public ActionResult Index(int? id,string tab)
         {
+
+            var staff = UserSession.GetCurrentStaff();
+            if (staff != null)
+            {
+                if (!staff.ReqireCheckList)
+                {
+                    return RedirectToAction("index", "checklists", new { area = "Admin" });
+                }
+            }
+
             if (!UserSession.IsInitialized(null) && !id.HasValue)
             {
                 return RedirectToAction("initialize");

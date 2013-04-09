@@ -1,43 +1,55 @@
 ﻿@using System.Globalization
 @model Cico.Areas.Admin.CheckListsModel
-           
-
 <h1>Management Dashboard</h1>
 
 <style>
-    .admin-table th,td{
+    .admin-table th, td {
         padding: 2px 2px 2px 2px;
-        margin: 2px 2px 2px 2px
+        margin: 2px 2px 2px 2px;
     }
-    .admin-table .numeric{
+
+    .admin-table .numeric {
         text-align: center;
         font-weight: bold;
         cursor: pointer;
     }
 
-    .admin-table .provisional a{
+    .admin-table .provisional a {
         color: orange;
     }
+
     .admin-table .complete {
         color: green;
     }
+
     .admin-table .to-complete {
         color: red;
     }
 </style>
 <form method="GET">
     <fieldset>
-        <legend>Search for a list</legend>
-        <div>
-            Employee Name:
-        </div>
-        @Html.TextBoxFor(c=>c.EmployeeeName)
-        <div>
-            Recieve date:
-        </div>
-        @Html.TextBoxFor(c=>c.ReceiveDate)
-        <div></div>
-        <input type="submit" value="Search"/>
+        <table>
+            <tr>
+                <td><legend>Search for a list</legend>
+                    <div>
+                        Employee Name:
+                    </div>
+                    @Html.TextBoxFor(c => c.EmployeeeName)
+                    <div>
+                        Arrival / Departure Date:
+                    </div>
+                    @Html.TextBoxFor(c => c.ReceiveDate)</td>
+                <td>
+                    <div>@Html.LabelFor(c => c.CheckIn)</div>
+                    @Html.CheckBoxFor(c => c.CheckIn)
+                    <div>@Html.LabelFor(c => c.CheckOut)</div>
+                    @Html.CheckBoxFor(c => c.CheckOut)
+                </td>
+            </tr>
+        </table>
+
+
+        <input type="submit" value="Search" />
     </fieldset>
 </form>
 <table class="admin-table">
@@ -45,15 +57,15 @@
         <th>Employee Name</th>
         <th>User ID</th>
         <th>Date Started</th>
-        <th  class="numeric">Cmplt</th>
-        <th  class="numeric">Prov</th>
-        <th  class="numeric">Not Cmplt</th>
-        <th  >Active</th>
+        <th class="numeric">Cmplt</th>
+        <th class="numeric">Prov</th>
+        <th class="numeric">Not Cmplt</th>
+        <th>Active</th>
     </tr>
     @foreach (var c in Model.CheckListModels)
     {
         <tr>
-            <td>@Html.ActionLink(c.EmployeeName, "index", "home", new {id=c.Session.Id ,area=""},null);</td>
+            <td>@Html.ActionLink(c.EmployeeName, "index", "home", new { id = c.Session.Id, area = "" }, null);</td>
             <td>@c.Employee.UserId</td>
             <td>@c.DateCreated</td>
             <td class="numeric complete">@c.ItemsChecked</td>
@@ -68,12 +80,12 @@
 <div>
     Page @(Model.CheckListModels.PageCount < Model.CheckListModels.PageNumber ? 0 : Model.CheckListModels.PageNumber)
     of @Model.CheckListModels.PageCount
-     
+
     @if (Model.CheckListModels.HasPreviousPage)
     {
-        @Html.ActionLink("<<", "Index", new { Page = 1})
+        @Html.ActionLink("<<", "Index", new { Page = 1 })
         @Html.Raw(" ");
-        @Html.ActionLink("< Prev", "Index", new { Page = Model.CheckListModels.PageNumber - 1  })
+        @Html.ActionLink("< Prev", "Index", new { Page = Model.CheckListModels.PageNumber - 1 })
     }
     else
     {
@@ -81,12 +93,12 @@
         @Html.Raw(" ");
         @:< Prev
     }
-     
+
     @if (Model.CheckListModels.HasNextPage)
     {
-        @Html.ActionLink("Next >", "Index", new { Page = Model.CheckListModels.PageNumber + 1})
+        @Html.ActionLink("Next >", "Index", new { Page = Model.CheckListModels.PageNumber + 1 })
         @Html.Raw(" ");
-        @Html.ActionLink(">>", "Index", new { Page = Model.CheckListModels.PageCount})
+        @Html.ActionLink(">>", "Index", new { Page = Model.CheckListModels.PageCount })
     }
     else
     {
@@ -102,8 +114,8 @@
         $("#ReceiveDate").datepicker({});
     });
 
-  
-     
 
-    
+
+
+
 </script>

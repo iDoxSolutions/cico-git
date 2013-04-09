@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -26,6 +27,10 @@ namespace Cico.Areas.Admin
         public string EmployeeeName { get; set; }
         public DateTime? ReceiveDate { get; set; }
         public int? Page { get; set; }
+        [DisplayName("Check In")]
+        public bool CheckIn { get; set; }
+        [DisplayName("Check Out")]
+        public bool CheckOut { get; set; }
     }
     public class TrackItems
     {
@@ -49,7 +54,15 @@ namespace Cico.Areas.Admin
             }
             if (model.ReceiveDate.HasValue)
             {
-               // sessions = sessions.Where(c => c.Employee.GivenName.Contains(model.EmployeeeName) || c.Employee.Surname.Contains(model.EmployeeeName));
+                sessions = sessions.Where(c => c.ReferenceDate==model.ReceiveDate.Value);
+            }
+            if (model.CheckIn)
+            {
+                sessions = sessions.Where(c => c.CheckListTemplate.Type == "CheckIn");
+            }
+            if (model.CheckOut)
+            {
+                sessions = sessions.Where(c => c.CheckListTemplate.Type == "CheckOut");
             }
 
             sessions = sessions.OrderByDescending(c => c.Id);

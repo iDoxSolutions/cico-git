@@ -18,6 +18,7 @@ namespace Cico.Models
             this.Configuration.LazyLoadingEnabled = true;
         }
 
+        public IDbSet<AppFeature> AppFeatures { get; set; }
         public IDbSet<DependentFile> DependentFiles { get; set; }
         public IDbSet<SystemRole> SystemRoles { get; set; }
         public IDbSet<EmailSubscription> EmailSubscriptions { get; set; }
@@ -52,6 +53,7 @@ namespace Cico.Models
 
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);
+            modelBuilder.Entity<SystemRole>().HasMany(c => c.AppFeatures).WithMany(c => c.SystemRoles);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
         }
 

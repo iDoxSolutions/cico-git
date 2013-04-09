@@ -111,6 +111,7 @@ namespace Cico.Areas.Admin
                     staff.Office = Db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
                 }
                 staff.Email = model.Staff.Email;
+                staff.ReqireCheckList = model.Staff.ReqireCheckList;
                 if (model.SelectedRoles != null)
                 {
                     foreach (var selRole in model.SelectedRoles)

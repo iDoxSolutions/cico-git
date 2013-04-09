@@ -6,6 +6,8 @@ function EmergencyContact() {
     self.data = ko.observable(null);
     self.message = ko.observable("");
     self.messageCss = ko.observable("green");
+    self.SaveEnabled = ko.observable(true);
+    
     self.save = function() {
        
         
@@ -19,6 +21,7 @@ function EmergencyContact() {
                     function (result) {
                         self.messageCss("green-text");
                         self.message("Thank you!");
+                        self.SaveEnabled(false);
                     }
                 );
                 
@@ -31,8 +34,9 @@ function EmergencyContact() {
         });
     };
 
-    self.initForm = function(item) {
-        this._super.initForm(item);
+    self.initForm = function (item) {
+        self.SaveEnabled(!item.item.Checked);
+        EmergencyContact.prototype.initForm(item);
         $.post("/emergencyData/GetByCheckListId", { id: item.CheckListId }, function (data) {
             self.data(data);
         });
