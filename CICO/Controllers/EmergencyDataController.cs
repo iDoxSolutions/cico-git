@@ -15,7 +15,9 @@ namespace Cico.Controllers
         [Required(ErrorMessage = "Contact Email Address is Required")]
         public string ContactEmailAddress { get; set; }
         [Required(ErrorMessage = "Contact Office Phone is Required")]
+        
         public string ContactOfficePhone { get; set; }
+        
         public string ContactPhone { get; set; }
         public string ContactRepationship { get; set; }
         public int EmployeeId { get; set; }
@@ -45,6 +47,11 @@ namespace Cico.Controllers
         {
             if (ModelState.IsValid)
             {
+                var emp = Db.Employees.Single(c => c.Id == model.EmployeeId);
+                emp.EmergencyContactEmail = model.ContactEmailAddress;
+                emp.EmergencyContactOfficePhone = model.ContactOfficePhone;
+                emp.EmergencyContactPhone  =model.ContactPhone  ;
+                 emp.EmergencyContactRelationship = model.ContactRepationship ;
                 return Json(model);
             }
             else
