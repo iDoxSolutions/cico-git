@@ -21,10 +21,10 @@ namespace Cico.Controllers
         public int EmployeeId { get; set; }
         public EmergencyDataDto(Employee employee)
         {
-            this.ContactEmailAddress = employee.EmergencyContactEmail;
-            this.ContactOfficePhone = employee.EmergencyContactOfficePhone;
-            this.ContactPhone = employee.EmergencyContactPhone;
-            this.ContactRepationship = employee.EmergencyContactRelationship;
+            this.ContactEmailAddress = employee.EmergencyContactEmail??"";
+            this.ContactOfficePhone = employee.EmergencyContactOfficePhone??"";
+            this.ContactPhone = employee.EmergencyContactPhone??"";
+            this.ContactRepationship = employee.EmergencyContactRelationship??"";
             this.EmployeeId = employee.Id;
         }
     }

@@ -424,7 +424,7 @@ namespace Cico.Models
             {
                 Key = "EmergencyContact",
                 Description = "Emergency Contact",
-                ValueType = "EmergencyContact"
+                ValueType = "SystemForms"
             });
         }
 
