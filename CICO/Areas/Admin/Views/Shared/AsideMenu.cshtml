@@ -9,7 +9,6 @@
     @if (User.IsInRole("GlobalAdmin"))
     {
         <li>@Html.ActionLink("Offices", "Index", "Office", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Checklist Manager", "Index", "CheckListBuilder", new { area = "Admin" }, null)</li>
     }
     <li>@Html.ActionLink("Employees", "Index", "Employee", new { area = "Admin" }, null)</li>
     <li>@Html.ActionLink("Dependents", "Index", "Dependent", new { area = "Admin" }, null)</li>
@@ -22,7 +21,7 @@
     @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
     {
         <li>@Html.ActionLink("Form Library", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Checklist Manager", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Manage Checklist", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
     }
 
     @if (User.IsInRole("GlobalAdmin"))
