@@ -7,10 +7,13 @@ namespace Cico.Models
 {
     public class Dependent:EntityBaseWithKey
     {
-        [DisplayName("Given Name(s)")]
+        [DisplayName("First Name")]
         [StringLength(65)]
         public string FirstName { get; set; }
-        [DisplayName("LastName")]
+        [DisplayName("Middle Initial")]
+        [StringLength(1)]
+        public string MiddleInitial { get; set; }
+        [DisplayName("Last Name")]
         [StringLength(66)]
         public string LastName { get; set; }
         [DisplayName("Relationship")]

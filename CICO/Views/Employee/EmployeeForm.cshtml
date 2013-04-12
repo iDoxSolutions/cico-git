@@ -159,7 +159,64 @@
                         @Html.EditorFor(model => model.RoutingNumber)
                         @Html.ValidationMessageFor(model => model.RoutingNumber)
                     </div>
-
+                      <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.Gender)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.Gender)
+                       @Html.ValidationMessageFor(model => model.Employee.Gender)
+                   </div>
+               <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.BloodType)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.BloodType)
+                       @Html.ValidationMessageFor(model => model.Employee.BloodType)
+                   </div>
+                <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.ResidentialSafeWord)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.ResidentialSafeWord)
+                       @Html.ValidationMessageFor(model => model.Employee.ResidentialSafeWord)
+                   </div>
+                 <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.SchoolName)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.SchoolName)
+                       @Html.ValidationMessageFor(model => model.Employee.SchoolName)
+                   </div>
+               <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.RadioCallSign)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.RadioCallSign)
+                       @Html.ValidationMessageFor(model => model.Employee.RadioCallSign)
+                   </div>
+                   
+                <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.ClearanceLevel)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.ClearanceLevel)
+                       @Html.ValidationMessageFor(model => model.Employee.ClearanceLevel)
+                   </div>
+               <div class="editor-label">
+                   @Html.LabelFor(model => model.Employee.LicensePlate)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.Employee.LicensePlate)
+                       @Html.ValidationMessageFor(model => model.Employee.LicensePlate)
+                   </div>
+                  
+               <div class="editor-label">
+                    @Html.LabelFor(model => model.Employee.SSN)
+               </div>
+               <div class="editor-field">
+                   @Html.EditorFor(model => model.Employee.SSN)
+                   @Html.ValidationMessageFor(model => model.Employee.SSN)
+               </div>
                     
                </div>
                 <div class="float-right" style="width: 47%">

@@ -10,16 +10,19 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
        
         [DisplayName("Employee ID")]
         public int EmployeeId { get; set; }
-        [DisplayName("Given Name(s)")]
+        [DisplayName("First Name")]
         [StringLength(65)]
         public string FirstName { get; set; }
+        [DisplayName("Middle Initial")]
+        [StringLength(1)]
+        public string MiddleInitial { get; set; }
         [DisplayName("Agency")]
         [StringLength(65)]
         public string Agency {get; set; }
         [DisplayName("Preferred Name")]
         [StringLength(65)]
         public string PreferredName { get; set; }
-        [DisplayName("LastName")]
+        [DisplayName("Last Name")]
         [StringLength(65)]
         public string LastName { get; set; }
         [DisplayName("Date of Birth")]
@@ -136,6 +139,40 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string ProxyEmail { get; set; }
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
+        [DisplayName("Gender")]
+        [StringLength(65)]
+        public string Gender { get; set; }
+
+        [DisplayName("Blood Type")]
+        [StringLength(5)]
+        public string BloodType { get; set; }
+
+        [DisplayName("Residential Safe Word")]
+        [StringLength(65)]
+        public string ResidentialSafeWord { get; set; }
+
+        [DisplayName("School Name")]
+        [StringLength(65)]
+        public string SchoolName { get; set; }
+
+        [DisplayName("Radio Call Sign")]
+        [StringLength(65)]
+        public string RadioCallSign { get; set; }
+
+        [DisplayName("Clearance Level")]
+        [StringLength(65)]
+        public string ClearanceLevel { get; set; }
+
+        [DisplayName("License Plate Info")]
+        [StringLength(65)]
+        public string LicensePlate { get; set; }
+
+        [DisplayName("SSN")]
+        [StringLength(11)]
+        public string SSN { get; set; }
+
+       
+
 
         [Required(ErrorMessage = "Domain user id is required")]
         public string UserId { get; set; }
