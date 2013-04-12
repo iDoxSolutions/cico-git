@@ -18,6 +18,15 @@
                         @Html.EditorFor(model => model.FirstName)
                         @Html.ValidationMessageFor(model => model.FirstName)
                     </div>
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.MiddleInitial)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MiddleInitial)
+                        @Html.ValidationMessageFor(model => model.MiddleInitial)
+                    </div>
+
                     <div class="editor-label">
                         @Html.LabelFor(model => model.LastName)
                     </div>
@@ -160,63 +169,42 @@
                         @Html.ValidationMessageFor(model => model.RoutingNumber)
                     </div>
                       <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.Gender)
+                   @Html.LabelFor(model => model.Gender)
                </div>
                    <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.Gender)
-                       @Html.ValidationMessageFor(model => model.Employee.Gender)
+                       @Html.EditorFor(model => model.Gender)
+                       @Html.ValidationMessageFor(model => model.Gender)
                    </div>
                <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.BloodType)
+                   @Html.LabelFor(model => model.BloodType)
                </div>
                    <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.BloodType)
-                       @Html.ValidationMessageFor(model => model.Employee.BloodType)
+                       @Html.EditorFor(model => model.BloodType)
+                       @Html.ValidationMessageFor(model => model.BloodType)
                    </div>
                 <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.ResidentialSafeWord)
+                   @Html.LabelFor(model => model.ResidentialSafeWord)
                </div>
                    <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.ResidentialSafeWord)
-                       @Html.ValidationMessageFor(model => model.Employee.ResidentialSafeWord)
+                       @Html.EditorFor(model => model.ResidentialSafeWord)
+                       @Html.ValidationMessageFor(model => model.ResidentialSafeWord)
                    </div>
                  <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.SchoolName)
+                   @Html.LabelFor(model => model.SchoolName)
                </div>
                    <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.SchoolName)
-                       @Html.ValidationMessageFor(model => model.Employee.SchoolName)
+                       @Html.EditorFor(model => model.SchoolName)
+                       @Html.ValidationMessageFor(model => model.SchoolName)
                    </div>
                <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.RadioCallSign)
+                   @Html.LabelFor(model => model.RadioCallSign)
                </div>
                    <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.RadioCallSign)
-                       @Html.ValidationMessageFor(model => model.Employee.RadioCallSign)
+                       @Html.EditorFor(model => model.RadioCallSign)
+                       @Html.ValidationMessageFor(model => model.RadioCallSign)
                    </div>
                    
-                <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.ClearanceLevel)
-               </div>
-                   <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.ClearanceLevel)
-                       @Html.ValidationMessageFor(model => model.Employee.ClearanceLevel)
-                   </div>
-               <div class="editor-label">
-                   @Html.LabelFor(model => model.Employee.LicensePlate)
-               </div>
-                   <div class="editor-field">
-                       @Html.EditorFor(model => model.Employee.LicensePlate)
-                       @Html.ValidationMessageFor(model => model.Employee.LicensePlate)
-                   </div>
-                  
-               <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.SSN)
-               </div>
-               <div class="editor-field">
-                   @Html.EditorFor(model => model.Employee.SSN)
-                   @Html.ValidationMessageFor(model => model.Employee.SSN)
-               </div>
+                
                     
                </div>
                 <div class="float-right" style="width: 47%">
@@ -405,6 +393,29 @@
                         @Html.EditorFor(model => model.Extension)
                         @Html.ValidationMessageFor(model => model.Extension)
                     </div>
+                    
+                    <div class="editor-label">
+                   @Html.LabelFor(model => model.ClearanceLevel)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.ClearanceLevel)
+                       @Html.ValidationMessageFor(model => model.ClearanceLevel)
+                   </div>
+               <div class="editor-label">
+                   @Html.LabelFor(model => model.LicensePlate)
+               </div>
+                   <div class="editor-field">
+                       @Html.EditorFor(model => model.LicensePlate)
+                       @Html.ValidationMessageFor(model => model.LicensePlate)
+                   </div>
+                  
+               <div class="editor-label">
+                    @Html.LabelFor(model => model.SSN)
+               </div>
+               <div class="editor-field">
+                   @Html.EditorFor(model => model.SSN)
+                   @Html.ValidationMessageFor(model => model.SSN)
+               </div>
 
                 </div>
             </div>

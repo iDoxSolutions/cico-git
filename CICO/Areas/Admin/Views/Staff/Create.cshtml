@@ -18,12 +18,7 @@
             @Html.TextBoxFor(c=>c.Staff.UserId)
         </div>
         
-        <div>
-            @Html.LabelFor(c=>c.Staff.ReqireCheckList)
-        </div>
-        <div>
-            @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList)
-        </div>
+        
 
         <div>
             @Html.LabelFor(c=>c.Staff.Email)
@@ -37,6 +32,14 @@
         <div>
             @Html.DropDownListFor(c=>c.SelectedOffice,Model.Offices,"")
         </div>
+        
+        <div>
+            @Html.LabelFor(c=>c.Staff.ReqireCheckList)
+        </div>
+        <div>
+            @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList)
+        </div>
+
         <label>Roles</label>
         <ul>
             @foreach (var role in Model.Roles)

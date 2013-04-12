@@ -91,6 +91,15 @@
                 @Html.DisplayFor(model => model.FirstName)
 
             </div>
+            
+            <div class="homescreen-label">
+                @Html.LabelFor(model => model.MiddleInitial)
+            </div>
+            <div class="homescreen-display">
+                @Html.DisplayFor(model => model.MiddleInitial)
+                @Html.ValidationMessageFor(model => model.MiddleInitial)
+            </div>
+
             <div class="homescreen-label">
                 @Html.LabelFor(model => model.LastName)
             </div>

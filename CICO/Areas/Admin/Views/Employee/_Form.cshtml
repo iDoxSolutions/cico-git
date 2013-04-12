@@ -20,6 +20,15 @@
                 @Html.EditorFor(model => model.Employee.FirstName)
                 @Html.ValidationMessageFor(model => model.Employee.FirstName)
             </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Employee.MiddleInitial)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Employee.MiddleInitial)
+                @Html.ValidationMessageFor(model => model.Employee.MiddleInitial)
+            </div>
+
             <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.LastName)
             </div>

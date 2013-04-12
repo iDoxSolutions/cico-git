@@ -15,6 +15,15 @@
                     @Html.DisplayFor(model => model.Employee.FirstName)
 
                 </div>
+                
+                <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.MiddleInitial)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.MiddleInitial)
+                    @Html.ValidationMessageFor(model => model.Employee.MiddleInitial)
+                </div>
+
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.LastName)
                 </div>

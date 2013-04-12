@@ -37,7 +37,16 @@
     <fieldset>
         <table>
             <tr>
-                <td><legend>Search for a list</legend>
+                <td>
+                    <div>@Html.LabelFor(c => c.CheckIn)</div>
+                    @Html.CheckBoxFor(c => c.CheckIn)
+                    
+                </td>
+                <td><div>@Html.LabelFor(c => c.CheckOut)</div>
+                    @Html.CheckBoxFor(c => c.CheckOut)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
                     <div>
                         Employee Name:
                     </div>
@@ -46,12 +55,7 @@
                         Arrival / Departure Date:
                     </div>
                     @Html.TextBoxFor(c => c.ReceiveDate)</td>
-                <td>
-                    <div>@Html.LabelFor(c => c.CheckIn)</div>
-                    @Html.CheckBoxFor(c => c.CheckIn)
-                    <div>@Html.LabelFor(c => c.CheckOut)</div>
-                    @Html.CheckBoxFor(c => c.CheckOut)
-                </td>
+                
             </tr>
         </table>
 
