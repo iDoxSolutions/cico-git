@@ -39,6 +39,10 @@ namespace Cico.Models
             user.SystemRoles = new Collection<SystemRole>();
             user.SystemRoles.Add(globalAdmin);
 
+            user = context.Staffs.Add(new Staff() { UserId = "WHA\\RuizJC", Office = _hrOffice, Email = "RuizJC@state.gov" });
+            user.SystemRoles = new Collection<SystemRole>();
+            user.SystemRoles.Add(globalAdmin);
+
             var hradmin = context.Staffs.Add(new Staff() { UserId = "LTKSERVER\\HrAdmin", Office = _hrOffice, Email = "kenhambright@yahoo.com" });
             hradmin.SystemRoles = new List<SystemRole>();
             hradmin.SystemRoles.Add(officeAdmin);
@@ -53,6 +57,40 @@ namespace Cico.Models
             global.SystemRoles = new Collection<SystemRole>();
             global.SystemRoles.Add(globalAdmin);
             globalAdmin.Staffs.Add(global);
+
+            hradmin = context.Staffs.Add(new Staff() { UserId = "WHA\\OrtegaRC", Office = _hrOffice, Email = "OrtegaRC@state.gov" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
+
+            hradmin = context.Staffs.Add(new Staff() { UserId = "WHA\\JorgeEA", Office = _hrOffice, Email = "JorgeEA@state.gov" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
+
+            hradmin = context.Staffs.Add(new Staff() { UserId = "Wha\\AlvaradoYA", Office = _hrOffice, Email = "AlvaradoYA@state.gov" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
+
+            hradmin = context.Staffs.Add(new Staff() { UserId = "Wha\\CarolloJH", Office = _hrOffice, Email = "CarolloJH@state.gov" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
+
+            hradmin = context.Staffs.Add(new Staff() { UserId = "Wha\\MosquedaML", Office = _hrOffice, Email = "MosquedaML@state.gov" });
+            hradmin.SystemRoles = new List<SystemRole>();
+            hradmin.SystemRoles.Add(officeAdmin);
+            officeAdmin.Staffs.Add(hradmin);
+
+            global = context.Staffs.Add(new Staff() { UserId = "WHA\\hambrightkw", Office = _hrOffice, Email = "hambrightkw@state.gov" });
+            global.SystemRoles = new Collection<SystemRole>();
+            global.SystemRoles.Add(globalAdmin);
+            globalAdmin.Staffs.Add(global);
+
+
+
+
         }
 
         protected override void Seed(CicoContext context)
