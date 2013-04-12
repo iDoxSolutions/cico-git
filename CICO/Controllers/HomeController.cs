@@ -92,9 +92,10 @@ namespace Cico.Controllers
         {
 
             var staff = UserSession.GetCurrentStaff();
+
             if (staff != null)
             {
-                if (!staff.ReqireCheckList)
+                if (!staff.ReqireCheckList && !id.HasValue)
                 {
                     return RedirectToAction("index", "checklists", new { area = "Admin" });
                 }

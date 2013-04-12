@@ -96,10 +96,18 @@ namespace Cico.Areas.Admin
             else
             {
                 UserSession.InitCheckOutSession(employee);
-                return RedirectToAction("index", "home",new{area=""});
+                return RedirectToAction("Details",new{id=model.Id});
             }
             
         }
+
+
+       [HttpPost]
+        public ActionResult StartCheckin(Employee model)
+       {
+           return RedirectToAction("initialize", "home", new { area = "", employeeId =model.Id});
+       }
+
         //
         // GET: /Admin/Employees/Create
 

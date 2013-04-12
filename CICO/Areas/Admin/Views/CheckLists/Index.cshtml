@@ -27,6 +27,11 @@
     .admin-table .to-complete {
         color: red;
     }
+
+    .admin-table .link-column {
+        width: 100px;
+        text-align: right;
+    }
 </style>
 <form method="GET">
     <fieldset>
@@ -63,17 +68,21 @@
         <th class="numeric">Prov</th>
         <th class="numeric">Not Cmplt</th>
         <th>Active</th>
+        <th class="link-column">Employee Details</th>
+        <th class="link-column">Show Checklist</th>
     </tr>
     @foreach (var c in Model.CheckListModels)
     {
         <tr>
-            <td>@Html.ActionLink(c.EmployeeName, "index", "home", new { id = c.Session.Id, area = "" }, null);</td>
+            <td>@c.EmployeeName</td>
             <td>@c.Employee.UserId</td>
             <td>@c.DateCreated</td>
             <td class="numeric complete">@c.ItemsChecked</td>
             <td class="numeric provisional" data-id="@c.Session.Id" data-item-type="provisional"><a href="/admin/checklists/Show?id=@c.Session.Id">@c.ItemsProvision</a></td>
             <td class="numeric to-complete">@c.ItemsLeft</td>
             <td class="numeric to-complete">@c.Session.Completed.CompareTo(false)</td>
+            <td class="link-column">@Html.ActionLink("Details", "details", "employee", new { id = c.Session.Id, area = "Admin" }, null)</td>
+            <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "" }, null)</td>
         </tr>
         
     }

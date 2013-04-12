@@ -70,7 +70,14 @@
     @Html.HiddenFor(c=>c.Id)
     <input type="submit" value="Start Checkout"/>
 }
-   @Html.ValidationSummary(true)
+
+@using (Html.BeginForm("StartCheckin","Employee"))
+{
+    @Html.HiddenFor(c=>c.Id)
+    <input type="submit" value="Start CheckIn"/>
+}
+
+@Html.ValidationSummary(true)
 <fieldset>
     @Html.ActionLink("Edit","Edit",new {id=Model.Id},null)
     <legend>Employee</legend>
