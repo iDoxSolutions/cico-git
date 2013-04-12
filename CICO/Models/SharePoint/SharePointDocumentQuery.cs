@@ -38,7 +38,7 @@ namespace Cico.Models.SharePoint
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
             doc.LoadXml(xmlFolder);
             XmlNode batchNode = doc.SelectSingleNode("//Batch");
-            XmlNode resultNode = listProxy.UpdateListItems("testLib", batchNode);
+            XmlNode resultNode = listProxy.UpdateListItems(libraryName, batchNode);
             return resultNode.InnerXml;
         }
        
