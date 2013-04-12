@@ -83,7 +83,7 @@ namespace Cico.Controllers
             foreach (var dependent in dependents)
             {
                 var file = new DependentsFile();
-                file.DependentName = dependent.GivenName + ", " + dependent.Surname;
+                file.DependentName = dependent.FirstName + ", " + dependent.LastName;
                 file.DependentId = dependent.Id;
                 var dependentFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
                 if (dependentFile != null)

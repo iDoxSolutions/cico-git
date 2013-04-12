@@ -46,7 +46,7 @@ namespace Cico.Areas.Admin
             var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate").OrderByDescending(c=>c.Id);
             model.CheckListModels = sessions.Select(c => new CheckListModel
                 {
-                    EmployeeName = c.Employee.Surname + ", " + c.Employee.GivenName,
+                    EmployeeName = c.Employee.LastName + ", " + c.Employee.FirstName,
                     Employee = c.Employee,
                     
                     DateValue = c.DateCreated,

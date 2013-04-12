@@ -58,7 +58,7 @@ namespace Cico.Models.Authentication
             var employee = initmodel.EmpId.HasValue ? _db.Employees.FirstOrDefault(c => c.Id == initmodel.EmpId) : _db.Employees.FirstOrDefault(c => c.UserId == uname);
             if (employee == null)
             {
-                employee = new Employee() { UserId = uname, GivenName = initmodel.GivenName, Surname = initmodel.Surname, PersonalEmail = initmodel.EmailAddress, EmployeeId = initmodel.EmployeeId, ArrivalDate = initmodel.ArrivalDate };
+                employee = new Employee() { UserId = uname, FirstName = initmodel.FirstName, LastName = initmodel.LastName, PersonalEmail = initmodel.EmailAddress, EmployeeId = initmodel.EmployeeId, ArrivalDate = initmodel.ArrivalDate };
                 _db.Employees.Add(employee);
             }
             return InitCheckListSession(employee,template ,initmodel);

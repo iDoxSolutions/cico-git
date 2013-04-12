@@ -12,18 +12,18 @@
                     <h2>Personal Data</h2>
                     @Html.HiddenFor(c=>c.UserId)
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.GivenName)
+                        @Html.LabelFor(model => model.FirstName)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.GivenName)
-                        @Html.ValidationMessageFor(model => model.GivenName)
+                        @Html.EditorFor(model => model.FirstName)
+                        @Html.ValidationMessageFor(model => model.FirstName)
                     </div>
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.Surname)
+                        @Html.LabelFor(model => model.LastName)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.Surname)
-                        @Html.ValidationMessageFor(model => model.Surname)
+                        @Html.EditorFor(model => model.LastName)
+                        @Html.ValidationMessageFor(model => model.LastName)
                     </div>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.EmployeeId)
@@ -166,18 +166,18 @@
                     <h2>Posting Information</h2>
                     
                      <div class="editor-label">
-                        @Html.LabelFor(model => model.TourEndDate)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.TourEndDate)
-                        @Html.ValidationMessageFor(model => model.TourEndDate)
-                    </div>
-                     <div class="editor-label">
                         @Html.LabelFor(model => model.ArrivalDate)
                     </div>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.ArrivalDate)
                         @Html.ValidationMessageFor(model => model.ArrivalDate)
+                    </div>
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.TourEndDate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TourEndDate)
+                        @Html.ValidationMessageFor(model => model.TourEndDate)
                     </div>
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Location)
@@ -292,11 +292,11 @@
                     </div>
 
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.EmergencyContactGivenName)
+                        @Html.LabelFor(model => model.EmergencyContactFirstName)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.EmergencyContactGivenName)
-                        @Html.ValidationMessageFor(model => model.EmergencyContactGivenName)
+                        @Html.EditorFor(model => model.EmergencyContactFirstName)
+                        @Html.ValidationMessageFor(model => model.EmergencyContactFirstName)
                     </div>
 
                     <div class="editor-label">
@@ -332,11 +332,11 @@
                     </div>
 
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.EmergencyContactSurname)
+                        @Html.LabelFor(model => model.EmergencyContactLastName)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.EmergencyContactSurname)
-                        @Html.ValidationMessageFor(model => model.EmergencyContactSurname)
+                        @Html.EditorFor(model => model.EmergencyContactLastName)
+                        @Html.ValidationMessageFor(model => model.EmergencyContactLastName)
                     </div>
 
                    

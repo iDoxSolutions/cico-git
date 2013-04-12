@@ -12,11 +12,11 @@ namespace Cico.Models.Authentication
         [StringLength(65)]
         [Required]
         [DisplayName("Given Name(s)")]
-        public string GivenName { get; set; }
+        public string FirstName { get; set; }
         [StringLength(65)]
         [Required]
-        [DisplayName("Surname")]
-        public string Surname { get; set; }
+        [DisplayName("LastName")]
+        public string LastName { get; set; }
         [DisplayName("Email")]
         [Required]
         [DataType(DataType.EmailAddress)]
