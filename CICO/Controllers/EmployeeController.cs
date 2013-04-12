@@ -32,7 +32,7 @@ namespace Cico.Controllers
                 CopyValues(model,emp);
                 Db.SaveChanges();
                 var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == emp.Id && c.Active);
-                return RedirectToAction("index", "home",new {id=checklist.Id});
+                return RedirectToAction("index", "home",new {id=checklist.Id,land="false"});
             }
             else
             {

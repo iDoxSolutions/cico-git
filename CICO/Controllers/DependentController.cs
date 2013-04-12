@@ -40,7 +40,7 @@ namespace Cico.Controllers
                 model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
                 Db.Dependents.Add(model.Dependent);
                 Db.SaveChanges();
-                return RedirectToAction("index", "home", new { tab = "dependents", id = GetSessionByEmployee(model.Dependent.Employee) });
+                return RedirectToAction("index", "home", new { tab = "dependents", id = GetSessionByEmployee(model.Dependent.Employee),land="false" });
             }
             else
             {
@@ -65,7 +65,7 @@ namespace Cico.Controllers
                 Db.Entry(dependent).State = EntityState.Modified;
                 Db.SaveChanges();
                 //return RedirectToAction("index");
-                return RedirectToAction("index", "home", new { tab = "dependents",id=GetSessionByEmployee(dependent.Employee) });
+                return RedirectToAction("index", "home", new { tab = "dependents",id=GetSessionByEmployee(dependent.Employee),land="false" });
             }
             else
             {

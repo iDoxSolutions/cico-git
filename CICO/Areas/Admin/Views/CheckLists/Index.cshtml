@@ -86,7 +86,7 @@
             <td class="numeric to-complete">@c.ItemsLeft</td>
             <td class="numeric to-complete">@c.Session.Completed.CompareTo(false)</td>
             <td class="link-column">@Html.ActionLink("Details", "details", "employee", new { id = c.Employee.Id, area = "Admin" }, null)</td>
-            <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "" }, null)</td>
+            <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "",land="false" }, null)</td>
         </tr>
         
     }

@@ -441,7 +441,7 @@
             postData = { id: checklistId };
         } 
 
-        $.post("/checklist", postData, function (data) {
+        $.post("/checklist/index", postData, function (data) {
             self.Id = data.Id;
             self.completed(data.Completed);
             ko.utils.arrayForEach(data.CheckListItems, function (item) {

@@ -64,8 +64,12 @@ namespace Cico.Controllers
         {
             if (UserSession.IsInitialized(employeeId))
             {
+                if (!employeeId.HasValue)
+                {
+                    employeeId = UserSession.GetCurrent().Employee.Id;
+                }
                 var session = Db.CheckListSessions.Single(c => c.Employee.Id == employeeId.Value && c.Active);
-                return RedirectToAction("index",new{id=session.Id});
+                return RedirectToAction("index",new{id=session.Id,land="false"});
             }
 
             //return RedirectToAction("index");
@@ -77,7 +81,7 @@ namespace Cico.Controllers
             if (ModelState.IsValid)
             {
                 var session = UserSession.InitCheckListSession(initModel);
-                return RedirectToAction("index",new {id=session.Id});
+                return RedirectToAction("index",new {id=session.Id,land="false"});
             }
             else
             {
@@ -88,8 +92,12 @@ namespace Cico.Controllers
 
 
         
-        public ActionResult Index(int? id,string tab)
+        public ActionResult Index(int? id,string tab,string land)
         {
+            if (string.IsNullOrEmpty(land))
+            {
+                return RedirectToAction("LandingPage");
+            }
 
             var staff = UserSession.GetCurrentStaff();
 

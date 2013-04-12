@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Cico.Controllers;
 using Cico.Models;
 using Cico.Models.Authentication;
@@ -63,7 +64,7 @@ namespace Cico.Areas.Admin
                 Db.Entry(model.Dependent).State = EntityState.Modified;
                 Db.SaveChanges();
                 //return RedirectToAction("index");
-                return RedirectToAction("index", "home");
+                return RedirectToAction("index", "home",new {land="false"});
             }
             else
             {

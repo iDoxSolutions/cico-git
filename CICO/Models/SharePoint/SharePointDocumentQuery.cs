@@ -27,7 +27,7 @@ namespace Cico.Models.SharePoint
 
         public string CreateFolder(string baseFolder, string folder)
         {
-            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
+            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; ;
             if (_secure)
             {
                 listProxy.UseDefaultCredentials = true;
@@ -79,7 +79,7 @@ namespace Cico.Models.SharePoint
         public byte[] GetFile(string url)
         {
             var client = new WebClient();
-            client.Credentials = new NetworkCredential(userName, password);
+            client.Credentials = new NetworkCredential(userName, password,domain);
             if (_secure)
             {
                 client.UseDefaultCredentials = true;
@@ -92,7 +92,7 @@ namespace Cico.Models.SharePoint
         public string CreateFolder( string folder)
         {
 
-            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password) }; ;
+            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; ;
             /*
                 //AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
                 log.DebugFormat("Http user:{0}",HttpContext.Current.User.Identity.Name);
@@ -105,7 +105,7 @@ namespace Cico.Models.SharePoint
                 listProxy.UseDefaultCredentials = true;
                 listProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
             }
-            
+            log.DebugFormat("url:{0}, user:{1}, domain:{2}, secure:{3}", listProxy.Url, userName, domain,_secure);
             string xmlconst = "<Batch OnError='Continue'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
             XmlDocument doc = new XmlDocument();
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
@@ -227,7 +227,7 @@ namespace Cico.Models.SharePoint
                                    Url = url +  "/_vti_bin/copy.asmx",
                                    Credentials = new NetworkCredential(userName, password)
                                };
-
+            log.DebugFormat("url:{0}, user:{1}, domain:{2} secure:{3}", copy.Url, userName, domain,_secure);
             if (_secure)
             {
                 copy.PreAuthenticate = true;
