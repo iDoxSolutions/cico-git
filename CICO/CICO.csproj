@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\CheckListItemTemplateController.cs" />
     <Compile Include="Areas\Admin\CheckListtemplateController.cs" />
     <Compile Include="Areas\Admin\DocumentTemplateController.cs" />
+    <Compile Include="Areas\Admin\DropDownItemsController.cs" />
     <Compile Include="Areas\Admin\ReminderController.cs" />
     <Compile Include="Areas\Admin\DependentController.cs" />
     <Compile Include="Areas\Admin\ItemClassController.cs" />
@@ -723,6 +724,9 @@
     <Content Include="Areas\Admin\Views\DocumentTemplate\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\_Form.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\_Form.cshtml" />
+    <Content Include="Areas\Admin\Views\DropDownItems\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DropDownItems\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DropDownItems\Create.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

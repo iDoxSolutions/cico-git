@@ -50,7 +50,7 @@ namespace Cico.Areas.Admin
             var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate");
             if (!string.IsNullOrEmpty(model.EmployeeeName))
             {
-                sessions = sessions.Where(c => c.Employee.GivenName.Contains(model.EmployeeeName) || c.Employee.Surname.Contains(model.EmployeeeName));
+                sessions = sessions.Where(c => c.Employee.FirstName.Contains(model.EmployeeeName) || c.Employee.LastName.Contains(model.EmployeeeName));
             }
             if (model.ReceiveDate.HasValue)
             {

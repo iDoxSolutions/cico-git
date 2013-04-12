@@ -27,5 +27,6 @@
     @if (User.IsInRole("GlobalAdmin"))
      {
          <li>@Html.ActionLink("Staff", "Index", "Staff", new {area = "Admin"}, null)</li>
+        <li>@Html.ActionLink("DropDown Items", "Index", "DropDownItems", new {area = "Admin"}, null)</li>
      }
 </ul>
