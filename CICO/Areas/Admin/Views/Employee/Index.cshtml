@@ -26,14 +26,14 @@
         <th>Employee Name</th>
         <th>Dep</th>
         <th>Arrival Date</th>
-        <th>End Date</th>
+        <th>Departure Date</th>
     </tr>
 
 @foreach (var item in Model.Employees) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.GivenName)
-            @Html.DisplayFor(modelItem => item.Surname)
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
         </td>
         @if (item.Dependents.Count > 0)
         {

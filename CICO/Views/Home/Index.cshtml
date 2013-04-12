@@ -165,17 +165,18 @@
 </div>
 
 <script type="text/html" id="DocumentApproval">
-
-    <div data-bind="html:ApprovalText"></div>
+    
     <div>
         <div class="homescreen-instructions">
             <label>Step 2: Please click the link to download the form:</label></div>
         <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc">Document Template</a></div>
-    <br>
+     <br>
     <br />
+    <div data-bind="html:ApprovalText"></div>
+       
     <div>
         <div class="homescreen-instructions">
-            <label>Step 3: Upload the completed form:</label></div>
+            <label>Step 3: Click Approve to signify acceptance:</label></div>
         <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
 
 </script>

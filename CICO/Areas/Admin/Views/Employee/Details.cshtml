@@ -78,18 +78,18 @@
         <div class="float-left" style="width: 48%">
             <h5>Personal Data</h5>
             <div class="homescreen-label">
-                @Html.LabelFor(model => model.GivenName)
+                @Html.LabelFor(model => model.FirstName)
             </div>
             <div class="homescreen-display">
-                @Html.DisplayFor(model => model.GivenName)
+                @Html.DisplayFor(model => model.FirstName)
 
             </div>
             <div class="homescreen-label">
-                @Html.LabelFor(model => model.Surname)
+                @Html.LabelFor(model => model.LastName)
             </div>
             <div class="homescreen-display">
-                @Html.DisplayFor(model => model.Surname)
-                @Html.ValidationMessageFor(model => model.Surname)
+                @Html.DisplayFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
             </div>
             <div class="homescreen-label">
                 @Html.LabelFor(model => model.EmployeeId)
@@ -335,11 +335,11 @@
                 @Html.ValidationMessageFor(model => model.EmergencyContactEmail)
             </div>
             <div class="homescreen-label">
-                @Html.LabelFor(model => model.EmergencyContactGivenName)
+                @Html.LabelFor(model => model.EmergencyContactFirstName)
             </div>
             <div class="homescreen-display">
-                @Html.DisplayFor(model => model.EmergencyContactGivenName)
-                @Html.ValidationMessageFor(model => model.EmergencyContactGivenName)
+                @Html.DisplayFor(model => model.EmergencyContactFirstName)
+                @Html.ValidationMessageFor(model => model.EmergencyContactFirstName)
             </div>
 
             <div class="homescreen-label">
@@ -373,11 +373,11 @@
             </div>
 
             <div class="homescreen-label">
-                @Html.LabelFor(model => model.EmergencyContactSurname)
+                @Html.LabelFor(model => model.EmergencyContactLastName)
             </div>
             <div class="homescreen-display">
-                @Html.DisplayFor(model => model.EmergencyContactSurname)
-                @Html.ValidationMessageFor(model => model.EmergencyContactSurname)
+                @Html.DisplayFor(model => model.EmergencyContactLastName)
+                @Html.ValidationMessageFor(model => model.EmergencyContactLastName)
             </div>
             <div class="homescreen-label">
                 @Html.LabelFor(model => model.Extension)

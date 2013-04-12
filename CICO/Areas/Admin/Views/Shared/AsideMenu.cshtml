@@ -4,12 +4,11 @@
        
     </p>
 <ul style="padding-left: 5px">
-    <li>@Html.ActionLink("Management Dashboard", "Index", "CheckLists")</li>
+    <li>@Html.ActionLink("Dashboard", "Index", "CheckLists")</li>
     
     @if (User.IsInRole("GlobalAdmin"))
     {
         <li>@Html.ActionLink("Offices", "Index", "Office", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Checklist Manager", "Index", "CheckListBuilder", new { area = "Admin" }, null)</li>
     }
     <li>@Html.ActionLink("Employees", "Index", "Employee", new { area = "Admin" }, null)</li>
     <li>@Html.ActionLink("Dependents", "Index", "Dependent", new { area = "Admin" }, null)</li>
@@ -21,8 +20,8 @@
     
     @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
     {
-        <li>@Html.ActionLink("Form Library", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Checklist Manager", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Forms", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Checklists", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
     }
 
     @if (User.IsInRole("GlobalAdmin"))

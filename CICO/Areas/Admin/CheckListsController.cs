@@ -68,7 +68,7 @@ namespace Cico.Areas.Admin
             sessions = sessions.OrderByDescending(c => c.Id);
             model.CheckListModels = sessions.Select(c => new CheckListModel
                 {
-                    EmployeeName = c.Employee.Surname + ", " + c.Employee.GivenName,
+                    EmployeeName = c.Employee.LastName + ", " + c.Employee.FirstName,
                     Employee = c.Employee,
                     
                     DateValue = c.DateCreated,

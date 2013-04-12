@@ -23,8 +23,8 @@ namespace Cico.Areas.Admin
             IQueryable<Employee> emps = db.Employees;
             if (!string.IsNullOrEmpty(this.SearchString))
             {
-               emps= emps.Where(s => s.GivenName.ToUpper().Contains(SearchString.ToUpper())
-                                       || s.Surname.ToUpper().Contains(SearchString.ToUpper()));
+               emps= emps.Where(s => s.FirstName.ToUpper().Contains(SearchString.ToUpper())
+                                       || s.LastName.ToUpper().Contains(SearchString.ToUpper()));
             }
             emps=emps.OrderByDescending(c => c.ArrivalDate);
             
@@ -90,7 +90,7 @@ namespace Cico.Areas.Admin
             Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == model.Id);
             if (!employee.TourEndDate.HasValue)
             {
-                ModelState.AddModelError("", "Tour End Date is required");
+                ModelState.AddModelError("", "Departure Date is required");
                 return View(employee);
             }
             else
