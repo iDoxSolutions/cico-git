@@ -14,18 +14,18 @@
             <h2>Personal Data</h2>
                     
             <div class="editor-label">
-                @Html.LabelFor(model => model.Employee.GivenName)
+                @Html.LabelFor(model => model.Employee.FirstName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Employee.GivenName)
-                @Html.ValidationMessageFor(model => model.Employee.GivenName)
+                @Html.EditorFor(model => model.Employee.FirstName)
+                @Html.ValidationMessageFor(model => model.Employee.FirstName)
             </div>
             <div class="editor-label">
-                @Html.LabelFor(model => model.Employee.Surname)
+                @Html.LabelFor(model => model.Employee.LastName)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Employee.Surname)
-                @Html.ValidationMessageFor(model => model.Employee.Surname)
+                @Html.EditorFor(model => model.Employee.LastName)
+                @Html.ValidationMessageFor(model => model.Employee.LastName)
             </div>
             <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.EmployeeId)
@@ -184,19 +184,20 @@
             <div class="float-right" style="width: 47%">
                 <h2>Posting Information</h2>
                     
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.TourEndDate)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.TourEndDate)
-                    @Html.ValidationMessageFor(model => model.Employee.TourEndDate)
-                </div>
+               
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.ArrivalDate)
                 </div>
                 <div class="editor-field">
                     @Html.EditorFor(model => model.Employee.ArrivalDate)
                     @Html.ValidationMessageFor(model => model.Employee.ArrivalDate)
+                </div>
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Employee.TourEndDate)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Employee.TourEndDate)
+                    @Html.ValidationMessageFor(model => model.Employee.TourEndDate)
                 </div>
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.Location)
@@ -311,11 +312,11 @@
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.EmergencyContactGivenName)
+                    @Html.LabelFor(model => model.Employee.EmergencyContactFirstName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.EmergencyContactGivenName)
-                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactGivenName)
+                    @Html.EditorFor(model => model.Employee.EmergencyContactFirstName)
+                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactFirstName)
                 </div>
 
                 <div class="editor-label">
@@ -351,11 +352,11 @@
                 </div>
 
                 <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.EmergencyContactSurname)
+                    @Html.LabelFor(model => model.Employee.EmergencyContactLastName)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.EmergencyContactSurname)
-                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactSurname)
+                    @Html.EditorFor(model => model.Employee.EmergencyContactLastName)
+                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactLastName)
                 </div>
 
                    

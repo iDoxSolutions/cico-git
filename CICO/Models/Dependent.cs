@@ -9,10 +9,10 @@ namespace Cico.Models
     {
         [DisplayName("Given Name(s)")]
         [StringLength(65)]
-        public string GivenName { get; set; }
-        [DisplayName("Surname")]
+        public string FirstName { get; set; }
+        [DisplayName("LastName")]
         [StringLength(66)]
-        public string Surname { get; set; }
+        public string LastName { get; set; }
         [DisplayName("Relationship")]
         [StringLength(20)]
         public string Relationship { get; set; }
@@ -72,10 +72,10 @@ namespace Cico.Models
         public string EmergencyContactEmail { get; set; }
         [DisplayName("Emergency Contact Given Name(s)")]
         [StringLength(65)]
-        public string EmergencyContactGivenName { get; set; }
-        [DisplayName("Emergency Contact Surname")]
+        public string EmergencyContactFirstName { get; set; }
+        [DisplayName("Emergency Contact LastName")]
         [StringLength(65)]
-        public string EmergencyContactSurname { get; set; }
+        public string EmergencyContactLastName { get; set; }
         [DisplayName("Emergency Contact Relationship")]
         [StringLength(30)]
         public string EmergencyContactRelationship { get; set; }
