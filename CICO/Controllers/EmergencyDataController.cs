@@ -13,6 +13,7 @@ namespace Cico.Controllers
     {
         public EmergencyDataDto(){}
         [Required(ErrorMessage = "Contact Email Address is Required")]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string ContactEmailAddress { get; set; }
         [Required(ErrorMessage = "Contact Office Phone is Required")]
         

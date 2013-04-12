@@ -82,7 +82,16 @@ namespace Cico.Models
                     entityBase.UserEdited = HttpContext.Current.User.Identity.Name;
                 }
             }
-            return base.SaveChanges();
+            try
+            {
+                return base.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                
+                throw;
+            }
+            
         }
     }
 }
