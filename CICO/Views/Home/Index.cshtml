@@ -274,8 +274,20 @@
 </script>
 
 <script type="text/html" id="OnlineForm">
-    <div data-bind="template:{name:Form}">
-        
+    <div class="homescreen-instructions">
+        <label>Step 2:  Please click on the link to fill the form:</label>
+    </div>
+    <div style="margin-bottom: 15px">
+        <a target="_blank" data-bind="attr: { href: CustomFormUrl },text:Description"></a>
+    </div>
+    
+    <div style="margin-bottom: 15px" class="homescreen-instructions">
+        <label>Step 3:  Confirm the activity:</label>
+    </div>
+
+    <div data-bind="with:physicalActivity">
+        <div data-bind="template:{name:'PhysicalActivity'}">
+        </div>
     </div>
 </script>
 

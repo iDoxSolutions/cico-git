@@ -75,6 +75,8 @@ namespace Cico.Models
                         Path = "DocTemplates/Template2.docx"
                     });
 
+           
+
             context.CheckListItemTypes.Add(new CheckListItemType()
                 {
                     Name = "OnlineForm",

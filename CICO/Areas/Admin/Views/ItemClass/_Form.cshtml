@@ -68,9 +68,14 @@
 
         
         <div class="editor-label OnlineForm  managed-visibility">
-            @Html.LabelFor(c => c.CheckListItemTemplate.SystemFile)<div style="display: inline" class="homescreen-inline-instructions">*select a custom form from the dropdown to allow employess fill out the form data</div>
+            @Html.LabelFor(c => c.CheckListItemTemplate.CustomFormUrl)<div style="display: inline" class="homescreen-inline-instructions">*type an url pointing to custome form</div>
           
         </div>
+        
+        <div class="editor-field  OnlineForm managed-visibility">
+            @Html.TextBoxFor(c => c.CheckListItemTemplate.CustomFormUrl)
+        </div>
+
         <div class="editor-label  DocumentWriting DocumentApproval  managed-visibility">
             @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-inline-instructions">*select a template from the dropdown to allow employess to download it</div>
         </div>
@@ -78,17 +83,6 @@
             @Html.DropDownListFor(c => c.SelectedFile, Model.FileList, "")
         </div>    
         
-         
-        
-        <div class="editor-field  OnlineForm managed-visibility">
-                @Html.DropDownListFor(c => c.CheckListItemTemplate.Form, Html.GetDropdownItems("SystemForms"), "")
-            </div>
-       @* <div class="editor-label">
-            @Html.LabelFor(c=>c.CheckListItemTemplate.Document)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(c=>c.CheckListItemTemplate.Document)
-        </div>*@
         
         <div class="editor-label" >
             @Html.LabelFor(c => c.CheckListItemTemplate.DueDays)</div><div class="homescreen-inline-instructions">*negative is # days before Key Date, positive is # days after Key Date

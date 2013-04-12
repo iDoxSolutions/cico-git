@@ -31,5 +31,7 @@ namespace Cico.Controllers.ViewModels
         public bool CompleteChecklist{get; set; }
 
         public IList<DependentsFile> DependentsFiles{ get; set; }
+
+        public string CustomFormUrl{get; set; }
     }
 }

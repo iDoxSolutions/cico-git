@@ -63,7 +63,8 @@ namespace Cico.Controllers
                         TrackId = track.Id,
                         ItemUrl = itemUri.ToString(),
                         CompleteChecklist = checkListItemTemplate.CompleteCheckList,
-                        DependentsFiles = GetDependetsFiles(track)
+                        DependentsFiles = GetDependetsFiles(track),
+                        CustomFormUrl = checkListItemTemplate.CustomFormUrl
                     });
                 
             }

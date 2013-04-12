@@ -71,6 +71,9 @@ namespace Cico.Models
         [Display(Name = "Custom Form")]
         public virtual SystemFile SystemFile{get; set; }
 
+        [Display(Name = "Custom Form Url")]
+        public virtual string CustomFormUrl { get; set; }
+
         [Display(Name = "Due Date")]
         public int DueDays{get; set; }
 

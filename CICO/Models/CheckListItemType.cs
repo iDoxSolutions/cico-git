@@ -7,7 +7,8 @@ namespace Cico.Models
         DocumentSubmitted,
         DocumentWriting,
         PhysicalActivity,
-        DocumentApproval
+        DocumentApproval,
+        OnlineForm
     }
 
     public class CheckListItemType

@@ -24,16 +24,8 @@ RegisterForm(Form3);
 
 function OnlineFormModel(item) {
     var self = this;
-    self.Form = item.item.Form;
-    self.formModel = ko.observable();
-    ko.utils.arrayForEach(OnlineForms, function (onlineForm) {
-        if (onlineForm.name == self.Form) {
-            self.formModel = onlineForm;
-            self.formModel.initForm(item);
-        }
-    });
-
-    
-    
+    self.CustomFormUrl = item.item.CustomFormUrl;
+    self.Description = item.item.Description;
+    self.physicalActivity = ko.observable(new PhysicalActivityModel(item));
     self.templateName = "OnlineForm";
 }
