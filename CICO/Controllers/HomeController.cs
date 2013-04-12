@@ -64,7 +64,7 @@ namespace Cico.Controllers
         {
             if (UserSession.IsInitialized(employeeId))
             {
-                var session = Db.CheckListSessions.Single(c => c.Employee.Id == employeeId.Value);
+                var session = Db.CheckListSessions.Single(c => c.Employee.Id == employeeId.Value && c.Active);
                 return RedirectToAction("index",new{id=session.Id});
             }
 

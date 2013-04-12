@@ -14,7 +14,7 @@
             window.open(self.FileUrl);
         });*/
         
-    };*/
+    };
 
     self.approve = function() {
         $.post('/checklist/check/', { id: item.item.Id, checklistId: item.CheckListId }, function (data) {
