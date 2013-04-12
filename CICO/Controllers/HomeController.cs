@@ -144,11 +144,7 @@ namespace Cico.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult About()
-        {
-            
-            return View();
-        }
+        
 
         public ActionResult SignOut()
         {
@@ -165,6 +161,11 @@ namespace Cico.Controllers
             if (model == null)
                 return RedirectToAction("index");
             return View(model);
+        }
+
+        public ActionResult LandingPage()
+        {
+            return View();
         }
         
     }
