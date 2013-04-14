@@ -24,7 +24,7 @@ namespace Cico
         private static readonly ILog log = LogManager.GetLogger(typeof(MvcApplication).Name);
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+           // filters.Add(new HandleErrorAttribute());
         }
 
         public static void RegisterRoutes(RouteCollection routes)
