@@ -186,6 +186,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\ViewModels\CheckListItemModel.cs" />
     <Compile Include="Controllers\ViewModels\CheckListModel.cs" />
@@ -766,6 +767,7 @@
     <Content Include="Views\Home\Proxy.cshtml" />
     <Content Include="Views\Home\SignOut.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
+    <Content Include="Views\LandingPage\Index.cshtml" />
     <None Include="Web.Secure.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

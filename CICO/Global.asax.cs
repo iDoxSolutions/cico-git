@@ -34,7 +34,7 @@ namespace Cico
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "LandingPage", action = "index", id = UrlParameter.Optional } // Parameter defaults
                 , new string[] { "Cico.Controllers" }
             );
 
