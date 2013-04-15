@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
+using Cico.Models.Helpers;
 
 namespace Cico.Controllers
 {
@@ -32,6 +33,7 @@ namespace Cico.Controllers
                 CopyValues(model,emp);
                 Db.SaveChanges();
                 var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == emp.Id && c.Active);
+                CacheHelper.RemoveKey<Employee>("user_full_name_" + UserSession.GetUserName()); 
                 return RedirectToAction("index", "home",new {id=checklist.Id,land="false"});
             }
             else

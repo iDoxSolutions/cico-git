@@ -36,5 +36,10 @@ namespace Cico.Models.Helpers
             }
             return HttpContext.Current.Cache[k] as T;
         }
+        public static void RemoveKey<T>(string key)
+        {
+            var k = typeof(T).Name + "_" + key;
+            HttpContext.Current.Cache.Remove(k);
+        }
     }
 }
