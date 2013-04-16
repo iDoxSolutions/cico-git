@@ -175,7 +175,7 @@ namespace Cico.Controllers
             
             storage.PutFile(docSubmitted,track.SubmittedFile);
             var subs = new Subscriptions(HttpContext);
-            subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
+            //subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
             Db.SaveChanges();
             var model = new CheckListItemModel
                 {
@@ -203,7 +203,7 @@ namespace Cico.Controllers
                 session.Completed = true;
             }
             var subs = new Subscriptions(HttpContext);
-            subs.Process(track,string.Format("Checkpoint completed by user {0} ",UserSession.GetUserName()));
+            //subs.Process(track,string.Format("Checkpoint completed by user {0} ",UserSession.GetUserName()));
             return Json(new CheckListItemModel()
                 {
                     CssClass = track.CssClass(),

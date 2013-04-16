@@ -26,24 +26,25 @@
         <div>
             @Html.DropDownListFor(c=>c.SelectedOffice,Model.Offices,"")
         </div>
-        <div>
-            @Html.LabelFor(c=>c.Staff.ReqireCheckList)
-        </div>
-        <div>
-            @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList)
-        </div>
         
-        <label>
-            Roles
-        </label>
+        
+        <label>User Configuration</label>
+        
+        
         <ul>
-            @foreach (var role in Model.Roles)
+            <li>
+            @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList) Requires own Checklist & Data 
+        </li>
+            @foreach (var role in Model.Roles.Where(c=>c.Value != "UserProxy"))
             {
                 
                 <li>
-                    @role.Text <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected?"checked":"")/>
+                    <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected?"checked":"")/> @role.Text 
                 </li>
             }
+             <li>
+            <input name="MayEdit" type="checkbox" value="" /> May Edit CheckList
+        </li>
         </ul>
         
         <div>
