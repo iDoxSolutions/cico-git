@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201304140958267_initialMigration.Designer.cs">
       <DependentUpon>201304140958267_initialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304171324497_SoftDelete.cs" />
+    <Compile Include="Migrations\201304171324497_SoftDelete.Designer.cs">
+      <DependentUpon>201304171324497_SoftDelete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />

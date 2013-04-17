@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cico.Models
 {
-    public class CheckListItemTemplate
+    public class CheckListItemTemplate:EntityBase
     {
         [Key]
         public int CheckListItemTemplateId { get; set; }

@@ -4,12 +4,14 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using log4net;
 
 
 namespace Cico.Models
 {
     public class CheckListItemSubmitionTrack:EntityBaseWithKey
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(CheckListItemSubmitionTrack).Name);
         public CheckListItemSubmitionTrack()
         {
             if (Notes == null)
@@ -32,6 +34,7 @@ namespace Cico.Models
         public bool Completed { 
             get
             {
+                log.DebugFormat("item type:{0} dependents:{1} item name {2}, ", CheckListItemTemplate.Type, CheckListItemTemplate.Dependents,this.CheckListItemTemplate.Description);
                 if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
                     || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
                 {
@@ -41,10 +44,12 @@ namespace Cico.Models
                         if (depFile == null)
                             return false;
                     }
+                    log.DebugFormat("all dependent fine");
                     return true;
                 }
                 else
                 {
+                    log.DebugFormat("condition nut passed");
                     return true;
                 }
             } 
