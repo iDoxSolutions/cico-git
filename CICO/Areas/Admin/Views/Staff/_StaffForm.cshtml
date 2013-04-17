@@ -26,11 +26,7 @@
         <div>
             @Html.DropDownListFor(c=>c.SelectedOffice,Model.Offices,"")
         </div>
-        
-        
         <label>User Configuration</label>
-        
-        
         <ul>
             <li>
             @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList) Requires own Checklist & Data 
@@ -42,9 +38,9 @@
                     <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected?"checked":"")/> @role.Text 
                 </li>
             }
-             <li>
-            <input name="MayEdit" type="checkbox" value="" /> May Edit CheckList
-        </li>
+            
+            
+        
         </ul>
         
         <div>

@@ -730,6 +730,7 @@
     <Content Include="Areas\Admin\Views\DropDownItems\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DropDownItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DropDownItems\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ItemClass\Delete.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

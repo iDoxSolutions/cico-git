@@ -40,6 +40,7 @@
         {
             <th>Email Subscription</th>
         }
+        <th>Action</th>
     </tr>
     @foreach (var item in Model.TemplateItems)
     {
@@ -63,7 +64,9 @@
         {
             <td><input type="checkbox" @(item.SubscriptionId!=0?"checked":"") data-id="@item.SubscriptionId" data-template-id="@item.Id"/></td>
         }
-            
+            <td>
+                @Html.ActionLink("Delete","Delete","ItemClass",new{id=item.Id},null)
+            </td>
             
         </tr>
     }

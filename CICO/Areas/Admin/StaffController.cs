@@ -57,6 +57,11 @@ namespace Cico.Areas.Admin
                 ModelState.AddModelError("", "Please check OfficeAdmin or " + SystemRole.GlobalAdmin +" not both");
             }
 
+            if (!model.SelectedRoles.Contains("OfficeAdmin") && model.SelectedRoles.Contains(SystemRole.CheckListEditor))
+            {
+                ModelState.AddModelError("", "CheckListEditor is valid only for OfficeAdmin ");
+            }
+
         }
 
         public ActionResult Create()
@@ -114,6 +119,12 @@ namespace Cico.Areas.Admin
                 if (model.SelectedOffice.HasValue)
                 {
                     staff.Office = Db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
+                }
+                else
+                {
+                    staff.Office = null;
+                    Db.Entry(staff).Reference(c => c.Office).CurrentValue = null;
+                    
                 }
                 staff.Email = model.Staff.Email;
                 staff.ReqireCheckList = model.Staff.ReqireCheckList;

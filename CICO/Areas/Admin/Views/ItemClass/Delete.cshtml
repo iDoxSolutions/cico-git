@@ -1,0 +1,20 @@
+﻿@model Cico.Models.CheckListItemTemplate
+
+@{
+    ViewBag.Title = "Delete Item";
+    
+}
+
+<h2>Delete Item</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Model.Description
+    </div>
+    <div>
+        @Html.HiddenFor(c => c.CheckListItemTemplateId)
+        <button type="submit">Delete</button>
+    </div>
+}

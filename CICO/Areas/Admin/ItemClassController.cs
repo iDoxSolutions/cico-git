@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using Cico.Models;
 
 
@@ -22,7 +23,7 @@ public class ItemClassModel
         return !string.IsNullOrEmpty(FormType);
     }
 
-    public bool Editable { get { return true; } }
+    public bool Editable { get; set; }
 
     public static ItemClassModel Load(CicoContext db,ItemClassModel model)
     {
@@ -46,6 +47,25 @@ namespace Cico.Areas.Admin
         //
         // GET: /Admin/ItemClass/
 
+        public void SetupEditable(ItemClassModel model)
+        {
+            model.Editable = false;
+            if (User.IsInRole(SystemRole.GlobalAdmin))
+            {
+                model.Editable = true;
+            }
+
+            if (User.IsInRole(SystemRole.GlobalAdmin))
+            {
+                model.Editable = true;
+            }
+
+            if (User.IsInRole(SystemRole.CheckListEditor))
+            {
+                model.Editable = true;
+            }
+        }
+
         public ActionResult Index(int templateId)
         {
             var model = ItemClassModel.Load(db,null);
@@ -57,6 +77,9 @@ namespace Cico.Areas.Admin
             {
                 model.SelectedOffice = UserSession.GetCurrentStaff().Office.OfficeId;
             }
+
+            SetupEditable(model);
+
             return View(model);
         }
         [HttpPost]
@@ -83,6 +106,7 @@ namespace Cico.Areas.Admin
             else
             {
                 ItemClassModel.Load(db, model);
+                SetupEditable(model);
                 return View(model);
             }
         }
@@ -100,6 +124,7 @@ namespace Cico.Areas.Admin
                 };
             ItemClassModel.Load(db, model);
             model.SelectedFile = template.SystemFile == null ? (int?) null : template.SystemFile.Id;
+            SetupEditable(model);
             return View(model);
         }
 
@@ -149,6 +174,7 @@ namespace Cico.Areas.Admin
             }
             else
             {
+                SetupEditable(model);
                 ItemClassModel.Load(db, model);
                 var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
                // model.Editable = !template.Published && template.Active;
@@ -156,6 +182,18 @@ namespace Cico.Areas.Admin
             }
         }
 
+        public ActionResult Delete(int id)
+        {
+            var item = Db.CheckListItemTemplates.Find(id);
+            return View(item);
+        }
+        [HttpPost]
+        public ActionResult Delete(CheckListItemTemplate model)
+        {
+            var item = Db.CheckListItemTemplates.Find(model.CheckListItemTemplateId);
+            
+            return RedirectToAction("edit", "checklistbuilder", new {id = item.CheckListId});
+        }
 
        
     }
