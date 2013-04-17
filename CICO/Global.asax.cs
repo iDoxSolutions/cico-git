@@ -34,7 +34,7 @@ namespace Cico
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "index", id = UrlParameter.Optional } // Parameter defaults
+                new { controller = "LandingPage", action = "index", id = UrlParameter.Optional } // Parameter defaults
                 , new string[] { "Cico.Controllers" }
             );
 
@@ -46,10 +46,12 @@ namespace Cico
         {
             log4net.Config.XmlConfigurator.Configure();
             ConfigureLog4Net();
-            if (ConfigurationManager.AppSettings["InitializeDb"] == "true")
+           /* if (ConfigurationManager.AppSettings["InitializeDb"] == "true")
             {
                 Database.SetInitializer<CicoContext>(new CicoInit());
             }
+            * */
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<CicoContext, Cico.Migrations.Configuration>());
             AreaRegistration.RegisterAllAreas();
             log.Debug("Application Started");
             RegisterGlobalFilters(GlobalFilters.Filters);

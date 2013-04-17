@@ -94,10 +94,7 @@ namespace Cico.Controllers
         
         public ActionResult Index(int? id,string tab,string land)
         {
-            if (string.IsNullOrEmpty(land))
-            {
-                return RedirectToAction("LandingPage");
-            }
+            
 
             var staff = UserSession.GetCurrentStaff();
 
