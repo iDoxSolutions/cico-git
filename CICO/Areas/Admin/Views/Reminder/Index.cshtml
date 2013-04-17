@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New Reminder", "Create")
 </p>
-<table>
+<table class="admin-table">
     <tr>
         <th>
             Type 
@@ -29,7 +29,7 @@
             @Html.DisplayFor(modelItem => item.Checklisttype)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ChecklistDescription)
+            @Html.DisplayFor(modelItem => item.MessageSubject)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateToSend)

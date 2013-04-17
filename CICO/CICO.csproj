@@ -720,11 +720,6 @@
     <Content Include="Areas\Admin\Views\Reminder\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Reminder\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Subscriptions\Index.cshtml" />
-    <Content Include="Areas\Admin\Reminder\Create.cshtml" />
-    <Content Include="Areas\Admin\Reminder\Delete.cshtml" />
-    <Content Include="Areas\Admin\Reminder\Details.cshtml" />
-    <Content Include="Areas\Admin\Reminder\Edit.cshtml" />
-    <Content Include="Areas\Admin\Reminder\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DocumentTemplate\Details.cshtml" />

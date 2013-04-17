@@ -33,8 +33,22 @@ namespace Cico.Areas.Admin
         //
         // GET: /Admin/Reminder/Create
 
+        public void FillTypes()
+        {
+            var items = new List<SelectListItem>();
+
+
+
+            items.Add(new SelectListItem { Text = "CheckIn", Value = "CheckIn", Selected = true });
+
+            items.Add(new SelectListItem { Text = "CheckOut", Value = "CheckOut" });
+
+            ViewBag.RemoiderType = items;
+        }
+
         public ActionResult Create()
         {
+            FillTypes();
             return View();
         } 
 
@@ -44,6 +58,7 @@ namespace Cico.Areas.Admin
         [HttpPost]
         public ActionResult Create(Reminder Reminder)
         {
+            FillTypes();
             if (ModelState.IsValid)
             {
                 Db.Reminders.Add(Reminder);
@@ -59,6 +74,7 @@ namespace Cico.Areas.Admin
  
         public ActionResult Edit(int id)
         {
+            FillTypes();
             Reminder Reminder = Db.Reminders.Find(id);
             return View(Reminder);
         }
@@ -69,6 +85,7 @@ namespace Cico.Areas.Admin
         [HttpPost]
         public ActionResult Edit(Reminder Reminder)
         {
+            FillTypes();
             if (ModelState.IsValid)
             {
                 Db.Entry(Reminder).State = EntityState.Modified;

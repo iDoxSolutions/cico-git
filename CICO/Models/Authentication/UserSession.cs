@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -66,10 +67,11 @@ namespace Cico.Models.Authentication
 
         public CheckListSession InitCheckOutSession(Employee employee)
         {
-            var existing = _db.CheckListSessions.Include("Employee").FirstOrDefault(c => c.Employee.Id == employee.Id);
+            var existing = _db.CheckListSessions.Include("Employee").FirstOrDefault(c => c.Employee.Id == employee.Id && c.Active);
             if (existing != null)
             {
                 existing.Active = false;
+                _db.Entry(existing).State = EntityState.Modified;
             }
             var uname = employee.UserId;
             var template = _db.CheckListTemplates.Single(c => c.Type == "CheckOut");

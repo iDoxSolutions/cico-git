@@ -18,8 +18,13 @@ namespace Cico.Areas.Admin
         public int ItemsChecked { get; set; }
         public int ItemsProvision { get; set; }
         public int ItemsLeft { get; set; }
-
+        public IList<CheckListItemSubmitionTrack> SessionTracks { get; set; }
         public DateTime? DateValue{get; set; }
+        public DateTime ReferenceDate{get; set; }
+
+        public string SessionType
+        {
+            get; set; }
     }
     public class CheckListsModel
     {
@@ -70,20 +75,36 @@ namespace Cico.Areas.Admin
                 {
                     EmployeeName = c.Employee.LastName + ", " + c.Employee.FirstName,
                     Employee = c.Employee,
-                    
+                    ReferenceDate = c.ReferenceDate,
                     DateValue = c.DateCreated,
                     Session = c,
                     ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
-                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d=>!d.Checked)
+                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d=>!d.Checked),
+                    SessionType = c.CheckListTemplate.Type
                 }).ToPagedList(model.Page.Value, 50);
             return View(model);
         }
 
         public ActionResult Show(int id)
         {
-            var session = Db.CheckListSessions.Include("CheckListItemSubmitionTracks").Single(c => c.Id == id);
-            return View(session);
+            var model = new CheckListModel();
+            
+            model.Session = Db.CheckListSessions.Include("CheckListItemSubmitionTracks").Include("Employee").Single(c => c.Id == id);
+            model.Employee = model.Session.Employee;
+            if (UserSession.IsOfficeAdmin)
+            {
+                var staff = UserSession.GetCurrentStaff();
+                model.SessionTracks =
+                    model.Session.CheckListItemSubmitionTracks.Where(
+                        c => c.CheckListItemTemplate.Office.OfficeId == staff.Office.OfficeId).ToList();
+            }
+            else
+            {
+                model.SessionTracks =
+                    model.Session.CheckListItemSubmitionTracks.ToList();
+            }
+           return View(model);
         }
 
         public ActionResult ApproveProvisional(int ItemId)

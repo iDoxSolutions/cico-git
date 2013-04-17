@@ -52,6 +52,11 @@ namespace Cico.Areas.Admin
                 ModelState.AddModelError("","You need to pick the office for OfficeAdmin");
             }
 
+            if (model.SelectedRoles.Contains("OfficeAdmin") && model.SelectedRoles.Contains(SystemRole.GlobalAdmin))
+            {
+                ModelState.AddModelError("", "Please check OfficeAdmin or " + SystemRole.GlobalAdmin +" not both");
+            }
+
         }
 
         public ActionResult Create()

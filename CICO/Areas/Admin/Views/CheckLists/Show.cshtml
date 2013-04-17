@@ -1,5 +1,5 @@
 ﻿@using Cico.Models
-@model Cico.Models.CheckListSession
+@model Cico.Areas.Admin.CheckListModel
 
 @{
     ViewBag.Title = "Checklist Items ";
@@ -17,16 +17,16 @@
     </div>
 </div>
 
-@if (Model.Active)
+@if (Model.Session.Active)
 {
     <form action="/admin/checklists/cancel">
-        @Html.HiddenFor(c => c.Id)
+        @Html.Hidden("id", Model.Session.Id)
         <input type="submit" value="Cancel Check List"/>
     </form>
 }
 
 <ul>
-    @foreach (var item in Model.CheckListItemSubmitionTracks)
+    @foreach (var item in Model.SessionTracks)
     {
         <li >
             <div class="@item.CssClass()" style="float: left;width:20px">&nbsp;</div>

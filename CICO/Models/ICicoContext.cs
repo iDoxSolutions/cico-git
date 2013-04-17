@@ -1,10 +1,13 @@
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using Cico.Models.Helpers;
 
 namespace Cico.Models
 {
     public interface ICicoContext
     {
+        DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
+        DbEntityEntry Entry(object entity);
         IDbSet<AppFeature> AppFeatures { get; set; }
         IDbSet<DependentFile> DependentFiles { get; set; }
         IDbSet<SystemRole> SystemRoles { get; set; }
