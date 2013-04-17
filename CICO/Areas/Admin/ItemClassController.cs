@@ -53,6 +53,10 @@ namespace Cico.Areas.Admin
             var template = Db.CheckListTemplates.Single(c => c.CheckListTemplateId == model.TemplateId);
            // model.Editable = !template.Published;
             model.CheckListItemTemplate = new CheckListItemTemplate();
+            if (UserSession.IsOfficeAdmin)
+            {
+                model.SelectedOffice = UserSession.GetCurrentStaff().Office.OfficeId;
+            }
             return View(model);
         }
         [HttpPost]

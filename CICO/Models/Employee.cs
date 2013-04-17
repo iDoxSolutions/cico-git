@@ -83,7 +83,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string PriorPostState { get; set; }
         [DisplayName("Email - Personal")]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+        
         public  string PersonalEmail { get; set; }
         [DisplayName("Email - Work (Agency)")]
         [DataType(DataType.EmailAddress)]
@@ -95,7 +95,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Passport Expiration")]
         public DateTime? PassportExpiration { get; set; }
         [DisplayName("Visa Number")]
-        [RegularExpression(@"[^a-zA-Z0-9]+", ErrorMessage = "Visa Number can not contain special characters.")]
+        
         public string VisaNumber { get; set; }
         [DisplayName("Visa expiration")]
         public DateTime? VisaExpiration { get; set; }
