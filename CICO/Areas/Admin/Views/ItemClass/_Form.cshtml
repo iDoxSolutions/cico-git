@@ -148,9 +148,12 @@
 
         </div>
         if (Model.Editable) {
-         <div class="editor-field">
-             <input type="submit" value="Save" name="Save"/>
-         </div>
+            <div class="editor-field">
+                <input type="submit" value="Save" name="Save"/>
+                @Html.ActionLink("Delete","Delete",new{id=Model.CheckListItemTemplate.CheckListItemTemplateId})
+            </div>
+            
+            
         }
 
 

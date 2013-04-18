@@ -33,7 +33,7 @@ namespace Cico.Controllers
             }
             var model = new CheckListModel();
             model.Id = session.Id;
-            foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates)
+            foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates.Where(c=>c.Active))
             {
                 var track = session.GetTrack(checkListItemTemplate.CheckListItemTemplateId);
                 if (track.Id == 0)

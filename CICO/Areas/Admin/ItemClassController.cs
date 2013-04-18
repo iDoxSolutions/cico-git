@@ -191,8 +191,8 @@ namespace Cico.Areas.Admin
         public ActionResult Delete(CheckListItemTemplate model)
         {
             var item = Db.CheckListItemTemplates.Find(model.CheckListItemTemplateId);
-            
-            return RedirectToAction("edit", "checklistbuilder", new {id = item.CheckListId});
+            item.Active = false;
+            return RedirectToAction("edit", "checklistbuilder", new {id = item.CheckListTemplate.CheckListTemplateId});
         }
 
        

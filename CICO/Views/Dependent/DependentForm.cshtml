@@ -2,10 +2,10 @@
 @using Cico.Models.Helpers;
 @using (Html.BeginForm())
 {
-    
+    <input type="submit" value="Save" name="Save" />
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
-        <input type="submit" value="Save" name="Save" />
+        
         @Html.HiddenFor(c=>c.EmployeeId)
         <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
         <div class="float-left" style="width: 47%">
@@ -190,9 +190,8 @@
                 @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactRelationship)
             </div>
 
-        
         </div>
-  
+  <div style="clear: both"></div>
          <input type="submit" value="Save" name="Save" />
     </fieldset>
     @Html.HiddenFor(model => model.Dependent.Id)

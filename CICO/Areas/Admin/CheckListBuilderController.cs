@@ -122,6 +122,7 @@ namespace Cico.Areas.Admin
            }
             
             var itemTemplates = filter.SelectedOffice == null ? item.CheckListItemTemplates : item.CheckListItemTemplates.Where(c=>c.Office.OfficeId == filter.SelectedOffice);
+            itemTemplates = itemTemplates.Where(c => c.Active);
             var model = new TemplateModel()
                 {
                     OfficeDisabled = filter.OfficeDisabled,
