@@ -15,6 +15,9 @@ namespace Cico.Migrations
 
         protected override void Seed(Cico.Models.CicoContext context)
         {
+            var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
+            version.Value = "1.1.1";
+            context.SaveChanges();
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

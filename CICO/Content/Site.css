@@ -832,7 +832,8 @@ div.tabcontents div.content h2 {
 
     .checklist{
         list-style: none;
-        padding-left: 0px
+        padding-left: 0px;margin-left: 0px;
+
         
     }
        .checklist li{

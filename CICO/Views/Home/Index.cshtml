@@ -139,10 +139,10 @@
                 <div class="homescreen-instructions">
                     <label>Please select a task from the list below</label>
                 </div>
-                <ul data-bind="foreach: checklist " class="checklist ">
+                <ul data-bind="foreach: checklist " class="checklist" >
                     <li>
                         <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
-                            <div data-bind="text: Description" class="description" style="width: 190px; float: left"></div>
+                            <div data-bind="text: Description" class="description" style="width: 180px; float: left"></div>
                             <div style="float: right; text-align: center">
                                 <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
                                 <div class="checkbox">
@@ -230,11 +230,11 @@
         <br></br>
         <label>Step 3: Browse to your completed form.</label>
 
-        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST">
+        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST" action="/checklist/uploadfile" target="shoppingcart_iframe">
             <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
              <div data-bind="with:submittedFile">
             Submitted file:
-        <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
+        <a target="_blank"   data-bind="attr: { href: Url },text:Description"></a>
         </div>
             
             <div data-bind="with:DependentsFiles">
