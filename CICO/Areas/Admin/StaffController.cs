@@ -23,7 +23,7 @@ namespace Cico.Areas.Admin
         public string[] SelectedRoles { get; set; }
         public void Load(ICicoContext context)
         {
-            Roles = context.SystemRoles.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.Name,Selected = Staff.SystemRoles.Any(d=>d.Name==c.Name)}).ToList();
+            Roles = context.SystemRoles.ToList().Select(c => new SelectListItem(){Text = c.Description,Value = c.Name,Selected = Staff.SystemRoles.Any(d=>d.Name==c.Name)}).ToList();
             Offices = context.Offices.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.OfficeId.ToString()}).ToList();
             if (Staff.Office != null)
             {

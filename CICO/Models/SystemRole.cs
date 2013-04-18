@@ -22,6 +22,8 @@ namespace Cico.Models
         [Key]
         [StringLength(100)]
         public string Name { get; set; }
+        [StringLength(255)]
+        public string Description { get; set; }
         public virtual IList<Staff> Staffs { get; set; }
         public virtual IList<AppFeature> AppFeatures { get; set; }  
     }
@@ -36,6 +38,8 @@ namespace Cico.Models
         [Key]
         [StringLength(100)]
         public string Name { get; set; }
+        
+        
         public virtual IList<SystemRole> SystemRoles { get; set; }  
     }
     
