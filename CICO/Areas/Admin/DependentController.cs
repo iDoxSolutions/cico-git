@@ -23,8 +23,8 @@ namespace Cico.Areas.Admin
 
         public ActionResult Index()
         {
-            var employee = UserSession.GetCurrent().Employee;
-            return View(employee.Dependents);
+            
+            return View(Db.Dependents.ToList());
         }
 
         public ActionResult Create()
