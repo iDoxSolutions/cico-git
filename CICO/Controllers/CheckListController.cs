@@ -89,7 +89,7 @@ namespace Cico.Controllers
                 var dependentFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
                 if (dependentFile != null)
                 {
-                    file.FileName = dependentFile.SystemFile.Description;
+                    file.FileName = string.IsNullOrEmpty(dependentFile.SystemFile.Description) ? "(No name)" : dependentFile.SystemFile.Description;
                     file.Url = "/filestorage?id=" + dependentFile.SystemFile.Id;
 
                 }
@@ -107,7 +107,7 @@ namespace Cico.Controllers
             if (!template.NotesAccess)
             {
                 var staff = UserSession.GetCurrentStaff();
-                if (staff != null)
+                if (staff != null  && User.IsInRole(SystemRole.OfficeAdmin))
                 {
                     if (staff.Office.OfficeId != template.Office.OfficeId)
                     {
@@ -146,6 +146,11 @@ namespace Cico.Controllers
                     var ofile = Request.Files[key];
                     var id = key.Split("-".ToCharArray())[1];
                     var dependent = Db.Dependents.Find(Int32.Parse(id));
+
+                    if(string.IsNullOrEmpty( Path.GetExtension(ofile.FileName)))
+                    {
+                        throw new ModelStateException("File extension is Required");
+                    }
 
                     var depFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == int.Parse(id));
                     if (depFile == null)

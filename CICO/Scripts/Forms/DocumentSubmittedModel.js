@@ -15,25 +15,36 @@
         var options = {
             
             //beforeSubmit: showRequest,  // pre-submit callback 
+            
+            
+
             success: function (data, textStatus, jqXHR) {
-                data = JSON.parse(data);
-                self.submittedFile(data.SubmittedFile);
-                item.ItemChecked(true);
-                item.CssClass(data.CssClass);
-                self.DependentsFiles(data.DependentsFiles);
-                $(".loader").hide();
+                try {
+                    data = JSON.parse(data);
+                    self.submittedFile(data.SubmittedFile);
+                    item.ItemChecked(true);
+                    item.CssClass(data.CssClass);
+                    self.DependentsFiles(data.DependentsFiles);
+                    $(".loader").hide();
+
+                } catch (x) {
+                    alert("error");
+                    $(".loader").hide();
+                }
+               
                 return false;
             },
             error:function(e) {
                 alert(e.responseText);
                 $(".loader").hide();
             },
+            
             type: 'post',
             enctype: 'multipart/form-data',
             // other available options: 
             url: "/checklist/UploadFile",   //  ,    // override for form's 'action' attribute 
             data: { itemTemplateId: item.item.Id, checklistId: item.CheckListId },
-            dataType:'text'
+            dataType:'html'
         };
         // $(e).ajaxForm(options);
         $("#docSubmitted").ajaxSubmit(options);

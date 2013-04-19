@@ -55,6 +55,7 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.ForDependents);
 
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
+            //modelBuilder.Entity<Dependent>().HasMany(c => c.DependentFiles).WithRequired(c => c.Dependent).WillCascadeOnDelete();
             modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.AppFeatures).WithMany(c => c.SystemRoles);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();

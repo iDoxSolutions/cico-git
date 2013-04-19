@@ -6,6 +6,6 @@
 }
 
 <div class="homescreen-instructions"><label>Please update your dependent's information. Select "Save" to save your changes</label></div>
- @Html.ActionLink("Back to List", "Index")
+ @Html.ActionLink("Back to List", "Index", "home", new {id=Model.ChecklistId }, null)
 
 @Html.Partial("DependentForm")

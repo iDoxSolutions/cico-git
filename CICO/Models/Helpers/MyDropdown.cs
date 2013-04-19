@@ -11,7 +11,7 @@ namespace Cico.Models.Helpers
         public static IList<SelectListItem> GetDropdownItems(this HtmlHelper helper, string dropdownType)
         {
             var db = new CicoContext();
-            var items = db.DropdownItems.Where(c => c.ValueType == dropdownType)
+            var items = db.DropdownItems.Where(c => c.ValueType == dropdownType).OrderBy(c=>c.Description)
                 .Select(c=>new SelectListItem(){Text = c.Description,Value = c.Key})
                 .ToList();
             return items;

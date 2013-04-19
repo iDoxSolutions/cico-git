@@ -2,13 +2,14 @@
 @using Cico.Models.Helpers;
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Save" name="Save" />
+    
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
         
         @Html.HiddenFor(c=>c.EmployeeId)
         <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
         <div class="float-left" style="width: 47%">
+            <input type="submit" value="Save" name="Save" />
             <div class="editor-label">
                 @Html.LabelFor(model => model.Dependent.FirstName)
             </div>
@@ -85,7 +86,7 @@
                 @Html.LabelFor(model => model.Dependent.PassportType)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(model => model.Dependent.PassportType)
+                @Html.DropDownListFor(model => model.Dependent.PassportType, Html.GetDropdownItems("PassportType"), "")
                 @Html.ValidationMessageFor(model => model.Dependent.PassportType)
             </div>
             <div class="editor-label">

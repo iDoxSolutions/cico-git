@@ -14,20 +14,27 @@
         }
         $(".loader").show();
         var options = {
-
-            //beforeSubmit: showRequest,  // pre-submit callback 
+           
             success: function (data) {
-                data = JSON.parse(data);
-                self.submittedFile(data.SubmittedFile);
-                item.ItemChecked(true);
-                item.CssClass(data.CssClass);
-                self.DependentsFiles(data.DependentsFiles);
-                $(".loader").hide();
+                
+                try {
+                    data = JSON.parse(data);
+                    self.submittedFile(data.SubmittedFile);
+                    item.ItemChecked(true);
+                    item.CssClass(data.CssClass);
+                    self.DependentsFiles(data.DependentsFiles);
+                    $(".loader").hide();
+                }
+                catch(x) {
+                    alert('Error');
+                    $(".loader").hide();
+                }
+
                 return false;
             },
             error: function (e) {
                 $(".loader").hide();
-                alert("File is required");
+                alert(e.responseText);
             },
             type: 'post',
             enctype: 'multipart/form-data',

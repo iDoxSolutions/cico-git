@@ -193,6 +193,13 @@
                     @Html.EditorFor(model => model.Employee.RoutingNumber)
                     @Html.ValidationMessageFor(model => model.Employee.RoutingNumber)
                 </div>
+                <div class="editor-label">
+                 <label>Proxy</label>
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.SelectedProxy,Model.Proxies,"")
+                @Html.ValidationMessageFor(model => model.SelectedProxy)
+            </div>
 
                     
             </div>
@@ -246,7 +253,7 @@
                     @Html.LabelFor(model => model.Employee.PriorPostCountry)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetDropdownItems("Nations"), "")
+                    @Html.DropDownListFor(model => model.Employee.PriorPostCountry, Html.GetDropdownItems("Nations"), "")
                     @Html.ValidationMessageFor(model => model.Employee.PriorPostCountry)
                 </div>
 
@@ -254,7 +261,7 @@
                     @Html.LabelFor(model => model.Employee.PriorPostState)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("States"), "")
+                    @Html.EditorFor(model =>model.Employee.PriorPostState)
                     @Html.ValidationMessageFor(model => model.Employee.PriorPostState)
                 </div>
                    
@@ -287,7 +294,7 @@
                     @Html.LabelFor(model => model.Employee.AgencyOrSection)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("Agency"), "")
+                    @Html.DropDownListFor(model => model.Employee.AgencyOrSection, Html.GetDropdownItems("Agency"), "")
                     @Html.ValidationMessageFor(model => model.Employee.AgencyOrSection)
                 </div>
 

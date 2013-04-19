@@ -37,7 +37,7 @@
         </td>
         @if (item.Dependents.Count > 0)
         {
-             <td><div style="color: green">@Html.ActionLink("Yes", "DependentIndex", new {id=item.Id})</div></td>
+             <td><div style="color: green">@Html.ActionLink("Yes", "Index", "Dependent", new {employeeId=item.Id},null)</div></td>
         }
         else
         {

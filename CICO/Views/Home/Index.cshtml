@@ -11,8 +11,8 @@
 <script type="text/javascript" src="@Html.VerRes("/scripts/tiny_mce/tiny_mce.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/scripts/sammy.js")"></script>
 
-<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.form.js")">
-</script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.form.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.fileupload.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/CicoFormBase.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormBase.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
@@ -230,7 +230,7 @@
         <br></br>
         <label>Step 3: Browse to your completed form.</label>
 
-        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST" action="/checklist/uploadfile" target="shoppingcart_iframe">
+        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST" action="/checklist/uploadfile" >
             <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
              <div data-bind="with:submittedFile">
             Submitted file:

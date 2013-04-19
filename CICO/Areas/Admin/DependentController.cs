@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -21,15 +22,15 @@ namespace Cico.Areas.Admin
         //
         // GET: /Dependent/
 
-        public ActionResult Index()
+        public ActionResult Index(int employeeId)
         {
             
-            return View(Db.Dependents.ToList());
+            return View(Db.Dependents.Include("Employee").Where(c=>c.Employee.Id == employeeId).ToList());
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int employeeId)
         {
-            return View(new DepententModel(){Dependent = new Dependent(){}});
+            return View(new DepententModel(){EmployeeId = employeeId,Dependent = new Dependent(){Employee = new Employee(){Id = employeeId}}});
         }
 
         [HttpPost]
@@ -37,10 +38,10 @@ namespace Cico.Areas.Admin
         {
             if (ModelState.IsValid)
             {
-                model.Dependent.Employee = UserSession.GetCurrent().Employee;
+                model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
                 Db.Dependents.Add(model.Dependent);
                 Db.SaveChanges();
-                return RedirectToAction("index");
+                return RedirectToAction("index",new{employeeId=model.EmployeeId});
             }
             else
             {
@@ -52,7 +53,7 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(int id)
         {
             var dependent = Db.Dependents.Single(c => c.Id == id);
-            var model = new DepententModel(){Dependent = dependent};
+            var model = new DepententModel(){Dependent = dependent,EmployeeId = dependent.Employee.Id};
             return View(model);
         }
 
@@ -60,11 +61,11 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(DepententModel model) {
             if (ModelState.IsValid)
             {
-                model.Dependent.Employee = UserSession.GetCurrent().Employee;
+                //model.Dependent.Employee = UserSession.GetCurrent().Employee;
                 Db.Entry(model.Dependent).State = EntityState.Modified;
                 Db.SaveChanges();
-                //return RedirectToAction("index");
-                return RedirectToAction("index", "home",new {land="false"});
+                return RedirectToAction("index", new { employeeId = model.EmployeeId });
+                //return RedirectToAction("index", "home",new {land="false"});
             }
             else
             {
@@ -85,9 +86,10 @@ namespace Cico.Areas.Admin
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
+            
             Db.Dependents.Remove(dependent);
             Db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index",new {employeeId=dependent.Employee.Id});
         }
 
 

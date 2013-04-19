@@ -27,6 +27,7 @@ namespace Cico.Models.Helpers
                 filterContext.HttpContext.Response.ContentEncoding = Encoding.UTF8;
                 filterContext.HttpContext.Response.HeaderEncoding = Encoding.UTF8;
                 filterContext.HttpContext.Response.TrySkipIisCustomErrors = true;
+                filterContext.HttpContext.Response.ContentType = "text/html";
                 filterContext.HttpContext.Response.StatusCode = 400;
                 filterContext.Result = new ContentResult
                 {

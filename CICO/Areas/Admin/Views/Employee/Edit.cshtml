@@ -17,7 +17,7 @@
 
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Save" />
+    
     @Html.ValidationSummary(true)
     <fieldset class="two-column-form" style="width: 80%">
         <legend>Employee</legend>
@@ -25,6 +25,7 @@
         @Html.ValidationSummary()
         
         <div class="float-left" style="width: 47%">
+            <input type="submit" value="Save" />
             <h2>Personal Data</h2>
             <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.FirstName)
@@ -49,13 +50,7 @@
                 @Html.EditorFor(model => model.Employee.LastName)
                 @Html.ValidationMessageFor(model => model.Employee.LastName)
             </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Employee.MiddleInitial)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Employee.LastName)
-                @Html.ValidationMessageFor(model => model.Employee.LastName)
-            </div>
+           
             <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.EmployeeId)
             </div>
@@ -236,7 +231,16 @@
                 @Html.EditorFor(model => model.Employee.SSN)
                 @Html.ValidationMessageFor(model => model.Employee.SSN)
             </div>
+            <div class="editor-label">
+                <label>Proxy</label>
+                
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.SelectedProxy,Model.Proxies,"")
+                @Html.ValidationMessageFor(model => model.SelectedProxy)
+            </div>
 
+            <input type="submit" value="Save" name="Save" />
         </div>
         <div class="float-right" style="width: 47%">
             <h2>Posting Information</h2>
@@ -286,7 +290,7 @@
                 @Html.LabelFor(model => model.Employee.PriorPostCountry)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetDropdownItems("Nations"), "")
+                @Html.DropDownListFor(model => model.Employee.PriorPostCountry, Html.GetDropdownItems("Nations"), "")
                 @Html.ValidationMessageFor(model => model.Employee.PriorPostCountry)
             </div>
 
@@ -294,7 +298,7 @@
                 @Html.LabelFor(model => model.Employee.PriorPostState)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("States"), "")
+                @Html.EditorFor(model => model.Employee.PriorPostState)
                 @Html.ValidationMessageFor(model => model.Employee.PriorPostState)
             </div>
 
@@ -327,7 +331,7 @@
                 @Html.LabelFor(model => model.Employee.AgencyOrSection)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("Agency"), "")
+                @Html.DropDownListFor(model => model.Employee.AgencyOrSection, Html.GetDropdownItems("Agency"), "")
                 @Html.ValidationMessageFor(model => model.Employee.AgencyOrSection)
             </div>
 
@@ -450,10 +454,11 @@
             </div>
            
             <div style="clear: both"></div>
+            
         </div>
         
     </fieldset>
-    <input type="submit" value="Save" name="Save" />
+    
     @Html.HiddenFor(model => model.Employee.Id)
 }
 <div>

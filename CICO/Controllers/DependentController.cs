@@ -13,6 +13,10 @@ namespace Cico.Controllers
     {
         public Dependent Dependent { get; set; }
         public int EmployeeId { get; set; }
+
+        public int ChecklistId
+        {
+            get; set; }
     }
 
     public class DependentController : ControllerBase
@@ -52,7 +56,14 @@ namespace Cico.Controllers
         public ActionResult Edit(int id)
         {
             var dependent = Db.Dependents.Single(c => c.Id == id);
-            var model = new DepententModel(){Dependent = dependent};
+            
+            var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == dependent.Employee.Id && c.Active);
+            var model = new DepententModel() { Dependent = dependent };
+            if (checklist != null)
+            {
+                model.ChecklistId = checklist.Id;
+            }
+            
             return View(model);
         }
 

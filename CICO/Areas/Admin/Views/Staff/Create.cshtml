@@ -41,7 +41,7 @@
             <li>
             @Html.CheckBoxFor(c=>c.Staff.ReqireCheckList) Requires own Checklist & Data 
         </li>
-            @foreach (var role in Model.Roles.Where(c=>c.Value != "UserProxy"))
+            @foreach (var role in Model.Roles)
             {
                 
                 <li>
