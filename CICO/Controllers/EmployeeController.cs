@@ -21,7 +21,7 @@ namespace Cico.Controllers
 
         public ActionResult Edit(int id)
         {
-            var employee = UserSession.GetCurrent().Employee;
+            var employee = Db.Employees.Find(id);
             return View(employee);
         }
         [HttpPost]

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
+using MvcSiteMapProvider.Filters;
 
 namespace Cico.Areas.Admin
 {
@@ -39,7 +40,7 @@ namespace Cico.Areas.Admin
         }
     }
 
-
+    [SiteMapPreserveRouteData]
     public class CheckListBuilderController : Cico.Controllers.ControllerBase
     {
         //

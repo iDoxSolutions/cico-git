@@ -20,5 +20,11 @@ namespace Cico.Models.Versioning
             var ver = CacheHelper.Cache(GetVersion,"version_cache");
             return path + "?ver=" + ver;
         }
+
+        public static string Version(this HtmlHelper helper)
+        {
+            var ver = CacheHelper.Cache(GetVersion, "version_cache");
+            return ver;
+        }
     }
 }

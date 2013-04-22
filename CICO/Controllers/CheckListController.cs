@@ -130,9 +130,10 @@ namespace Cico.Controllers
         [HandleModelStateException]
         public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId,int checklistId)
         {
-            if (docSubmitted == null)
-                throw new ModelStateException("File is Required");
+           
             var track = UserSession.GetTrack(itemTemplateId,checklistId);
+            if (docSubmitted == null && track.SubmittedFile==null)
+                throw new ModelStateException("File is Required");
             if (track.SubmittedFile == null)
             {
                 track.SubmittedFile = new SystemFile();
@@ -144,6 +145,10 @@ namespace Cico.Controllers
                 if (key.StartsWith("dependent"))
                 {
                     var ofile = Request.Files[key];
+                    if (ofile.ContentLength == 0)
+                    {
+                        continue;
+                    }
                     var id = key.Split("-".ToCharArray())[1];
                     var dependent = Db.Dependents.Find(Int32.Parse(id));
 
@@ -174,11 +179,13 @@ namespace Cico.Controllers
                 }
                 Db.SaveChanges();
             }
+            if (docSubmitted != null)
+            {
+                track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
+                track.Checked = true;
 
-            track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
-            track.Checked = true;
-            
-            storage.PutFile(docSubmitted,track.SubmittedFile);
+                storage.PutFile(docSubmitted, track.SubmittedFile);
+            }
             var subs = new Subscriptions(HttpContext);
             //subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
             Db.SaveChanges();

@@ -46,11 +46,7 @@ namespace Cico
         {
             log4net.Config.XmlConfigurator.Configure();
             ConfigureLog4Net();
-           /* if (ConfigurationManager.AppSettings["InitializeDb"] == "true")
-            {
-                Database.SetInitializer<CicoContext>(new CicoInit());
-            }
-            * */
+         
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CicoContext, Cico.Migrations.Configuration>());
             AreaRegistration.RegisterAllAreas();
             log.Debug("Application Started");

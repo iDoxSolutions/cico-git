@@ -102,7 +102,11 @@ namespace Cico.Controllers
             {
                 if (!staff.ReqireCheckList && !id.HasValue)
                 {
-                    return RedirectToAction("index", "checklists", new { area = "Admin" });
+                    if (!User.IsInRole(SystemRole.UserProxy))
+                    {
+                        return RedirectToAction("index", "checklists", new { area = "Admin" });    
+                    }
+                    
                 }
             }
 
