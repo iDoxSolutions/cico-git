@@ -17,6 +17,7 @@ function Form2() {
 RegisterForm(Form2);
 
 function Form3() {
+
     var self = this;
     ko.utils.extend(self, new OnlineFormBase("Form3"));
 }
