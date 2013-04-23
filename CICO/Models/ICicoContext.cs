@@ -6,6 +6,7 @@ namespace Cico.Models
 {
     public interface ICicoContext
     {
+        IDbSet<Reminder> Reminders { get; set; }
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
         DbEntityEntry Entry(object entity);
         IDbSet<AppFeature> AppFeatures { get; set; }

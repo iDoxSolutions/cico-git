@@ -63,7 +63,7 @@ namespace Cico.Models
 
         public override int SaveChanges()
         {
-            //ChangeTracker.DetectChanges();
+            ChangeTracker.DetectChanges();
 
             var added = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Added).Select(e => e.Entity).OfType<EntityBase>();
             foreach (var entityBase in added)
@@ -76,14 +76,21 @@ namespace Cico.Models
                 }
             }
 
-            var modified = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified).Select(e => e.Entity).OfType<EntityBase>();
-            foreach (var entityBase in modified)
+            var modified = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified);
+            if (modified != null)
             {
-                entityBase.DateEdited = DateTime.Now;
-                
-                if (HttpContext.Current != null)
+                foreach (var entityBase in modified)
                 {
-                    entityBase.UserEdited = HttpContext.Current.User.Identity.Name;
+                    var ent = entityBase.Entity as EntityBase;
+                    if (ent != null)
+                    {
+                        ent.DateEdited = DateTime.Now;
+
+                        if (HttpContext.Current != null)
+                        {
+                            ent.UserEdited = HttpContext.Current.User.Identity.Name;
+                        }
+                    }
                 }
             }
             try

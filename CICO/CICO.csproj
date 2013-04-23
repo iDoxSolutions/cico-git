@@ -187,6 +187,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotesController.cs" />
+    <Compile Include="Controllers\PerformSubscribtionsController.cs" />
     <Compile Include="Controllers\ViewModels\CheckListItemModel.cs" />
     <Compile Include="Controllers\ViewModels\CheckListModel.cs" />
     <Compile Include="Controllers\ViewModels\DependentsFile.cs" />
@@ -249,6 +250,8 @@
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
+    <Compile Include="Models\Subscriptions\RemindersService.cs" />
+    <Compile Include="Models\Subscriptions\SubscriptionsService.cs" />
     <Compile Include="Models\SystemFile.cs" />
     <Compile Include="Models\SystemRole.cs" />
     <Compile Include="Models\Versioning\VersionManager.cs" />

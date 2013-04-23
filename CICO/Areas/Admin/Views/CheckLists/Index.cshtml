@@ -32,6 +32,9 @@
         width: 100px;
         text-align: right;
     }
+    .form-date {
+        width: 100px;
+    }
 </style>
 <form method="GET">
     <fieldset>
@@ -52,9 +55,9 @@
                     </div>
                     @Html.TextBoxFor(c => c.EmployeeeName)
                     <div>
-                        Arrival / Departure Date:
+                        Arrival / Departure Date
                     </div>
-                    @Html.TextBoxFor(c => c.ReceiveDate)</td>
+                    from: @Html.TextBoxFor(c => c.ReceiveDateFrom,new{@class="form-date"}) to: @Html.TextBoxFor(c => c.ReceiveDateTo,new{@class="form-date"})</td>
                 
             </tr>
         </table>
@@ -130,7 +133,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $("#ReceiveDate").datepicker({});
+        $("#ReceiveDateFrom").datepicker({});
+        $("#ReceiveDateTo").datepicker({});
     });
 
 

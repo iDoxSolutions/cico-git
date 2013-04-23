@@ -30,7 +30,8 @@ namespace Cico.Areas.Admin
     {
         public IPagedList<CheckListModel> CheckListModels { get; set; }
         public string EmployeeeName { get; set; }
-        public DateTime? ReceiveDate { get; set; }
+        public DateTime? ReceiveDateFrom { get; set; }
+        public DateTime? ReceiveDateTo { get; set; }
         public int? Page { get; set; }
         [DisplayName("Check In")]
         public bool CheckIn { get; set; }
@@ -57,9 +58,13 @@ namespace Cico.Areas.Admin
             {
                 sessions = sessions.Where(c => c.Employee.FirstName.Contains(model.EmployeeeName) || c.Employee.LastName.Contains(model.EmployeeeName));
             }
-            if (model.ReceiveDate.HasValue)
+            if (model.ReceiveDateFrom.HasValue)
             {
-                sessions = sessions.Where(c => c.ReferenceDate==model.ReceiveDate.Value);
+                sessions = sessions.Where(c => c.ReferenceDate>=model.ReceiveDateFrom.Value);
+            }
+            if (model.ReceiveDateTo.HasValue)
+            {
+                sessions = sessions.Where(c => c.ReferenceDate <= model.ReceiveDateTo.Value);
             }
             if (model.CheckIn)
             {
@@ -78,9 +83,9 @@ namespace Cico.Areas.Admin
                     ReferenceDate = c.ReferenceDate,
                     DateValue = c.DateCreated,
                     Session = c,
-                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked),
+                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked ),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
-                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d=>!d.Checked),
+                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked ),
                     SessionType = c.CheckListTemplate.Type
                 }).ToPagedList(model.Page.Value, 50);
             return View(model);

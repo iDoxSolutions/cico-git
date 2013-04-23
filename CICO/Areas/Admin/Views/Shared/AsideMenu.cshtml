@@ -20,7 +20,7 @@
     
     @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
     {
-        <li>@Html.ActionLink("Forms", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
+        <li>@Html.ActionLink("Forms Library", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
         <li>@Html.ActionLink("Checklists", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
     }
 

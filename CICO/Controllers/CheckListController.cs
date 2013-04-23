@@ -132,6 +132,7 @@ namespace Cico.Controllers
         {
            
             var track = UserSession.GetTrack(itemTemplateId,checklistId);
+            track.DateEdited = DateTime.Now;
             if (docSubmitted == null && track.SubmittedFile==null)
                 throw new ModelStateException("File is Required");
             if (track.SubmittedFile == null)
@@ -208,6 +209,7 @@ namespace Cico.Controllers
         public ActionResult Check(int id, int checklistId)
         {
             var track = UserSession.GetTrack(id,checklistId);
+            track.DateEdited = DateTime.Now;
             track.Checked = true;
             var session = track.CheckListSession;
             if (track.CheckListItemTemplate.CompleteCheckList)

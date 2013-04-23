@@ -210,14 +210,14 @@
                 <div class="float-right" style="width: 47%">
                     <h2>Posting Information</h2>
                     
-                     <div class="editor-label">
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.ArrivalDate)
                     </div>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.ArrivalDate)
                         @Html.ValidationMessageFor(model => model.ArrivalDate)
                     </div>
-                     <div class="editor-label">
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.TourEndDate)
                     </div>
                     <div class="editor-field">
@@ -231,7 +231,7 @@
                         @Html.EditorFor(model => model.Location)
                         @Html.ValidationMessageFor(model => model.Location)
                     </div>
-                   <div class="editor-label">
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.PostOfAssignment)
                     </div>
                     <div class="editor-field">
@@ -245,7 +245,7 @@
                         @Html.EditorFor(model => model.PreArrivalPhone)
                         @Html.ValidationMessageFor(model => model.PreArrivalPhone)
                     </div>
-                     <div class="editor-label">
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.PriorPostCity)
                     </div>
                     <div class="editor-field">
@@ -395,32 +395,33 @@
                     </div>
                     
                     <div class="editor-label">
-                   @Html.LabelFor(model => model.ClearanceLevel)
-               </div>
-                   <div class="editor-field">
-                       @Html.EditorFor(model => model.ClearanceLevel)
-                       @Html.ValidationMessageFor(model => model.ClearanceLevel)
-                   </div>
-               <div class="editor-label">
-                   @Html.LabelFor(model => model.LicensePlate)
-               </div>
-                   <div class="editor-field">
-                       @Html.EditorFor(model => model.LicensePlate)
-                       @Html.ValidationMessageFor(model => model.LicensePlate)
-                   </div>
+                        @Html.LabelFor(model => model.ClearanceLevel)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.ClearanceLevel)
+                        @Html.ValidationMessageFor(model => model.ClearanceLevel)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.LicensePlate)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.LicensePlate)
+                        @Html.ValidationMessageFor(model => model.LicensePlate)
+                    </div>
                   
-               <div class="editor-label">
-                    @Html.LabelFor(model => model.SSN)
-               </div>
-               <div class="editor-field">
-                   @Html.EditorFor(model => model.SSN)
-                   @Html.ValidationMessageFor(model => model.SSN)
-               </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.SSN)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.SSN)
+                        @Html.ValidationMessageFor(model => model.SSN)
+                    </div>
 
                 </div>
+                <input type="submit" value="Save" name="Save"/>
             </div>
     </fieldset>
      @Html.HiddenFor(model => model.Id)
    
-    <input type="submit" value="Save" name="Save"/>
+    
 }
