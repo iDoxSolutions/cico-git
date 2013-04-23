@@ -103,6 +103,13 @@
                     @Html.ValidationMessageFor(model => model.Employee.HomeAddress)
                 </div>
                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Employee.LegalResidenceState)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("States"), "")
+                    @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
+                </div>
+                <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.HomePhone)
                 </div>
                 <div class="editor-field">
@@ -116,13 +123,7 @@
                     @Html.EditorFor(model => model.Employee.HomePhone2)
                     @Html.ValidationMessageFor(model => model.Employee.HomePhone2)
                 </div>
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.LegalResidenceState)
-                </div>
-                <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Employee.LegalResidenceState, Html.GetDropdownItems("States"), "")
-                    @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
-                </div>
+                
                     
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.Office)

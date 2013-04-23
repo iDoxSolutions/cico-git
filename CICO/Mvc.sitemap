@@ -27,12 +27,14 @@
         <mvcSiteMapNode title="Reminder Details" controller="Reminder" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Reminder" controller="Reminder" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
-      <mvcSiteMapNode title="Subscriptions" controller="Subscriptions" action="Index" area="admin"></mvcSiteMapNode>
-      <mvcSiteMapNode title="Forms" controller="DocumentTemplate" action="Index" area="admin">
-        <mvcSiteMapNode title="Edit Forms" controller="DocumentTemplate" action="Edit" area="admin"></mvcSiteMapNode>
-        <mvcSiteMapNode title="Forms Details" controller="DocumentTemplate" action="Details" area="admin"></mvcSiteMapNode>
-        <mvcSiteMapNode title="Delete Forms" controller="DocumentTemplate" action="Delete" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Subscriptions" controller="Subscriptions" action="Index" area="admin">
       </mvcSiteMapNode>
+    <mvcSiteMapNode title="Forms Library" controller="forms" action="Index" area="admin"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Forms" controller="DocumentTemplate" action="Index" area="admin">
+      <mvcSiteMapNode title="Edit Forms" controller="DocumentTemplate" action="Edit" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Forms Details" controller="DocumentTemplate" action="Details" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Delete Forms" controller="DocumentTemplate" action="Delete" area="admin"></mvcSiteMapNode>
+    </mvcSiteMapNode>
       <mvcSiteMapNode title="Staff" controller="Staff" action="Index" area="admin">
         <mvcSiteMapNode title="Edit Staff" controller="Staff" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Staff Details" controller="Staff" action="Details" area="admin"></mvcSiteMapNode>

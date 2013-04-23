@@ -84,6 +84,13 @@
                     @Html.ValidationMessageFor(model => model.Employee.HomeAddress)
                 </div>
                 <div class="homescreen-label">
+                    @Html.LabelFor(model => model.Employee.LegalResidenceState)
+                </div>
+                <div class="homescreen-display">
+                    @Html.DisplayFor(model => model.Employee.LegalResidenceState)
+                    @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
+                </div>
+                <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.HomePhone)
                 </div>
                 <div class="homescreen-display">
@@ -96,13 +103,6 @@
                 <div class="homescreen-display">
                     @Html.DisplayFor(model => model.Employee.HomePhone2)
                     @Html.ValidationMessageFor(model => model.Employee.HomePhone2)
-                </div>
-                <div class="homescreen-label">
-                    @Html.LabelFor(model => model.Employee.LegalResidenceState)
-                </div>
-                <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.LegalResidenceState)
-                    @Html.ValidationMessageFor(model => model.Employee.LegalResidenceState)
                 </div>
                 <div class="homescreen-label">
                     @Html.LabelFor(model => model.Employee.PassportExpiration)
