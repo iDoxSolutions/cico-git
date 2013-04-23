@@ -19,7 +19,7 @@ namespace Cico.Models.Helpers
                     "user_full_name_" + userName);
             if (employee != null)
             {
-                return employee.FirstName + ", " + employee.LastName;
+                return employee.FirstName + " " + employee.LastName;
             }
             else
             {
