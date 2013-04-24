@@ -18,7 +18,7 @@ namespace Cico.Controllers
             service.PerformDaily();
             var reminders = new RemindersService(Db, HttpContext);
             reminders.PerformDaily();
-            return Content("");
+            return Content("OK");
         }
 
     }

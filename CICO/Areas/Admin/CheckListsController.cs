@@ -25,6 +25,14 @@ namespace Cico.Areas.Admin
         public string SessionType
         {
             get; set; }
+
+        public ICollection<CheckListItemSubmitionTrack> Tracks
+        {
+            get; set; }
+
+        public int InProcess
+        {
+            get; set; }
     }
     public class CheckListsModel
     {
@@ -78,6 +86,7 @@ namespace Cico.Areas.Admin
             sessions = sessions.OrderByDescending(c => c.Id);
             model.CheckListModels = sessions.Select(c => new CheckListModel
                 {
+                    Tracks = c.CheckListItemSubmitionTracks,
                     EmployeeName = c.Employee.LastName + ", " + c.Employee.FirstName,
                     Employee = c.Employee,
                     ReferenceDate = c.ReferenceDate,
@@ -85,10 +94,18 @@ namespace Cico.Areas.Admin
                     Session = c,
                     ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked )- c.CheckListItemSubmitionTracks.Count(d=>d.Checked && d.CheckListItemTemplate.Provisional ),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
+                    
                     ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked ),
+
                     SessionType = c.CheckListTemplate.Type
                     
                 }).ToPagedList(model.Page.Value, 50);
+
+            foreach (var item in model.CheckListModels)
+            {
+                item.ItemsChecked = item.Tracks.Count(c => c.Completed && c.Checked) - item.Tracks.Count(c => c.Completed && c.Checked && c.CheckListItemTemplate.Provisional && c.Provisioned);
+                item.InProcess = item.Tracks.Count(c => !c.Completed && c.Checked && c.CheckListItemTemplate.Dependents) ;
+            }
             return View(model);
         }
 
