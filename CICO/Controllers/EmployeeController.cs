@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -30,9 +31,33 @@ namespace Cico.Controllers
             {
                 var emp = Db.Employees.Single(c => c.Id == model.Id);
                 Db.Entry(emp).State = EntityState.Modified;
+                var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == model.Id && c.Active);
+                if (emp.ArrivalDate.HasValue && model.ArrivalDate.HasValue &&
+                    emp.ArrivalDate.Value.Date != model.ArrivalDate.Value.Date)
+                {
+                    if (checklist != null)
+                    {
+                        if (checklist.CheckListTemplate.Type == "CHECKIN")
+                        {
+                            checklist.ReferenceDate = model.ArrivalDate.Value;
+                        }
+                        
+                    }
+                }
+
+                if (emp.TourEndDate.HasValue && model.TourEndDate.HasValue &&
+                    emp.TourEndDate.Value.Date != model.TourEndDate.Value.Date)
+                {
+                    if (checklist.CheckListTemplate.Type == "CHECKOUT")
+                    {
+                        checklist.ReferenceDate = model.TourEndDate.Value;
+                    }
+                }
+
                 CopyValues(model,emp);
+                
                 Db.SaveChanges();
-                var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == emp.Id && c.Active);
+                
                 CacheHelper.RemoveKey<Employee>("user_full_name_" + UserSession.GetUserName()); 
                 return RedirectToAction("index", "home",new {id=checklist.Id,land="false"});
             }

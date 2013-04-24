@@ -28,7 +28,7 @@ namespace Cico.Models.Subscriptions
                 var remindingDate = DateTime.Today.AddDays(reminder.DateToSend);
                 var sessions = from session in _db.CheckListSessions
                 where
-                    session.ReferenceDate == remindingDate &&
+                    SqlFunctions.DateDiff("day", session.ReferenceDate, DateTime.Today) == reminder.DateToSend &&
                     session.CheckListTemplate.Type == reminder.Checklisttype 
 
                     select session;
@@ -58,8 +58,11 @@ namespace Cico.Models.Subscriptions
             sb.Append("<h2>");
             string title = string.Format("CICO application Reminder on {0}", DateTime.Today.ToShortDateString() );
             sb.Append(title);
-            sb.Append(reminder.MessageSubject);
+            
             sb.Append("</h2>");
+            sb.Append("<h3>");
+            sb.Append(reminder.MessageSubject);
+            sb.Append("</h3>");
             sb.Append("<p>");
             sb.Append(reminder.MessagePreface);
             sb.Append("</p>");
@@ -68,7 +71,8 @@ namespace Cico.Models.Subscriptions
             foreach (var checkListItemSubmitionTrack in tracks)
             {
                 sb.Append("<li>");
-                sb.Append(checkListItemSubmitionTrack.CheckListItemTemplate.Description);
+                var link = string.Format("<a href='{0}'>{1}</a>", checkListItemSubmitionTrack.AbsoluteUri(), checkListItemSubmitionTrack.CheckListItemTemplate.Description);
+                sb.Append(link);
                 sb.Append("</li>");
             }
             sb.Append("</ul>");
@@ -79,7 +83,7 @@ namespace Cico.Models.Subscriptions
             sb.Append("</p>");
 
             var smtp = new SmtpClient() { };
-            var message = new MailMessage() { From = new MailAddress("krzysiek@lightkeeper.co") };
+            var message = new MailMessage() { From = new MailAddress("noreply@cico.com") };
             message.To.Add(checkListSession.Employee.PersonalEmail);
             message.Subject = string.Format("CICO Reminder", DateTime.Today.ToShortDateString());
             message.Body = sb.ToString();

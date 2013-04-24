@@ -61,4 +61,14 @@ namespace Cico.Models
         public bool Provisioned { get; set; }
         public virtual IList<DependentFile> DependentFiles { get; set; } 
     }
+
+    public static class CheckListItemSubmitionTrackHelper
+    {
+        public static string AbsoluteUri(this CheckListItemSubmitionTrack arg)
+        {
+            var url = string.Format("?id={0}#checkpoint/{1}", arg.CheckListSession.Id, arg.Id);
+            var uri = new UriBuilder(HttpContext.Current.Request.Url.Scheme, HttpContext.Current.Request.Url.Host, HttpContext.Current.Request.Url.Port, "home", url);
+            return uri.Uri.AbsoluteUri;
+        }
+    }
 }

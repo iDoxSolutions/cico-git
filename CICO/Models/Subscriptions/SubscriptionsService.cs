@@ -88,7 +88,7 @@ namespace Cico.Models.Subscriptions
             var smtp = new SmtpClient() { };
             var addresses = new MailAddressCollection();
 
-            var message = new MailMessage() { From = new MailAddress("krzysiek@lightkeeper.co") };
+            var message = new MailMessage() { From = new MailAddress("noreply@cico.com") };
             
             message.To.Add(staff.Email);
             

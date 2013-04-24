@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web.Mvc;
@@ -37,7 +38,8 @@ namespace Cico.Controllers
 
         public void CopyValues<TSource, TTarget>(TSource source, TTarget target)
         {
-            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead);
+            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead && (p.PropertyType == typeof(int) 
+                || p.PropertyType == typeof(string)|| p.PropertyType==typeof(DateTime)|| p.PropertyType==typeof(DateTime?)));
 
             foreach (var property in sourceProperties)
             {
