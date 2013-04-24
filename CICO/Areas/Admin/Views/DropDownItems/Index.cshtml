@@ -28,8 +28,20 @@
                 @item.ValueType
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {id = item.Id})|@Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})|@Html.ActionLink("Delete", "Delete", new { id=item.Id },new {@class="delete"})
             </td>
         </tr>
     }
 </table>
+
+<script>
+    $(".delete").click(
+        function() {
+            if (confirm("Are you sure?")) {
+                return true;
+            }
+            return false;
+        }
+    );
+    
+</script>

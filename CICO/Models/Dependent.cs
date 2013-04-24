@@ -65,6 +65,12 @@ namespace Cico.Models
         [DisplayName("Emergency Info Same as Primary")]
 
         public bool SameECData { get; set; }
+
+        [DisplayName("School Name")]
+        [StringLength(65)]
+        public string SchoolName { get; set; }
+
+
         [DisplayName("Extension")]
         [StringLength(5)]
         

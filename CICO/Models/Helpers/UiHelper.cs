@@ -26,5 +26,24 @@ namespace Cico.Models.Helpers
                 return "";
             }
         }
+
+
+        public static string GetCurrentName(this HtmlHelper helper)
+        {
+            if (HttpContext.Current.Cache["cached_curr_user"] == null)
+            {
+                return UserFullName(helper);
+            }
+            else
+            {
+                return HttpContext.Current.Cache["cached_curr_user"].ToString();
+            }
+        }
+
+        public static void SetCurrentName(string val)
+        {
+            HttpContext.Current.Cache["cached_curr_user"] = val;
+
+        } 
     }
 }

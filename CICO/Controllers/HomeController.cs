@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
 using Cico.Models.Authentication;
+using Cico.Models.Helpers;
 using Cico.Models.Services;
 
 
@@ -123,7 +124,7 @@ namespace Cico.Controllers
             {
                 session = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
             }
-            
+            UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
             var model = new HomeModel()
                 {
                     Employee = session.Employee,

@@ -1,4 +1,5 @@
-﻿@model Cico.Areas.Admin.StaffModel
+﻿@using Cico.Models
+@model Cico.Areas.Admin.StaffModel
 
 @{
     ViewBag.Title = "Staff Create";
@@ -44,9 +45,27 @@
             @foreach (var role in Model.Roles)
             {
                 
+                switch (role.Value)
+                {
+                    case SystemRole.CheckListEditor:
+                        break;
+
+                    case SystemRole.OfficeAdmin:
                 <li>
-                    <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected?"checked":"")/> @role.Text 
+                    <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected ? "checked" : "")/>
+                    @role.Text
+                    <ul>
+                        <li>
+                            <input name="SelectedRoles" type="checkbox" value="@SystemRole.CheckListEditor" @(Model.Roles.Any(c=>c.Value ==SystemRole.CheckListEditor &&c.Selected ) ? "checked" : "")/>
+                            May Edit checklist
+                        </li>
+                    </ul>
                 </li>
+                        break;
+                    default:
+                @Html.Partial("_line", role)
+                        break;
+                }
             }
         </ul>
         

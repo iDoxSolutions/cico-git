@@ -14,7 +14,7 @@ namespace Cico.Areas.Admin
 
         public ActionResult Index()
         {
-            return View(Db.DropdownItems.ToList());
+            return View(Db.DropdownItems.OrderBy(c=>c.ValueType).ThenBy(c=>c.Key).ToList());
         }
 
         public ActionResult Edit(int id)

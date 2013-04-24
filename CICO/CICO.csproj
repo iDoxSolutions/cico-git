@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201304180946426_SystemRoleDescription.Designer.cs">
       <DependentUpon>201304180946426_SystemRoleDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304241252521_DependentSchoolName.cs" />
+    <Compile Include="Migrations\201304241252521_DependentSchoolName.Designer.cs">
+      <DependentUpon>201304241252521_DependentSchoolName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -744,6 +748,8 @@
     <Content Include="Areas\Admin\Views\DropDownItems\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DropDownItems\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ItemClass\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\_line.cshtml" />
+    <Content Include="Areas\Admin\Views\Staff\_lineof.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

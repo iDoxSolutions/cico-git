@@ -83,10 +83,11 @@ namespace Cico.Areas.Admin
                     ReferenceDate = c.ReferenceDate,
                     DateValue = c.DateCreated,
                     Session = c,
-                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked ),
+                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked )- c.CheckListItemSubmitionTracks.Count(d=>d.Checked && d.CheckListItemTemplate.Provisional ),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
                     ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked ),
                     SessionType = c.CheckListTemplate.Type
+                    
                 }).ToPagedList(model.Page.Value, 50);
             return View(model);
         }
