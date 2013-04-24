@@ -23,24 +23,27 @@
         <mvcSiteMapNode title="Delete Office" controller="Office" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
       <mvcSiteMapNode title="Reminders" controller="Reminder" action="Index" area="admin">
+         <mvcSiteMapNode title="Create Reminder" controller="Reminder" action="Create" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Edit Reminder" controller="Reminder" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Reminder Details" controller="Reminder" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Reminder" controller="Reminder" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
       <mvcSiteMapNode title="Subscriptions" controller="Subscriptions" action="Index" area="admin">
       </mvcSiteMapNode>
-    <mvcSiteMapNode title="Forms Library" controller="forms" action="Index" area="admin"></mvcSiteMapNode>
-    <mvcSiteMapNode title="Forms" controller="DocumentTemplate" action="Index" area="admin">
+    <mvcSiteMapNode title="Forms Library" controller="forms" action="Index" area="admin">
+      <mvcSiteMapNode title="Create Forms" controller="DocumentTemplate" action="Create" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Edit Forms" controller="DocumentTemplate" action="Edit" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Forms Details" controller="DocumentTemplate" action="Details" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Delete Forms" controller="DocumentTemplate" action="Delete" area="admin"></mvcSiteMapNode>
     </mvcSiteMapNode>
       <mvcSiteMapNode title="Staff" controller="Staff" action="Index" area="admin">
+        <mvcSiteMapNode title="Create Staff" controller="Staff" action="Create" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Edit Staff" controller="Staff" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Staff Details" controller="Staff" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Staff" controller="Staff" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
       <mvcSiteMapNode title="DropDowns" controller="DropDownItems" action="Index" area="admin">
+        <mvcSiteMapNode title="Create DropDowns" controller="DropDownItems" action="Create" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Edit DropDowns" controller="DropDownItems" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete DropDowns" controller="DropDownItems" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
