@@ -52,6 +52,7 @@ namespace Cico.Models.Subscriptions
 
         private void SendEmail(Staff staff)
         {
+            log.DebugFormat("{0} sending email to ", staff.Email);
             var sb = new StringBuilder();
             var tracks = from t in _db.Staffs
                              join emailSubscription
