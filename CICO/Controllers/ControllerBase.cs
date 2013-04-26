@@ -13,6 +13,11 @@ namespace Cico.Controllers
         private DbTransaction _transaction;
         protected CicoContext Db { get; set; }
         protected UserSession UserSession { get; set; }
+
+        protected bool DontSave
+        {
+            get; set; }
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             Db = new CicoContext();
@@ -24,7 +29,7 @@ namespace Cico.Controllers
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            if (filterContext.Exception == null)
+            if (filterContext.Exception == null  && !DontSave)
             {
                 Db.SaveChanges();
                 _transaction.Commit();

@@ -215,6 +215,10 @@
     <Compile Include="Migrations\201304250843000_ProxyDescription.Designer.cs">
       <DependentUpon>201304250843000_ProxyDescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304261226498_setversion.cs" />
+    <Compile Include="Migrations\201304261226498_setversion.Designer.cs">
+      <DependentUpon>201304261226498_setversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />

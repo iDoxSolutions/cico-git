@@ -47,6 +47,7 @@ namespace Cico.Controllers
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
+                        NotesEnabled = NotesEnabled(session, checkListItemTemplate),
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
@@ -98,6 +99,29 @@ namespace Cico.Controllers
             }
             return list;
         }
+
+        public bool NotesEnabled(CheckListSession session, CheckListItemTemplate template)
+        {
+            
+            if (!template.NotesAccess)
+            {
+                var staff = UserSession.GetCurrentStaff();
+                if (staff != null && User.IsInRole(SystemRole.OfficeAdmin))
+                {
+                    if (staff.Office.OfficeId != template.Office.OfficeId)
+                    {
+                        return false;
+                    }
+                }
+                // notes = notes.
+            }
+            else
+            {
+                
+            }
+            return true;
+        }
+
 
         private IList<NoteViewModel> GetNotes(CheckListSession session,CheckListItemTemplate template)
         {

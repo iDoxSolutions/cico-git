@@ -94,12 +94,19 @@ namespace Cico.Areas.Admin
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Office Office = Db.Offices.Find(id);
-            Db.Offices.Remove(Office);
-            Db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                Office Office = Db.Offices.Find(id);
+                Db.Offices.Remove(Office);
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("","You cant delete office it's assigned");
+                DontSave = true;
+                return  View();
+            }
         }
-
-        
     }
 }
