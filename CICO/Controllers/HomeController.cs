@@ -143,6 +143,7 @@ namespace Cico.Controllers
                     }
                 }
             }
+            canEditEmployee = true;
             UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
             var model = new HomeModel()
                 {
@@ -169,6 +170,10 @@ namespace Cico.Controllers
         [HttpPost, ActionName("DeleteDependents")]
         public ActionResult DeleteDependentConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
+            if (!SecurityGuard.CanEditDependent(dependent, ModelState))
+            {
+                return View();
+            }
             var files = dependent.DependentFiles.ToList();
             foreach (var dependentFile in files)
             {

@@ -42,6 +42,8 @@ namespace Cico.Controllers
         [HttpPost]
         public ActionResult Create(DepententModel model)
         {
+            var employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
+            SecurityGuard.CanEditEmployee(employee, ModelState);
             if (ModelState.IsValid)
             {
                 model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
@@ -51,7 +53,7 @@ namespace Cico.Controllers
             }
             else
             {
-                return View();
+                return View(model);
             }
 
         }
@@ -92,9 +94,11 @@ namespace Cico.Controllers
         }
         [HttpPost]
         public ActionResult Edit(DepententModel model) {
+            var dependent = Db.Dependents.Single(c => c.Id == model.Dependent.Id);
+            SecurityGuard.CanEditDependent(dependent, ModelState);
             if (ModelState.IsValid)
             {
-                var dependent = Db.Dependents.Single(c => c.Id == model.Dependent.Id);
+                
                 CopyValues(model.Dependent,dependent);
                 Db.Entry(dependent).State = EntityState.Modified;
                 Db.SaveChanges();
@@ -103,7 +107,7 @@ namespace Cico.Controllers
             }
             else
             {
-                return View();
+                return View(model);
             }
         }
 
@@ -119,7 +123,12 @@ namespace Cico.Controllers
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id) {
+            
             var dependent = Db.Dependents.Find(id);
+            if (!SecurityGuard.CanEditDependent(dependent, ModelState))
+            {
+                return View();
+            }
             Db.Dependents.Remove(dependent);
             Db.SaveChanges();
             return RedirectToAction("Index");

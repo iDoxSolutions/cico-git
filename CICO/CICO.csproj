@@ -228,6 +228,7 @@
     <Compile Include="Models\Authentication\AuthHelper.cs" />
     <Compile Include="Models\Authentication\CicoRoleProvider.cs" />
     <Compile Include="Models\Authentication\InitModel.cs" />
+    <Compile Include="Models\Authentication\SecurityGuard.cs" />
     <Compile Include="Models\Authentication\UserSession.cs" />
     <Compile Include="Models\CheckListItemSubmitionTrack.cs" />
     <Compile Include="Models\CheckListItemType.cs" />

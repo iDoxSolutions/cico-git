@@ -13,7 +13,7 @@ namespace Cico.Controllers
         private DbTransaction _transaction;
         protected CicoContext Db { get; set; }
         protected UserSession UserSession { get; set; }
-
+        protected SecurityGuard SecurityGuard { get; set; }
         protected bool DontSave
         {
             get; set; }
@@ -24,6 +24,7 @@ namespace Cico.Controllers
             ((IObjectContextAdapter)Db).ObjectContext.Connection.Open();
             _transaction = ((IObjectContextAdapter)Db).ObjectContext.Connection.BeginTransaction();
             UserSession = new UserSession(Db,this.HttpContext);
+            SecurityGuard = new SecurityGuard(Db,HttpContext);
             base.OnActionExecuting(filterContext);
         }
 

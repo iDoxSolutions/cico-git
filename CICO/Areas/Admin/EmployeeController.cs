@@ -162,9 +162,11 @@ namespace Cico.Areas.Admin
         [HttpPost]
         public ActionResult Edit(EmployeeModel model)
         {
+            var employeee = Db.Employees.Single(c=>c.Id ==  model.Employee.Id);
+            SecurityGuard.CanEditEmployee(employeee, ModelState);
             if (ModelState.IsValid)
             {
-                var employeee = Db.Employees.Single(c=>c.Id ==  model.Employee.Id);
+                
                 CopyValues(model.Employee,employeee);
                 if (!string.IsNullOrEmpty(model.SelectedProxy))
                 {
