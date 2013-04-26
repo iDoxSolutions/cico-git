@@ -36,6 +36,9 @@ namespace Cico.Controllers
             return View(new DepententModel(){Dependent = new Dependent(){Employee = employee},EmployeeId = employee.Id});
         }
 
+
+       
+
         [HttpPost]
         public ActionResult Create(DepententModel model)
         {
@@ -66,7 +69,27 @@ namespace Cico.Controllers
             
             return View(model);
         }
+        public void Validate(DepententModel employee)
+        {
+            try
+            {
+                var session = UserSession.GetCurrent();
+                
+            }
+            catch (Exception e)
+            {
+                var staff = UserSession.GetCurrentStaff();
+                if (staff == null)
+                {
+                    ModelState.AddModelError("","Permission denied");   
+                }
+                if (UserSession.IsOfficeAdmin && staff.Office.Name != "HR")
+                {
+                    ModelState.AddModelError("", "Permission denied");   
+                }
+            }
 
+        }
         [HttpPost]
         public ActionResult Edit(DepententModel model) {
             if (ModelState.IsValid)

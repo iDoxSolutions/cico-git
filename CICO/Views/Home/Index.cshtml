@@ -108,7 +108,10 @@
 
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                        <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                        @if (Model.CanEditEmployee)
+                        {
+                            <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                        }
                         <div style="clear: both"></div>
                     </div>
                     @Html.Partial("EmployeeForm", Model)
@@ -118,7 +121,10 @@
             <div id="mydependents">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                        <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
+                        @if (Model.CanEditEmployee)
+                        {
+                            <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
+                        }
                         <div style="clear: both"></div>
                     </div>
                 </div>

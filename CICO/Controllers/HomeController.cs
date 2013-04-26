@@ -39,6 +39,7 @@ namespace Cico.Controllers
 
     public class HomeModel
     {
+        public bool CanEditEmployee { get; set; }
         public Employee Employee { get; set; }
         public IList<Dependent> Dependents { get; set; }
         public bool HasProxied { get; set; }
@@ -116,13 +117,31 @@ namespace Cico.Controllers
                 return RedirectToAction("initialize");
             }
             CheckListSession session = null;
+            bool canEditEmployee = false;
             if (!id.HasValue)
             {
                 session = UserSession.GetCurrent();
+                canEditEmployee = true;
             }
             else
             {
                 session = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
+                if ((staff != null && UserSession.IsOfficeAdmin))
+                {
+                    if (staff.Office.Name == "HR" || User.IsInRole(SystemRole.GlobalAdmin))
+                    {
+                        canEditEmployee = true;
+                        ViewData["canEditEmployee"] = true;
+                    }
+                }
+                else
+                {
+                    if (User.IsInRole(SystemRole.GlobalAdmin))
+                    {
+                        canEditEmployee = true;
+                        ViewData["canEditEmployee"] = true;
+                    }
+                }
             }
             UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
             var model = new HomeModel()
@@ -130,7 +149,8 @@ namespace Cico.Controllers
                     Employee = session.Employee,
                     CheckListId = id,
                     CheckListName = session.CheckListTemplate.Name,
-                    Tab = tab
+                    Tab = tab,
+                    CanEditEmployee = canEditEmployee
                 };
             model.Load(Db);
             ViewBag.Message = "Please enter information";

@@ -29,10 +29,12 @@
                 <td>
                     @dep.Relationship
                 </td>
-            <td>
-                @Html.ActionLink("Edit","Edit","Dependent",new{id=dep.Id},null)
-                @Html.ActionLink("Delete", "DeleteDependents",  new {id=dep.Id.ToString()})
-            </td>
+                <td>
+                   
+                        @Html.ActionLink("Edit", "Edit", "Dependent", new {id = dep.Id}, null)
+                        @Html.ActionLink("Delete", "DeleteDependents", new {id = dep.Id.ToString()})
+                   
+                </td>
         </tr>
     }
 </table>
