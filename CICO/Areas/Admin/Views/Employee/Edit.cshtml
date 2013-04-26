@@ -232,18 +232,20 @@
                 @Html.EditorFor(model => model.Employee.SSN)
                 @Html.ValidationMessageFor(model => model.Employee.SSN)
             </div>
-            <div class="editor-label">
-                <label>Proxy</label>
+           
+
+            <input type="submit" value="Save" name="Save" />
+        </div>
+        <div class="float-right" style="width: 47%">
+            
+             <div class="editor-label">
+                <label>Proxy Person</label>
                 
             </div>
             <div class="editor-field">
                 @Html.DropDownListFor(model => model.SelectedProxy,Model.Proxies,"")
                 @Html.ValidationMessageFor(model => model.SelectedProxy)
             </div>
-
-            <input type="submit" value="Save" name="Save" />
-        </div>
-        <div class="float-right" style="width: 47%">
             <h2>Posting Information</h2>
             <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.ArrivalDate)
@@ -424,7 +426,7 @@
                 @Html.EditorFor(model => model.Employee.Extension)
                 @Html.ValidationMessageFor(model => model.Employee.Extension)
             </div>
-             <div class="editor-label">
+            <div class="editor-label">
                 @Html.LabelFor(model => model.Employee.ResidentialSafeWord)
             </div>
             <div class="editor-field">

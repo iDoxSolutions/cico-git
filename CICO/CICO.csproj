@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201304241252521_DependentSchoolName.Designer.cs">
       <DependentUpon>201304241252521_DependentSchoolName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201304250843000_ProxyDescription.cs" />
+    <Compile Include="Migrations\201304250843000_ProxyDescription.Designer.cs">
+      <DependentUpon>201304250843000_ProxyDescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />

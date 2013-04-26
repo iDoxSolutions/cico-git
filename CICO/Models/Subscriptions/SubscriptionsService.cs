@@ -28,7 +28,7 @@ namespace Cico.Models.Subscriptions
 
         public void PerformDaily()
         {
-            log.Debug("Performing subscriptions");
+            log.Debug("Performing subscriptions - all users that subscribed elements and there's any modification today");
             var usersToSend = from t in _db.Staffs
                               join emailSubscription
                                   in _db.EmailSubscriptions on t.UserId equals emailSubscription.Staff.UserId
@@ -39,8 +39,6 @@ namespace Cico.Models.Subscriptions
                                   checkListItemTemplate.CheckListItemTemplateId equals
                                   checkListItemSubmitionTrack.CheckListItemTemplate.CheckListItemTemplateId
                               where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value, DateTime.Today) == 0 && checkListItemSubmitionTrack.Checked
-            
-
                               select t;
             log.DebugFormat("{0} staff users to be emailed",usersToSend.Count());
             foreach (var staff in usersToSend)

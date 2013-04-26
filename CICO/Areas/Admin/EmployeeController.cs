@@ -60,7 +60,7 @@ namespace Cico.Areas.Admin
             if (User.IsInRole(SystemRole.OfficeAdmin))
             {
                 var staff = UserSession.GetCurrentStaff();
-                if (staff.Office.Name == "HR")
+                if (staff.Office.Name == "HU")
                 {
                     edit = true;
                 }

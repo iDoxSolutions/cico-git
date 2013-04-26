@@ -38,7 +38,7 @@ namespace Cico.Models.Subscriptions
                 foreach (var checkListSession in sessions)
                 {
                     var tracks = from track in _db.CheckListItemSubmitionTracks.ToList()
-                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate>=DateTime.Today
+                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate>=DateTime.Today && !track.Checked
                                  select track;
                     if (tracks.Any())
                     {

@@ -149,6 +149,11 @@ namespace Cico.Controllers
         [HttpPost, ActionName("DeleteDependents")]
         public ActionResult DeleteDependentConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
+            var files = dependent.DependentFiles.ToList();
+            foreach (var dependentFile in files)
+            {
+                Db.DependentFiles.Remove(dependentFile);
+            }
             Db.Dependents.Remove(dependent);
             Db.SaveChanges();
             return RedirectToAction("Index");
