@@ -36,6 +36,8 @@ namespace Cico.Areas.Admin
         [HttpPost]
         public ActionResult Create(DepententModel model)
         {
+            var dep = Db.Employees.Find(model.EmployeeId);
+            SecurityGuard.CanEditEmployee(dep, ModelState);
             if (ModelState.IsValid)
             {
                 model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
@@ -45,7 +47,7 @@ namespace Cico.Areas.Admin
             }
             else
             {
-                return View();
+                return View(model);
             }
 
         }
@@ -58,18 +60,23 @@ namespace Cico.Areas.Admin
         }
 
         [HttpPost]
-        public ActionResult Edit(DepententModel model) {
+        public ActionResult Edit(DepententModel model)
+        {
+
+            var dep = Db.Dependents.Find(model.Dependent.Id);
+            SecurityGuard.CanEditDependent(dep, ModelState);
             if (ModelState.IsValid)
             {
+                CopyValues(model.Dependent,dep);
                 //model.Dependent.Employee = UserSession.GetCurrent().Employee;
-                Db.Entry(model.Dependent).State = EntityState.Modified;
+               // Db.Entry(model.Dependent).State = EntityState.Modified;
                 Db.SaveChanges();
                 return RedirectToAction("index", new { employeeId = model.EmployeeId });
                 //return RedirectToAction("index", "home",new {land="false"});
             }
             else
             {
-                return View();
+                return View(model);
             }
         }
 
@@ -86,10 +93,14 @@ namespace Cico.Areas.Admin
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
-            
+            if (!SecurityGuard.CanEditDependent(dependent, ModelState))
+            {
+                return View();
+            }
+            var empId = dependent.Employee.Id;
             Db.Dependents.Remove(dependent);
             Db.SaveChanges();
-            return RedirectToAction("Index",new {employeeId=dependent.Employee.Id});
+            return RedirectToAction("Index",new {employeeId=empId});
         }
 
 

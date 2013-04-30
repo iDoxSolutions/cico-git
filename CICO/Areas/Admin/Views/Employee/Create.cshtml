@@ -1,11 +1,11 @@
 ﻿@using Cico.Models.Helpers
 @model Cico.Areas.Admin.EmployeeModel
-
 @{
     ViewBag.Title = "Create";
 }
 
-  <div class="homescreen-instructions"><label>Please update your information. Select "Save" to save your changes</label></div>
+<div class="homescreen-instructions">
+    <label>Please update your information. Select "Save" to save your changes</label></div>
 
 
 <div>
@@ -15,18 +15,19 @@
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
-@using (Html.BeginForm()) {
-    <fieldset class="two-column-form" style="width:80%">
+@using (Html.BeginForm())
+{
+    <fieldset class="two-column-form" style="width: 80%">
         <p>
-         <input type="submit" value="Save" name="Save" />
+            <input type="submit" value="Save" name="Save" />
         </p>
         <legend>Employee</legend>
-            
+
         @Html.ValidationSummary()
         <div>
-            <div class="float-left" style="width: 47%" >
+            <div class="float-left" style="width: 47%">
                 <h2>Personal Data</h2>
-                    
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.FirstName)
                 </div>
@@ -34,9 +35,9 @@
                     @Html.EditorFor(model => model.Employee.FirstName)
                     @Html.ValidationMessageFor(model => model.Employee.FirstName)
                 </div>
-                
-                
-                 <div class="editor-label">
+
+
+                <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.MiddleInitial)
                 </div>
                 <div class="editor-field">
@@ -58,7 +59,7 @@
                     @Html.EditorFor(model => model.Employee.EmployeeId)
                     @Html.ValidationMessageFor(model => model.Employee.EmployeeId)
                 </div>
-                 <div class="editor-label">
+                <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.UserId)
                 </div>
                 <div class="editor-field">
@@ -94,7 +95,7 @@
                     @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetDropdownItems("Nations"), "")
                     @Html.ValidationMessageFor(model => model.Employee.Nationality)
                 </div>
-                     
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.HomeAddress)
                 </div>
@@ -123,8 +124,8 @@
                     @Html.EditorFor(model => model.Employee.HomePhone2)
                     @Html.ValidationMessageFor(model => model.Employee.HomePhone2)
                 </div>
-                
-                    
+
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.Office)
                 </div>
@@ -168,7 +169,7 @@
                     @Html.DropDownListFor(model => model.Employee.PassportType, Html.GetDropdownItems("PassportType"), "")
                     @Html.ValidationMessageFor(model => model.Employee.PassportType)
                 </div>
-                    
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.PositionTitle)
                 </div>
@@ -176,8 +177,8 @@
                     @Html.EditorFor(model => model.Employee.PositionTitle)
                     @Html.ValidationMessageFor(model => model.Employee.PositionTitle)
                 </div>
-                    
-                    
+
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.PreferredName)
                 </div>
@@ -185,7 +186,7 @@
                     @Html.EditorFor(model => model.Employee.PreferredName)
                     @Html.ValidationMessageFor(model => model.Employee.PreferredName)
                 </div>
-                   
+
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.RoutingNumber)
@@ -194,20 +195,23 @@
                     @Html.EditorFor(model => model.Employee.RoutingNumber)
                     @Html.ValidationMessageFor(model => model.Employee.RoutingNumber)
                 </div>
-                <div class="editor-label">
-                 <label>Proxy</label>
-            </div>
-            <div class="editor-field">
-                @Html.DropDownListFor(model => model.SelectedProxy,Model.Proxies,"")
-                @Html.ValidationMessageFor(model => model.SelectedProxy)
-            </div>
 
-                    
+
+
             </div>
             <div class="float-right" style="width: 47%">
+
+                <div class="editor-label">
+                    <label>Proxy Person</label>
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownListFor(model => model.SelectedProxy, Model.Proxies, "")
+                    @Html.ValidationMessageFor(model => model.SelectedProxy)
+                </div>
+
                 <h2>Posting Information</h2>
-                    
-               
+
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.ArrivalDate)
                 </div>
@@ -215,7 +219,7 @@
                     @Html.EditorFor(model => model.Employee.ArrivalDate)
                     @Html.ValidationMessageFor(model => model.Employee.ArrivalDate)
                 </div>
-                 <div class="editor-label">
+                <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.TourEndDate)
                 </div>
                 <div class="editor-field">
@@ -262,10 +266,10 @@
                     @Html.LabelFor(model => model.Employee.PriorPostState)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model =>model.Employee.PriorPostState)
+                    @Html.EditorFor(model => model.Employee.PriorPostState)
                     @Html.ValidationMessageFor(model => model.Employee.PriorPostState)
                 </div>
-                   
+
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.VisaExpiration)
@@ -282,7 +286,7 @@
                     @Html.EditorFor(model => model.Employee.VisaNumber)
                     @Html.ValidationMessageFor(model => model.Employee.VisaNumber)
                 </div>
- 
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.WorkEmail)
                 </div>
@@ -299,7 +303,7 @@
                     @Html.ValidationMessageFor(model => model.Employee.AgencyOrSection)
                 </div>
 
-                   
+
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.BankAccount)
@@ -317,7 +321,7 @@
                     @Html.ValidationMessageFor(model => model.Employee.CellPhone)
                 </div>
 
-                   
+
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.DiplomaticTitle)
                 </div>
@@ -382,7 +386,7 @@
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactLastName)
                 </div>
 
-                   
+
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.Extension)
@@ -392,12 +396,12 @@
                     @Html.ValidationMessageFor(model => model.Employee.Extension)
                 </div>
                 <p>
-                  <input type="submit" value="Create" />
-               </p>
+                    <input type="submit" value="Create" />
+                </p>
             </div>
         </div>
-        
-        
+
+
     </fieldset>
     //@Html.HiddenFor(model => model.Employee.Id)
 }

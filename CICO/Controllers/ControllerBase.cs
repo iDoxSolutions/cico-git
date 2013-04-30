@@ -13,18 +13,24 @@ namespace Cico.Controllers
         private DbTransaction _transaction;
         protected CicoContext Db { get; set; }
         protected UserSession UserSession { get; set; }
+        protected SecurityGuard SecurityGuard { get; set; }
+        protected bool DontSave
+        {
+            get; set; }
+
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             Db = new CicoContext();
             ((IObjectContextAdapter)Db).ObjectContext.Connection.Open();
             _transaction = ((IObjectContextAdapter)Db).ObjectContext.Connection.BeginTransaction();
             UserSession = new UserSession(Db,this.HttpContext);
+            SecurityGuard = new SecurityGuard(Db,HttpContext);
             base.OnActionExecuting(filterContext);
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            if (filterContext.Exception == null)
+            if (filterContext.Exception == null  && !DontSave)
             {
                 Db.SaveChanges();
                 _transaction.Commit();

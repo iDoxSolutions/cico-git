@@ -23,8 +23,10 @@ namespace Cico.Models.Subscriptions
 
         public void PerformDaily()
         {
+            log.Debug("Performing reminders");
             foreach (var reminder in _db.Reminders)
             {
+                log.DebugFormat("Performing reminder {0}",reminder.MessageSubject);
                 var remindingDate = DateTime.Today.AddDays(reminder.DateToSend);
                 var sessions = from session in _db.CheckListSessions
                 where
@@ -32,10 +34,11 @@ namespace Cico.Models.Subscriptions
                     session.CheckListTemplate.Type == reminder.Checklisttype 
 
                     select session;
+                log.DebugFormat("{0} Sessions found", sessions.Count());
                 foreach (var checkListSession in sessions)
                 {
                     var tracks = from track in _db.CheckListItemSubmitionTracks.ToList()
-                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate>=DateTime.Today
+                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate>=DateTime.Today && !track.Checked
                                  select track;
                     if (tracks.Any())
                     {

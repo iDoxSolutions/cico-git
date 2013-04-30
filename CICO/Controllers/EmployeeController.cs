@@ -25,8 +25,15 @@ namespace Cico.Controllers
             var employee = Db.Employees.Find(id);
             return View(employee);
         }
+
+        public void SecurityValidation()
+        {
+            
+        }
         [HttpPost]
         public ActionResult Edit(Employee model) {
+            var employeee = Db.Employees.Single(c => c.Id == model.Id);
+            SecurityGuard.CanEditEmployee(employeee, ModelState);
             if (ModelState.IsValid)
             {
                 var emp = Db.Employees.Single(c => c.Id == model.Id);

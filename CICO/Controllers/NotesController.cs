@@ -19,6 +19,7 @@ namespace Cico.Controllers
         public string DateCreated { get; set; }
         public string UserCreated { get; set; }
         public bool Deletable { get; set; }
+        public int checklistId { get; set; }
     }
     public class NotesController : ControllerBase
     {
@@ -35,7 +36,7 @@ namespace Cico.Controllers
         [ValidateInput(false)]
         public ActionResult Create(NoteViewModel model)
         {
-            var track = UserSession.GetTrack(model.TemplateItemId);
+            var track = UserSession.GetTrack(model.TemplateItemId,model.checklistId);
             var note = new Note() {CheckListItemSubmitionTrack = track,Content = model.Content};
             Db.Notes.Add(note);
             Db.SaveChanges();

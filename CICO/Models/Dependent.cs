@@ -97,6 +97,6 @@ namespace Cico.Models
         public string EmergencyContactPhone2 { get; set; }
         public string EmergencyContactOfficePhone { get; set; }
         public virtual Employee Employee { get; set; }
-        public IList<DependentFile> DependentFiles { get; set; }
+        public virtual IList<DependentFile> DependentFiles { get; set; }
     }
 }

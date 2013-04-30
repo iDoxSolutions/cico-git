@@ -130,6 +130,7 @@ namespace Cico.Areas.Admin
         public ActionResult DeleteConfirmed(int id)
         {
             DocumentTemplate DocumentTemplate = Db.DocumentTemplates.Find(id);
+            DocumentTemplate.SystemFile.FileType = "";
             Db.DocumentTemplates.Remove(DocumentTemplate);
             Db.SaveChanges();
             return RedirectToAction("Index");

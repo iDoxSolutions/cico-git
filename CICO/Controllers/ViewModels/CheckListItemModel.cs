@@ -33,5 +33,7 @@ namespace Cico.Controllers.ViewModels
         public IList<DependentsFile> DependentsFiles{ get; set; }
 
         public string CustomFormUrl{get; set; }
+
+        public bool NotesEnabled{get; set; }
     }
 }
