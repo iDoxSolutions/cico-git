@@ -27,6 +27,9 @@
     .admin-table .to-complete {
         color: red;
     }
+     .admin-table .not-complete {
+        color: orange;
+    }
 
     .admin-table .link-column {
         width: 100px;
@@ -76,7 +79,7 @@
         <th class="numeric">Prov</th>
         <th class="numeric">In process</th>
         <th class="numeric">Not Started</th>
-        
+       
         <th>CI / CO</th>
         <th class="link-column">Employee Details</th>
         <th class="link-column">Show Checklist</th>
@@ -90,9 +93,9 @@
             <td>@c.ReferenceDate.ToShortDateString()</td>
             <td class="numeric complete">@c.ItemsChecked</td>
             <td class="numeric provisional" data-id="@c.Session.Id" data-item-type="provisional"><a href="/admin/checklists/Show?id=@c.Session.Id">@c.ItemsProvision</a></td>
-            <td class="numeric to-complete">@c.InProcess</td>
+            <td class="numeric not-complete">@c.InProcess</td>
             <td class="numeric to-complete">@c.ItemsLeft</td>
-            
+
             <td >@c.SessionType</td>
             <td class="link-column">@Html.ActionLink("Details", "details", "employee", new { id = c.Employee.Id, area = "Admin" }, null)</td>
             <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "",land="false" }, null)</td>
