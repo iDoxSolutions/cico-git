@@ -25,7 +25,7 @@ RegisterForm(Form3);
 
 function OnlineFormModel(item) {
     var self = this;
-    self.CustomFormUrl = item.item.CustomFormUrl;
+    self.CustomFormUrl = item.item.CustomFormUrl + "?id=" + item.item.TrackId;
     self.Description = item.item.Description;
     self.physicalActivity = ko.observable(new PhysicalActivityModel(item));
     self.templateName = "OnlineForm";

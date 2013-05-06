@@ -224,11 +224,20 @@ namespace Cico.Areas.Admin
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            Employee employee = Db.Employees.Find(id);
-            Db.Employees.Remove(employee);
-            Db.SaveChanges();
-            return RedirectToAction("Index");
+        {
+            try
+            {
+                Employee employee = Db.Employees.Find(id);
+                Db.Employees.Remove(employee);
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                DontSave = true;
+                ModelState.AddModelError("", "You can't delete employee it's assigned");
+                return View();
+            }
         }
 
         

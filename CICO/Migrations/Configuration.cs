@@ -16,7 +16,7 @@ namespace Cico.Migrations
         protected override void Seed(Cico.Models.CicoContext context)
         {
             var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
-            version.Value = "1.1.6";
+            version.Value = "1.1.7";
             context.SaveChanges();
             //  This method will be called after migrating to the latest version.
 

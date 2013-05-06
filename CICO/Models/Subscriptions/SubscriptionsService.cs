@@ -14,6 +14,19 @@ namespace Cico.Models.Subscriptions
         void PerformDaily();
     }
 
+    public class CompareStaff:IEqualityComparer<Staff>
+    {
+        public bool Equals(Staff x, Staff y)
+        {
+            return x.UserId == y.UserId;
+        }
+
+        public int GetHashCode(Staff obj)
+        {
+           return obj.UserId.GetHashCode();
+        }
+    }
+
     public class SubscriptionsService : IDailyExecute
     {
         private readonly ICicoContext _db;
@@ -29,7 +42,7 @@ namespace Cico.Models.Subscriptions
         public void PerformDaily()
         {
             log.Debug("Performing subscriptions - all users that subscribed elements and there's any modification today");
-            var usersToSend = from t in _db.Staffs
+            var usersToSend = (from t in _db.Staffs
                               join emailSubscription
                                   in _db.EmailSubscriptions on t.UserId equals emailSubscription.Staff.UserId
                               join checkListItemTemplate in _db.CheckListItemTemplates on
@@ -39,9 +52,9 @@ namespace Cico.Models.Subscriptions
                                   checkListItemTemplate.CheckListItemTemplateId equals
                                   checkListItemSubmitionTrack.CheckListItemTemplate.CheckListItemTemplateId
                               where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value, DateTime.Today) == 0 && checkListItemSubmitionTrack.Checked
-                              select t;
+                              select t ).ToList();
             log.DebugFormat("{0} staff users to be emailed",usersToSend.Count());
-            foreach (var staff in usersToSend)
+            foreach (var staff in usersToSend.Distinct(new CompareStaff()))
             {
                 SendEmail(staff);
             }
