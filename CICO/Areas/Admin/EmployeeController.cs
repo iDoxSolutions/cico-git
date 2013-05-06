@@ -166,7 +166,29 @@ namespace Cico.Areas.Admin
             SecurityGuard.CanEditEmployee(employeee, ModelState);
             if (ModelState.IsValid)
             {
-                
+                var checklist = Db.CheckListSessions.Include("CheckListTemplate").FirstOrDefault(c => c.Employee.Id == model.Employee.Id && c.Active);
+                if (employeee.ArrivalDate.HasValue && model.Employee.ArrivalDate.HasValue &&
+                    employeee.ArrivalDate.Value.Date != model.Employee.ArrivalDate.Value.Date)
+                {
+                    if (checklist != null)
+                    {
+                        if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKIN")
+                        {
+                            checklist.ReferenceDate = model.Employee.ArrivalDate.Value;
+                        }
+
+                    }
+                }
+
+                if (employeee.TourEndDate.HasValue && model.Employee.TourEndDate.HasValue &&
+                    employeee.TourEndDate.Value.Date != model.Employee.TourEndDate.Value.Date)
+                {
+                    if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKOUT")
+                    {
+                        checklist.ReferenceDate = model.Employee.TourEndDate.Value;
+                    }
+                }
+
                 CopyValues(model.Employee,employeee);
                 if (!string.IsNullOrEmpty(model.SelectedProxy))
                 {

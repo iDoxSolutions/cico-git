@@ -62,6 +62,13 @@ namespace Cico.Models.Authentication
                 employee = new Employee() { UserId = uname, FirstName = initmodel.FirstName, LastName = initmodel.LastName, PersonalEmail = initmodel.EmailAddress, EmployeeId = initmodel.EmployeeId, ArrivalDate = initmodel.ArrivalDate };
                 _db.Employees.Add(employee);
             }
+            else
+            {
+                employee.ArrivalDate = initmodel.ArrivalDate;
+                employee.FirstName = initmodel.FirstName;
+                employee.LastName = initmodel.LastName;
+                employee.PersonalEmail = initmodel.EmailAddress;
+            }
             return InitCheckListSession(employee,template ,initmodel);
         }
 
