@@ -48,6 +48,7 @@ namespace Cico.Controllers
                 model.CheckListItems.Add(new CheckListItemModel
                     {
                         NotesEnabled = NotesEnabled(session, checkListItemTemplate),
+                        ViewOnlyNotes = ViewNotes(session, checkListItemTemplate),
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
@@ -98,6 +99,23 @@ namespace Cico.Controllers
                 list.Add(file);
             }
             return list;
+        }
+
+
+        public bool ViewNotes(CheckListSession session, CheckListItemTemplate template)
+        {
+            if (template.NotesAccess)
+            {
+                var staff = UserSession.GetCurrentStaff();
+                if (staff != null && User.IsInRole(SystemRole.OfficeAdmin))
+                {
+                    if (staff.Office.OfficeId != template.Office.OfficeId)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public bool NotesEnabled(CheckListSession session, CheckListItemTemplate template)
