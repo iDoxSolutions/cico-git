@@ -26,6 +26,7 @@ namespace Cico.Areas.Admin
                emps= emps.Where(s => s.FirstName.ToUpper().Contains(SearchString.ToUpper())
                                        || s.LastName.ToUpper().Contains(SearchString.ToUpper()));
             }
+            emps = emps.Where(c => c.Active);
             emps=emps.OrderByDescending(c => c.ArrivalDate);
             
             Employees = emps.ToPagedList(Page.Value, 50);
@@ -228,7 +229,8 @@ namespace Cico.Areas.Admin
             try
             {
                 Employee employee = Db.Employees.Find(id);
-                Db.Employees.Remove(employee);
+               // Db.Employees.Remove(employee);
+                employee.Active = false;
                 Db.SaveChanges();
                 return RedirectToAction("Index");
             }

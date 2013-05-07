@@ -56,7 +56,7 @@ namespace Cico.Models.Authentication
         {
             var uname = _httpContext.User.Identity.Name;
             var template = GetCurrentTemplate();
-            var employee = initmodel.EmpId.HasValue ? _db.Employees.FirstOrDefault(c => c.Id == initmodel.EmpId) : _db.Employees.FirstOrDefault(c => c.UserId == uname);
+            var employee = initmodel.EmpId.HasValue ? _db.Employees.FirstOrDefault(c => c.Id == initmodel.EmpId) : _db.Employees.FirstOrDefault(c => c.UserId == uname && c.Active);
             if (employee == null)
             {
                 employee = new Employee() { UserId = uname, FirstName = initmodel.FirstName, LastName = initmodel.LastName, PersonalEmail = initmodel.EmailAddress, EmployeeId = initmodel.EmployeeId, ArrivalDate = initmodel.ArrivalDate };
