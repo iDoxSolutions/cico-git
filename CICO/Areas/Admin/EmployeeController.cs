@@ -231,6 +231,10 @@ namespace Cico.Areas.Admin
                 Employee employee = Db.Employees.Find(id);
                // Db.Employees.Remove(employee);
                 employee.Active = false;
+                foreach (var checkListSession in employee.CheckListSessions)
+                {
+                    checkListSession.Active = false;
+                }
                 Db.SaveChanges();
                 return RedirectToAction("Index");
             }
