@@ -10,6 +10,7 @@ using System.Web.Routing;
 using System.Data.Entity;
 using Cico.Models;
 using Cico.Models.SharePoint;
+using Cico.Models.Utils;
 using log4net;
 using log4net.Appender;
 using log4net.Repository.Hierarchy;
@@ -52,6 +53,13 @@ namespace Cico
             log.Debug("Application Started");
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            InstallGac();
+        }
+
+        private void InstallGac()
+        {
+           // new System.EnterpriseServices.Internal.Publish().GacInstall("CICO.dll");
+            //AssemblyCache.InstallAssembly(Server.MapPath("/bin/cico.dll"),null,0);
         }
 
 

@@ -21,16 +21,16 @@ namespace Cico.Models.Subscriptions
         }
 
 
-        public void PerformDaily()
+        public void PerformDaily(DateTime refDate)
         {
             log.Debug("Performing reminders");
             foreach (var reminder in _db.Reminders)
             {
                 log.DebugFormat("Performing reminder {0}",reminder.MessageSubject);
-                var remindingDate = DateTime.Today.AddDays(reminder.DateToSend);
+                var remindingDate = refDate.AddDays(reminder.DateToSend);
                 var sessions = from session in _db.CheckListSessions
                 where
-                    SqlFunctions.DateDiff("day", session.ReferenceDate, DateTime.Today) == reminder.DateToSend &&
+                    SqlFunctions.DateDiff("day", session.ReferenceDate, refDate) == reminder.DateToSend &&
                     session.CheckListTemplate.Type == reminder.Checklisttype 
 
                     select session;
@@ -38,11 +38,11 @@ namespace Cico.Models.Subscriptions
                 foreach (var checkListSession in sessions)
                 {
                     var tracks = from track in _db.CheckListItemSubmitionTracks.ToList()
-                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate>=DateTime.Today && !track.Checked
+                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate<=refDate && !track.Checked
                                  select track;
                     if (tracks.Any())
                     {
-                        SendEmail(checkListSession, reminder,tracks);    
+                        SendEmail(checkListSession, reminder,tracks,refDate);    
                     }
                     
                     
@@ -50,7 +50,7 @@ namespace Cico.Models.Subscriptions
             }
         }
 
-        private void SendEmail(CheckListSession checkListSession, Reminder reminder, IEnumerable<CheckListItemSubmitionTrack> tracks)
+        private void SendEmail(CheckListSession checkListSession, Reminder reminder, IEnumerable<CheckListItemSubmitionTrack> tracks,DateTime refDate)
         {
             if (string.IsNullOrEmpty(checkListSession.Employee.PersonalEmail))
             {
@@ -59,7 +59,7 @@ namespace Cico.Models.Subscriptions
             }
             var sb = new StringBuilder();
             sb.Append("<h2>");
-            string title = string.Format("CICO application Reminder on {0}", DateTime.Today.ToShortDateString() );
+            string title = string.Format("CICO application Reminder on {0}",refDate.ToShortDateString() );
             sb.Append(title);
             
             sb.Append("</h2>");
@@ -88,7 +88,7 @@ namespace Cico.Models.Subscriptions
             var smtp = new SmtpClient() { };
             var message = new MailMessage() { From = new MailAddress("noreply@cico.com") };
             message.To.Add(checkListSession.Employee.PersonalEmail);
-            message.Subject = string.Format("CICO Reminder", DateTime.Today.ToShortDateString());
+            message.Subject = string.Format("CICO Reminder",refDate.ToShortDateString());
             message.Body = sb.ToString();
             message.IsBodyHtml = true;
             smtp.Send(message);

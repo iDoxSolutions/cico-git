@@ -47,6 +47,7 @@ namespace Cico.Controllers
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
+                        CompletionEnabled = SecurityGuard.CanCompleteCheckListItem(track),
                         NotesEnabled = NotesEnabled(session, checkListItemTemplate),
                         ViewOnlyNotes = ViewNotes(session, checkListItemTemplate),
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
@@ -75,6 +76,8 @@ namespace Cico.Controllers
             model.Completed = session.Completed;
             return Json(model);
         }
+
+        
 
         public IList<DependentsFile> GetDependetsFiles(CheckListItemSubmitionTrack track)
         {

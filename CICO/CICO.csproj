@@ -271,6 +271,7 @@
     <Compile Include="Models\Subscriptions\SubscriptionsService.cs" />
     <Compile Include="Models\SystemFile.cs" />
     <Compile Include="Models\SystemRole.cs" />
+    <Compile Include="Models\Utils\GacManager.cs" />
     <Compile Include="Models\Versioning\VersionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

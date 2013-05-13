@@ -36,8 +36,8 @@ namespace Cico.Controllers.ViewModels
 
         public bool NotesEnabled{get; set; }
 
-        public bool ViewOnlyNotes
-        {
-            get; set; }
+        public bool ViewOnlyNotes{get; set; }
+
+        public bool CompletionEnabled{get; set; }
     }
 }

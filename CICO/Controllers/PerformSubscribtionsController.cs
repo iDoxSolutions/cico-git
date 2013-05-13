@@ -12,12 +12,13 @@ namespace Cico.Controllers
         //
         // GET: /PerformSubscribtions/
 
-        public ActionResult Index()
+        public ActionResult Index(DateTime? referenceDate)
         {
+            var refDate = referenceDate.HasValue ? referenceDate.Value : DateTime.Today;
             var service = new SubscriptionsService(Db,HttpContext);
-            service.PerformDaily();
+            service.PerformDaily(refDate);
             var reminders = new RemindersService(Db, HttpContext);
-            reminders.PerformDaily();
+            reminders.PerformDaily(refDate);
             return Content("OK");
         }
 

@@ -17,6 +17,48 @@ namespace Cico.Models.Authentication
             _http = http;
         }
 
+        
+
+        public bool CanCompleteCheckListItem(CheckListItemSubmitionTrack track)
+        {
+            var usersession = new UserSession(_db, _http);
+            var staff = usersession.GetCurrentStaff();
+            var itemTemplate = track.CheckListItemTemplate;
+            var session = track.CheckListSession;
+            if (IsUsersCheckList(session))
+            {
+                return true;
+            }
+
+            if (_http.User.IsInRole(SystemRole.GlobalAdmin))
+                return true;
+
+            if (staff != null)
+            {
+
+                if (staff.Office.Name == itemTemplate.Office.Name)
+                {
+                    return true;
+                }
+            }
+
+            if (session.Employee.Proxy != null)
+            {
+                if (session.Employee.Proxy.UserId == _http.User.Identity.Name)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool IsUsersCheckList(CheckListSession session)
+        {
+            return session.UserId == _http.User.Identity.Name;
+        }
+
+
         public bool CanEditEmployee(Employee employee,ModelStateDictionary modelState)
         {
             var usersession = new UserSession(_db, _http);
@@ -29,6 +71,18 @@ namespace Cico.Models.Authentication
                     return true;
                 }
             }
+
+            if (employee.Proxy != null)
+            {
+                if (employee.Proxy.UserId.ToUpper() == _http.User.Identity.Name.ToUpper())
+                {
+                    return true;
+                }
+            }
+            
+            if (staff == null)
+                return false;
+
             if (staff.SystemRoles.Any(c => c.Name == SystemRole.GlobalAdmin))
             {
                 return true;
@@ -43,26 +97,7 @@ namespace Cico.Models.Authentication
 
         public bool CanEditDependent(Dependent employee, ModelStateDictionary modelState)
         {
-            var usersession = new UserSession(_db, _http);
-            var staff = usersession.GetCurrentStaff();
-            var sessions = _db.CheckListSessions.FirstOrDefault(c => c.UserId == _http.User.Identity.Name);
-            if (sessions != null)
-            {
-                if (sessions.Employee.Id == employee.Employee.Id)
-                {
-                    return true;
-                }
-            }
-            if (staff.SystemRoles.Any(c => c.Name == SystemRole.GlobalAdmin))
-            {
-                return true;
-            }
-            if (staff.Office.Name == "HR")
-                return true;
-            modelState.AddModelError("", "Permission denied!");
-
-            return false;
-
+            return CanEditEmployee(employee.Employee, modelState);
         }
     }
 }
