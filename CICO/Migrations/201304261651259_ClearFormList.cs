@@ -6,6 +6,7 @@ namespace Cico.Migrations
     {
         public override void Up()
         {
+            
             Sql("UPDATE [dbo].[SystemFiles]  SET [FileType] = ''  WHERE [FileType] = 'DocTemplate'");
         }
         
