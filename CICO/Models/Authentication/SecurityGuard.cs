@@ -44,7 +44,7 @@ namespace Cico.Models.Authentication
 
             if (session.Employee.Proxy != null)
             {
-                if (session.Employee.Proxy.UserId == _http.User.Identity.Name)
+                if (session.Employee.Proxy.UserId.Equals(_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
@@ -55,7 +55,7 @@ namespace Cico.Models.Authentication
 
         private bool IsUsersCheckList(CheckListSession session)
         {
-            return session.UserId == _http.User.Identity.Name;
+            return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase);
         }
 
 
@@ -74,7 +74,7 @@ namespace Cico.Models.Authentication
 
             if (employee.Proxy != null)
             {
-                if (employee.Proxy.UserId.ToUpper() == _http.User.Identity.Name.ToUpper())
+                if (employee.Proxy.UserId.Equals(_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
