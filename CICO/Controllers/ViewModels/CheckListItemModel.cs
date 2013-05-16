@@ -35,5 +35,9 @@ namespace Cico.Controllers.ViewModels
         public string CustomFormUrl{get; set; }
 
         public bool NotesEnabled{get; set; }
+
+        public bool ViewOnlyNotes{get; set; }
+
+        public bool CompletionEnabled{get; set; }
     }
 }

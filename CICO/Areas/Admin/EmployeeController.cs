@@ -26,6 +26,7 @@ namespace Cico.Areas.Admin
                emps= emps.Where(s => s.FirstName.ToUpper().Contains(SearchString.ToUpper())
                                        || s.LastName.ToUpper().Contains(SearchString.ToUpper()));
             }
+            emps = emps.Where(c => c.Active);
             emps=emps.OrderByDescending(c => c.ArrivalDate);
             
             Employees = emps.ToPagedList(Page.Value, 50);
@@ -166,7 +167,29 @@ namespace Cico.Areas.Admin
             SecurityGuard.CanEditEmployee(employeee, ModelState);
             if (ModelState.IsValid)
             {
-                
+                var checklist = Db.CheckListSessions.Include("CheckListTemplate").FirstOrDefault(c => c.Employee.Id == model.Employee.Id && c.Active);
+                if (employeee.ArrivalDate.HasValue && model.Employee.ArrivalDate.HasValue &&
+                    employeee.ArrivalDate.Value.Date != model.Employee.ArrivalDate.Value.Date)
+                {
+                    if (checklist != null)
+                    {
+                        if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKIN")
+                        {
+                            checklist.ReferenceDate = model.Employee.ArrivalDate.Value;
+                        }
+
+                    }
+                }
+
+                if (employeee.TourEndDate.HasValue && model.Employee.TourEndDate.HasValue &&
+                    employeee.TourEndDate.Value.Date != model.Employee.TourEndDate.Value.Date)
+                {
+                    if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKOUT")
+                    {
+                        checklist.ReferenceDate = model.Employee.TourEndDate.Value;
+                    }
+                }
+
                 CopyValues(model.Employee,employeee);
                 if (!string.IsNullOrEmpty(model.SelectedProxy))
                 {
@@ -202,11 +225,25 @@ namespace Cico.Areas.Admin
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
-        {            
-            Employee employee = Db.Employees.Find(id);
-            Db.Employees.Remove(employee);
-            Db.SaveChanges();
-            return RedirectToAction("Index");
+        {
+            try
+            {
+                Employee employee = Db.Employees.Find(id);
+               // Db.Employees.Remove(employee);
+                employee.Active = false;
+                foreach (var checkListSession in employee.CheckListSessions)
+                {
+                    checkListSession.Active = false;
+                }
+                Db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                DontSave = true;
+                ModelState.AddModelError("", "You can't delete employee it's assigned");
+                return View();
+            }
         }
 
         

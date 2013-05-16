@@ -15,7 +15,7 @@ namespace Cico.Models.Helpers
             var employee =
                 CacheHelper.Cache(
                     ()=>
-                        { return context.Employees.FirstOrDefault(c => c.UserId == HttpContext.Current.User.Identity.Name); },
+                        { return context.Employees.FirstOrDefault(c => c.UserId == HttpContext.Current.User.Identity.Name && c.Active); },
                     "user_full_name_" + userName);
             if (employee != null)
             {

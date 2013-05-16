@@ -31,7 +31,7 @@
             <ul>
                 <li><a href="#myinfo">My Info</a></li>
                 <li><a href="#completion">Completion Details</a></li>
-                <li><a href="#mydependents">My dependents</a></li>
+                <li><a href="#mydependents">My Dependents</a></li>
             </ul>
 
 
@@ -80,7 +80,7 @@
                                         <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
                                     </div>
                                     <div class="editor-field">
-                                        <button type="button" data-bind="click:notes.addNote,enable:Enabled && NotesEnabled">Add Note</button>
+                                        <button type="button" data-bind="click:notes.addNote,enable:Enabled && NotesEnabled && notes.AddEnabled">Add Note</button>
                                     </div>
                                 </form>
                             </div>

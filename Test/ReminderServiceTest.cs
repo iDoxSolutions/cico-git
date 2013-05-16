@@ -29,7 +29,7 @@ namespace Test
             db.Setup(c => c.CheckListItemSubmitionTracks).Returns(() => tracks);
 
             var service = new RemindersService(db.Object, httpMock.Object);
-            service.PerformDaily();
+            service.PerformDaily(DateTime.Now);
         }
     }
 }

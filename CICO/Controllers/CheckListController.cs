@@ -47,7 +47,9 @@ namespace Cico.Controllers
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
                 model.CheckListItems.Add(new CheckListItemModel
                     {
+                        CompletionEnabled = SecurityGuard.CanCompleteCheckListItem(track),
                         NotesEnabled = NotesEnabled(session, checkListItemTemplate),
+                        ViewOnlyNotes = ViewNotes(session, checkListItemTemplate),
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},
                         Id = checkListItemTemplate.CheckListItemTemplateId,
                         ItemTemplate = checkListItemTemplate.Item,
@@ -75,6 +77,8 @@ namespace Cico.Controllers
             return Json(model);
         }
 
+        
+
         public IList<DependentsFile> GetDependetsFiles(CheckListItemSubmitionTrack track)
         {
             var employee = track.CheckListSession.Employee;
@@ -98,6 +102,23 @@ namespace Cico.Controllers
                 list.Add(file);
             }
             return list;
+        }
+
+
+        public bool ViewNotes(CheckListSession session, CheckListItemTemplate template)
+        {
+            if (template.NotesAccess)
+            {
+                var staff = UserSession.GetCurrentStaff();
+                if (staff != null && User.IsInRole(SystemRole.OfficeAdmin))
+                {
+                    if (staff.Office.OfficeId != template.Office.OfficeId)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public bool NotesEnabled(CheckListSession session, CheckListItemTemplate template)

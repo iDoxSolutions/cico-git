@@ -271,6 +271,7 @@
     <Compile Include="Models\Subscriptions\SubscriptionsService.cs" />
     <Compile Include="Models\SystemFile.cs" />
     <Compile Include="Models\SystemRole.cs" />
+    <Compile Include="Models\Utils\GacManager.cs" />
     <Compile Include="Models\Versioning\VersionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -763,6 +764,7 @@
     <Content Include="Areas\Admin\Views\ItemClass\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\_line.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\_lineof.cshtml" />
+    <Content Include="cicokey.pfx" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -820,6 +822,12 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>cicokey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using Cico.Models;
 using Cico.Models.Subscriptions;
@@ -18,7 +19,7 @@ namespace Test
             staff.Add(new Staff());
             dbMock.Setup(c => c.Staffs).Returns(() => staff);
             var service = new SubscriptionsService(dbMock.Object,null);
-            service.PerformDaily();
+            service.PerformDaily(DateTime.Today);
         }
     }
 }
