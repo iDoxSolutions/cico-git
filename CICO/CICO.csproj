@@ -263,7 +263,6 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\SharePoint\DocumentDto.cs" />
     <Compile Include="Models\SharePoint\SharePointDocumentQuery.cs" />
-    <Compile Include="Models\SharePoint\CicoConfiguration.cs" />
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
@@ -811,6 +810,12 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cico.Commons\Cico.Commons.csproj">
+      <Project>{d0956fdb-1a67-42d7-995f-6928eabc4a84}</Project>
+      <Name>Cico.Commons</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -825,7 +830,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>cicokey.pfx</AssemblyOriginatorKeyFile>
