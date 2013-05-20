@@ -185,7 +185,7 @@
     <div>
         <div class="homescreen-instructions">
             <label>Step 3: Click Approve to signify acceptance:</label></div>
-        <button data-bind="click:approve,enable: buttonEnabled">Approve</button></div>
+        <button data-bind="click:approve,enable: buttonEnabled ">Approve</button></div>
 
 </script>
 
@@ -206,7 +206,8 @@
             <ul data-bind="foreach:$data">
                 <li>
                     <div data-bind="text:DependentName"></div>
-                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}" />
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId},enable:$parentContext.$parent.Enabled" />
+                    <div ></div>
                     <div></div>
                     <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
                 </li>
@@ -219,7 +220,7 @@
     <div class="homescreen-instructions">
         <label>Step 3: Upload the selected document</label></div>
     <br />
-    <a href="#" data-bind="click:submitDoc,disabled:Enabled">Upload</a>
+    <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
     <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
 
     
@@ -249,7 +250,7 @@
             <ul data-bind="foreach:$data">
                 <li>
                     <div data-bind="text:DependentName"></div>
-                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}" />
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}, enable:$parentContext.$parent.Enabled" />
                     <div></div>
                     <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
                 </li>
@@ -260,7 +261,7 @@
         <br />
        
         <label>Step 4: Upload the completed form.</label>
-        <a href="#" data-bind="click:submitDoc">Upload</a>
+        <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
         <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
     </div>
 

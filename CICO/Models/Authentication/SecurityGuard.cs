@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using log4net;
 
 namespace Cico.Models.Authentication
 {
@@ -10,7 +11,7 @@ namespace Cico.Models.Authentication
     {
         private readonly ICicoContext _db;
         private readonly HttpContextBase _http;
-
+        private static readonly ILog log = LogManager.GetLogger(typeof(SecurityGuard).Name);
         public SecurityGuard(ICicoContext db,HttpContextBase http)
         {
             _db = db;
@@ -21,18 +22,20 @@ namespace Cico.Models.Authentication
 
         public bool CanCompleteCheckListItem(CheckListItemSubmitionTrack track)
         {
+            log.DebugFormat("{0} user determine can complete ",_http.User.Identity.Name);
             var usersession = new UserSession(_db, _http);
             var staff = usersession.GetCurrentStaff();
             var itemTemplate = track.CheckListItemTemplate;
             var session = track.CheckListSession;
+            log.DebugFormat("{0} session owner ", session.UserId);
             if (IsUsersCheckList(session))
             {
                 return true;
             }
-
+            log.DebugFormat("not session owner session owner ", session.UserId);
             if (_http.User.IsInRole(SystemRole.GlobalAdmin))
                 return true;
-
+            log.DebugFormat("not global admin  ", session.UserId);
             if (staff != null)
             {
 
@@ -41,7 +44,7 @@ namespace Cico.Models.Authentication
                     return true;
                 }
             }
-
+            log.DebugFormat("not ritht office admin  ", session.UserId);
             if (session.Employee.Proxy != null)
             {
                 if (session.Employee.Proxy.UserId.Equals(_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase))
@@ -49,7 +52,7 @@ namespace Cico.Models.Authentication
                     return true;
                 }
             }
-
+            log.DebugFormat("not ritht proxy person  ", session.UserId);
             return false;
         }
 

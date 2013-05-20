@@ -24,7 +24,7 @@
     };
     
     this.buttonEnabled = ko.computed(function () {
-        return !item.ItemChecked();
+        return !item.ItemChecked() && self.Enabled;
     }, this);
 
 }

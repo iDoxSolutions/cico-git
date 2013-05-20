@@ -4,11 +4,12 @@
     self.FileUrl = item.item.FileUrl;
     self.FileDesc = item.item.FileDesc;
     self.DependentsFiles = ko.observable(item.item.DependentsFiles);
+    self.DependentsFiles.Enabled = self.Enabled();
     self.templateName = "DocumentSubmitted";
     self.submittedFile = ko.observable(item.item.SubmittedFile);
     self.submitDoc = function (e) {
         if (!self.Enabled()) {
-            alert("Checklist is completed");
+            alert("Forbidden");
             return false;
         }
         $(".loader").show();
