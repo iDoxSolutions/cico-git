@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Principal;
 using System.Web;
 using System.Xml;
+using Cico.Commons.Configuration;
 using Cico.Models.SharePoint.SpWs;
 using log4net;
 

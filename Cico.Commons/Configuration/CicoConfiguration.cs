@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
+﻿using System.Configuration;
 
-namespace Cico.Models.SharePoint
+namespace Cico.Commons.Configuration
 {
     public class CicoConfiguration : ConfigurationSection
     {
