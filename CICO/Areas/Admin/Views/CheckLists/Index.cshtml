@@ -38,6 +38,10 @@
     .form-date {
         width: 100px;
     }
+
+    label {
+        font-size: 0.8em
+    }
 </style>
 <form method="GET">
     <fieldset>
@@ -50,9 +54,11 @@
                 </td>
                 <td><div>@Html.LabelFor(c => c.CheckOut)</div>
                     @Html.CheckBoxFor(c => c.CheckOut)</td>
+                <td><div>@Html.LabelFor(c => c.ShowCompleted)</div>
+                    @Html.CheckBoxFor(c => c.ShowCompleted)</td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <div>
                         Employee Name:
                     </div>

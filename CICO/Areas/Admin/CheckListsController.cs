@@ -36,6 +36,10 @@ namespace Cico.Areas.Admin
     }
     public class CheckListsModel
     {
+        public CheckListsModel()
+        {
+            ShowCompleted = false;
+        }
         public IPagedList<CheckListModel> CheckListModels { get; set; }
         public string EmployeeeName { get; set; }
         public DateTime? ReceiveDateFrom { get; set; }
@@ -45,6 +49,8 @@ namespace Cico.Areas.Admin
         public bool CheckIn { get; set; }
         [DisplayName("Check Out")]
         public bool CheckOut { get; set; }
+        [DisplayName("Show Completed")]
+        public bool ShowCompleted{get; set; }
     }
     public class TrackItems
     {
@@ -82,6 +88,16 @@ namespace Cico.Areas.Admin
             {
                 sessions = sessions.Where(c => c.CheckListTemplate.Type == "CheckOut");
             }
+
+            if (model.ShowCompleted)
+            {
+                sessions = sessions.Where(c => c.Completed == true);
+            }
+            else
+            {
+                sessions = sessions.Where(c => c.Completed == false);
+            }
+
 
             sessions = sessions.OrderByDescending(c => c.Id);
             model.CheckListModels = sessions.Select(c => new CheckListModel
@@ -141,6 +157,11 @@ namespace Cico.Areas.Admin
         {
             var item = Db.CheckListItemSubmitionTracks.Single(c => c.Id == ItemId);
             item.Checked = false;
+            ///if checklist item completes the checklist we need to uncomplete
+            if (item.CheckListItemTemplate.CompleteCheckList)
+            {
+                item.CheckListSession.Completed = false;
+            }
             return RedirectToAction("show", new { id = item.CheckListSession.Id });
         }
 
