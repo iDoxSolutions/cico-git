@@ -12,19 +12,62 @@ namespace Cico.Models.Authentication
         private readonly ICicoContext _db;
         private readonly HttpContextBase _http;
         private static readonly ILog log = LogManager.GetLogger(typeof(SecurityGuard).Name);
+        private UserSession _usersession;
+
         public SecurityGuard(ICicoContext db,HttpContextBase http)
         {
             _db = db;
             _http = http;
+            _usersession = new UserSession(_db, _http);
         }
 
-        
+
+        public bool ViewNotes(CheckListItemSubmitionTrack track)
+        {
+            if (IsUsersCheckList(track.CheckListSession))
+            {
+                return false;
+            }
+            if (track.CheckListItemTemplate.NotesAccess)
+            {
+                var staff = _usersession.GetCurrentStaff();
+                if (staff != null && _http.User.IsInRole(SystemRole.OfficeAdmin))
+                {
+                    if (staff.Office.OfficeId != track.CheckListItemTemplate.Office.OfficeId)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public bool NotesEnabled(CheckListItemSubmitionTrack track)
+        {
+            if (IsUsersCheckList(track.CheckListSession))
+            {
+                return true;
+            }
+
+            if (!track.CheckListItemTemplate.NotesAccess)
+            {
+                var staff = _usersession.GetCurrentStaff();
+                if (staff != null && _http.User.IsInRole(SystemRole.OfficeAdmin))
+                {
+                    if (staff.Office.OfficeId != track.CheckListItemTemplate.Office.OfficeId)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
         public bool CanCompleteCheckListItem(CheckListItemSubmitionTrack track)
         {
             log.DebugFormat("{0} user determine can complete ",_http.User.Identity.Name);
-            var usersession = new UserSession(_db, _http);
-            var staff = usersession.GetCurrentStaff();
+            
+            var staff = _usersession.GetCurrentStaff();
             var itemTemplate = track.CheckListItemTemplate;
             var session = track.CheckListSession;
             log.DebugFormat("{0} session owner ", session.UserId);
@@ -60,7 +103,6 @@ namespace Cico.Models.Authentication
         {
             return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase);
         }
-
 
         public bool CanEditEmployee(Employee employee,ModelStateDictionary modelState)
         {
