@@ -11,6 +11,7 @@ namespace Cico.Areas.Admin
 {
     public class CheckListModel
     {
+        public bool Completed { get; set; }
         public string EmployeeName { get; set; }
         public Employee Employee { get; set; }
         public CheckListSession Session { get; set; }
@@ -33,6 +34,9 @@ namespace Cico.Areas.Admin
         public int InProcess
         {
             get; set; }
+
+        public object UserId{
+            get; set; }
     }
     public class CheckListsModel
     {
@@ -51,6 +55,8 @@ namespace Cico.Areas.Admin
         public bool CheckOut { get; set; }
         [DisplayName("Show Completed")]
         public bool ShowCompleted{get; set; }
+        [DisplayName("Show In-progress")]
+        public bool ShowInProgress { get; set; }
     }
     public class TrackItems
     {
@@ -93,10 +99,12 @@ namespace Cico.Areas.Admin
             {
                 sessions = sessions.Where(c => c.Completed == true);
             }
-            else
+
+            if (model.ShowInProgress)
             {
                 sessions = sessions.Where(c => c.Completed == false);
             }
+            
 
 
             sessions = sessions.OrderByDescending(c => c.Id);
@@ -110,10 +118,12 @@ namespace Cico.Areas.Admin
                     Session = c,
                     ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked )- c.CheckListItemSubmitionTracks.Count(d=>d.Checked && d.CheckListItemTemplate.Provisional ),
                     ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
-                    
+                    UserId = c.UserId.Contains("\\")?c.UserId.Substring(c.UserId.IndexOf("\\")+1):"",
                     ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked ),
 
-                    SessionType = c.CheckListTemplate.Type
+                    SessionType = c.CheckListTemplate.Type,
+                    Completed = c.Completed
+
                     
                 }).ToPagedList(model.Page.Value, 50);
 

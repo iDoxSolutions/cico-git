@@ -87,7 +87,15 @@ namespace Cico.Models.Subscriptions
 
             var smtp = new SmtpClient() { };
             var message = new MailMessage() { From = new MailAddress("noreply@cico.com") };
-            message.To.Add(checkListSession.Employee.PersonalEmail);
+            if (!string.IsNullOrEmpty(checkListSession.Employee.PersonalEmail))
+                message.To.Add(checkListSession.Employee.PersonalEmail);
+            if (!string.IsNullOrEmpty(checkListSession.Employee.WorkEmail))
+                message.To.Add(checkListSession.Employee.WorkEmail);
+            foreach (var dependent in checkListSession.Employee.Dependents)
+            {
+                if (!string.IsNullOrEmpty(dependent.PersonalEmail))
+                   message.To.Add(dependent.PersonalEmail);
+            }
             message.Subject = string.Format("CICO Reminder",refDate.ToShortDateString());
             message.Body = sb.ToString();
             message.IsBodyHtml = true;

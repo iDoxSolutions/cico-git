@@ -33,7 +33,16 @@ namespace Cico.Controllers
             }
             var model = new CheckListModel();
             model.Id = session.Id;
-            foreach (CheckListItemTemplate checkListItemTemplate in session.CheckListTemplate.CheckListItemTemplates.Where(c=>c.Active))
+            var itemsForList = session.CheckListTemplate.CheckListItemTemplates.Where(c => c.Active);
+            if (session.Completed)
+            {
+                var tempateIds = session.CheckListItemSubmitionTracks.Select(c => c.CheckListItemTemplate.CheckListItemTemplateId);
+                itemsForList =
+                    session.CheckListTemplate.CheckListItemTemplates.Where(
+                        c => tempateIds.Contains(c.CheckListItemTemplateId));
+            }
+
+            foreach (CheckListItemTemplate checkListItemTemplate in itemsForList)
             {
                 var track = session.GetTrack(checkListItemTemplate.CheckListItemTemplateId);
                 if (track.Id == 0)
@@ -61,7 +70,8 @@ namespace Cico.Controllers
                         FileUrl = checkListItemTemplate.SystemFile==null ? "":"/content/"+checkListItemTemplate.SystemFile.Path,
                         FileDesc = checkListItemTemplate.SystemFile == null ? "" : checkListItemTemplate.SystemFile.Description,
                         Form = checkListItemTemplate.Form,
-                        DueDate =session.CheckListItemSubmitionTracks.Any(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId)?session.CheckListItemSubmitionTracks.First(c => c.CheckListItemTemplate.CheckListItemTemplateId == checkListItemTemplate.CheckListItemTemplateId).DueDate.Value.ToShortDateString():null,
+                        DueDate =track.DueDate.Value.ToShortDateString(),
+                        DateDueDate = track.DueDate,
                         ApprovalText = checkListItemTemplate.ApprovalText,
                         TrackId = track.Id,
                         ItemUrl = itemUri.ToString(),
@@ -72,7 +82,7 @@ namespace Cico.Controllers
                 
             }
             model.CheckListItems =
-                model.CheckListItems.OrderBy(c => c.DueDate).ThenBy(c => c.CompleteChecklist).ToList();
+                model.CheckListItems.OrderBy(c => c.DateDueDate).ThenBy(c => c.CompleteChecklist).ToList();
             model.Completed = session.Completed;
             return Json(model);
         }

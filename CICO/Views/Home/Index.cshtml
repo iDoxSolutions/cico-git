@@ -185,7 +185,7 @@
     <div>
         <div class="homescreen-instructions">
             <label>Step 3: Click Approve to signify acceptance:</label></div>
-        <button data-bind="click:approve,enable: buttonEnabled ">Approve</button></div>
+        <button data-bind="click:approve,enable: (buttonEnabled() && Enabled()) ">Approve</button></div>
 
 </script>
 

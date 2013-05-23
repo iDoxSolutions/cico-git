@@ -28,7 +28,7 @@ namespace Cico.Models
         [StringLength(65)]
         public string PreferredName { get; set; }
         [DisplayName("Nationality")]
-        [StringLength(10)]
+        [StringLength(255)]
         public string Nationality { get; set; }
         public string HomePhone { get; set; }
         [DisplayName("Mexico - Personal Cell Phone")]

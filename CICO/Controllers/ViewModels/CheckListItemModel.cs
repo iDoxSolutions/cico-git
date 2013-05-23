@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Cico.Controllers.ViewModels
@@ -39,5 +40,9 @@ namespace Cico.Controllers.ViewModels
         public bool ViewOnlyNotes{get; set; }
 
         public bool CompletionEnabled{get; set; }
+
+        public DateTime? DateDueDate
+        {
+            get; set; }
     }
 }

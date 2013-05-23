@@ -4,45 +4,7 @@
 
 <h1>Dashboard</h1>
 
-<style>
-    .admin-table th, td {
-        padding: 2px 2px 2px 2px;
-        margin: 2px 2px 2px 2px;
-    }
 
-    .admin-table .numeric {
-        text-align: center;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .admin-table .provisional a {
-        color: orange;
-    }
-
-    .admin-table .complete {
-        color: green;
-    }
-
-    .admin-table .to-complete {
-        color: red;
-    }
-     .admin-table .not-complete {
-        color: orange;
-    }
-
-    .admin-table .link-column {
-        width: 100px;
-        text-align: right;
-    }
-    .form-date {
-        width: 100px;
-    }
-
-    label {
-        font-size: 0.8em
-    }
-</style>
 <form method="GET">
     <fieldset>
         <table>
@@ -56,9 +18,11 @@
                     @Html.CheckBoxFor(c => c.CheckOut)</td>
                 <td><div>@Html.LabelFor(c => c.ShowCompleted)</div>
                     @Html.CheckBoxFor(c => c.ShowCompleted)</td>
+                <td><div>@Html.LabelFor(c => c.ShowInProgress)</div>
+                    @Html.CheckBoxFor(c => c.ShowInProgress)</td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td colspan="4">
                     <div>
                         Employee Name:
                     </div>
@@ -87,6 +51,7 @@
         <th class="numeric">Not Started</th>
        
         <th>CI / CO</th>
+        <th>Completed</th>
         <th class="link-column">Employee Details</th>
         <th class="link-column">Show Checklist</th>
     </tr>
@@ -94,7 +59,7 @@
     {
         <tr>
             <td>@c.EmployeeName</td>
-            <td>@c.Employee.UserId</td>
+            <td class="userid">@c.UserId</td>
             <td>@c.DateCreated</td>
             <td>@c.ReferenceDate.ToShortDateString()</td>
             <td class="numeric complete">@c.ItemsChecked</td>
@@ -103,6 +68,7 @@
             <td class="numeric to-complete">@c.ItemsLeft</td>
 
             <td >@c.SessionType</td>
+            <td >@c.Completed</td>
             <td class="link-column">@Html.ActionLink("Details", "details", "employee", new { id = c.Employee.Id, area = "Admin" }, null)</td>
             <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "",land="false" }, null)</td>
         </tr>
@@ -146,6 +112,7 @@
     $(function () {
         $("#ReceiveDateFrom").datepicker({});
         $("#ReceiveDateTo").datepicker({});
+        
     });
 
 

@@ -223,6 +223,10 @@
     <Compile Include="Migrations\201304261651259_ClearFormList.Designer.cs">
       <DependentUpon>201304261651259_ClearFormList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305231126203_NatinalityFieldIssue.cs" />
+    <Compile Include="Migrations\201305231126203_NatinalityFieldIssue.Designer.cs">
+      <DependentUpon>201305231126203_NatinalityFieldIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -276,6 +280,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Content\admin.css" />
     <Content Include="Content\custom-tinymce.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\SQLServer.sql.txt">

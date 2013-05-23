@@ -79,6 +79,16 @@ namespace Cico.Models.Authentication
             if (_http.User.IsInRole(SystemRole.GlobalAdmin))
                 return true;
             log.DebugFormat("not global admin  ", session.UserId);
+
+            if (session.Employee.Proxy != null)
+            {
+                if (session.Employee.Proxy.UserId.Equals(_http.User.Identity.Name, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            log.DebugFormat("not ritht proxy person  ", session.UserId);
+
             if (staff != null)
             {
 
@@ -88,14 +98,7 @@ namespace Cico.Models.Authentication
                 }
             }
             log.DebugFormat("not ritht office admin  ", session.UserId);
-            if (session.Employee.Proxy != null)
-            {
-                if (session.Employee.Proxy.UserId.Equals(_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase))
-                {
-                    return true;
-                }
-            }
-            log.DebugFormat("not ritht proxy person  ", session.UserId);
+            
             return false;
         }
 
