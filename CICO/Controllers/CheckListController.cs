@@ -148,17 +148,25 @@ namespace Cico.Controllers
         [HandleModelStateException]
         public ActionResult UploadFile(HttpPostedFileBase docSubmitted,int itemTemplateId,int checklistId)
         {
-           
-            var track = UserSession.GetTrack(itemTemplateId,checklistId);
-            track.DateEdited = DateTime.Now;
-            if (docSubmitted == null && track.SubmittedFile==null)
-                throw new ModelStateException("File is Required");
-            if (track.SubmittedFile == null)
-            {
-                track.SubmittedFile = new SystemFile();
-                Db.SystemFiles.Add(track.SubmittedFile);
-            }
+
             var storage = new FileStorage();
+            var track = UserSession.GetTrack(itemTemplateId,checklistId);
+            if (docSubmitted != null)
+            {
+                track.DateEdited = DateTime.Now;
+                if (docSubmitted == null && track.SubmittedFile == null)
+                    throw new ModelStateException("File is Required");
+                if (track.SubmittedFile == null)
+                {
+                    track.SubmittedFile = new SystemFile();
+                    Db.SystemFiles.Add(track.SubmittedFile);
+                }
+                track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
+                track.Checked = true;
+
+                storage.PutFile(docSubmitted, track.SubmittedFile);
+            }
+            
             foreach (string key in Request.Files.AllKeys)
             {
                 if (key.StartsWith("dependent"))
@@ -198,29 +206,26 @@ namespace Cico.Controllers
                 }
                 Db.SaveChanges();
             }
-            if (docSubmitted != null)
-            {
-                track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
-                track.Checked = true;
-
-                storage.PutFile(docSubmitted, track.SubmittedFile);
-            }
+            
             var subs = new Subscriptions(HttpContext);
             //subs.Process(track, string.Format("Document uploaded by user {0} ", UserSession.GetUserName()));
             Db.SaveChanges();
             var model = new CheckListItemModel
                 {
-                    SubmittedFile = new FileModel()
-                        {
-                            Description = track.SubmittedFile.Description,
-                            Url = "/filestorage?id=" + track.SubmittedFile.Id
-                        },
+                    
                     CssClass = track.CssClass(),
                     DependentsFiles = GetDependetsFiles(track)
                     
                 };
-            
-                return Json(model, "text/html");
+            if (track.SubmittedFile != null)
+            {
+                model.SubmittedFile = new FileModel()
+                    {
+                        Description = track.SubmittedFile.Description,
+                        Url = "/filestorage?id=" + track.SubmittedFile.Id
+                    };
+            }
+            return Json(model, "text/html");
             
         }
 

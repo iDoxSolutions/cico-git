@@ -42,7 +42,10 @@ namespace Cico.Areas.Admin
     {
         public CheckListsModel()
         {
-            ShowCompleted = false;
+            ShowCompleted = true;
+            ShowInProgress = true;
+            CheckIn = true;
+            CheckOut = true;
         }
         public IPagedList<CheckListModel> CheckListModels { get; set; }
         public string EmployeeeName { get; set; }
@@ -86,23 +89,23 @@ namespace Cico.Areas.Admin
             {
                 sessions = sessions.Where(c => c.ReferenceDate <= model.ReceiveDateTo.Value);
             }
-            if (model.CheckIn)
+            if (!model.CheckIn)
             {
-                sessions = sessions.Where(c => c.CheckListTemplate.Type == "CheckIn");
+                sessions = sessions.Where(c => c.CheckListTemplate.Type != "CheckIn");
             }
-            if (model.CheckOut)
+            if (!model.CheckOut)
             {
-                sessions = sessions.Where(c => c.CheckListTemplate.Type == "CheckOut");
-            }
-
-            if (model.ShowCompleted)
-            {
-                sessions = sessions.Where(c => c.Completed == true);
+                sessions = sessions.Where(c => c.CheckListTemplate.Type != "CheckOut");
             }
 
-            if (model.ShowInProgress)
+            if (!model.ShowCompleted)
             {
                 sessions = sessions.Where(c => c.Completed == false);
+            }
+
+            if (!model.ShowInProgress)
+            {
+                sessions = sessions.Where(c => c.Completed == true);
             }
             
 
