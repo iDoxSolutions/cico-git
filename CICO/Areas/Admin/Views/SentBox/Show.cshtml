@@ -1,0 +1,39 @@
+﻿@using Cico.Models
+@model Cico.Models.SentBoxItem
+
+@{
+    ViewBag.Title = "Sent Box Item";
+    
+}
+
+<h2>Sent Box Item</h2>
+
+
+<fieldset>
+    
+
+    <div class="homescreen-label">Date Sent</div>
+    <div class="homescreen-display">
+        @Html.DisplayFor(model => model.DateSent)
+    </div>
+    <div class="homescreen-label">Recipient</div>
+    <div class="homescreen-display">
+       @Html.ActionLink( Model.Employee.FirstName+" "+Model.Employee.LastName ,"Details","Employee",new{id=Model.Employee.Id},null)
+    </div>
+    <div class="homescreen-label">Reminder</div>
+    <div class="homescreen-display">
+        @Html.ActionLink( Model.Reminder.DateToSend.ToString() ,"Details","Reminder",new{id=Model.Reminder.Id},null)
+    </div>
+    <div class="homescreen-label">Items Included</div>
+
+    <ul>
+        @foreach (var item in Model.ChecklistItems)
+        {
+            <li>
+                <a href="@item.AbsoluteUri()">@item.CheckListItemTemplate.Description</a>
+                
+            </li>
+        }
+    </ul>
+
+</fieldset>

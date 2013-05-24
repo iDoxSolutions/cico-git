@@ -17,7 +17,7 @@ namespace Cico.Models
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
-
+        public IDbSet<SentBoxItem> SentBoxItems { get; set; }
         public IDbSet<AppFeature> AppFeatures { get; set; }
         public IDbSet<DependentFile> DependentFiles { get; set; }
         public IDbSet<SystemRole> SystemRoles { get; set; }
@@ -48,14 +48,15 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.Office);
 
-
-
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c=>c.DueDate);
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.Completed);
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.ForDependents);
 
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
             //modelBuilder.Entity<Dependent>().HasMany(c => c.DependentFiles).WithRequired(c => c.Dependent).WillCascadeOnDelete();
+            modelBuilder.Entity<CheckListItemSubmitionTrack>()
+                        .HasMany(c => c.SentBoxItems)
+                        .WithMany(c => c.ChecklistItems);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.AppFeatures).WithMany(c => c.SystemRoles);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();

@@ -172,6 +172,7 @@
     <Compile Include="Areas\Admin\OfficeAdminDashboardController.cs" />
     <Compile Include="Areas\Admin\OfficeController.cs" />
     <Compile Include="Areas\Admin\EmployeeController.cs" />
+    <Compile Include="Areas\Admin\SentBoxController.cs" />
     <Compile Include="Areas\Admin\StaffController.cs" />
     <Compile Include="Areas\Admin\CheckListsController.cs" />
     <Compile Include="Areas\Admin\SubscriptionsController.cs" />
@@ -227,6 +228,10 @@
     <Compile Include="Migrations\201305231126203_NatinalityFieldIssue.Designer.cs">
       <DependentUpon>201305231126203_NatinalityFieldIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305240819511_SentBox.cs" />
+    <Compile Include="Migrations\201305240819511_SentBox.Designer.cs">
+      <DependentUpon>201305240819511_SentBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -258,6 +263,7 @@
     <Compile Include="Models\Helpers\MyDropdown.cs" />
     <Compile Include="Models\ICicoContext.cs" />
     <Compile Include="Models\Note.cs" />
+    <Compile Include="Models\SentBoxItem.cs" />
     <Compile Include="Models\Services\Emailer.cs" />
     <Compile Include="Models\Services\ProxyService.cs" />
     <Compile Include="Models\Setting.cs" />
@@ -770,6 +776,8 @@
     <Content Include="Areas\Admin\Views\Staff\_line.cshtml" />
     <Content Include="Areas\Admin\Views\Staff\_lineof.cshtml" />
     <Content Include="cicokey.pfx" />
+    <Content Include="Areas\Admin\Views\SentBox\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\SentBox\Show.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

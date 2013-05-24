@@ -23,7 +23,7 @@ namespace Cico.Models
         public virtual CheckListSession CheckListSession { get; set; }
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }
         public virtual ICollection<Note> Notes { get; set; }
-        
+        public virtual IList<SentBoxItem> SentBoxItems { get; set; } 
         public DateTime? DueDate {
             get { 
                 return CheckListSession.ReferenceDate.AddDays(CheckListItemTemplate.DueDays); 

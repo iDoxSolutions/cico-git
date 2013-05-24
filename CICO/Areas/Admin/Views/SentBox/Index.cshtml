@@ -1,0 +1,70 @@
+﻿@model PagedList.IPagedList<Cico.Models.SentBoxItem>
+@{
+    ViewBag.Title = "Sent Box";
+    
+}
+
+<h2>Sent Box</h2>
+
+
+<table class="admin-table">
+    <tr>
+        <th>Date sent</th>
+        <th>Recipient</th>
+        <th>Addressed to</th>
+        <th>Copied</th>
+        <th >Reminder threshold</th>
+        <th>Items included</th>
+        <th >Action</th>
+    </tr>
+    @foreach (var c in Model)
+    {
+        <tr>
+            <td>@c.DateSent</td>
+            <td class="userid">@c.Recipient</td>
+            <td>@c.Employee.FirstName @c.Employee.LastName</td>
+            <td>@c.Copied</td>
+            <td>@c.ReminderThreshold</td>
+            <td>@c.ChecklistItems.Count</td>
+            <td>@Html.ActionLink("Details","Show",new {id=c.Id},null)</td>
+
+        </tr>
+        
+    }
+    <tfoot>
+        <tr>
+            <td colspan="7">
+                <div>
+                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+                    of @Model.PageCount
+
+                    @if (Model.HasPreviousPage)
+                    {
+                        @Html.ActionLink("<<", "Index", new { Page = 1 })
+                        @Html.Raw(" ");
+                        @Html.ActionLink("< Prev", "Index", new { Page = Model.PageNumber - 1 })
+                    }
+                    else
+                    {
+                        @:<<
+                        @Html.Raw(" ");
+                        @:< Prev
+    }
+
+                    @if (Model.HasNextPage)
+                    {
+                        @Html.ActionLink("Next >", "Index", new { Page = Model.PageNumber + 1 })
+                        @Html.Raw(" ");
+                        @Html.ActionLink(">>", "Index", new { Page = Model.PageCount })
+                    }
+                    else
+                    {
+                        @:Next >
+                        @Html.Raw(" ")
+                        @:>>
+    }
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
