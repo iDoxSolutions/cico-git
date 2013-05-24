@@ -1,4 +1,8 @@
 ﻿
+
+    table.admin-table tfoot{
+        background: darkgray !important;
+    }
     .admin-table th {
         background: darkgray;
         text-align: center
@@ -18,6 +22,8 @@
         text-overflow:ellipsis;
         text-align: center;
     }
+
+
 
     .admin-table .numeric {
         text-align: center;

@@ -70,36 +70,41 @@
         </td>
     </tr>
 }
-
+    <tfoot>
+    <tr>
+        <td colspan="5">
+            <div>
+                Page @(Model.Employees.PageCount < Model.Employees.PageNumber ? 0 : Model.Employees.PageNumber)
+                of @Model.Employees.PageCount
+     
+                @if (Model.Employees.HasPreviousPage)
+                {
+                    @Html.ActionLink("<<", "Index", new EmployeeIndexModel{ Page = 1,  SearchString= Model.SearchString  })
+                    @Html.Raw(" ");
+                    @Html.ActionLink("< Prev", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber - 1,  SearchString= Model.SearchString  })
+                }
+                else
+                {
+                    @:<<
+                    @Html.Raw(" ");
+                    @:< Prev
+                }
+     
+                @if (Model.Employees.HasNextPage)
+                {
+                    @Html.ActionLink("Next >", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber + 1, SearchString  = Model.SearchString})
+                    @Html.Raw(" ");
+                    @Html.ActionLink(">>", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageCount, SearchString  = Model.SearchString})
+                }
+                else
+                {
+                    @:Next >
+                    @Html.Raw(" ")
+                    @:>>
+                }
+            </div>
+        </td>
+    </tr>
+        </tfoot>
 </table>
 
-<div>
-    Page @(Model.Employees.PageCount < Model.Employees.PageNumber ? 0 : Model.Employees.PageNumber)
-    of @Model.Employees.PageCount
-     
-    @if (Model.Employees.HasPreviousPage)
-    {
-        @Html.ActionLink("<<", "Index", new EmployeeIndexModel{ Page = 1,  SearchString= Model.SearchString  })
-        @Html.Raw(" ");
-        @Html.ActionLink("< Prev", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber - 1,  SearchString= Model.SearchString  })
-    }
-    else
-    {
-        @:<<
-        @Html.Raw(" ");
-        @:< Prev
-    }
-     
-    @if (Model.Employees.HasNextPage)
-    {
-        @Html.ActionLink("Next >", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber + 1, SearchString  = Model.SearchString})
-        @Html.Raw(" ");
-        @Html.ActionLink(">>", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageCount, SearchString  = Model.SearchString})
-    }
-    else
-    {
-        @:Next >
-        @Html.Raw(" ")
-        @:>>
-    }
-</div>

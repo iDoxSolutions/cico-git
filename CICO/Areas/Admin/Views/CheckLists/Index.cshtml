@@ -74,9 +74,10 @@
         </tr>
         
     }
-</table>
-
-<div>
+    <tfoot>
+        <tr>
+            <td colspan="12">
+                <div>
     Page @(Model.CheckListModels.PageCount < Model.CheckListModels.PageNumber ? 0 : Model.CheckListModels.PageNumber)
     of @Model.CheckListModels.PageCount
 
@@ -106,6 +107,12 @@
         @:>>
     }
 </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
 
 
 <script type="text/javascript">
