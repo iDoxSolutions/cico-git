@@ -111,7 +111,7 @@ namespace Cico.Models.Authentication
         {
             var usersession = new UserSession(_db, _http);
             var staff = usersession.GetCurrentStaff();
-            var sessions = _db.CheckListSessions.FirstOrDefault(c => c.UserId == _http.User.Identity.Name);
+            var sessions = _db.CheckListSessions.FirstOrDefault(c => c.UserId == _http.User.Identity.Name && c.Active);
             if (sessions != null)
             {
                 if (sessions.Employee.Id == employee.Id)
