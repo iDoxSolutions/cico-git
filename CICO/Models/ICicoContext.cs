@@ -27,6 +27,7 @@ namespace Cico.Models
         IDbSet<Note> Notes { get; set; }
         IDbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         IDbSet<CheckListSession> CheckListSessions { get; set; }
+        IDbSet<SentBoxItem> SentBoxItems { get; set; }
         int SaveChanges();
     }
 }
