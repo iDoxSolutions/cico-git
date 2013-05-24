@@ -29,11 +29,11 @@ namespace Cico.Models.Subscriptions
                 log.DebugFormat("Performing reminder {0}",reminder.MessageSubject);
                 var remindingDate = refDate.AddDays(reminder.DateToSend);
                 var sessions = from session in _db.CheckListSessions
-                where
-                    SqlFunctions.DateDiff("day", session.ReferenceDate, refDate) == reminder.DateToSend &&
-                    session.CheckListTemplate.Type == reminder.Checklisttype 
-
-                    select session;
+                               where
+                                   SqlFunctions.DateDiff("day", session.ReferenceDate, refDate) == reminder.DateToSend &&
+                                   session.CheckListTemplate.Type == reminder.Checklisttype &&
+                                   session.Completed == false 
+                select session;
                 log.DebugFormat("{0} Sessions found", sessions.Count());
                 foreach (var checkListSession in sessions)
                 {
