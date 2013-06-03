@@ -187,6 +187,7 @@
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
+    <Compile Include="Controllers\MenuItem.cs" />
     <Compile Include="Controllers\NotesController.cs" />
     <Compile Include="Controllers\PerformSubscribtionsController.cs" />
     <Compile Include="Controllers\ViewModels\CheckListItemModel.cs" />

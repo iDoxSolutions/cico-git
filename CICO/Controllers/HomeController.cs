@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
@@ -14,52 +13,6 @@ using Cico.Models.Services;
 
 namespace Cico.Controllers
 {
-    public class MenuItem
-    {
-        public int Id { get; set; }
-        public string Description { get; set; }
-
-        public string FormName
-        {
-            get; set; }
-
-        public string Command
-        {
-            get; set; }
-    }
-
-    public partial class CheckListItem
-    {
-        public int Id { get; set; }
-        public bool Checked { get; set; }
-        public string Description { get; set; }
-        public string IconClass { get; set; }
-        public IList<MenuItem> MenuItems { get; set; }
-    }
-
-    public class HomeModel
-    {
-        public bool CanEditEmployee { get; set; }
-        public Employee Employee { get; set; }
-        public IList<Dependent> Dependents { get; set; }
-        public bool HasProxied { get; set; }
-        public int? CheckListId{get; set; }
-
-        public string CheckListName{get; set; }
-
-        public ProxyModel ProxyModel{get; set; }
-
-        public string Tab{ get; set; }
-
-        public void Load(CicoContext db)
-        {
-            Dependents = db.Dependents.Include("Employee").Where(c => c.Employee.Id == Employee.Id).ToList();
-        }
-    }
-
-
-  
-
     public class HomeController : ControllerBase
     {
         public ActionResult Initialize(int? employeeId)
@@ -104,7 +57,7 @@ namespace Cico.Controllers
             {
                 if (!staff.ReqireCheckList && !id.HasValue)
                 {
-                    if (!User.IsInRole(SystemRole.UserProxy))
+                    //if (!User.IsInRole(SystemRole.UserProxy))
                     {
                         return RedirectToAction("index", "checklists", new { area = "Admin" });    
                     }
@@ -164,9 +117,7 @@ namespace Cico.Controllers
             return View(dependent);
         }
 
-        //
-        // POST: /Admin/Office/Delete/5
-
+       
         [HttpPost, ActionName("DeleteDependents")]
         public ActionResult DeleteDependentConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
@@ -203,10 +154,7 @@ namespace Cico.Controllers
             return View(model);
         }
 
-        public ActionResult LandingPage()
-        {
-            return View();
-        }
+      
         
     }
 }
