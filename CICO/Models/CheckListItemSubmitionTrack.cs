@@ -34,6 +34,13 @@ namespace Cico.Models
         public bool Completed { 
             get
             {
+                if (this.SubmittedFile == null &&
+                    this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
+                    || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
+                {
+                    return false;
+                }
+
                 log.DebugFormat("item type:{0} dependents:{1} item name {2}, ", CheckListItemTemplate.Type, CheckListItemTemplate.Dependents,this.CheckListItemTemplate.Description);
                 if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
                     || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())

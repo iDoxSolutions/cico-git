@@ -189,8 +189,16 @@
                 @Html.EditorFor(model => model.Dependent.EmergencyContactRelationship)
                 @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactRelationship)
             </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Dependent.SchoolName)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Dependent.SchoolName)
+                @Html.ValidationMessageFor(model => model.Dependent.SchoolName)
+            </div>
 
-       @Html.HiddenFor(c=>c.EmployeeId)
+            @Html.HiddenFor(c=>c.EmployeeId)
         </div>
 
         <div>

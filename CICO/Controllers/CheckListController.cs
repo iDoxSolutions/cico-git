@@ -183,7 +183,7 @@ namespace Cico.Controllers
                     {
                         throw new ModelStateException("File extension is Required");
                     }
-
+                    track.Checked = true;
                     var depFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == int.Parse(id));
                     if (depFile == null)
                     {

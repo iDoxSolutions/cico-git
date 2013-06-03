@@ -44,8 +44,6 @@ namespace Cico.Controllers
             }
             
         }
-
-
         
         public ActionResult Index(int? id,string tab,string land)
         {
@@ -116,8 +114,7 @@ namespace Cico.Controllers
             var dependent = Db.Dependents.Find(id);
             return View(dependent);
         }
-
-       
+        
         [HttpPost, ActionName("DeleteDependents")]
         public ActionResult DeleteDependentConfirmed(int id) {
             var dependent = Db.Dependents.Find(id);
@@ -135,8 +132,6 @@ namespace Cico.Controllers
             return RedirectToAction("Index");
         }
 
-        
-
         public ActionResult SignOut()
         {
             Response.StatusCode = 401;
@@ -153,9 +148,7 @@ namespace Cico.Controllers
                 return RedirectToAction("index");
             return View(model);
         }
-
-      
-        
+       
     }
 }
 

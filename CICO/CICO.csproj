@@ -180,12 +180,14 @@
     <Compile Include="Areas\Forms\FormsAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CheckListController.cs" />
+    <Compile Include="Controllers\CheckListItem.cs" />
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\DependentController.cs" />
     <Compile Include="Controllers\EmergencyDataController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeModel.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\MenuItem.cs" />
     <Compile Include="Controllers\NotesController.cs" />
