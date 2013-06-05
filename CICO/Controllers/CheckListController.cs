@@ -212,7 +212,7 @@ namespace Cico.Controllers
             Db.SaveChanges();
             var model = new CheckListItemModel
                 {
-                    
+                    Checked = track.Checked,
                     CssClass = track.CssClass(),
                     DependentsFiles = GetDependetsFiles(track)
                     

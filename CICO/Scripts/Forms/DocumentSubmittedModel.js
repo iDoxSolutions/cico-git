@@ -23,7 +23,7 @@
                 try {
                     data = JSON.parse(data);
                     self.submittedFile(data.SubmittedFile);
-                    item.ItemChecked(true);
+                    item.ItemChecked(data.Checked);
                     item.CssClass(data.CssClass);
                     self.DependentsFiles(data.DependentsFiles);
                     $(".loader").hide();
