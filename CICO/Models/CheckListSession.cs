@@ -27,5 +27,7 @@ namespace Cico.Models
         public DateTime ReferenceDate{get; set; }
         public DateTime? DepartureDate { get; set; }
         public bool Completed { get; set; }
+
+        public DateTime? DateCompleted { get; set; }
     }
 }

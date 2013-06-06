@@ -182,5 +182,8 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public virtual Staff Proxy { get; set; }
 
         public virtual IList<SentBoxItem> SentBoxItems { get; set; } 
+
+
+
     }
 }

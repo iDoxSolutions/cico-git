@@ -47,7 +47,6 @@ namespace Cico.Controllers
         
         public ActionResult Index(int? id,string tab,string land)
         {
-            
 
             var staff = UserSession.GetCurrentStaff();
 
@@ -55,9 +54,13 @@ namespace Cico.Controllers
             {
                 if (!staff.ReqireCheckList && !id.HasValue)
                 {
-                    //if (!User.IsInRole(SystemRole.UserProxy))
+                    if (!User.IsInRole(SystemRole.UserProxy))
                     {
-                        return RedirectToAction("index", "checklists", new { area = "Admin" });    
+                        return RedirectToAction("index", "checklists", new {area = "Admin"});
+                    }
+                    else
+                    {
+                        return RedirectToAction("proxy");
                     }
                     
                 }

@@ -238,6 +238,7 @@ namespace Cico.Controllers
             if (track.CheckListItemTemplate.CompleteCheckList)
             {
                 session.Completed = true;
+                session.DateCompleted = DateTime.Today;
             }
             var subs = new Subscriptions(HttpContext);
             //subs.Process(track,string.Format("Checkpoint completed by user {0} ",UserSession.GetUserName()));

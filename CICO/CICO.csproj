@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201305240819511_SentBox.Designer.cs">
       <DependentUpon>201305240819511_SentBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306051315483_DateCompletedSession.cs" />
+    <Compile Include="Migrations\201306051315483_DateCompletedSession.Designer.cs">
+      <DependentUpon>201306051315483_DateCompletedSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -279,6 +283,8 @@
     <Compile Include="Models\SharePoint\SpWs\Copy.cs" />
     <Compile Include="Models\SharePoint\SpWs\Lists.cs" />
     <Compile Include="Models\SharePoint\SpWs\WsWrapper.cs" />
+    <Compile Include="Models\Subscriptions\DeactivateAllEmployeesThatAreFiveDaysAfterChcekout.cs" />
+    <Compile Include="Models\Subscriptions\IDailyExecute.cs" />
     <Compile Include="Models\Subscriptions\RemindersService.cs" />
     <Compile Include="Models\Subscriptions\SubscriptionsService.cs" />
     <Compile Include="Models\SystemFile.cs" />

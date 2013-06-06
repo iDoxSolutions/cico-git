@@ -9,11 +9,6 @@ using log4net;
 
 namespace Cico.Models.Subscriptions
 {
-    public interface IDailyExecute
-    {
-        void PerformDaily(DateTime refDate);
-    }
-
     public class CompareStaff:IEqualityComparer<Staff>
     {
         public bool Equals(Staff x, Staff y)

@@ -104,7 +104,7 @@ namespace Cico.Models.Authentication
 
         private bool IsUsersCheckList(CheckListSession session)
         {
-            return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase);
+            return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase) && session.Employee.Active;
         }
 
         public bool CanEditEmployee(Employee employee,ModelStateDictionary modelState)
@@ -114,7 +114,7 @@ namespace Cico.Models.Authentication
             var sessions = _db.CheckListSessions.FirstOrDefault(c => c.UserId == _http.User.Identity.Name && c.Active);
             if (sessions != null)
             {
-                if (sessions.Employee.Id == employee.Id)
+                if (sessions.Employee.Id == employee.Id && employee.Active)
                 {
                     return true;
                 }

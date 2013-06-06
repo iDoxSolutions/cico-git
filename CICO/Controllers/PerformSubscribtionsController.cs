@@ -19,6 +19,9 @@ namespace Cico.Controllers
             service.PerformDaily(refDate);
             var reminders = new RemindersService(Db, HttpContext);
             reminders.PerformDaily(refDate);
+
+            var deactivator = new DeactivateAllEmployeesThatAreFiveDaysAfterChcekout(Db, HttpContext);
+            deactivator.PerformDaily(refDate);
             return Content("OK");
         }
 

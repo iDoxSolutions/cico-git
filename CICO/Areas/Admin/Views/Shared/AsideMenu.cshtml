@@ -23,12 +23,13 @@
         <li>@Html.ActionLink("Forms Library", "Index", "DocumentTemplate", new { area = "Admin" }, null)</li>
         <li>@Html.ActionLink("Checklists", "Index", "ChecklistBuilder", new { area = "Admin" }, null)</li>
         <li>@Html.ActionLink("Notifications", "Index", "SentBox", new { area = "Admin" }, null)</li>
-        <li>@Html.ActionLink("Reminders", "Index", "Reminder", new { area = "Admin" }, null)</li>
+        
     }
 
     @if (User.IsInRole("GlobalAdmin"))
      {
          <li>@Html.ActionLink("Staff", "Index", "Staff", new {area = "Admin"}, null)</li>
-        <li>@Html.ActionLink("Dropdowns", "Index", "DropDownItems", new {area = "Admin"}, null)</li>
+         <li>@Html.ActionLink("Dropdowns", "Index", "DropDownItems", new {area = "Admin"}, null)</li>
+        <li>@Html.ActionLink("Reminders", "Index", "Reminder", new { area = "Admin" }, null)</li>
      }
 </ul>
