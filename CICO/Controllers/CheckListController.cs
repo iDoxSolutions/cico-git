@@ -44,6 +44,8 @@ namespace Cico.Controllers
 
             foreach (CheckListItemTemplate checkListItemTemplate in itemsForList)
             {
+
+
                 var track = session.GetTrack(checkListItemTemplate.CheckListItemTemplateId);
                 if (track.Id == 0)
                 {
@@ -54,9 +56,15 @@ namespace Cico.Controllers
                 var notes = GetNotes(session, checkListItemTemplate);
                 var param = string.Format("?id={0}#checkpoint/{1}", session.Id, track.Id);
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
+                var completionEnabled = SecurityGuard.CanCompleteCheckListItem(track);
+
+                if (!completionEnabled)
+                {
+                    continue;
+                }
                 model.CheckListItems.Add(new CheckListItemModel
                     {
-                        CompletionEnabled = SecurityGuard.CanCompleteCheckListItem(track),
+                        CompletionEnabled = completionEnabled,
                         NotesEnabled = SecurityGuard.NotesEnabled(track),
                         ViewOnlyNotes = SecurityGuard.ViewNotes(track),
                         SubmittedFile = track.SubmittedFile==null?null:new FileModel(){Description = track.SubmittedFile.Description,Url = "/filestorage?id="+track.SubmittedFile.Id},

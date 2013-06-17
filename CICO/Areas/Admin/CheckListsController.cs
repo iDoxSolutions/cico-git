@@ -156,6 +156,7 @@ namespace Cico.Areas.Admin
                 model.SessionTracks =
                     model.Session.CheckListItemSubmitionTracks.ToList();
             }
+            model.SessionTracks = model.SessionTracks.Where(c => SecurityGuard.CanCompleteCheckListItem(c)).ToList();
            return View(model);
         }
 

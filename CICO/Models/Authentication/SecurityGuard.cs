@@ -92,7 +92,8 @@ namespace Cico.Models.Authentication
             if (staff != null)
             {
 
-                if (staff.Office.Name == itemTemplate.Office.Name)
+                if (staff.Office.Name == itemTemplate.Office.Name
+                    || staff.Office.Name=="HR")
                 {
                     return true;
                 }

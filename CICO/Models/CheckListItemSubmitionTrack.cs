@@ -41,7 +41,7 @@ namespace Cico.Models
                     return false;
                 }
 
-                log.DebugFormat("item type:{0} dependents:{1} item name {2}, ", CheckListItemTemplate.Type, CheckListItemTemplate.Dependents,this.CheckListItemTemplate.Description);
+                //log.DebugFormat("item type:{0} dependents:{1} item name {2}, ", CheckListItemTemplate.Type, CheckListItemTemplate.Dependents,this.CheckListItemTemplate.Description);
                 if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
                     || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
                 {
@@ -51,12 +51,12 @@ namespace Cico.Models
                         if (depFile == null)
                             return false;
                     }
-                    log.DebugFormat("all dependent fine");
+                  //  log.DebugFormat("all dependent fine");
                     return true;
                 }
                 else
                 {
-                    log.DebugFormat("condition nut passed");
+                    //log.DebugFormat("condition nut passed");
                     return true;
                 }
             } 
