@@ -74,6 +74,11 @@ namespace Cico.Areas.Admin
         public ActionResult Create(StaffModel model)
         {
             Validate(model);
+            var existingstaff = Db.Staffs.Find(model.Staff.UserId);
+            if (existingstaff != null)
+            {
+                ModelState.AddModelError("","Staff already exists");
+            }
             if (ModelState.IsValid)
             {
                 if (model.SelectedOffice.HasValue)
