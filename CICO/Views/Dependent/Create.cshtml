@@ -10,5 +10,5 @@
 @Html.Partial("DependentForm")
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", "home", new {id=Model.ChecklistId }, null)
 </div>

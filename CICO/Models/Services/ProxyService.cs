@@ -31,7 +31,7 @@ namespace Cico.Models.Services
             if (staff == null)
                 return null;
             if (staff.Proxied.Count == 0)
-                return null;
+                return new ProxyModel(){ProxiedList = new List<SelectListItem>()}; ;
             var model = new ProxyModel();
             model.ProxiedList = staff.Proxied.Select(c => new SelectListItem() {Text = c.LastName+", "+c.FirstName,Value = c.Id.ToString()}).ToList();
             return model;

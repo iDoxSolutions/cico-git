@@ -33,7 +33,8 @@ namespace Cico.Controllers
         public ActionResult Create(int id)
         {
             var employee = Db.Employees.Single(c => c.Id == id);
-            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee},EmployeeId = employee.Id});
+            var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == id && c.Active);
+            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee},EmployeeId = employee.Id,ChecklistId = checklist.Id});
         }
 
 
