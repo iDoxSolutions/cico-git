@@ -47,6 +47,7 @@ namespace Cico.Models.Subscriptions
                                   checkListItemTemplate.CheckListItemTemplateId equals
                                   checkListItemSubmitionTrack.CheckListItemTemplate.CheckListItemTemplateId
                               where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value,refDate) == 0 && checkListItemSubmitionTrack.Checked
+                              && checkListItemTemplate.Active
                               select t ).ToList();
             log.DebugFormat("{0} staff users to be emailed",usersToSend.Count());
             foreach (var staff in usersToSend.Distinct(new CompareStaff()))
