@@ -15,5 +15,6 @@ namespace Cico.Models
         public virtual IList<CheckListItemSubmitionTrack> ChecklistItems { get; set; }
         public virtual Employee Employee { get; set; }
         public virtual Reminder Reminder { get; set; }
+       
     }
 }
