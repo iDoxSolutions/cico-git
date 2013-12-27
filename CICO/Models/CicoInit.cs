@@ -203,7 +203,7 @@ namespace Cico.Models
                     Type = "DocumentSubmitted"
                     ,
                     InstructionText =
-                        "Upload a copy of your Mexico Visa.  May be electronic copy, scanned or photographed."
+                        "Upload a copy of your "+UiHelper.EmbassyNameAtt+" Visa.  May be electronic copy, scanned or photographed."
                     ,
                     AlertDays = "3"
                 });

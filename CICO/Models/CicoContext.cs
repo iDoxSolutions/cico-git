@@ -40,7 +40,10 @@ namespace Cico.Models
         public IDbSet<CheckListSession> CheckListSessions { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().HasOptional(c => c.Proxy).WithMany(c => c.Proxied).Map(m => m.MapKey("staffId"));
+            modelBuilder.Entity<Employee>()
+                .HasOptional(c => c.Proxy)
+                .WithMany(c => c.Proxied)
+                .Map(m => m.MapKey("staffId"));
 
             modelBuilder.Entity<CheckListItemTemplate>()
                         .HasOptional(c => c.SystemFile)
@@ -53,7 +56,7 @@ namespace Cico.Models
             modelBuilder.Entity<CheckListItemSubmitionTrack>().Ignore(c => c.ForDependents);
 
             modelBuilder.Entity<Dependent>().HasRequired(c => c.Employee).WithMany(c=>c.Dependents);
-            //modelBuilder.Entity<Dependent>().HasMany(c => c.DependentFiles).WithRequired(c => c.Dependent).WillCascadeOnDelete();
+            
             modelBuilder.Entity<CheckListItemSubmitionTrack>()
                         .HasMany(c => c.SentBoxItems)
                         .WithMany(c => c.ChecklistItems);

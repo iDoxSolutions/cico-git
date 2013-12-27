@@ -59,12 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Configuration\CicoConfiguration.cs" />
-    <Compile Include="ExchangeDav\ExchangeQuery.cs" />
-    <Compile Include="Mail\Mail.cs" />
-    <Compile Include="Mail\IMailStorage.cs" />
-    <Compile Include="Mapi\MapiQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

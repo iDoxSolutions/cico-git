@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Cico.Models.Helpers;
 
 namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 {
@@ -45,7 +46,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Home Phone")]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         public string HomePhone { get; set; }
-        [DisplayName("Mexico - Personal Cell Phone")]
+        [EmbasssyNameDisplayName("{0} - Personal Cell Phone")]
        // [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         // TODO: prefix phone with 044
         public string CellPhone { get; set; }
@@ -53,7 +54,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         // TODO: prefix phone with 044
         public string HomePhone2 { get; set; }
-        [DisplayName("Mexico - Office Cell Phone")]
+        [EmbasssyNameDisplayName("{0} - Office Cell Phone")]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         // TODO: prefix phone with 044
         public string OfficeCellPhone { get; set; }

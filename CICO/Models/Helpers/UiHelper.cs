@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +10,7 @@ namespace Cico.Models.Helpers
 {
     public static class UiHelper
     {
+        
         public static string UserFullName(this HtmlHelper helper)
         {
             var userName = HttpContext.Current.User.Identity.Name;
@@ -40,10 +43,54 @@ namespace Cico.Models.Helpers
             }
         }
 
+      
+        public static string EmbassyEmail(this HtmlHelper helper)
+        {
+            var name = ConfigurationManager.AppSettings["EmbassyEmail"];
+            if (string.IsNullOrEmpty(name))
+                throw new ConfigurationErrorsException(string.Format("app serrings EmbassyEmail is empty"));
+            return name;
+        }
+
+        public static string EmbassyName(this HtmlHelper helper)
+        {
+            return EmbassyNameAtt;
+        }
+
         public static void SetCurrentName(string val)
         {
             HttpContext.Current.Cache["cached_curr_user"] = val;
+        }
 
-        } 
+        public static string EmbassyNameAtt
+        {
+            get
+            {
+                var name = ConfigurationManager.AppSettings["EmbassyName"];
+                if (string.IsNullOrEmpty(name))
+                    throw new ConfigurationErrorsException(string.Format("app serrings EmbassyName is empty"));
+                return name;
+            }
+            
+        }
+
+    }
+
+    public class EmbasssyNameDisplayNameAttribute : DisplayNameAttribute
+    {
+        private readonly string _formatName;
+
+        public EmbasssyNameDisplayNameAttribute(string formatName)
+        {
+            _formatName = formatName;
+        }
+
+        public override string DisplayName
+        {
+            get
+            {
+                return string.Format(_formatName,UiHelper.EmbassyNameAtt);
+            }
+        }
     }
 }

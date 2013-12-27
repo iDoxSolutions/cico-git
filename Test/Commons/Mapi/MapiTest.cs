@@ -1,4 +1,4 @@
-﻿using Cico.Commons.Mapi;
+﻿
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -14,13 +14,7 @@ namespace Test.Commons.Mapi
         [Test]
         public void TestGetInbox()
         {
-            var query = new MapiQuery();
-            var res = query.GetUnreadInbox();
-
-            foreach (var eMail in res)
-            {
-                query.MarkAsRead(eMail.EmailId);
-            }
+           
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Cico.Models.Helpers;
 
 namespace Cico.Models    
 {
@@ -31,7 +32,7 @@ namespace Cico.Models
         [StringLength(255)]
         public string Nationality { get; set; }
         public string HomePhone { get; set; }
-        [DisplayName("Mexico - Personal Cell Phone")]
+        [EmbasssyNameDisplayName("{0} - Personal Cell Phone")]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
         // TODO: prefix phone with 044
         public string CellPhone { get; set; }
