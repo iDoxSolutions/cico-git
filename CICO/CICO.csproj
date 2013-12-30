@@ -237,6 +237,10 @@
     <Compile Include="Migrations\201306051315483_DateCompletedSession.Designer.cs">
       <DependentUpon>201306051315483_DateCompletedSession.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201312301252566_Remove employee fields.cs" />
+    <Compile Include="Migrations\201312301252566_Remove employee fields.Designer.cs">
+      <DependentUpon>201312301252566_Remove employee fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -744,7 +748,7 @@
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Dependent\DependentForm.cshtml" />
+    <Content Include="Areas\Admin\Views\Dependent\__DependentForm.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\DependentIndex.cshtml" />
@@ -776,6 +780,7 @@
     <Content Include="Areas\Admin\Views\Staff\_lineof.cshtml" />
     <Content Include="Areas\Admin\Views\SentBox\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SentBox\Show.cshtml" />
+    <Content Include="Areas\Admin\Views\Employee\_proxyFields.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -814,6 +819,8 @@
     <Content Include="Views\Home\SignOut.cshtml" />
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
+    <Content Include="Views\Employee\_employeeFields.cshtml" />
+    <Content Include="Views\Employee\_oldLayout.cshtml" />
     <None Include="Web.Secure.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

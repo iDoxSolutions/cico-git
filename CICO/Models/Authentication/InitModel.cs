@@ -22,9 +22,8 @@ namespace Cico.Models.Authentication
         [DataType(DataType.EmailAddress)]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string EmailAddress { get; set; }
-        [DisplayName("Employee ID")]
-        [Required]
-        public int EmployeeId { get; set; }
+        
+        
         public int? EmpId { get; set; }
     }
 }

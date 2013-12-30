@@ -8,9 +8,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 {
     public class Employee:EntityBaseWithKey
     {
-       
-        [DisplayName("Employee ID")]
-        public int EmployeeId { get; set; }
         [DisplayName("First Name")]
         [StringLength(65)]
         public string FirstName { get; set; }
@@ -43,48 +40,30 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Nationality")]
         [StringLength(60)]
         public string Nationality { get; set; }
-        [DisplayName("Home Phone")]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
-        public string HomePhone { get; set; }
+
         [EmbasssyNameDisplayName("{0} - Personal Cell Phone")]
-       // [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
-        // TODO: prefix phone with 044
         public string CellPhone { get; set; }
-        [DisplayName("Residence at Post - Home Phone 2")]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
-        // TODO: prefix phone with 044
-        public string HomePhone2 { get; set; }
+
         [EmbasssyNameDisplayName("{0} - Office Cell Phone")]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Entered phone format is not valid.")]
-        // TODO: prefix phone with 044
         public string OfficeCellPhone { get; set; }
-        [DisplayName("Arrival Date (ETA)")]
+        [DisplayName("Estimated Arrival Date")]
         public DateTime? ArrivalDate { get; set; }
-        [DisplayName("Departure Date")]
+        [DisplayName("Estimated Departure Date")]
         public DateTime? TourEndDate { get; set; }
         [DisplayName("Agency Or Section")]
         public string AgencyOrSection { get; set; }
         [DisplayName("Position Title")]
         [StringLength(65)]
         public string PositionTitle { get; set; }
-        [DisplayName("Home Address at US Legal Residence")]
+        [DisplayName("Home Leave Address")]
         [StringLength(100)]
         public string HomeAddress { get; set; }
-        [DisplayName("Location")]
-        [StringLength(20)]
-        public string Location { get; set; }
-        [DisplayName("Prior Post City")]
-        [StringLength(65)]
-        public string PriorPostCity { get; set; }
-        [DisplayName("Prior Post Country")]
-        [StringLength(65)]
-        public string PriorPostCountry { get; set; }
-        [DisplayName("Prior Post State")]
+        
+        [DisplayName("Prior Post")]
         [StringLength(65)]
         public string PriorPostState { get; set; }
         [DisplayName("Email - Personal")]
         [DataType(DataType.EmailAddress)]
-        
         public  string PersonalEmail { get; set; }
         [DisplayName("Email - Work (Agency)")]
         [DataType(DataType.EmailAddress)]
@@ -100,16 +79,14 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string VisaNumber { get; set; }
         [DisplayName("Visa expiration")]
         public DateTime? VisaExpiration { get; set; }
-        [DisplayName("Post Of Assignment")]
-        public string PostOfAssignment { get; set; }
         [DisplayName("Office")]
         [StringLength(65)]
         public string Office { get; set; }
         [DisplayName("Office Phone")]
         
         public string OfficePhone { get; set; }
-        public string Extension { get; set; }
-        [DisplayName("Pre-Arrival Contact Phone")]
+
+        [DisplayName("In-Transit Phone")]
         
         public string PreArrivalPhone { get; set; }
         [DisplayName("Emergency Contact Email Address")]
@@ -117,9 +94,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string EmergencyContactEmail { get; set; }
         [DisplayName("Emergency Contact Given Name(s)")]
-        [StringLength(65)]
-        public string EmergencyContactFirstName { get; set; }
-        [DisplayName("Emergency Contact LastName")]
         [StringLength(65)]
         public string EmergencyContactLastName { get; set; }
         [DisplayName("Emergency Contact Relationship")]
@@ -139,18 +113,12 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DataType(DataType.EmailAddress)]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string ProxyEmail { get; set; }
+        
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
+
         [DisplayName("Gender")]
         [StringLength(65)]
         public string Gender { get; set; }
-
-        [DisplayName("Blood Type")]
-        [StringLength(5)]
-        public string BloodType { get; set; }
-
-        [DisplayName("Residential Safe Word")]
-        [StringLength(65)]
-        public string ResidentialSafeWord { get; set; }
 
         [DisplayName("School Name")]
         [StringLength(65)]

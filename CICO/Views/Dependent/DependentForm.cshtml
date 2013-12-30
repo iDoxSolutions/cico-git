@@ -1,15 +1,13 @@
 ﻿@model Cico.Controllers.DepententModel
 @using Cico.Models.Helpers;
-@using (Html.BeginForm())
-{
-    
+    <input type="submit" value="Save" name="Save" />
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
         
         @Html.HiddenFor(c=>c.EmployeeId)
         <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
         <div class="float-left" style="width: 47%">
-            <input type="submit" value="Save" name="Save" />
+            
             <div class="editor-label">
                 @Html.LabelFor(model => model.Dependent.FirstName)
             </div>
@@ -109,28 +107,7 @@
                 @Html.EditorFor(model => model.Dependent.PreferredName)
                 @Html.ValidationMessageFor(model => model.Dependent.PreferredName)
             </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Dependent.VisaExpiration)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Dependent.VisaExpiration)
-                @Html.ValidationMessageFor(model => model.Dependent.VisaExpiration)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Dependent.VisaNumber)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Dependent.VisaNumber)
-                @Html.ValidationMessageFor(model => model.Dependent.VisaNumber)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Dependent.CellPhone)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Dependent.CellPhone)
-                @Html.ValidationMessageFor(model => model.Dependent.CellPhone)
-            </div>
+           
             <div class="editor-label">
                 @Html.LabelFor(model => model.Dependent.SameECData)
             </div>
@@ -193,7 +170,7 @@
                 @Html.ValidationMessageFor(model => model.Dependent.EmergencyContactRelationship)
             </div>
             
-             <div class="editor-label">
+            <div class="editor-label">
                 @Html.LabelFor(model => model.Dependent.SchoolName)
             </div>
             <div class="editor-field">
@@ -202,10 +179,39 @@
             </div>
 
         </div>
-  <div style="clear: both"></div>
-         <input type="submit" value="Save" name="Save" />
+        <div style="clear: both"></div>
+        
     </fieldset>
-    @Html.HiddenFor(model => model.Dependent.Id)
+    
+    <fieldset class="two-column-form" style="width: 80%">
+        <legend>After Arrival</legend>
+        <h2>To be completed after arrival</h2>
+        <div class="float-left" style="width: 47%">
+             <div class="editor-label">
+                @Html.LabelFor(model => model.Dependent.VisaExpiration)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Dependent.VisaExpiration)
+                @Html.ValidationMessageFor(model => model.Dependent.VisaExpiration)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Dependent.VisaNumber)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Dependent.VisaNumber)
+                @Html.ValidationMessageFor(model => model.Dependent.VisaNumber)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Dependent.CellPhone)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Dependent.CellPhone)
+                @Html.ValidationMessageFor(model => model.Dependent.CellPhone)
+            </div>
+        </div>
+    </fieldset>
+    <input type="submit" value="Save" name="Save" />
+    
    
    
-}
