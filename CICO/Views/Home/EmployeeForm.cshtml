@@ -374,7 +374,7 @@
                     @Html.LabelFor(model => model.Employee.SSN)
                 </div>
                 <div class="homescreen-display">
-                    @Html.DisplayFor(model => model.Employee.SSN)
+                    @Html.SSNDisplay(Model.Employee.SSN)
                     @Html.ValidationMessageFor(model => model.Employee.SSN)
                 </div>
                 <div class="homescreen-label">

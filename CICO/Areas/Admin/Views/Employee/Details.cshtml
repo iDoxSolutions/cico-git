@@ -1,4 +1,5 @@
-﻿@model Cico.Models.Employee
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Employee
 
 @{
     ViewBag.Title = "Employee Details";
@@ -326,7 +327,7 @@
                 @Html.LabelFor(model => model.SSN)
             </div>
             <div class="homescreen-display">
-                @Html.DisplayFor(model => model.SSN)
+                @Html.SSNDisplay(Model.SSN)
                 @Html.ValidationMessageFor(model => model.SSN)
             </div>
         </div>

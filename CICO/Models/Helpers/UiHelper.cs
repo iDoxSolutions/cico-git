@@ -74,6 +74,16 @@ namespace Cico.Models.Helpers
             
         }
 
+        public static string SSNDisplay(this HtmlHelper helper, string ssn)
+        {
+            if (!string.IsNullOrEmpty(ssn)&& ssn.Length >= 4)
+            {
+                ssn = ssn.Substring(ssn.Length - 4);
+                return string.Format("xxx-xx-{0}", ssn);
+            }
+            return "";
+        }
+
     }
 
     public class EmbasssyNameDisplayNameAttribute : DisplayNameAttribute
