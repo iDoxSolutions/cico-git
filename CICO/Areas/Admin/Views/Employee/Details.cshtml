@@ -1,4 +1,5 @@
-﻿@model Cico.Models.Employee
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Employee
 
 @{
     ViewBag.Title = "Employee Details";
@@ -79,6 +80,7 @@
 
 
 
+                @Html.DisplayFor(model => model.SSN)
 @Html.Partial("EmployeeForm")
 
 <h3>
