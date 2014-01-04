@@ -107,14 +107,21 @@ namespace Cico.Models.Helpers
             
         }
 
-        public static string SSNDisplay(this HtmlHelper helper, string ssn)
+        public static MvcHtmlString SSNDisplay<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)
         {
+            var ssn = ModelMetadata.FromLambdaExpression(expression, html.ViewData).Model as string;
             if (!string.IsNullOrEmpty(ssn)&& ssn.Length >= 4)
             {
                 ssn = ssn.Substring(ssn.Length - 4);
-                return string.Format("xxx-xx-{0}", ssn);
+                ssn= string.Format("xxx-xx-{0}", ssn);
             }
-            return "";
+            //expression.
+            
+            var builder = new TagBuilder("span");
+            builder.InnerHtml = "<div class=\"homescreen-label\">" + html.LabelFor(expression) + "</div>" +
+            "<div class=\"homescreen-display\">" + ssn + "</div>";
+            return new MvcHtmlString(builder.ToString());
+            
         }
 
     }
