@@ -13,10 +13,7 @@ namespace Cico.Controllers
     {
         public Dependent Dependent { get; set; }
         public int EmployeeId { get; set; }
-
-        public int ChecklistId
-        {
-            get; set; }
+        public int ChecklistId{get; set; }
     }
 
     public class DependentController : ControllerBase
@@ -34,7 +31,7 @@ namespace Cico.Controllers
         {
             var employee = Db.Employees.Single(c => c.Id == id);
             var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == id && c.Active);
-            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee},EmployeeId = employee.Id,ChecklistId = checklist.Id});
+            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee,SameECData = true},EmployeeId = employee.Id,ChecklistId = checklist.Id});
         }
 
 
@@ -64,7 +61,7 @@ namespace Cico.Controllers
             var dependent = Db.Dependents.Single(c => c.Id == id);
             
             var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == dependent.Employee.Id && c.Active);
-            var model = new DepententModel() { Dependent = dependent };
+            var model = new DepententModel() { Dependent = dependent, EmployeeId = dependent.Employee.Id };
             if (checklist != null)
             {
                 model.ChecklistId = checklist.Id;
@@ -103,7 +100,6 @@ namespace Cico.Controllers
                 CopyValues(model.Dependent,dependent);
                 Db.Entry(dependent).State = EntityState.Modified;
                 Db.SaveChanges();
-                //return RedirectToAction("index");
                 return RedirectToAction("index", "home", new { tab = "dependents",id=GetSessionByEmployee(dependent.Employee),land="false" });
             }
             else

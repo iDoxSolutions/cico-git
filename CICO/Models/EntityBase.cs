@@ -19,6 +19,11 @@ namespace Cico.Models
         [StringLength(100)]
         public string UserEdited { get; set; }
         public bool Active { get; set; }
+
+        public virtual void OnSave()
+        {
+            
+        }
     }
 
     public class EntityBaseWithKey : EntityBase

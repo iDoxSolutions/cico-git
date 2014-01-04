@@ -19,7 +19,7 @@
 {
     
     @Html.ValidationSummary(true)
-     @Html.Partial("_employeeFields",Model.Employee)
+    @Html.Partial("_employeeFields",Model.Employee,new ViewDataDictionary{TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "Employee" }})
     @Html.Partial("_proxyFields")
     <input type="submit" value="Save" name="Save" />
     @Html.HiddenFor(model => model.Employee.Id)

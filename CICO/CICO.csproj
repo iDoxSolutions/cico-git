@@ -241,6 +241,26 @@
     <Compile Include="Migrations\201312301252566_Remove employee fields.Designer.cs">
       <DependentUpon>201312301252566_Remove employee fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201401012054252_panama fields rearange iteration 2.cs" />
+    <Compile Include="Migrations\201401012054252_panama fields rearange iteration 2.Designer.cs">
+      <DependentUpon>201401012054252_panama fields rearange iteration 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401012126364_panama fields rearange iteration 3.cs" />
+    <Compile Include="Migrations\201401012126364_panama fields rearange iteration 3.Designer.cs">
+      <DependentUpon>201401012126364_panama fields rearange iteration 3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401021305249_fields rearange iteration 4.cs" />
+    <Compile Include="Migrations\201401021305249_fields rearange iteration 4.Designer.cs">
+      <DependentUpon>201401021305249_fields rearange iteration 4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401021628545_fields rearange iteration 5.cs" />
+    <Compile Include="Migrations\201401021628545_fields rearange iteration 5.Designer.cs">
+      <DependentUpon>201401021628545_fields rearange iteration 5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201401041355345_DependentFormRelayoutIteration6.cs" />
+    <Compile Include="Migrations\201401041355345_DependentFormRelayoutIteration6.Designer.cs">
+      <DependentUpon>201401041355345_DependentFormRelayoutIteration6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Authentication\AuthHelper.cs" />
@@ -258,6 +278,7 @@
     <Compile Include="Models\CheckList.cs" />
     <Compile Include="Models\CicoHelper.cs" />
     <Compile Include="Models\CicoInit.cs" />
+    <Compile Include="Models\Dependent.Behavior.cs" />
     <Compile Include="Models\DocumentTemplate.cs" />
     <Compile Include="Models\DependentFile.cs" />
     <Compile Include="Models\Helpers\CacheHelper.cs" />
@@ -748,7 +769,6 @@
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Dependent\__DependentForm.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\DependentIndex.cshtml" />
@@ -791,9 +811,8 @@
     <Content Include="Areas\Admin\Views\CheckListTemplate\Create.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListTemplate\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\CheckListTemplate\Delete.cshtml" />
-    <Content Include="Views\Home\EmployeeForm.cshtml" />
+    <Content Include="Views\Shared\EmployeeForm.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
-    <Content Include="Views\Employee\EmployeeForm.cshtml" />
     <Content Include="Views\Dependent\Edit.cshtml" />
     <Content Include="Views\Dependent\DependentForm.cshtml" />
     <Content Include="Views\Shared\_SystemForms.cshtml" />
@@ -820,7 +839,6 @@
     <Content Include="Views\Home\LandingPage.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
     <Content Include="Views\Employee\_employeeFields.cshtml" />
-    <Content Include="Views\Employee\_oldLayout.cshtml" />
     <None Include="Web.Secure.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

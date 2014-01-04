@@ -30,7 +30,7 @@ namespace Cico.Areas.Admin
 
         public ActionResult Create(int employeeId)
         {
-            return View(new DepententModel(){EmployeeId = employeeId,Dependent = new Dependent(){Employee = new Employee(){Id = employeeId}}});
+            return View(new DepententModel(){EmployeeId = employeeId,Dependent = new Dependent(){SameECData = true, Employee = new Employee(){Id = employeeId}}});
         }
 
         [HttpPost]

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.Mvc.Html;
 namespace Cico.Models.Helpers
 {
     public static class UiHelper
@@ -30,6 +31,38 @@ namespace Cico.Models.Helpers
             }
         }
 
+        public static MvcHtmlString CicoEditorFor<TModel, TValue>(this HtmlHelper<TModel> html,  Expression<Func<TModel, TValue>> expression)
+        {
+            var builder = new TagBuilder("span");
+            builder.InnerHtml= "<div class=\"editor-label\">"+html.LabelFor(expression)+"</div>"+
+            "<div class=\"editor-field\">" + html.EditorFor(expression) + html.ValidationMessageFor(expression)+"</div>";
+            return new MvcHtmlString(builder.ToString());
+         }
+
+        public static MvcHtmlString CicoEditorFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression,string hint)
+        {
+            var builder = new TagBuilder("span");
+            builder.InnerHtml = "<div class=\"editor-label\">" + html.LabelFor(expression) + "</div>" +
+            "<div class=\"editor-field\">" + html.EditorFor(expression) + html.ValidationMessageFor(expression) + 
+            string.Format("<div class=\"homescreen-inline-instructions\">{0}</div>",hint) + "</div>";
+            return new MvcHtmlString(builder.ToString());
+        }
+
+        public static MvcHtmlString CicoDisplayFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression)
+        {
+            var builder = new TagBuilder("span");
+            builder.InnerHtml = "<div class=\"homescreen-label\">" + html.LabelFor(expression) + "</div>" +
+            "<div class=\"homescreen-display\">" + html.DisplayFor(expression) + "</div>";
+            return new MvcHtmlString(builder.ToString());
+        }
+
+        public static MvcHtmlString CicoDropdownFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression,string name)
+        {
+            var builder = new TagBuilder("span");
+            builder.InnerHtml = "<div class=\"editor-label\">" + html.LabelFor(expression) + "</div>" +
+            "<div class=\"editor-field\">" + html.DropDownListFor(expression, html.GetDropdownItems(name),"") + html.ValidationMessageFor(expression) + "</div>";
+            return new MvcHtmlString(builder.ToString());
+        }
 
         public static string GetCurrentName(this HtmlHelper helper)
         {

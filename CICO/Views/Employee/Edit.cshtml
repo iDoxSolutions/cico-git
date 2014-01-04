@@ -7,4 +7,13 @@
 
 <div class="homescreen-instructions"><label>Please update your information. Select "Save" to save your changes</label></div>
 
-@Html.Partial("EmployeeForm")
+@using (Html.BeginForm())
+{
+    
+     @Html.Partial("_employeeFields")
+        <input type="submit" value="Save" name="Save"/>
+     @Html.HiddenFor(model => model.Id)
+     @Html.HiddenFor(model => model.UserId)
+   
+    
+}

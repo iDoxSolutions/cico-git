@@ -78,6 +78,7 @@ namespace Cico.Models
                 {
                     entityBase.UserCreated = HttpContext.Current.User.Identity.Name;
                 }
+                entityBase.OnSave();
             }
 
             var modified = ((IObjectContextAdapter)this).ObjectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified);
@@ -94,7 +95,9 @@ namespace Cico.Models
                         {
                             ent.UserEdited = HttpContext.Current.User.Identity.Name;
                         }
+                        ent.OnSave();
                     }
+                    
                 }
             }
             try

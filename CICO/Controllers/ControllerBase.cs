@@ -44,8 +44,12 @@ namespace Cico.Controllers
 
         public void CopyValues<TSource, TTarget>(TSource source, TTarget target)
         {
-            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead && (p.PropertyType == typeof(int) 
-                || p.PropertyType == typeof(string)|| p.PropertyType==typeof(DateTime)|| p.PropertyType==typeof(DateTime?)));
+            var sourceProperties = typeof(TSource).GetProperties().Where(p => p.CanRead && 
+                (p.PropertyType == typeof(int) 
+                || p.PropertyType == typeof(string)
+                || p.PropertyType==typeof(DateTime)
+                || p.PropertyType==typeof(DateTime?)
+                || p.PropertyType == typeof(bool)));
 
             foreach (var property in sourceProperties)
             {
