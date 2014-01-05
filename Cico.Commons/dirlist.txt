@@ -1,0 +1,11 @@
+bin
+Cico.Commons.csproj
+Class1.cs
+CommonEncryption.snk
+Configuration
+dirlist.txt
+ExchangeDav
+Mail
+Mapi
+obj
+Properties

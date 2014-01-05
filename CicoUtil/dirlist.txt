@@ -1,0 +1,8 @@
+App.config
+bin
+CicoUtil.csproj
+CicoUtil.csproj.user
+dirlist.txt
+obj
+Program.cs
+Properties
