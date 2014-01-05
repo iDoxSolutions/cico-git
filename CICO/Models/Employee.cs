@@ -10,24 +10,27 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
     {
         public override void OnSave()
         {
-            foreach (var dependent in Dependents)
+            if (Dependents != null)
             {
-                if (dependent.SameECData)
+                foreach (var dependent in Dependents)
                 {
-                    dependent.EmergencyContactName = EmergencyContactName;
-                    dependent.EmergencyContactOfficePhone = EmergencyContactOfficePhone;
-                    dependent.EmergencyContactPhone = EmergencyContactPhone;
-                    dependent.EmergencyContactPhone2 = EmergencyContactPhone2;
-                    dependent.EmergencyContactEmail = EmergencyContactEmail;
-                }
+                    if (dependent.SameECData)
+                    {
+                        dependent.EmergencyContactName = EmergencyContactName;
+                        dependent.EmergencyContactOfficePhone = EmergencyContactOfficePhone;
+                        dependent.EmergencyContactPhone = EmergencyContactPhone;
+                        dependent.EmergencyContactPhone2 = EmergencyContactPhone2;
+                        dependent.EmergencyContactEmail = EmergencyContactEmail;
+                    }
 
-                if (dependent.SameAddressData)
-                {
-                    dependent.ResidentPhoneNumber = HomePhone;
-                    dependent.ResidentAddress = ResidentAddress;
-                    
-                }
+                    if (dependent.SameAddressData)
+                    {
+                        dependent.ResidentPhoneNumber = HomePhone;
+                        dependent.ResidentAddress = ResidentAddress;
 
+                    }
+
+                }
             }
         }
     }

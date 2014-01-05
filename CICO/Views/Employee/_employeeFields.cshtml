@@ -6,7 +6,7 @@
     <legend>Employee</legend>
     @Html.ValidationSummary()
     <div class="float-left" style="width: 47%">
-        <h2>Personal Data</h2>
+        
         @Html.CicoEditorFor(model => model.FirstName)
         @Html.CicoEditorFor(model => model.MiddleInitial)
         @Html.CicoEditorFor(model => model.LastName)
@@ -29,7 +29,7 @@
             
     </div>
     <div class="float-right" style="width: 47%">
-        <h2>Posting Information</h2>
+        
         @Html.CicoDropdownFor(model => model.Agency, "Agency")
         @Html.CicoDropdownFor(model => model.Section, "Sections")
         @Html.CicoDropdownFor(model => model.Office, "Office")
