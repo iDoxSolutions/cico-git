@@ -1,0 +1,212 @@
+2014-01-06 13:45:15,479 [1] DEBUG MvcApplication - Application Started
+2014-01-06 13:45:25,585 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,588 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,684 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,685 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,686 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,686 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,687 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,687 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,694 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,694 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,695 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,696 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,698 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,698 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,699 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,700 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,700 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,701 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,701 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,702 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,702 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,703 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,704 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,704 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,705 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,705 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,706 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,707 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:25,708 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:25,709 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,610 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,610 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,617 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,618 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,619 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,619 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,620 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,621 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,624 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,625 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,626 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,626 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,628 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,628 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,629 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,630 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,630 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,631 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,632 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,632 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,633 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,633 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,634 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,635 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,635 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,636 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,636 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,637 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:45:34,638 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:45:34,638 [13] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:26,310 [12] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:26,311 [12] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 13:46:26,311 [12] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 13:46:26,315 [12] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:26,315 [12] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 13:46:26,315 [12] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 13:46:30,475 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,476 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,482 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,483 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,484 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,484 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,485 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,486 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,489 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,489 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,490 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,490 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,492 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,493 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,493 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,494 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,495 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,495 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,496 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,496 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,497 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,497 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,498 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,499 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,499 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,500 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,501 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,501 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 13:46:30,502 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 13:46:30,503 [11] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:21:12,320 [60] DEBUG MvcApplication - Application Started
+2014-01-06 14:21:52,557 [56] FATAL MvcApplication - System.Web.HttpException (0x80004005): The controller for path '/admin/EmailSubscriptions' was not found or does not implement IController.
+   at System.Web.Mvc.DefaultControllerFactory.GetControllerInstance(RequestContext requestContext, Type controllerType)
+   at System.Web.Mvc.DefaultControllerFactory.CreateController(RequestContext requestContext, String controllerName)
+   at System.Web.Mvc.MvcHandler.ProcessRequestInit(HttpContextBase httpContext, IController& controller, IControllerFactory& factory)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<BeginProcessRequest>b__2()
+   at System.Web.Mvc.SecurityUtil.<>c__DisplayClassb`1.<ProcessInApplicationTrust>b__a()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust[TResult](Func`1 func)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContextBase httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.BeginProcessRequest(HttpContext httpContext, AsyncCallback callback, Object state)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.BeginProcessRequest(HttpContext context, AsyncCallback cb, Object extraData)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-06 14:22:00,509 [48] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:00,510 [48] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:22:00,510 [48] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:22:00,513 [48] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:22:00,515 [48] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:22:00,520 [48] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:00,520 [48] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:22:00,520 [48] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:22:00,520 [48] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:22:00,520 [48] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:22:46,193 [48] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:46,193 [48] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:22:46,193 [48] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:22:46,196 [48] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:22:46,198 [48] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:22:46,199 [48] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:46,200 [48] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:22:46,200 [48] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:22:46,200 [48] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:22:46,200 [48] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:22:48,958 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,959 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,970 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,971 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,973 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,974 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,975 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,976 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,981 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,982 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,983 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,983 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,985 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,985 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,986 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,987 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,988 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,988 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,989 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:48,990 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:48,990 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:49,002 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:49,003 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:49,004 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:49,005 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:49,005 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:49,006 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:49,006 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:49,007 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:49,008 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,421 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,422 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,430 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,430 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,433 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,433 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,434 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,434 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,437 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,438 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,438 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,439 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,440 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,440 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,441 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,442 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,443 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,443 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,444 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,444 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,445 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,445 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,446 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,446 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,447 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,447 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,448 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,448 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:22:54,449 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:22:54,451 [53] DEBUG SecurityGuard - ABAPER-W8\Pawel session owner 
+2014-01-06 14:23:54,437 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:23:54,442 [58] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:23:54,442 [58] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:23:54,447 [58] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:23:54,450 [58] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:23:54,461 [58] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:23:54,462 [58] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:23:54,462 [58] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:23:54,462 [58] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:23:54,462 [58] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:33:36,753 [50] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:33:36,754 [50] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:33:36,754 [50] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:33:36,756 [50] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:33:36,756 [50] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - ABAPER-W8\Pawel user determine can complete 
+2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - ddd session owner 
+2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not session owner session owner 
+2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not global admin  
+2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not ritht proxy person  
