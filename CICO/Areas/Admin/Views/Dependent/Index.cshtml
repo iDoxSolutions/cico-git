@@ -1,0 +1,53 @@
+﻿@model ICollection< Cico.Models.Dependent>
+
+@{
+    ViewBag.Title = "Dependents";
+ 
+}
+
+
+<h2>Dependents of </h2>
+
+@Html.ActionLink("New Dependent", "Create",new {employeeId=Request["employeeId"]})
+
+
+<div>
+    
+    <table class="admin-table" cols="4" >
+        <tr>
+            <th colspan="2">
+                Name
+            </th>
+            <th>
+                DOB
+            </th>
+            <th>
+                Relationship
+            </th>
+            <th colspan="2">
+                Action
+            </th>
+        </tr>
+        @foreach (var dep in Model)
+        {
+            <tr>
+                <td>
+                    @dep.FirstName
+                </td>
+                <td>
+                    @dep.LastName
+                </td>
+                <td>
+                    @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+                </td>
+                <td>
+                    @dep.Relationship
+                </td>
+                <td>
+                    @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
+                    @Html.ActionLink("Delete", "Delete",  new {id=dep.Id.ToString()})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

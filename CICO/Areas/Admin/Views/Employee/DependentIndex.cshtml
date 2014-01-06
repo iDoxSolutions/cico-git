@@ -1,0 +1,51 @@
+﻿@model  Cico.Models.Employee
+
+@{
+    ViewBag.Title = "Dependents";
+ 
+}
+
+
+<h2>Dependents of </h2>
+
+@Html.ActionLink("Add Dependent", "Create")
+@Html.ActionLink("Back to Checklist","Index")
+
+<div>
+    
+    <table cols="4" >
+        <tr>
+            <th colspan="2">
+                Name
+            </th>
+            <th>
+                DOB
+            </th>
+            <th>
+                Relationship
+            </th>
+        </tr>
+        
+        @foreach (var dep in Model.Dependents)
+        {
+            <tr>
+                <td>
+                    @dep.FirstName
+                </td>
+                <td>
+                    @dep.LastName
+                </td>
+                <td>
+                    @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+                </td>
+                <td>
+                    @dep.Relationship
+                </td>
+                <td>
+                    @Html.ActionLink("Edit","Edit",new{id=dep.Id.ToString()})  |
+                    @Html.ActionLink("Delete", "Delete",  new {id=dep.Id.ToString()})
+                </td>
+            </tr>
+        }
+    </table>
+</div>

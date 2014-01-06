@@ -1,0 +1,22 @@
+﻿@model Cico.Models.DocumentTemplate
+
+@{
+    ViewBag.Title = "Form Details";
+}
+
+<h2>Document Template Details</h2>
+
+<fieldset>
+    <legend>Document Template</legend>
+
+    <div class="homescreen-label">Title</div>
+    <div class="homescreen-display">
+        @Html.DisplayFor(model => model.DocumentTitle)
+    </div>
+
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

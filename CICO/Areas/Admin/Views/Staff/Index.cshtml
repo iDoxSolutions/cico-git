@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Cico.Models.Staff>
+
+@{
+    ViewBag.Title = "Staff";
+   
+}
+
+<h2>Staff</h2>
+
+@Html.ActionLink("Create","Create")
+
+<table class="admin-table">
+    <tr>
+        <th>User ID</th>
+        <th>Email</th>
+        <th>Office</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.UserId
+            </td>
+            <td>
+                @item.Email
+            </td>
+            <td>
+                @(item.Office==null?"":item.Office.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit","Edit",new{userid=item.UserId})
+                
+            </td>
+        </tr>
+    }
+    
+</table>

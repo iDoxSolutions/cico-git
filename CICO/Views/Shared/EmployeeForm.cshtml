@@ -1,0 +1,72 @@
+﻿@model Cico.Models.Employee
+@using Cico.Models.Helpers;
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Employee</legend>
+        <div>
+            <!--Left column-->
+            <div class="float-left" style="width: 48%">
+                
+                @Html.CicoDisplayFor(model => model.FirstName)
+                @Html.CicoDisplayFor(model => model.MiddleInitial)
+                @Html.CicoDisplayFor(model => model.LastName)
+                @Html.CicoDisplayFor(model => model.PreferredName)
+                @Html.SSNDisplay(model => model.SSN)
+                @Html.CicoDisplayFor(model => model.CellPhone)
+                @Html.CicoDisplayFor(model => model.PersonalEmail)
+                @Html.CicoDisplayFor(model => model.WorkEmail)
+                @Html.CicoDisplayFor(model => model.Title)
+                @Html.CicoDisplayFor(model => model.PositionTitle)
+                @Html.CicoDisplayFor(model => model.DiplomaticTitle)
+                @Html.CicoDisplayFor(model => model.DateOfBirth)
+                @Html.CicoDisplayFor(model => model.Nationality)
+                @Html.CicoDisplayFor(model => model.HomeAddress)
+                @Html.CicoDisplayFor(model => model.LegalResidenceState)
+                @Html.CicoDisplayFor(model => model.PassportNumber)
+                @Html.CicoDisplayFor(model => model.PassportExpiration)
+                @Html.CicoDisplayFor(model => model.PassportType)
+            </div>
+            <!--Right column-->
+            <div class="float-right" style="width: 48%">
+                
+                @Html.CicoDisplayFor(model => model.Agency)
+                @Html.CicoDisplayFor(model => model.Section)
+                @Html.CicoDisplayFor(model => model.Office)
+                @Html.CicoDisplayFor(model => model.ArrivalDate)
+                @Html.CicoDisplayFor(model => model.TourEndDate)
+                @Html.CicoDisplayFor(model => model.PriorPost)
+                @Html.CicoDisplayFor(model => model.PreArrivalPhone)
+                @Html.CicoDisplayFor(model => model.EmergencyContactEmail)
+                @Html.CicoDisplayFor(model => model.EmergencyContactName)
+                @Html.CicoDisplayFor(model => model.EmergencyContactOfficePhone)
+                @Html.CicoDisplayFor(model => model.EmergencyContactPhone)
+                @Html.CicoDisplayFor(model => model.EmergencyContactPhone2)
+                @Html.CicoDisplayFor(model => model.EmergencyContactRelationship)
+                @Html.CicoDisplayFor(model => model.ClearanceLevel)
+                @Html.CicoDisplayFor(model => model.Gender)
+                @Html.CicoDisplayFor(model => model.BankAccount)
+                @Html.CicoDisplayFor(model => model.RoutingNumber)
+            </div>
+        </div>
+    </fieldset>
+    
+    <h5>After Arrival</h5>
+    <fieldset>
+        <legend>After arrival</legend>
+        <div>
+            <div class="float-left" style="width: 47%">
+                @Html.CicoDisplayFor(model => model.ResidentAddress)
+                @Html.CicoDisplayFor(model => model.HomePhone)
+                @Html.CicoDisplayFor(model => model.OfficeCellPhone)
+                @Html.CicoDisplayFor(model => model.OfficePhone)
+            </div>
+            <div class="float-right" style="width: 47%">
+                @Html.CicoDisplayFor(model => model.VisaNumber)
+                @Html.CicoDisplayFor(model => model.VisaExpiration)
+                @Html.CicoDisplayFor(model => model.RadioCallSign)
+                @Html.CicoDisplayFor(model => model.LicensePlate)
+            </div>
+        </div>
+    </fieldset>
+}

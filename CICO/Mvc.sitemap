@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-3.0 MvcSiteMapSchema.xsd"
+            enableLocalization="true">
+
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Edit Employee" controller="Employee" action="Edit"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Add Dependent" controller="dependent" action="Create"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Edit Dependent" controller="dependent" action="Edit"></mvcSiteMapNode>
+    <mvcSiteMapNode title="Delete Dependent" controller="dependent" action="Delete"> </mvcSiteMapNode>
+  
+  <mvcSiteMapNode title="Admin" controller="Checklists" action="Index" area="admin">
+      <mvcSiteMapNode title="Dashboard" controller="Checklists" action="Index" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Employees" controller="Employee" action="Index" area="admin">
+        <mvcSiteMapNode title="Edit Employee" controller="Employee" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Employee Details" controller="Employee" action="Details" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete Employee" controller="Employee" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Offices" controller="Office" action="Index" area="admin">
+        <mvcSiteMapNode title="Edit Office" controller="Office" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Office Details" controller="Office" action="Details" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete Office" controller="Office" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Reminders" controller="Reminder" action="Index" area="admin">
+         <mvcSiteMapNode title="Create Reminder" controller="Reminder" action="Create" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Edit Reminder" controller="Reminder" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Reminder Details" controller="Reminder" action="Details" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete Reminder" controller="Reminder" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Subscriptions" controller="Subscriptions" action="Index" area="admin">
+      </mvcSiteMapNode>
+    <mvcSiteMapNode title="Forms Library" controller="forms" action="Index" area="admin">
+      <mvcSiteMapNode title="Create Forms" controller="DocumentTemplate" action="Create" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Edit Forms" controller="DocumentTemplate" action="Edit" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Forms Details" controller="DocumentTemplate" action="Details" area="admin"></mvcSiteMapNode>
+      <mvcSiteMapNode title="Delete Forms" controller="DocumentTemplate" action="Delete" area="admin"></mvcSiteMapNode>
+    </mvcSiteMapNode>
+      <mvcSiteMapNode title="Staff" controller="Staff" action="Index" area="admin">
+        <mvcSiteMapNode title="Create Staff" controller="Staff" action="Create" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Edit Staff" controller="Staff" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Staff Details" controller="Staff" action="Details" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete Staff" controller="Staff" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="DropDowns" controller="DropDownItems" action="Index" area="admin">
+        <mvcSiteMapNode title="Create DropDowns" controller="DropDownItems" action="Create" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Edit DropDowns" controller="DropDownItems" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete DropDowns" controller="DropDownItems" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Checklists" controller="ChecklistBuilder" action="Index" area="admin">
+        <mvcSiteMapNode title="Edit Checklist" controller="ChecklistBuilder" action="Edit" area="admin"></mvcSiteMapNode>
+          <mvcSiteMapNode title="Edit Checklist Item" controller="ItemClass" action="Edit" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+</mvcSiteMapNode>
+  </mvcSiteMapNode>
+
+
+</mvcSiteMap>

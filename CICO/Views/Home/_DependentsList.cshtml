@@ -1,0 +1,40 @@
+﻿@model IList<Cico.Models.Dependent>
+
+
+
+    <table cols="4" class="admin-table">
+        <tr>
+            <th colspan="2">
+                Name
+            </th>
+            <th>
+                DOB
+            </th>
+            <th>
+                Relationship
+            </th>
+        </tr>
+        @foreach (var dep in Model)
+        {
+            <tr>
+                <td>
+                    @dep.FirstName
+                </td>
+                <td>
+                    @dep.LastName
+                </td>
+                <td>
+                    @(dep.DateOfBirth==null?"":dep.DateOfBirth.Value.ToShortDateString())
+                </td>
+                <td>
+                    @dep.Relationship
+                </td>
+                <td>
+                   
+                        @Html.ActionLink("Edit", "Edit", "Dependent", new {id = dep.Id}, null)
+                        @Html.ActionLink("Delete", "DeleteDependents", new {id = dep.Id.ToString()})
+                   
+                </td>
+        </tr>
+    }
+</table>

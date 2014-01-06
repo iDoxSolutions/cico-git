@@ -1,0 +1,129 @@
+﻿@using System.Globalization
+@model Cico.Areas.Admin.CheckListsModel
+           
+
+<h1>Dashboard</h1>
+
+
+<form method="GET">
+    <fieldset>
+        <table>
+            <tr>
+                <td>
+                    <div>@Html.LabelFor(c => c.CheckIn)</div>
+                    @Html.CheckBoxFor(c => c.CheckIn)
+                    
+                </td>
+                <td><div>@Html.LabelFor(c => c.CheckOut)</div>
+                    @Html.CheckBoxFor(c => c.CheckOut)</td>
+                <td><div>@Html.LabelFor(c => c.ShowCompleted)</div>
+                    @Html.CheckBoxFor(c => c.ShowCompleted)</td>
+                <td><div>@Html.LabelFor(c => c.ShowInProgress)</div>
+                    @Html.CheckBoxFor(c => c.ShowInProgress)</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <div>
+                        Employee Name:
+                    </div>
+                    @Html.TextBoxFor(c => c.EmployeeeName)
+                    <div>
+                        Arrival / Departure Date
+                    </div>
+                    from: @Html.TextBoxFor(c => c.ReceiveDateFrom,new{@class="form-date"}) to: @Html.TextBoxFor(c => c.ReceiveDateTo,new{@class="form-date"})</td>
+                
+            </tr>
+        </table>
+
+
+        <input type="submit" value="Search" />
+    </fieldset>
+</form>
+<table class="admin-table">
+    <tr>
+        <th>Employee Name</th>
+        <th>User ID</th>
+        <th>Date Started</th>
+        <th>Arrival / Departure</th>
+        <th class="numeric">Cmplt</th>
+        <th class="numeric">Prov</th>
+        <th class="numeric">In process</th>
+        <th class="numeric">Not Started</th>
+       
+        <th>CI / CO</th>
+        <th>Completed</th>
+        <th class="link-column">Employee Details</th>
+        <th class="link-column">Show Checklist</th>
+    </tr>
+    @foreach (var c in Model.CheckListModels)
+    {
+        <tr>
+            <td>@c.EmployeeName</td>
+            <td class="userid">@c.UserId</td>
+            <td>@c.DateCreated</td>
+            <td>@c.ReferenceDate.ToShortDateString()</td>
+            <td class="numeric complete">@c.ItemsChecked</td>
+            <td class="numeric provisional" data-id="@c.Session.Id" data-item-type="provisional"><a href="/admin/checklists/Show?id=@c.Session.Id">@c.ItemsProvision</a></td>
+            <td class="numeric not-complete">@c.InProcess</td>
+            <td class="numeric to-complete">@c.ItemsLeft</td>
+
+            <td >@c.SessionType</td>
+            <td >@c.Completed</td>
+            <td class="link-column">@Html.ActionLink("Details", "details", "employee", new { id = c.Employee.Id, area = "Admin" }, null)</td>
+            <td class="link-column">@Html.ActionLink("Show", "index", "home", new { id = c.Session.Id, area = "",land="false" }, null)</td>
+        </tr>
+        
+    }
+    <tfoot>
+        <tr>
+            <td colspan="12">
+                <div>
+    Page @(Model.CheckListModels.PageCount < Model.CheckListModels.PageNumber ? 0 : Model.CheckListModels.PageNumber)
+    of @Model.CheckListModels.PageCount
+
+    @if (Model.CheckListModels.HasPreviousPage)
+    {
+        @Html.ActionLink("<<", "Index", new { Page = 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink("< Prev", "Index", new { Page = Model.CheckListModels.PageNumber - 1 })
+    }
+    else
+    {
+        @:<<
+        @Html.Raw(" ");
+        @:< Prev
+    }
+
+    @if (Model.CheckListModels.HasNextPage)
+    {
+        @Html.ActionLink("Next >", "Index", new { Page = Model.CheckListModels.PageNumber + 1 })
+        @Html.Raw(" ");
+        @Html.ActionLink(">>", "Index", new { Page = Model.CheckListModels.PageCount })
+    }
+    else
+    {
+        @:Next >
+        @Html.Raw(" ")
+        @:>>
+    }
+</div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#ReceiveDateFrom").datepicker({});
+        $("#ReceiveDateTo").datepicker({});
+        
+    });
+
+
+
+
+
+</script>

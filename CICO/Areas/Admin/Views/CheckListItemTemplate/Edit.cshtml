@@ -1,0 +1,183 @@
+﻿@model Cico.Models.CheckListItemTemplate
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>CheckListItemTemplate</legend>
+
+        @Html.HiddenFor(model => model.CheckListItemTemplateId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Item)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Item)
+            @Html.ValidationMessageFor(model => model.Item)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Office)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Office)
+            @Html.ValidationMessageFor(model => model.Office)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Priority)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Priority)
+            @Html.ValidationMessageFor(model => model.Priority)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Viewable)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Viewable)
+            @Html.ValidationMessageFor(model => model.Viewable)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Subscriber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Subscriber)
+            @Html.ValidationMessageFor(model => model.Subscriber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CheckListId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CheckListId)
+            @Html.ValidationMessageFor(model => model.CheckListId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DueDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DueDate)
+            @Html.ValidationMessageFor(model => model.DueDate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Instructions)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Instructions)
+            @Html.ValidationMessageFor(model => model.Instructions)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmployeeComplete)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmployeeComplete)
+            @Html.ValidationMessageFor(model => model.EmployeeComplete)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Provisional)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Provisional)
+            @Html.ValidationMessageFor(model => model.Provisional)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OfficeComplete)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OfficeComplete)
+            @Html.ValidationMessageFor(model => model.OfficeComplete)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Document)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Document)
+            @Html.ValidationMessageFor(model => model.Document)
+        </div>
+
+        @if (Model.Type.Equals("OnlineForm"))
+        {
+           <div class="editor-label">
+              @Html.LabelFor(model => model.Form)
+          </div>
+          <div class="editor-field">
+            @Html.EditorFor(model => model.Form)
+            @Html.ValidationMessageFor(model => model.Form)
+          </div>
+        }
+      
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InstructionText)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InstructionText)
+            @Html.ValidationMessageFor(model => model.InstructionText)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Group)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Group)
+            @Html.ValidationMessageFor(model => model.Group)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AlertDays)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AlertDays)
+            @Html.ValidationMessageFor(model => model.AlertDays)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AlertFrenquency)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AlertFrenquency)
+            @Html.ValidationMessageFor(model => model.AlertFrenquency)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" name="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

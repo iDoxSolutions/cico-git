@@ -1,0 +1,103 @@
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Employee
+
+@{
+    ViewBag.Title = "Employee Details";
+}
+
+<h2>Employee Details</h2>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<table>
+    <tr>
+        <th>
+            Process Type
+        </th>
+        <th>
+            Date Started
+        </th>
+        <th>
+            Details
+        </th>
+    </tr>
+    <tr>
+        <th colspan="3">
+            Active Process
+        </th>
+    </tr>
+    @foreach (var pr in Model.CheckListSessions.Where(c=>c.Active))
+    {
+        <tr>
+            <td>
+                @pr.CheckListTemplate.Name
+            </td>
+            <td>
+                @pr.DateCreated
+            </td>
+            <td>
+                @Html.ActionLink("Details","Show","CheckLists",new {id=pr.Id},null)
+            </td>
+        </tr>
+    }
+    
+    <tr>
+        <th colspan="3">
+            Historical Processes
+        </th>
+    </tr>
+    
+    @foreach (var pr in Model.CheckListSessions.Where(c=>!c.Active).OrderByDescending(c=>c.Id))
+    {
+        <tr>
+            <td>
+                @pr.CheckListTemplate.Name
+            </td>
+            <td>
+                @pr.DateCreated
+            </td>
+            
+            <td>
+                @Html.ActionLink("Details","Show","CheckLists",new {id=pr.Id},null)
+            </td>
+        </tr>
+    }
+</table>
+
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(c=>c.Id)
+    <input type="submit" value="Start Checkout"/>
+}
+
+@using (Html.BeginForm("StartCheckin","Employee"))
+{
+    @Html.HiddenFor(c=>c.Id)
+    <input type="submit" value="Start CheckIn"/>
+}
+
+
+
+                @Html.DisplayFor(model => model.SSN)
+@Html.Partial("EmployeeForm")
+
+<h3>
+    Dependents
+</h3>
+@Html.ActionLink("Add Dependent","Create","Dependent",new {employeeId=Model.Id},null)
+<ul>
+    @foreach (var dep in Model.Dependents)
+    {
+        <li>
+            @Html.ActionLink(dep.FirstName+", "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)
+        </li>
+    }
+</ul>
+
+
+   
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

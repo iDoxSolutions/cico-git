@@ -1,0 +1,36 @@
+﻿@model Cico.Models.Helpers.DropdownItem
+
+@{
+    ViewBag.Title = "Dropdown Item";
+    
+}
+
+<h2>Edit Dropdown Item</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.HiddenFor(c=>c.Id)
+
+    <div>
+        Key
+    </div>
+    <div>
+        @Html.TextBoxFor(c=>c.Key)
+    </div>
+    <div>
+        Text
+    </div>
+    <div>
+        @Html.TextBoxFor(c=>c.Description)
+    </div>
+    <div>
+        Value Type
+    </div>
+    <div>
+        @Html.TextBoxFor(c=>c.ValueType)
+    </div>
+    <div>
+    <button type="submit">Submit</button>    
+    </div>
+    
+}

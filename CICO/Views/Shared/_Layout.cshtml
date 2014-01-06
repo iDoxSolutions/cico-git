@@ -1,0 +1,112 @@
+﻿@using System.Web.Optimization
+@using Cico.Models
+@using Cico.Models.Helpers
+@using Cico.Models.Versioning
+@using Cico.Models.Helpers
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title</title>
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="@Html.VerRes("/Content/site.css")" />
+        <link rel="stylesheet" href="/Content/themes/base/jquery-ui.css" />
+        <script src="/Scripts/json2.js"></script>
+       <script type="text/javascript" src="/scripts/modernizr-1.7.js"></script>
+        <script src="/Scripts/jquery-1.5.1.js"></script>
+
+        <script src="/Scripts/jquery-ui-1.8.11.js"></script>
+        <script src="/Scripts/knockout-2.2.1.debug.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".date").datepicker({
+
+                });
+               /* $("#sign-in-menu").hide();
+                $("#sign-in-menu").menu();
+                
+                $(".username").mouseout(
+                    function() {
+                        $("#sign-in-menu").hide();
+                    }
+                );
+                $(".username").mouseover(
+                    function () {
+                        $("#sign-in-menu").show();
+                    }
+                );*/
+                
+                $("#sign-out").click(
+                    function () {
+                        
+                        document.execCommand("ClearAuthenticationCache","false");
+                        window.location = "/home/SignOut";
+                    }
+                );
+            });
+</script>
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title"><img src="/Images/us_embassy_logo.jpg"/>@if (@Html.UserFullName() != ""){<text>Check-In & Check-Out for @Html.GetCurrentName()</text>}
+                       
+                    </p>
+
+                    @Html.MvcSiteMap().SiteMapPath()
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        <span class="username" style="cursor: pointer">@User.Identity.Name
+                            @*<ul id="sign-in-menu" style="position: absolute">
+                                <li><a id="sign-out" href="#">Sign Out</a></li>
+                            </ul> *@        
+                        </span>
+                     
+                        
+                    </section>
+                     
+
+                    <nav>
+                        <ul id="menu">
+                            <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                            @if (User.IsInRole(SystemRole.UserProxy) )
+                            {
+                                <li>@Html.ActionLink("Proxy", "Proxy", "Home", new {area = ""}, null)</li>
+                            }
+                            @if (User.IsInRole("GlobalAdmin") || User.IsInRole("OfficeAdmin"))
+                            {
+                                <li>@Html.ActionLink("Admin", "Index", "CheckLists", new {area = "Admin"}, null)</li>
+                            }
+                            
+                            
+                            
+                        </ul>
+                    </nav>
+                   
+                </div>
+            </div>
+            <div style="clear: both"></div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix" >
+                
+                @RenderBody()
+                @Html.Partial("AsideMenu")
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p></p>
+                </div>
+            </div>
+        </footer>
+
+       
+    </body>
+</html>

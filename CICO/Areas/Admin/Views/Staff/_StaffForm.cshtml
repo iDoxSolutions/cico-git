@@ -1,0 +1,70 @@
+﻿@using Cico.Models
+@model Cico.Areas.Admin.StaffModel
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <fieldset>
+        <legend>Staff Form</legend>
+        <div>
+            <label>User ID</label>
+        </div>
+        <div>
+            @Html.DisplayFor(c => c.Staff.UserId)
+            @Html.HiddenFor(c => c.Staff.UserId)
+        </div>
+
+        <div>
+            @Html.LabelFor(c => c.Staff.Email)
+        </div>
+        <div>
+            @Html.TextBoxFor(c => c.Staff.Email)
+        </div>
+
+        <div>
+            @Html.LabelFor(c => c.Staff.Office)
+        </div>
+        <div>
+            @Html.DropDownListFor(c => c.SelectedOffice, Model.Offices, "")
+        </div>
+        <label>User Configuration</label>
+        <ul>
+            <li>
+                @Html.CheckBoxFor(c => c.Staff.ReqireCheckList) Requires own Checklist & Data 
+            </li>
+            @foreach (var role in Model.Roles)
+            {
+
+                switch (role.Value)
+                {
+                    case SystemRole.CheckListEditor:
+                        break;
+
+                    case SystemRole.OfficeAdmin:
+                <li>
+                    <input name="SelectedRoles" type="checkbox" value="@role.Value" @(role.Selected ? "checked" : "")/>
+                    @role.Text
+                    <ul>
+                        <li>
+                            <input name="SelectedRoles" type="checkbox" value="@SystemRole.CheckListEditor" @(Model.Roles.Any(c=>c.Value ==SystemRole.CheckListEditor &&c.Selected ) ? "checked" : "")/>
+                            May Edit checklist
+                        </li>
+                    </ul>
+                </li>
+                        break;
+                    default:
+                @Html.Partial("_line", role)
+                        break;
+                }
+
+            }
+
+
+
+        </ul>
+
+        <div>
+            <input type="submit" value="Save" />
+        </div>
+
+    </fieldset>
+}

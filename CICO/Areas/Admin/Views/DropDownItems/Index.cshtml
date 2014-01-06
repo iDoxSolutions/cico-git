@@ -1,0 +1,47 @@
+﻿@model System.Collections.Generic.List<Cico.Models.Helpers.DropdownItem>
+
+@{
+    ViewBag.Title = "DropDown Items";
+    
+}
+
+<h2>DropDown Items</h2>
+
+@Html.ActionLink("Create","Create")
+<table class="admin-table">
+    <tr>
+        <th>Key</th>
+        <th>Text</th>
+        <th>Type</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Key
+            </td>
+            <td>
+                @item.Description
+            </td>
+            <td>
+                @item.ValueType
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})|@Html.ActionLink("Delete", "Delete", new { id=item.Id },new {@class="delete"})
+            </td>
+        </tr>
+    }
+</table>
+
+<script>
+    $(".delete").click(
+        function() {
+            if (confirm("Are you sure?")) {
+                return true;
+            }
+            return false;
+        }
+    );
+    
+</script>

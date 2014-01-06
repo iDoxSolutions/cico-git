@@ -1,0 +1,130 @@
+﻿@model Cico.Controllers.DepententModel
+@using Cico.Models.Helpers;
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Dependent_SameECData').click(
+            function() {
+                populateEmergency();
+            }
+        );
+        
+        $('#Dependent_SameAddressData').click(
+            function () {
+                populateAddress();
+            }
+        );
+
+        $("#Dependent_Relationship").change(
+            function() {
+                if ($('#Dependent_SameECData').attr('checked')) {
+                    $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
+                }
+            }
+        );
+        populateAddress();
+        populateEmergency();
+    });
+    
+
+    function populateAddress() {
+        if ($('#Dependent_SameAddressData').attr('checked')) {
+            $('#address-data').find('*').attr('disabled', true);
+            $.post("/employee/AutoPopulateData", { employeeId: $("#EmployeeId").val() },
+                function (emergencyData) {
+                    $('#Dependent_ResidentAddress').val(emergencyData.ResidentAddress);
+                    $('#Dependent_ResidentPhoneNumber').val(emergencyData.HomePhone);
+                    
+                    
+                    
+                });
+        } else {
+            $('#address-data').find('*').attr('disabled', false);
+        }
+    }
+    
+    function populateEmergency() {
+        if ($('#Dependent_SameECData').attr('checked')) {
+            $('#emergency-data').find('*').attr('disabled', true);
+            $.post("/employee/AutoPopulateData", { employeeId: $("#EmployeeId").val() },
+                function(emergencyData) {
+                    $('#Dependent_EmergencyContactName').val(emergencyData.EmergencyContactName);
+                    $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
+                    $('#Dependent_EmergencyContactOfficePhone').val(emergencyData.EmergencyContactOfficePhone);
+                    $('#Dependent_EmergencyContactPhone').val(emergencyData.EmergencyContactPhone);
+                    $('#Dependent_EmergencyContactPhone2').val(emergencyData.EmergencyContactPhone2);
+                    $('#Dependent_EmergencyContactEmail').val(emergencyData.EmergencyContactEmail);
+                });
+        } else {
+            $('#emergency-data').find('*').attr('disabled', false);
+        }
+    }
+</script>
+
+<input type="submit" value="Save" name="Save" />
+    @Html.ValidationSummary()
+    <fieldset class="two-column-form" style="width: 80%">
+        @Html.HiddenFor(c=>c.EmployeeId)
+        <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
+        <div class="float-left" style="width: 47%">
+            @Html.CicoEditorFor(model => model.Dependent.FirstName,"*As appears on passport")
+            @Html.CicoEditorFor(model => model.Dependent.LastName,"*As appears on passport")
+            @Html.CicoEditorFor(model => model.Dependent.PersonalEmail)
+            @Html.CicoEditorFor(model => model.Dependent.DateOfBirth)
+            @Html.CicoEditorFor(model => model.Dependent.SchoolName)
+            @Html.CicoDropdownFor(model => model.Dependent.Nationality,"Nations")
+            @Html.CicoEditorFor(model => model.Dependent.PassportNumber)
+            @Html.CicoEditorFor(model => model.Dependent.PassportExpiration)
+            @Html.CicoDropdownFor(model => model.Dependent.PassportType,"PassportType")
+        </div>
+        <div class="float-right" style="width: 47%">
+            @Html.CicoEditorFor(model => model.Dependent.PreferredName)
+            @Html.CicoDropdownFor(model => model.Dependent.Relationship,"Relationship")
+            @Html.CicoEditorFor(model => model.Dependent.PersonalMobilePhone)
+            <div>
+                <div class="editor-label">
+                    <label>
+                        Emergency Same as Primary    
+                    </label>
+                </div>
+                <div class="editor-field">
+                    @Html.CheckBoxFor(c=>c.Dependent.SameECData)
+                </div>
+            </div>
+            <div id="emergency-data">
+                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactName) 
+                @Html.CicoDropdownFor(model => model.Dependent.EmergencyContactRelationship,"Relationship") 
+                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactOfficePhone) 
+                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone) 
+                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone2) 
+                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactEmail)
+            </div>
+         </div>
+        <div style="clear: both"></div>
+    </fieldset>
+    <fieldset class="two-column-form" style="width: 80%">
+        <legend>After Arrival</legend>
+        <h2>To be completed after arrival</h2>
+        <div class="float-left" style="width: 47%">
+            <div>
+                <div class="editor-label">
+                    @Html.LabelFor(c=>c.Dependent.SameAddressData)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(c=>c.Dependent.SameAddressData)
+                </div>
+            </div>
+            <div id="address-data">
+                @Html.CicoEditorFor(model => model.Dependent.ResidentAddress) 
+                @Html.CicoEditorFor(model => model.Dependent.ResidentPhoneNumber) 
+            </div>
+            </div>
+        <div class="float-right" style="width: 47%">
+            @Html.CicoEditorFor(model => model.Dependent.VisaNumber) 
+            @Html.CicoEditorFor(model => model.Dependent.VisaExpiration) 
+        </div>
+    </fieldset>
+    <input type="submit" value="Save" name="Save" />
+    
+   
+   

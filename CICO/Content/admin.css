@@ -1,0 +1,64 @@
+﻿
+
+    table.admin-table tfoot{
+        background: darkgray !important;
+    }
+    .admin-table th {
+        background: darkgray;
+        text-align: center
+    }
+    .admin-table tr {
+        height: 30px
+    }
+
+    .odd{
+        background: lightgray
+    }
+
+    .admin-table th, td {
+        padding: 3px 8px 3px 3px;
+        margin: 3px 3px 3px 3px;
+        font-size: 9pt;
+        text-overflow:ellipsis;
+        text-align: center;
+    }
+
+
+
+    .admin-table .numeric {
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+     .admin-table .userid {
+         width: 80px;
+         text-overflow:ellipsis;
+    }
+
+    .admin-table .provisional a {
+        color: orange;
+    }
+
+    .admin-table .complete {
+        color: green;
+    }
+
+    .admin-table .to-complete {
+        color: red;
+    }
+     .admin-table .not-complete {
+        color: orange;
+    }
+
+    .admin-table .link-column {
+        
+        
+    }
+    .form-date {
+        width: 100px;
+    }
+
+    label {
+        font-size: 0.8em
+    }
