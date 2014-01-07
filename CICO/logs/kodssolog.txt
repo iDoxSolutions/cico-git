@@ -210,3 +210,267 @@
 2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not session owner session owner 
 2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not global admin  
 2014-01-06 14:33:36,758 [50] DEBUG SecurityGuard - not ritht proxy person  
+2014-01-07 14:45:47,102 [1] DEBUG MvcApplication - Application Started
+2014-01-07 14:50:54,576 [1] DEBUG MvcApplication - Application Started
+2014-01-07 14:51:36,794 [7] FATAL MvcApplication - System.Data.SqlClient.SqlException (0x80131904): Column names in each table must be unique. Column name 'DateCreated' in table 'CheckListItemTemplates' is specified more than once.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteSql(DbTransaction transaction, MigrationStatement migrationStatement)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ExecuteSql(DbTransaction transaction, MigrationStatement migrationStatement)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ExecuteStatements(IEnumerable`1 migrationStatements)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, XDocument targetModel, IEnumerable`1 operations, Boolean downgrading)
+   at System.Data.Entity.Migrations.DbMigrator.ApplyMigration(DbMigration migration, DbMigration lastMigration)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ApplyMigration(DbMigration migration, DbMigration lastMigration)
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.Update()
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Database.<>c__DisplayClass2`1.<SetInitializerInternal>b__0(DbContext c)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClass8.<PerformDatabaseInitialization>b__6()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Single[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Cico.Models.Versioning.VersionManager.GetVersion() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Versioning\VersionManager.cs:line 15
+   at Cico.Models.Helpers.CacheHelper.Cache[T](Func`1 fn, String key) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\CacheHelper.cs:line 16
+   at Cico.Models.Versioning.VersionManager.Version(HtmlHelper helper) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Versioning\VersionManager.cs:line 26
+   at ASP._Page_Views_LandingPage_Index_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\LandingPage\Index.cshtml:line 57
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:63d7f0b8-ac04-4120-a31a-b6bf9e9a2791
+2014-01-07 14:53:18,036 [11] DEBUG MvcApplication - Application Started
+2014-01-07 14:53:37,332 [5] FATAL MvcApplication - System.Data.SqlClient.SqlException (0x80131904): Column names in each table must be unique. Column name 'DateCreated' in table 'CheckListItemTemplates' is specified more than once.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteSql(DbTransaction transaction, MigrationStatement migrationStatement)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ExecuteSql(DbTransaction transaction, MigrationStatement migrationStatement)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ExecuteStatements(IEnumerable`1 migrationStatements)
+   at System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, XDocument targetModel, IEnumerable`1 operations, Boolean downgrading)
+   at System.Data.Entity.Migrations.DbMigrator.ApplyMigration(DbMigration migration, DbMigration lastMigration)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.ApplyMigration(DbMigration migration, DbMigration lastMigration)
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.Migrations.Infrastructure.MigratorBase.Update()
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Database.<>c__DisplayClass2`1.<SetInitializerInternal>b__0(DbContext c)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClass8.<PerformDatabaseInitialization>b__6()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.Initialize()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Single[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Cico.Models.Versioning.VersionManager.GetVersion() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Versioning\VersionManager.cs:line 15
+   at Cico.Models.Helpers.CacheHelper.Cache[T](Func`1 fn, String key) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\CacheHelper.cs:line 16
+   at Cico.Models.Versioning.VersionManager.Version(HtmlHelper helper) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Versioning\VersionManager.cs:line 26
+   at ASP._Page_Views_LandingPage_Index_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\LandingPage\Index.cshtml:line 57
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ClientConnectionId:185ef5e2-1138-4d70-bf31-540ba593186c
+2014-01-07 14:53:46,834 [1] DEBUG MvcApplication - Application Started
+2014-01-07 14:55:32,070 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,077 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,078 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,078 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,080 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,080 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,080 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,083 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,083 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,083 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,086 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,086 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,086 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,089 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,089 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,089 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,092 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,092 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,092 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,094 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,094 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,094 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,096 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,096 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,096 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,098 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,098 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,098 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,101 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,101 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,101 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,103 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,103 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,103 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,107 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,107 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,107 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,110 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,110 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,110 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,112 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,112 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,112 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,115 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,115 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:55:32,115 [18] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:55:32,117 [18] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-07 14:55:32,117 [18] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,680 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,682 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,682 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,691 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,692 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,693 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,697 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,698 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,698 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,701 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,703 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,703 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,714 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,716 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,716 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,719 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,720 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,720 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,725 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,726 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,726 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,730 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,732 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,732 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,735 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,737 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,737 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,741 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,742 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,742 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,745 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,746 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,746 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,748 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,750 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,750 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,827 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,828 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,828 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,831 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,832 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,832 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,836 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,837 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,837 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:05,841 [17] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-07 14:56:05,842 [17] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-07 14:56:05,842 [17] DEBUG SecurityGuard - not session owner session owner 
+2014-01-07 14:56:42,457 [22] FATAL MvcApplication - System.Net.WebException: The remote name could not be resolved: 'idoxservervm07'
+   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadData(Uri address)
+   at System.Net.WebClient.DownloadData(String address)
+   at Cico.Models.SharePoint.SharePointDocumentsQuery.GetFile(String url) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\SharePoint\SharePointDocumentQuery.cs:line 89
+   at Cico.Models.SharePoint.FileStorage.GetFile(String url) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\SharePoint\FileStorage.cs:line 33
+   at Cico.Controllers.FileStorageController.Index(Int32 id) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\FileStorageController.cs:line 20
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

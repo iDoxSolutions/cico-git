@@ -91,7 +91,7 @@ namespace Cico.Models.Authentication
 
             if (staff != null)
             {
-                return true;
+                return true; // Panama request - Don't check for HR, all office admins ok
                 if (staff.Office.Name == itemTemplate.Office.Name
                     || staff.Office.Name=="HR")
                 {
