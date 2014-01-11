@@ -474,3 +474,4 @@ ClientConnectionId:185ef5e2-1138-4d70-bf31-540ba593186c
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-11 19:45:40,076 [1] DEBUG MvcApplication - Application Started
