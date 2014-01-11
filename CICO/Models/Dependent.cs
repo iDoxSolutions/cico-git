@@ -24,7 +24,8 @@ namespace Cico.Models
         [StringLength(20)]
         public string Relationship { get; set; }
         
-        [DisplayName("Date of Birth")]
+        [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         
         [DisplayName("Title/Salutation")]
@@ -44,14 +45,18 @@ namespace Cico.Models
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public  string PersonalEmail { get; set; }
         [DisplayName("Passport Number")]
+        [StringLength(9)]
+        [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }
-        [DisplayName("Passport Expiration")]
+        [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         [DisplayName("Visa Number")]
         public string VisaNumber { get; set; }
-        [DisplayName("Visa Expiration")]
+        [DisplayName("Visa Expiration. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         
         

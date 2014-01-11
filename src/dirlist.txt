@@ -1,9 +1,0 @@
-CICO
-CICO.sln
-CICO.suo
-CICO.v11.suo
-dirlist.txt
-Mcchkn
-packages
-scaffolding.config
-Test
