@@ -11,7 +11,7 @@ namespace Cico.Models.Versioning
     {
         public static string GetVersion()
         {
-            return "1.0";
+           
             var context = new CicoContext();
             return context.Settings.Single(c => c.Name == "AppVersion").Value;
         }

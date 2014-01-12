@@ -1,3 +1,5 @@
+using Cico.Models;
+
 namespace Cico.Migrations
 {
     using System;
@@ -15,9 +17,17 @@ namespace Cico.Migrations
 
         protected override void Seed(Cico.Models.CicoContext context)
         {
-            //var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
-            //version.Value = "1.1.17";
-            //context.SaveChanges();
+            string currentVersion = "1.1.17";
+            var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
+            if (version != null)
+            {
+                version.Value = currentVersion;
+            }
+            else
+            {
+                context.Settings.Add(new Setting() { Name = "AppVersion", Value = currentVersion });
+            }
+            context.SaveChanges();
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
