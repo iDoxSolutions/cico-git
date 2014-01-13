@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -24,7 +26,11 @@ namespace Cico.Models
         }
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
+        [DisplayName("Reference Date. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Reference Date.")]
         public DateTime ReferenceDate{get; set; }
+        [DisplayName("Departure Date. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Departure Date.")]
         public DateTime? DepartureDate { get; set; }
         public bool Completed { get; set; }
 
