@@ -20,11 +20,14 @@ namespace Cico.Models
         //[Required]
         [Display(Name = "CheckList Description")]
         public string Name {get; set; }
-        [Display(Name = "CheckList Start Date")]
+        [Display(Name = "CheckList Start Date: Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Start Date.")]
         public DateTime? StartDate { get; set; }
         [Display(Name = "CheckList EndDate")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for End Date.")]
         public DateTime? EndDate { get; set; }
         [Display(Name = "CheckList Due Date")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Due Date.")]
         public DateTime? DueDate { get; set; }
         public bool Published { get; set; }
 
