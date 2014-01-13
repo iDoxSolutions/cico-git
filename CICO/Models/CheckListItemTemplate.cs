@@ -27,7 +27,8 @@ namespace Cico.Models
         public string Subscriber { get; set; }
         [Display(Name = "CheckList Id")]
         public string CheckListId { get; set; }
-        [Display(Name = "Due Date")]
+        [Display(Name = "Due Date: Format mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Due Date.")]
         public DateTime? DueDate { get; set; }
         [Display(Name = "Instructions")]
         public string Instructions { get; set; }
@@ -75,6 +76,8 @@ namespace Cico.Models
         public virtual string CustomFormUrl { get; set; }
 
         [Display(Name = "Due Date")]
+        [Display(Name = "Due Date: Format mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Due Date.")]
         public int DueDays{get; set; }
 
         public bool CompletingChecklist { get; set; }
