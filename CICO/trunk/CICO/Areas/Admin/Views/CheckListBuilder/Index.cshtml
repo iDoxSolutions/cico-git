@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Cico.Models.CheckListTemplate>
+
+@{
+    ViewBag.Title = "Checklist Template Manager";
+    
+}
+
+<h2>Checklist</h2>
+
+<table class="admin-table">
+    <tr>
+        
+        <th>
+            Name
+        </th>
+        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.ActionLink(item.Name,"Edit",new {id=item.CheckListTemplateId})
+                
+            </td>
+            @*<td>
+                @if (!item.Published)
+                {
+                    <form action="/admin/checklistbuilder/publish"><button type="submit">Publish</button><input type="hidden" value="@item.CheckListTemplateId"/></form>
+                }
+            </td>*@
+        </tr>
+    }
+         
+    
+
+</table>

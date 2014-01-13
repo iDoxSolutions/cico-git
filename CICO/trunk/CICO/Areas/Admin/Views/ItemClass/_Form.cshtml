@@ -1,0 +1,160 @@
+﻿@model ItemClassModel
+@using Cico.Models.Helpers
+<script type="text/javascript" src="/scripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+    tinyMCE.init({
+        width: '100%',
+        content_css: "/content/custom-tinymce.css",
+        theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+        font_size_style_values: "10px,12px,13px,14px,16px,18px,20px",
+        mode: "textareas",
+        theme: "simple",
+        //plugins: "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
+        //theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+        //theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+        // theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+        //theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft,visualblocks",
+        theme_advanced_toolbar_location: "top",
+        theme_advanced_toolbar_align: "left",
+        theme_advanced_statusbar_location: "bottom"
+    });
+
+    $(function () {
+        $("#CheckListItemTemplate_Item").change(
+           manageItems
+        );
+        
+        function manageItems() {
+            //alert($("#CheckListItemTemplate_Item").val());
+            $(".managed-visibility").hide();
+            $("."+$("#CheckListItemTemplate_Item").val()).show();
+        }
+
+        manageItems();
+    });
+</script>
+
+@Html.ValidationSummary()
+@using (Html.BeginForm()) {
+    <fieldset>
+        <legend>Online Form</legend>
+        <div class="editor-label">
+            @Html.Label("Select item type:")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(c => c.CheckListItemTemplate.Item, Model.ItemTypes)
+        </div>
+        
+         <div class="editor-label">
+            @Html.LabelFor(c => c.CheckListItemTemplate.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(c => c.CheckListItemTemplate.Description)
+        </div>
+        @if (User.IsInRole("GlobalAdmin"))
+        {
+            <div class="editor-label">
+                @Html.LabelFor(c => c.CheckListItemTemplate.Office)
+            </div>
+
+            <div class="editor-field">
+            
+                @Html.DropDownListFor(c => c.SelectedOffice, Model.OfficeList, "")
+            </div>
+        }
+        else
+        {
+            @Html.HiddenFor(c=>c.SelectedOffice)
+        }
+
+        
+        <div class="editor-label OnlineForm  managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.CustomFormUrl)<div style="display: inline" class="homescreen-inline-instructions">*type an url pointing to custome form</div>
+          
+        </div>
+        
+        <div class="editor-field  OnlineForm managed-visibility">
+            @Html.TextBoxFor(c => c.CheckListItemTemplate.CustomFormUrl)
+        </div>
+
+        <div class="editor-label  DocumentWriting DocumentApproval  managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.Form)<div class="homescreen-inline-instructions">*select a template from the dropdown to allow employess to download it</div>
+        </div>
+        <div class="editor-field DocumentWriting DocumentApproval managed-visibility">
+            @Html.DropDownListFor(c => c.SelectedFile, Model.FileList, "")
+        </div>    
+        
+        
+        <div class="editor-label" >
+            @Html.LabelFor(c => c.CheckListItemTemplate.DueDays)</div><div class="homescreen-inline-instructions">*negative is # days before Key Date, positive is # days after Key Date
+        </div>
+        
+        <div class="editor-field">
+            @Html.TextBoxFor(c => c.CheckListItemTemplate.DueDays) 
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(c => c.CheckListItemTemplate.Provisional)<div class="homescreen-inline-instructions">*if checked, only a staff member can fully complete the item</div>
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(c => c.CheckListItemTemplate.Provisional)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(c => c.CheckListItemTemplate.NotesAccess)<div class="homescreen-inline-instructions">*if checked, allows users from other departments to view (not edit) notes</div>
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(c => c.CheckListItemTemplate.NotesAccess)
+        </div>
+         <div class="editor-label">
+            @Html.LabelFor(c => c.CheckListItemTemplate.Dependents)<div class="homescreen-inline-instructions">*if checked, signifies that this item also applies to dependents</div>
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(c => c.CheckListItemTemplate.Dependents)
+        </div>
+        
+        <div class="editor-label PhysicalActivity managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.CompleteCheckList)<div class="homescreen-display">*if checked, signifies that completing this item will complete the entire checklist</div>
+        </div>
+        <div class="editor-field PhysicalActivity managed-visibility">
+            @Html.CheckBoxFor(c => c.CheckListItemTemplate.CompleteCheckList)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(c => c.CheckListItemTemplate.InstructionText)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(c => c.CheckListItemTemplate.InstructionText)
+        </div>
+        
+        
+        
+        
+        <div class="editor-label  DocumentApproval managed-visibility">
+            @Html.LabelFor(c => c.CheckListItemTemplate.ApprovalText)
+        </div>
+        <div class="editor-field  DocumentApproval managed-visibility">
+            @Html.TextAreaFor(c => c.CheckListItemTemplate.ApprovalText)
+        </div>
+
+        
+
+        @Html.HiddenFor(c => c.TemplateId)
+        @Html.HiddenFor(c => c.CheckListItemTemplate.CheckListItemTemplateId)
+    </fieldset>
+    <fieldset>
+        <legend>Department</legend>
+    </fieldset>
+        <div id="formPlaceholder">
+            
+
+        </div>
+        if (Model.Editable) {
+            <div class="editor-field">
+                <input type="submit" value="Save" name="Save"/>
+                @Html.ActionLink("Delete","Delete",new{id=Model.CheckListItemTemplate.CheckListItemTemplateId})
+            </div>
+            
+            
+        }
+
+
+}

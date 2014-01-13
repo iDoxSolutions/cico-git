@@ -1,0 +1,10 @@
+﻿@using Cico.Models
+@model dynamic
+           <li>
+               <input name="SelectedRoles" type="checkbox" value="@Model.role.Value" @(Model.role.Selected?"checked":"")/> @Model.role.Text 
+               <ul>
+                   <li>
+                       <input name="SelectedRoles" type="checkbox" value="@SystemRole.CheckListEditor" @(Model?"checked":"")/> May Edit checklist
+                   </li>
+               </ul>
+           </li>

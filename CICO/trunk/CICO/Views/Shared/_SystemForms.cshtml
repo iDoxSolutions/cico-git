@@ -1,0 +1,99 @@
+﻿<script type="text/html" id="Form1">
+    <h3>Custom form example</h3>
+    <ul class="note-list">
+        <li>
+            <div class="note-content">Item1</div>
+            <div class="note-tools">
+                <div></div>
+            </div>
+            <div style="clear: both"></div>
+        </li>
+        <li>
+            <div class="note-content">Item2</div>
+            <div class="note-tools">
+                <div></div>
+            </div>
+            <div style="clear: both"></div>
+        </li>
+
+        <li>
+            <div class="note-content">Item3</div>
+            <div class="note-tools">
+                <div></div>
+            </div>
+            <div style="clear: both"></div>
+        </li>
+
+    </ul>
+
+</script>
+
+<script type="text/html" id="Form2">
+     <div data-bind="with:formModel">
+    <form  data-bind="submit:submitForm">
+        <fieldset>
+            <legend>Employee</legend>
+
+            <div class="editor-label">
+                <label for="FirstName">Given Name(s)</label>
+            </div>
+            <div class="editor-field">
+                <input class="text-box single-line" data-val="true" data-val-length="The field Given Name(s) must be a string with a maximum length of 66." data-val-length-max="66" id="FirstName" name="FirstName" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+            </div>
+            <div class="editor-label">
+                <label for="DateOfBirth">Date of Birth</label>
+            </div>
+            <div class="editor-field">
+                <input class="text-box single-line" id="DateOfBirth" name="DateOfBirth" type="text" value="" />
+                <span class="field-validation-valid" data-valmsg-for="DateOfBirth" data-valmsg-replace="true"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save"/>
+            </div>
+        </fieldset>
+    </form>
+    </div>
+</script>
+
+<script type="text/html" id="Form3">
+</script>
+
+
+<script type="text/html" id="EmergencyContact">
+    <div data-bind="with: formModel">
+        
+        <form>
+            <div data-bind="text: message,  css: messageCss "></div>
+            <div data-bind="with:data">
+                <div class="editor-label">
+                    <label for="DateOfBirth">Emergency Contact Email Address</label>
+                </div>
+                <div class="editor-field">
+                    <input data-bind="value: ContactEmailAddress" type="text" />
+                </div>
+                <div class="editor-label">
+                    <label>Emergency Contact Office Phone</label>
+                </div>
+                <div class="editor-field">
+                    <input data-bind="value: ContactOfficePhone" type="text" />
+                </div>
+                <div class="editor-label">
+                    <label for="DateOfBirth">Emergency Contact Office Phone</label>
+                </div>
+                <div class="editor-field">
+                    <input data-bind="value: ContactPhone"  type="text" />
+                </div>
+                
+                <div class="editor-label">
+                    <label for="DateOfBirth">Emergency Contact Phone</label>
+                </div>
+                <div class="editor-field">
+                    <input data-bind="value: ContactRepationship" type="text" />
+                </div>
+            </div>
+            
+            <button type="button" data-bind="click: save, visible: SaveEnabled">Save</button>
+        </form>
+    </div>
+</script>

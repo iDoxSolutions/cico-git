@@ -1,0 +1,110 @@
+﻿@using Cico.Areas.Admin
+@model Cico.Areas.Admin.EmployeeIndexModel
+
+@{
+    ViewBag.Title = "Employee List";
+}
+
+<h2>Employee List</h2>
+
+    @Html.ActionLink("Create New Employee", "Create")
+
+<form method="GET">
+    <fieldset>
+        <legend>Employee Search Form</legend>
+        
+        <label>
+            Employee Name    
+        </label>
+        @Html.TextBoxFor(c=>c.SearchString)
+        <input type="submit" value="Search"/>
+    </fieldset>
+</form>
+
+<table class="admin-table" >
+    <tr>
+        <th>Employee Name</th>
+        <th>Dep</th>
+        <th>Arrival Date</th>
+        <th>Departure Date</th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model.Employees) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        @if (item.Dependents.Count > 0)
+        {
+             <td><div style="color: green">@Html.ActionLink("Yes", "Index", "Dependent", new {employeeId=item.Id},null)</div></td>
+        }
+        else
+        {
+            <td>No</td>
+        }
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TourEndDate)
+        </td>
+        <td>
+
+            @if (Model.EditEnabled)
+            {
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+                <text>|</text>
+            }
+               
+            @Html.ActionLink("Details", "Details", new {id = item.Id}) 
+            <text>|</text>
+            
+            @if (Model.EditEnabled)
+            {
+                 @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+              
+            }
+            
+        </td>
+    </tr>
+}
+    <tfoot>
+    <tr>
+        <td colspan="5">
+            <div>
+                Page @(Model.Employees.PageCount < Model.Employees.PageNumber ? 0 : Model.Employees.PageNumber)
+                of @Model.Employees.PageCount
+     
+                @if (Model.Employees.HasPreviousPage)
+                {
+                    @Html.ActionLink("<<", "Index", new EmployeeIndexModel{ Page = 1,  SearchString= Model.SearchString  })
+                    @Html.Raw(" ");
+                    @Html.ActionLink("< Prev", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber - 1,  SearchString= Model.SearchString  })
+                }
+                else
+                {
+                    @:<<
+                    @Html.Raw(" ");
+                    @:< Prev
+                }
+     
+                @if (Model.Employees.HasNextPage)
+                {
+                    @Html.ActionLink("Next >", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageNumber + 1, SearchString  = Model.SearchString})
+                    @Html.Raw(" ");
+                    @Html.ActionLink(">>", "Index", new EmployeeIndexModel{ Page = Model.Employees.PageCount, SearchString  = Model.SearchString})
+                }
+                else
+                {
+                    @:Next >
+                    @Html.Raw(" ")
+                    @:>>
+                }
+            </div>
+        </td>
+    </tr>
+        </tfoot>
+</table>
+
