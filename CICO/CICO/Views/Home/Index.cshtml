@@ -1,0 +1,486 @@
+@using Cico.Models.Versioning
+@model Cico.Controllers.HomeModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+   
+
+    </style>
+<script type="text/javascript" src="@Html.VerRes("/scripts/modernizr-1.7.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/scripts/tiny_mce/tiny_mce.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/scripts/sammy.js")"></script>
+
+<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.form.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/jquery.fileupload.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/CicoFormBase.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormBase.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/notes.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentApprovalModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentSubmittedModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/OnlineFormModel.js")"></script>
+
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/EmergencyContact.js")"></script>
+
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
+<script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
+
+<div class="columnsContainer">
+    <div class="rightColumn">
+        <div id="infoTabs">
+            <ul>
+                <li><a href="#myinfo">My Info</a></li>
+                <li><a href="#completion">Completion Details</a></li>
+                <li><a href="#mydependents">My Dependents</a></li>
+            </ul>
+
+
+            <div id="completion">
+                <div class="tabContent">
+                    <div class="title ui-widget ui-widget-header">
+                        <div data-bind="with:selectedItem">
+                            <div data-bind="text:Description"></div>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                    <div data-bind="with:selectedItem">
+                        <div class="homescreen-instructions" data-bind="with:Completed" style="color: red">
+                            Checklist is completed
+                        </div>
+                        <div class="homescreen-instructions">
+                            <label>Step 1: Read and follow the instructions below</label>
+                        </div>
+
+                        <div style="min-height: 50px" class="instructions" data-bind="html:InstructionText"></div>
+
+
+
+                        <div data-bind="with:classModel">
+
+                            <div id="selectedForm" data-bind="template:{name:templateName},afterRender: animateTrans">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div data-bind="with:selectedItem">
+                        <div class="homescreen-instructions">
+                            <br />
+                            <label>Questions? Send a note to the staff</label>
+                            <br />
+                            <span>  Enter text first, then click the "Add Note" button</span>
+                        </div>
+                        <br />
+                        <div id="note-list">
+                            <div>
+                                <form id="notesForm" data-bind="submit:notes.addNote">
+                                    <div class="editor-label">
+                                    </div>
+                                    <div class="editor-field">
+                                        <textarea id="note-editor" rows="5" data-bind="value:notes.Content"></textarea>
+                                    </div>
+                                    <div class="editor-field">
+                                        <button type="button" data-bind="click:notes.addNote,enable:Enabled && NotesEnabled && notes.AddEnabled">Add Note</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul data-bind=" foreach: notes.notes" class="note-list">
+                                <li>
+                                    <div class="note-content" data-bind="html:Content"></div>
+                                    <div class="note-tools">
+                                        <div data-bind="text:'Date Created: '+ DateCreated"></div>
+                                        <div data-bind="text:'Created by: '+ UserCreated" style="width: 180px"></div>
+                                        <div class="toolbox-button" data-bind="click:$parent.notes.deleteNote,visible:Deletable" style="width: 50px">Delete</div>
+                                    </div>
+                                    <div style="clear: both"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="homescreen-label">
+                            <label>Due Date:</label>
+                            <div class="homescreen-display" data-bind="text:DueDate"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="myinfo">
+
+                <div class="tabContent">
+                    <div class="title ui-widget ui-widget-header">
+                        @if (Model.CanEditEmployee)
+                        {
+                            <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                        }
+                        <div style="clear: both"></div>
+                    </div>
+                    @Html.Partial("EmployeeForm", Model.Employee)
+                </div>
+
+            </div>
+            <div id="mydependents">
+                <div class="tabContent">
+                    <div class="title ui-widget ui-widget-header">
+                        @if (Model.CanEditEmployee)
+                        {
+                            <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
+                        }
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+                @Html.Partial("_DependentsList", Model.Dependents)
+            </div>
+
+        </div>
+    </div>
+    <div class="leftColumn">
+        <div id="checkInTabs">
+            <ul>
+                <li><a href="#checkIn">@Model.CheckListName</a></li>
+                
+            </ul>
+
+            <div id="checkIn" style="overflow-y: scroll; height: 750px">
+                <div class="homescreen-instructions" data-bind="with:completed" style="color: red">
+                    Checklist is completed
+                </div>
+                <div class="homescreen-instructions">
+                    <label>Please select a task from the list below</label>
+                </div>
+                <ul data-bind="foreach: checklist " class="checklist" >
+                    <li>
+                        <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
+                            <div data-bind="text: Description" class="description" style="width: 180px; float: left"></div>
+                            <div style="float: right; text-align: center">
+                                <div class="" data-bind="css: CssClass">&nbsp; &nbsp;</div>
+                                <div class="checkbox">
+                                    <input data-bind="checked: ItemChecked" type="checkbox" disabled="disabled" />
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="checkOut">
+            </div>
+
+        </div>
+
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+<script type="text/html" id="DocumentApproval">
+    
+    <div>
+        <div class="homescreen-instructions">
+            <label>Step 2: Please click the link to download the form:</label></div>
+        <a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc">Document Template</a></div>
+     <br>
+    <br />
+    <div data-bind="html:ApprovalText"></div>
+       
+    <div>
+        <div class="homescreen-instructions">
+            <label>Step 3: Click Approve to signify acceptance:</label></div>
+        <button data-bind="click:approve,enable: (buttonEnabled() && Enabled()) ">Approve</button></div>
+
+</script>
+
+
+<script type="text/html" id="DocumentSubmitted">
+    <br />
+    <div class="homescreen-instructions">
+        <label>Step 2: Browse to the document to upload</label></div>
+    <br />
+
+    <form id="docSubmitted" data-bind="submit:submitDoc,disabled:!Enabled" enctype="multipart/form-data" method="POST">
+        <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
+        <div data-bind="with:submittedFile">
+            Submitted file:
+            <a target="_blank" data-bind="attr: { href: Url },text:Description"></a>
+        </div>
+        <div data-bind="with:DependentsFiles">
+            <ul data-bind="foreach:$data">
+                <li>
+                    <div data-bind="text:DependentName"></div>
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId},enable:$parentContext.$parent.Enabled" />
+                    <div ></div>
+                    <div></div>
+                    <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
+                </li>
+                
+            </ul>
+        </div>
+    </form>
+    <br />
+
+    <div class="homescreen-instructions">
+        <label>Step 3: Upload the selected document</label></div>
+    <br />
+    <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
+    <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
+
+    
+</script>
+
+<script type="text/html" id="PhysicalActivity">
+    <button data-bind="click:complete,enable: (buttonEnabled() && Enabled()),text:buttonText">Action Complete</button>
+</script>
+
+<script type="text/html" class="homescreen-instructions" id="DocumentWriting">
+
+
+    <div class="homescreen-instructions">
+        <label>Step 2:  Please click the link to download the form:</label><a target="_blank" data-bind="attr: { href: FileUrl },text:FileDesc">Document Template </a>
+        <br />
+        <br></br>
+        <label>Step 3: Browse to your completed form.</label>
+
+        <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST" action="/checklist/uploadfile" >
+            <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
+             <div data-bind="with:submittedFile">
+            Submitted file:
+        <a target="_blank"   data-bind="attr: { href: Url },text:Description"></a>
+        </div>
+            
+            <div data-bind="with:DependentsFiles">
+            <ul data-bind="foreach:$data">
+                <li>
+                    <div data-bind="text:DependentName"></div>
+                    <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}, enable:$parentContext.$parent.Enabled" />
+                    <div></div>
+                    <a target="_blank" data-bind="attr: { href: Url },text:FileName"></a>
+                </li>
+                
+            </ul>
+        </div>
+        </form>
+        <br />
+       
+        <label>Step 4: Upload the completed form.</label>
+        <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
+        <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
+    </div>
+
+    <div></div>
+
+
+</script>
+
+<script type="text/html" id="dependentFiles">
+    <ul data-bind="foreach:$data">
+        <li>
+            <div data-bind="text:DependentName"></div>
+        </li>
+
+    </ul>
+
+
+
+</script>
+
+<script type="text/html" id="OnlineForm">
+    <div class="homescreen-instructions">
+        <label>Step 2:  Please click on the link to fill the form:</label>
+    </div>
+    <div style="margin-bottom: 15px">
+        <a target="_blank" data-bind="attr: { href: CustomFormUrl },text:Description"></a>
+    </div>
+    
+    <div style="margin-bottom: 15px" class="homescreen-instructions">
+        <label>Step 3:  Confirm the activity:</label>
+    </div>
+
+    <div data-bind="with:physicalActivity">
+        <div data-bind="template:{name:'PhysicalActivity'}">
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="none">
+    <form method="post">
+    </form>
+
+</script>
+
+@Html.Partial("_SystemForms")
+
+<script type="text/javascript">
+    
+    function animateTrans() {
+        }
+
+    @if (Model.CheckListId.HasValue)
+    {
+        <text>
+    var checklistId = @(Model.CheckListId.Value) ;
+        </text>
+    }
+    else
+    {
+        <text>
+    var checklistId = 0;
+        </text>
+    }
+    
+
+    ko.bindingHandlers.stopBindings = {
+        init: function () {
+            return { 'controlsDescendantBindings': true };
+        }
+    };
+
+
+    $(function () {
+        $("#infoTabs").tabs();
+        $("#infoTabs").tabs("select", "#myinfo");
+        @if (Model.Tab == "dependents")
+        {
+            <text>
+        $("#infoTabs").tabs("select", "#mydependents");
+            </text>
+        }
+        //$('#infoTabs').tabs('option', 'selected', 0);
+        $("#checkInTabs").tabs();
+    });
+
+
+    
+
+
+    function CheckBoxItem(checked, description, id, homeModel, ItemTemplate, CssClass, ditem,parent) {
+        var self = this;
+        self.item = ditem;
+        self.parent = parent;
+        self.selectItem = function (item) {
+            // item.Checked(false);
+            if (item) {
+                $('#infoTabs').tabs('option', 'selected', 1);
+                ko.utils.arrayForEach(homeModel.checklist(), function (ii) {
+                    ii.selected(false);
+                });
+                item.selected(true);
+                homeModel.selectedTemplate(item.ItemTemplate);
+                homeModel.selectedItem(item);
+                tinyMCE.init({
+                    plugins : 'autoresize',
+                    width: '100%',
+                    content_css: "/content/custom-tinymce.css",
+                    theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
+                    font_size_style_values: "10px,12px,13px,14px,16px,18px,20px",
+                    mode: "textareas",
+                    theme: "simple"
+                });
+            }
+        };
+
+        self.selectUrl = function(item) {
+            location.hash = "#checkpoint/"+item.TrackId;
+        };
+
+        self.Enabled = ko.computed(function () {
+            return !parent.completed();
+        }, self);
+
+        self.Completed = ko.computed(function () {
+            return parent.completed();
+        }, self);
+
+        self.ItemUrl = ditem.ItemUrl;
+        self.TrackId = ditem.TrackId;
+        self.Id = id;
+        self.ItemChecked = ko.observable(checked);
+        self.Description = ko.observable(description);
+        self.menuItems = ko.observableArray([]);
+        self.selected = ko.observable(false);
+        self.ItemTemplate = ItemTemplate;
+        self.CssClass = ko.observable(CssClass);
+        self.notes = new NoteListModel(this);
+        self.InstructionText = ditem ? ditem.InstructionText : "";
+        self.DueDate = ditem.DueDate;
+        self.dependentFiles = ko.observable(null);
+        self.CheckListId = parent.Id;
+        self.NotesEnabled = ditem.NotesEnabled;
+        self.completeChecklist = function() {
+            parent.completed(true);
+        };
+        
+        //self.classModel = ko.observable();
+
+        switch (ItemTemplate) {
+            case "DocumentSubmitted":
+                self.classModel = ko.observable(new DocumentSubmittedModel(self));
+                break;
+            case "OnlineForm":
+                self.classModel = ko.observable(new OnlineFormModel(self));
+                break;
+            case "SelfContainedForm":
+                self.classModel = ko.observable(new SelfContainedFormModel(self));
+                break;
+            case "DocumentWriting":
+                self.classModel = ko.observable(new DocumentWritingModel(self));
+                break;
+            case "DocumentApproval":
+                self.classModel = ko.observable(new DocumentApprovalModel(self));
+                break;
+            case "PhysicalActivity":
+                self.classModel = ko.observable(new PhysicalActivityModel(self));
+                break;
+            default:
+                alert('unknown model ' + ItemTemplate);
+        }
+
+        self.checkIn = function () {
+
+        };
+        
+    }
+
+    function HomeViewModel() {
+        var self = this;
+        self.completed = ko.observable(false);
+        self.selectedItem = ko.observable();
+        self.selectedTemplate = ko.observable("none");
+        self.checklist = ko.observableArray();
+        
+        var postData = null;
+        if (checklistId!=0) {
+            postData = { id: checklistId };
+        } 
+
+        $.post("/checklist/index", postData, function (data) {
+            self.Id = data.Id;
+            self.completed(data.Completed);
+            ko.utils.arrayForEach(data.CheckListItems, function (item) {
+                self.checklist.push(new CheckBoxItem(item.Checked, item.Description, item.Id, self, item.ItemTemplate, item.CssClass, item,self));
+            });
+            homeModel.sammy.run();
+        });
+
+        self.sammy = Sammy(function () {
+            //animateTrans();
+            // $('#completion').hide(); $('#completion').fadeIn(3000);
+            this.get('#checkpoint/:id', function (context) {
+                var id = context.params['id'];
+                $('#completion').hide(); 
+                ko.utils.arrayForEach(self.checklist(), function (item) {
+                    if (item.TrackId == id) {
+                        item.selectItem(item);
+                        $('#completion').fadeIn(300);
+                    }
+                });
+            });
+            
+        });
+        
+
+    }
+
+    var homeModel = new HomeViewModel();
+    ko.applyBindings(homeModel);
+
+</script>
+

@@ -1,0 +1,28 @@
+﻿@using Cico.Models.Helpers
+@model Cico.Areas.Admin.EmployeeModel
+<fieldset class="two-column-form" style="width: 80%">
+    <legend>Administration </legend>
+    <h2>Administration</h2>
+    <div class="float-left" style="width: 47%">
+        <div class="editor-label">
+            <label>Proxy Person</label>
+                
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SelectedProxy,Model.Proxies,"")
+            @Html.ValidationMessageFor(model => model.SelectedProxy)
+        </div>
+         <div class="editor-label">
+            <label>Domain user id</label>
+                
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Employee.UserId)
+            @Html.ValidationMessageFor(model => model.Employee.UserId)
+        </div>
+
+    </div>
+    <div class="float-right" style="width: 47%">
+       
+    </div>
+</fieldset>

@@ -1,0 +1,116 @@
+﻿@model Cico.Areas.Admin.TemplateModel
+
+@{
+    ViewBag.Title = "title";
+    
+}
+
+<h2>Edit Checklist</h2>
+<div>
+    
+    @Html.ActionLink("New Item","Index","ItemClass",new {templateId=Model.CheckListTemplate.CheckListTemplateId},new {})
+</div>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Select office to filter</legend>
+        <div>
+            Office
+        </div>
+        <div>
+            @Html.DropDownListFor(c=>c.SelectedOffice,Model.OfficeList,"",Model.OfficeDisabled?new {disabled="disabled"}:new object())
+        </div>
+        <div>
+            <button type="submit"> Filter</button>
+        </div>
+        
+
+    </fieldset>
+}
+
+
+<h2>Items</h2>
+<table class="admin-table">
+    <tr>
+        <th>Description</th>
+        <th>Item Type</th>
+        <th>Office</th>
+        @if (User.IsInRole("OfficeAdmin"))
+        {
+            <th>Email Subscription</th>
+        }
+       
+    </tr>
+    @foreach (var item in Model.TemplateItems)
+    {
+        <tr>
+            
+                <td >
+                    
+                    @Html.ActionLink(@item.Description, "Edit", "ItemClass", new { id = item.Id }, null)
+                </td>
+                <td >
+                    
+                    @item.Type
+                </td>
+                
+            <td >
+                    
+                @item.Office
+            </td>
+            
+            @if (User.IsInRole("OfficeAdmin"))
+        {
+            <td><input type="checkbox" @(item.SubscriptionId!=0?"checked":"") data-id="@item.SubscriptionId" data-template-id="@item.Id"/></td>
+        }
+            
+            
+        </tr>
+    }
+    </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input:checkbox").click(
+            function () {
+                var self = this;
+                if ($(this).is(':checked')) {
+                    $.ajax(
+                        {
+                            type:"post",
+                            url: "/Admin/OfficeAdminDashboard/AddSubscription",
+                            data: { templateId: $(this).data("template-id") },
+                            success:function(data) {
+                                // SubsctiptionId
+                                $(self).data("id", data.SubsctiptionId);
+                            },
+                            error:function(e) {
+                                alert(e.responseText);
+                            }
+                        }
+                    );
+                } else {
+                    $.ajax(
+                         {
+                             type: "post",
+                             url: "/Admin/OfficeAdminDashboard/RemoveSubscription",
+                             data: { subsId: $(this).data("id") },
+                             success: function (data) {
+
+                             },
+                             error: function (e) {
+                                 alert(e.responseText);
+                             }
+                         }
+                     );
+                };
+            }
+        );
+    });
+</script>
+
+
+
+
+

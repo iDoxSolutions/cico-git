@@ -1,0 +1,17 @@
+﻿@model Cico.Models.Services.ProxyModel
+
+@{
+    ViewBag.Title = "Proxy List";
+    
+}
+
+<h2>Select employee to Proxy </h2>
+
+<ul>
+    @foreach (var proxy in Model.ProxiedList)
+    {
+        <li>
+            @Html.ActionLink(proxy.Text,"Initialize",new{employeeId=proxy.Value})
+        </li>
+    }
+</ul>

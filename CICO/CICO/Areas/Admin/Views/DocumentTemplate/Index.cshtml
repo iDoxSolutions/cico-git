@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Cico.Models.DocumentTemplate>
+
+@{
+    ViewBag.Title = "List Form";
+}
+
+<h2>Form List</h2>
+
+<p>
+    @Html.ActionLink("Publish Form", "Create")
+</p>
+<table class="admin-table">
+    <tr>
+        <th>
+            Title 
+        </th>
+        <th>
+            Description
+        </th>
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentTitle)
+        </td>
+        
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

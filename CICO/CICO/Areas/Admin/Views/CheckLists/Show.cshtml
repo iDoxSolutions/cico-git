@@ -1,0 +1,57 @@
+﻿@using Cico.Models
+@model Cico.Areas.Admin.CheckListModel
+
+@{
+    ViewBag.Title = "Checklist Items ";
+}
+
+<h2>Checklist Items For @Model.Employee.FirstName @Model.Employee.LastName</h2>
+<style>
+    
+</style>
+
+<div>
+    Employee Name:
+    <div>
+        @Model.Employee.FirstName , @Model.Employee.LastName
+    </div>
+</div>
+
+@if (Model.Session.Active)
+{
+    <form action="/admin/checklists/cancel">
+        @Html.Hidden("id", Model.Session.Id)
+        <input type="submit" value="Cancel Check List"/>
+    </form>
+}
+
+<ul>
+    @foreach (var item in Model.SessionTracks)
+    {
+        <li >
+            <div class="@item.CssClass()" style="float: left;width:20px">&nbsp;</div>
+            <a style="float: left;width:200px" href="/home?id=@item.CheckListSession.Id#checkpoint/@item.Id">
+                @item.CheckListItemTemplate.Description</a>
+            @if (item.Checked)
+            {
+                <form style="float: left"  action="/admin/checklists/rejectProvisional" method="POST">
+                    <input type="hidden" name="ItemId" value="@item.Id"/>
+                    <input style="font-size: small;padding: 1px 1px 1px 1px" type="submit" value="Uncheck"/>
+                </form>
+            }
+            @if (item.Checked && !item.Provisioned && item.CheckListItemTemplate.Provisional)
+            {
+                <form style="float: left"  action="/admin/checklists/approveProvisional" method="POST">
+                    <input type="hidden" name="ItemId" value="@item.Id"/>
+                    <input style="font-size: small;padding: 1px 1px 1px 1px" type="submit" value="Approve Provisional"/>
+                </form>
+                
+                <form style="float: left"  action="/admin/checklists/rejectProvisional" method="POST">
+                    <input type="hidden" name="ItemId" value="@item.Id"/>
+                    <input style="font-size: small;padding: 1px 1px 1px 1px" type="submit" value="Reject Provisional"/>
+                </form>
+            }
+            <div style="clear:both"></div>
+        </li>
+    }
+</ul>

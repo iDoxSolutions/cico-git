@@ -1,0 +1,34 @@
+﻿@model Cico.Areas.Admin.DocumentTemplateModel
+<form enctype="multipart/form-data" method="POST">
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Form</legend>
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DocumentTemplate.DocumentTitle)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DocumentTemplate.DocumentTitle)
+            @Html.ValidationMessageFor(model => model.DocumentTemplate.DocumentTitle)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.File)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="File"/>
+            @Html.ValidationMessage("File")
+            @if (Model.DocumentTemplate.SystemFile != null)
+            {
+                @Html.DisplayFor(c=>c.DocumentTemplate.SystemFile)
+            }
+        </div>
+        
+
+        @Html.HiddenFor(c=>c.DocumentTemplate.Id)
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+    </form>

@@ -1,0 +1,48 @@
+﻿@model Cico.Models.Authentication.InitModel
+
+@{
+    ViewBag.Title = "Initialize Checklist";
+}
+
+<h2>Welcome to CICO. Please fill in the following fields to get started.</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        @Html.ValidationSummary()
+        <legend>Init Data</legend>
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.ArrivalDate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c=>c.ArrivalDate)
+            @Html.ValidationMessageFor(c=>c.ArrivalDate)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c=>c.FirstName)
+            @Html.ValidationMessageFor(c=>c.FirstName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c=>c.LastName)
+            @Html.ValidationMessageFor(c=>c.LastName)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(c=>c.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(c=>c.EmailAddress)
+            @Html.ValidationMessageFor(c=>c.EmailAddress)
+        </div>
+        
+        <div class="editor-field">
+            <button type="submit">Save</button>
+        </div>
+        @Html.HiddenFor(c=>c.EmpId)
+    </fieldset>
+}

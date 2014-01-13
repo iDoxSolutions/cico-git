@@ -1,0 +1,52 @@
+﻿@model Cico.Models.CheckListItemTemplate
+
+
+@using (Html.BeginForm("Create","ItemClass"))
+{
+     <fieldset>
+        <legend>Department</legend>
+     <div class="editor-label">
+            @Html.LabelFor(c=>c.Form)
+        </div>
+         <div class="editor-field">
+            
+             @Html.TextBoxFor(c=>c.Form)
+         </div>
+         
+         <div class="editor-label">
+            @Html.LabelFor(c=>c.Document)
+        </div>
+         <div class="editor-field">
+            
+             @Html.TextBoxFor(c=>c.Document)
+         </div>
+         
+         <div class="editor-label">
+            @Html.LabelFor(c=>c.Provisional)
+        </div>
+         <div class="editor-field">
+            
+             @Html.CheckBoxFor(c=>c.Provisional)
+         </div>
+         
+         <div class="editor-label">
+            @Html.LabelFor(c=>c.NotesAccess)
+        </div>
+         <div class="editor-field">
+            
+             @Html.CheckBoxFor(c=>c.NotesAccess)
+         </div>
+         
+         <div class="editor-label">
+            @Html.LabelFor(c=>c.Dependents)
+        </div>
+        <div class="editor-field">
+            
+            @Html.CheckBoxFor(c=>c.Dependents)
+        </div>
+         <div class="editor-field">
+            <input type="submit" value="Save"/>
+        </div>    
+     @Html.Hidden("templateId",Model.CheckListItemTemplateId)
+    </fieldset>
+}

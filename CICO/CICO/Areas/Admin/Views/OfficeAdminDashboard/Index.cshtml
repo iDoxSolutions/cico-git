@@ -1,0 +1,91 @@
+﻿@model Cico.Areas.Admin.IndexDashboardOfficeModel
+
+@{
+    ViewBag.Title = "Subscriptions";
+  
+}
+
+<h2>Office Admin Dashboard</h2>
+
+<form>
+    <label>Select the Checklist </label>
+
+    @Html.DropDownListFor(c=>c.SelectedTemplate,Model.Templates,"")
+
+</form>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("select").change(function () {
+            $(this).closest("form").submit();
+        });
+    });
+
+</script>
+
+
+<table class="admin-table">
+    <tr>
+        <th>
+            Checklist Item
+        </th>
+        <th>
+            Subscribe
+        </th>
+       @* <th>
+            Edit
+        </th>*@
+    </tr>
+    @foreach (var item in Model.SubscriptionLines)
+    {
+        <tr>
+            <td>
+                @item.CheckListItemTemplateDescription
+            </td>
+            <td>
+                <input type="checkbox" @(item.Subscribed?"checked":"") data-id="@item.SubsctiptionId" data-template-id="@item.CheckListItemTemplateId"/>
+            </td>
+        </tr>
+    }
+
+</table>
+<button>Save</button>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("input:checkbox").click(
+            function () {
+                var self = this;
+                if ($(this).is(':checked')) {
+                    $.ajax(
+                        {
+                            type:"post",
+                            url: "/Admin/OfficeAdminDashboard/AddSubscription",
+                            data: { templateId: $(this).data("template-id") },
+                            success:function(data) {
+                                // SubsctiptionId
+                                $(self).data("id", data.SubsctiptionId);
+                            },
+                            error:function(e) {
+                                alert(e.responseText);
+                            }
+                        }
+                    );
+                } else {
+                    $.ajax(
+                         {
+                             type: "post",
+                             url: "/Admin/OfficeAdminDashboard/RemoveSubscription",
+                             data: { subsId: $(this).data("id") },
+                             success: function (data) {
+
+                             },
+                             error: function (e) {
+                                 alert(e.responseText);
+                             }
+                         }
+                     );
+                };
+            }
+        );
+    });
+</script>

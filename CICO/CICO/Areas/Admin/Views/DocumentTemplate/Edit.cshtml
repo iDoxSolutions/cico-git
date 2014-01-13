@@ -1,0 +1,15 @@
+﻿@using Cico.Models.Helpers
+@model Cico.Areas.Admin.DocumentTemplateModel
+
+@{
+    ViewBag.Title = "Edit Form";
+}
+
+<h2>Edit Form</h2>
+
+
+@Html.Partial("_Form")
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
