@@ -34,6 +34,8 @@ namespace Cico.Models
         public DateTime? DepartureDate { get; set; }
         public bool Completed { get; set; }
 
+        [DisplayName("Date Completed. Format: mm/dd/yyyy")]
+        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Date Completed.")]
         public DateTime? DateCompleted { get; set; }
     }
 }
