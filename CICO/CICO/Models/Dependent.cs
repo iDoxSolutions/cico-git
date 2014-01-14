@@ -8,7 +8,7 @@ namespace Cico.Models
 {
     public partial class Dependent:EntityBaseWithKey
     {
-        public Dependent()
+       public Dependent()
         {
             //SameECData = true;
         }
