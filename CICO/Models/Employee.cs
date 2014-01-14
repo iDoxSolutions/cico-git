@@ -225,6 +225,11 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
      
         [Required(ErrorMessage = "Domain user id is required")]
         public string UserId { get; set; }
+        public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
+        public virtual ICollection<Dependent> Dependents { get; set; }
+        public virtual Staff Proxy { get; set; }
+        public virtual IList<SentBoxItem> SentBoxItems { get; set; }
+
 
 
        
