@@ -5,7 +5,7 @@ namespace Cico.Models
 {
     public class CheckList
     {
-        [Key]
+       [Key]
         public int CheckListId { get; set; }
         [Required]
         [Display(Name = "CheckList Type")]
@@ -24,6 +24,6 @@ namespace Cico.Models
         public DateTime? DueDate { get; set; }
         [Display(Name = "CheckList Status")]
         public String Status { get; set; }
-        
+
    }
 }

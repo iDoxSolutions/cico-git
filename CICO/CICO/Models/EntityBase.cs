@@ -8,7 +8,7 @@ namespace Cico.Models
 {
     public class EntityBase
     {
-        public EntityBase()
+          public EntityBase()
         {
             Active = true;
         }

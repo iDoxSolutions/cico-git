@@ -306,13 +306,7 @@
                     @Html.ValidationMessageFor(model => model.Employee.DiplomaticTitle)
                 </div>
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.EmergencyContactEmail)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.EmergencyContactEmail)
-                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactEmail)
-                </div>
+               
 
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactName)
@@ -321,7 +315,13 @@
                     @Html.EditorFor(model => model.Employee.EmergencyContactName)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactName)
                 </div>
-
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Employee.EmergencyContactRelationship)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Employee.EmergencyContactRelationship)
+                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactRelationship)
+                </div>
                 <div class="editor-label">
                     @Html.LabelFor(model => model.Employee.EmergencyContactOfficePhone)
                 </div>
@@ -345,23 +345,17 @@
                     @Html.EditorFor(model => model.Employee.EmergencyContactPhone2)
                     @Html.ValidationMessageFor(model => model.Employee.EmergencyContactPhone2)
                 </div>
+                 
+               
 
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.EmergencyContactRelationship)
+               
+                 <div class="editor-label">
+                    @Html.LabelFor(model => model.Employee.EmergencyContactEmail)
                 </div>
                 <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.EmergencyContactRelationship)
-                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactRelationship)
+                    @Html.EditorFor(model => model.Employee.EmergencyContactEmail)
+                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactEmail)
                 </div>
-
-                <div class="editor-label">
-                    @Html.LabelFor(model => model.Employee.EmergencyContactName)
-                </div>
-                <div class="editor-field">
-                    @Html.EditorFor(model => model.Employee.EmergencyContactName)
-                    @Html.ValidationMessageFor(model => model.Employee.EmergencyContactName)
-                </div>
-
                    
 
                 <div class="editor-label">

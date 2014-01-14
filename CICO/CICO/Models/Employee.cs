@@ -51,7 +51,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string LastName { get; set; }
         //4
-        [DisplayName("Email - Personal")]
+        [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
         public string PersonalEmail { get; set; }
         //5
@@ -162,14 +162,16 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //10
         [DisplayName("Personal Mobile Phone")]
         public string CellPhone { get; set; }
+        
+        
         //11
-        [DisplayName("Emergency Contact Email Address")]
-        [DataType(DataType.EmailAddress)]
-        public string EmergencyContactEmail { get; set; }
-        //12
         [DisplayName("Emergency Contact Name")]
         [StringLength(65)]
         public string EmergencyContactName { get; set; }
+        //12
+        [DisplayName("Emergency Contact Relationship")]
+        [StringLength(30)]
+        public string EmergencyContactRelationship { get; set; }
         //13
         [DisplayName("Emergency Contact Office Phone")]
         public string EmergencyContactOfficePhone { get; set; }
@@ -180,9 +182,9 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DisplayName("Emergency Contact Mobile Phone")]
         public string EmergencyContactPhone2 { get; set; }
         //16
-        [DisplayName("Emergency Contact Relationship")]
-        [StringLength(30)]
-        public string EmergencyContactRelationship { get; set; }
+        [DisplayName("Emergency Contact Email Address")]
+        [DataType(DataType.EmailAddress)]
+        public string EmergencyContactEmail { get; set; }
         //17
         [DisplayName("Radio Call Sign")]
         [StringLength(65)]
