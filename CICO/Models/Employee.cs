@@ -53,14 +53,16 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //4
         [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for personal address.")]
         public string PersonalEmail { get; set; }
+
         //5
         [DisplayName("Title/Salutation")]
         [StringLength(65)]
         public string Title { get; set; }
         //6
         [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Date of Birth.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         //7
         [DisplayName("Nationality")]
@@ -88,7 +90,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string PassportNumber { get; set; }
         //13
         [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Passport Expiration.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         //14
         [DisplayName("Passport Type")]
@@ -127,11 +129,12 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //1
         [DisplayName("Estimated Arrival Date. Format: mm/dd/yyyy")]
 
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Estimated Arrival Date.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Estimated Arrival Date.")]
+        
         public DateTime? ArrivalDate { get; set; }
         //2
         [DisplayName("Estimated Departure Date. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Estimated Departure Date.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Estimated Departure Date.")]
         public DateTime? TourEndDate { get; set; }
         //3
         [DisplayName("Section")]
@@ -142,7 +145,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public string Office { get; set; }
         //5
         [DisplayName("Visa expiration. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for  Visa Expiration.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for  Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         //6
         [DisplayName("Visa Number")]
@@ -184,6 +187,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //16
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for Emergency Contact Email Address.")]
         public string EmergencyContactEmail { get; set; }
         //17
         [DisplayName("Radio Call Sign")]
@@ -222,12 +226,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [Required(ErrorMessage = "Domain user id is required")]
         public string UserId { get; set; }
 
-
-
-        public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
-        public virtual ICollection<Dependent> Dependents { get; set; }
-        public virtual Staff Proxy { get; set; }
-        public virtual IList<SentBoxItem> SentBoxItems { get; set; }
 
        
     }
