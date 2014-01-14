@@ -9,7 +9,7 @@ namespace Cico.Models.Authentication
         [DisplayName("Arrival Date" + "*Enter best estimate. Can be changed later")]
         [Required]
         public DateTime ArrivalDate { get; set; }
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Arrival Date.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Arrival Date.")]
         [StringLength(65)]
         [Required]
         [DisplayName("First Name")]
