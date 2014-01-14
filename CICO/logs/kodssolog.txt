@@ -628,3 +628,681 @@ ClientConnectionId:185ef5e2-1138-4d70-bf31-540ba593186c
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 2014-01-12 13:27:24,379 [1] DEBUG MvcApplication - Application Started
 2014-01-12 20:49:16,367 [1] DEBUG MvcApplication - Application Started
+2014-01-13 18:25:23,514 [1] DEBUG MvcApplication - Application Started
+2014-01-13 18:26:20,671 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,677 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,678 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,724 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,741 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,741 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,758 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,767 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,767 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,786 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,793 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,794 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,828 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,839 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,839 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,844 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,846 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,846 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,851 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,853 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,853 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,859 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,862 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,862 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,866 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,869 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,869 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,873 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,875 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,875 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,878 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,879 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,879 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,886 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,888 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,889 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,892 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,893 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,893 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,897 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,899 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,899 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,903 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,904 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,904 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:26:20,908 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:26:20,912 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:26:20,912 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,462 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,463 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,464 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,467 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,468 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,468 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,477 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,479 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,479 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,483 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,484 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,484 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,491 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,493 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,493 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,496 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,498 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,498 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,501 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,504 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,504 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,508 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,510 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,510 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,513 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,515 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,515 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,517 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,518 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,518 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,524 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,525 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,525 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,528 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,530 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,530 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,533 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,535 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,535 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,541 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,542 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,542 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,546 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,547 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,547 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:31:55,551 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:31:55,553 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:31:55,553 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:35:41,971 [21] FATAL MvcApplication - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Cico.Models.CicoContext.SaveChanges() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\CicoContext.cs:line 110
+   at Cico.Controllers.NotesController.Create(NoteViewModel model) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\NotesController.cs:line 42
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-13 18:52:18,159 [1] DEBUG MvcApplication - Application Started
+2014-01-13 18:52:44,359 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,364 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,364 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,373 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,374 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,374 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,379 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,381 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,381 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,383 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,384 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,384 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,396 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,397 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,397 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,401 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,403 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,403 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,406 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,408 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,408 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,411 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,413 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,413 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,416 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,418 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,418 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,421 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,425 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,425 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,429 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,431 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,431 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,433 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,435 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,435 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,438 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,440 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,440 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,444 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,446 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,446 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,453 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,455 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,455 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:52:44,458 [42] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:52:44,460 [42] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:52:44,460 [42] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:17,814 [1] DEBUG MvcApplication - Application Started
+2014-01-13 18:57:39,030 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,034 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,034 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,045 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,047 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,047 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,055 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,060 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,060 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,067 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,068 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,068 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,079 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,081 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,081 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,084 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,086 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,086 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,091 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,092 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,092 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,095 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,096 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,096 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,099 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,100 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,100 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,104 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,106 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,106 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,110 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,111 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,111 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,114 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,116 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,116 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,120 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,122 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,122 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,127 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,128 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,128 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,132 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,136 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,136 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 18:57:39,142 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 18:57:39,145 [35] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 18:57:39,145 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:04:59,875 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:05:17,852 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,857 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,858 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,868 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,869 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,869 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,876 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,880 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,880 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,893 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,895 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,895 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,908 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,909 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,910 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,913 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,914 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,914 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,919 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,921 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,921 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,925 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,926 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,926 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,937 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,939 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,939 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,975 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,978 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,978 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:17,990 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:17,991 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:17,991 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:18,006 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:18,007 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:18,007 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:18,013 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:18,017 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:18,017 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:18,022 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:18,025 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:18,025 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:18,033 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:18,038 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:18,038 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:05:18,048 [37] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:05:18,050 [37] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:05:18,050 [37] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:07:52,089 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:08:14,332 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,336 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,336 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,349 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,350 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,350 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,357 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,358 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,358 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,361 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,362 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,362 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,374 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,376 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,377 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,381 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,382 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,382 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,386 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,387 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,387 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,392 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,393 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,394 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,399 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,403 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,403 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,409 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,410 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,410 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,414 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,417 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,417 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,421 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,422 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,422 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,427 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,435 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,435 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,444 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,447 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,447 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,458 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,461 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,461 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:08:14,470 [34] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:08:14,472 [34] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:08:14,472 [34] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:10:51,724 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:11:09,891 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:11:36,952 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,957 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,957 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,965 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,967 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,967 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,973 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,974 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,974 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,977 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,978 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,978 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,989 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,990 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,990 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,993 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,994 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,994 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:36,997 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:36,998 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:36,998 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,001 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,002 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,002 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,005 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,007 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,007 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,009 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,011 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,011 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,013 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,014 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,014 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,017 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,019 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,019 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,022 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,023 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,023 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,026 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,027 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,027 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,030 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,032 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,032 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:11:37,035 [6] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:11:37,036 [6] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:11:37,036 [6] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,779 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,781 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,781 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,790 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,792 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,792 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,802 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,807 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,807 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,810 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,813 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,813 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,822 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,823 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,823 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,827 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,828 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,828 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,832 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,833 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,833 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,835 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,837 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,837 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,841 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,842 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,842 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,845 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,846 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,846 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,849 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,851 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,851 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,854 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,855 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,855 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,858 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,859 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,859 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,862 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,863 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,863 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,866 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,867 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,867 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:12:34,871 [26] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:12:34,878 [26] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:12:34,879 [26] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:21:53,504 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:22:10,123 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,126 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,127 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,135 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,136 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,136 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,140 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,141 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,141 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,144 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,145 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,145 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,155 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,156 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,156 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,159 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,160 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,160 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,163 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,164 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,165 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,168 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,169 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,169 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,172 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,173 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,173 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,176 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,178 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,178 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,180 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,182 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,182 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,185 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,186 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,186 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,189 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,191 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,191 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,194 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,195 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,195 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,198 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,199 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,199 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:10,203 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:10,204 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:10,204 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,653 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,654 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,654 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,663 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,664 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,664 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,672 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,673 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,673 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,677 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,680 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,680 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,687 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,688 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,688 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,692 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,693 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,694 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,698 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,700 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,700 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,703 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,705 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,705 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,710 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,712 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,712 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,717 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,720 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,720 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,725 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,728 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,728 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,731 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,733 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,733 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,735 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,736 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,737 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,740 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,742 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,742 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,746 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,747 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,747 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:22:57,750 [8] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:22:57,752 [8] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:22:57,752 [8] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:24:59,526 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:28:47,282 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:30:43,849 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:38:39,002 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:39:34,873 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:39:48,146 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,150 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,150 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,158 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,159 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,159 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,163 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,164 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,165 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,167 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,168 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,168 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,179 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,181 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,181 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,184 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,185 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,185 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,188 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,189 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,189 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,193 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,195 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,195 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,198 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,200 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,200 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,203 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,204 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,204 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,209 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,210 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,210 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,213 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,215 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,215 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,219 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,221 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,221 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,226 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,227 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,227 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,232 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,233 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,234 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:39:48,237 [24] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:39:48,239 [24] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-13 19:39:48,239 [24] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:41:48,118 [29] DEBUG MvcApplication - Application Started
+2014-01-13 19:42:32,251 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,255 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,255 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,267 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,269 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,269 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,273 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,275 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,275 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,279 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,281 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,281 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,292 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,294 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,294 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,297 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,298 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,298 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,301 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,302 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,302 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,305 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,307 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,307 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,310 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,311 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,311 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,314 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,315 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,315 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,318 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,319 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,319 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,322 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,323 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,323 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,326 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,327 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,327 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,330 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,331 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,331 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,334 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,336 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,336 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:32,341 [23] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:32,343 [23] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:32,343 [23] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,576 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,577 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,578 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,581 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,583 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,583 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,587 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,588 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,588 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,592 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,593 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,593 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,599 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,600 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,601 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,610 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,612 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,612 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,618 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,619 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,619 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,622 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,623 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,623 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,627 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,628 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,629 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,635 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,637 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,637 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,641 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,642 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,642 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,646 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,647 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,647 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,650 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,651 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,651 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,654 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,655 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,655 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,658 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,660 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,660 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:42:53,663 [35] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-13 19:42:53,664 [35] DEBUG SecurityGuard - IDOX\psilewski session owner 
+2014-01-13 19:42:53,664 [35] DEBUG SecurityGuard - not session owner session owner 
+2014-01-13 19:44:37,362 [1] DEBUG MvcApplication - Application Started
+2014-01-13 19:44:45,439 [33] FATAL MvcApplication - System.Web.HttpException (0x80004005): Path '/Views/Shared/EmployeeForm.cshtml' was not found.
+   at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-13 19:45:30,815 [22] DEBUG MvcApplication - Application Started
+2014-01-13 19:45:44,847 [35] FATAL MvcApplication - System.Web.HttpException (0x80004005): Path '/Views/Shared/EmployeeForm.cshtml' was not found.
+   at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-13 19:48:22,038 [29] DEBUG MvcApplication - Application Started

@@ -40,7 +40,7 @@ namespace Cico.Models
         [StringLength(255)]
         public string Nationality { get; set; }
         
-        [DisplayName("Email - Personal")]
+        [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public  string PersonalEmail { get; set; }
@@ -58,21 +58,16 @@ namespace Cico.Models
         [DisplayName("Visa Expiration. Format: mm/dd/yyyy")]
         [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
-        
-        
         [DisplayName("Emergency Info Same as Primary")]
         public bool SameECData { get; set; }
-
+        
         [DisplayName("Home Same as Primary")]
         public bool SameAddressData { get; set; }
 
         [DisplayName("School Name")]
         [StringLength(65)]
         public string SchoolName { get; set; }
-        [DisplayName("Emergency Contact Email Address")]
-        [DataType(DataType.EmailAddress)]
-
-        public string EmergencyContactEmail { get; set; }
+       
         [DisplayName("Emergency Contact Name")]
         [StringLength(65)]
         public string EmergencyContactName { get; set; }
@@ -82,23 +77,27 @@ namespace Cico.Models
         [DisplayName("Emergency Contact Relationship")]
         [StringLength(30)]
         public string EmergencyContactRelationship { get; set; }
-        [DisplayName("Emergency Contact Phone")]
+        [DisplayName("Emergency Contact Office Phone")]
+        public string EmergencyContactOfficePhone { get; set; }
+        [DisplayName("Emergency Contact Home Phone")]
         public string EmergencyContactPhone { get; set; }
-        [DisplayName("Emergency Contact Phone 2")]
+        [DisplayName("Emergency Contact Mobile Phone")]
         [DefaultValue(52)]
         public string EmergencyContactPhone2 { get; set; }
-        public string EmergencyContactOfficePhone { get; set; }
-        [DisplayName("Personal Mobile Phone")]
-        [StringLength(30)]
+        [DisplayName("Emergency Contact Email Address")]
+        public string EmergencyContactEmail { get; set; }
+        [DataType(DataType.EmailAddress)]
+        //[DisplayName("Personal Mobile Phone")]
+        //[StringLength(30)]
         public string PersonalMobilePhone { get; set; }
 
         public virtual Employee Employee { get; set; }
         public virtual IList<DependentFile> DependentFiles { get; set; }
 
+        
         [EmbasssyNameDisplayName("{0} Resident Address")]
         [StringLength(30)]
         public string ResidentPhoneNumber { get; set; }
-
         [EmbasssyNameDisplayName("{0} Resident Phone Number")]
         [StringLength(30)]
         public string ResidentAddress { get; set; }
