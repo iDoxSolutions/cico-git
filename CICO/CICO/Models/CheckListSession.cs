@@ -27,15 +27,15 @@ namespace Cico.Models
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
         [DisplayName("Reference Date. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Reference Date.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Reference Date.")]
         public DateTime ReferenceDate{get; set; }
         [DisplayName("Departure Date. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Departure Date.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Departure Date.")]
         public DateTime? DepartureDate { get; set; }
         public bool Completed { get; set; }
 
         [DisplayName("Date Completed. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Date Completed.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date Completed.")]
         public DateTime? DateCompleted { get; set; }
     }
 }
