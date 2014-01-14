@@ -38,7 +38,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
     public partial class Employee:EntityBaseWithKey
     {
         #region Column1 
-        //1
+       //1
         [DisplayName("First Name")]
         [StringLength(65)]
         public string FirstName { get; set; }
@@ -231,7 +231,6 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         public virtual ICollection<Dependent> Dependents { get; set; }
         public virtual Staff Proxy { get; set; }
         public virtual IList<SentBoxItem> SentBoxItems { get; set; }
-
        
     }
 }
