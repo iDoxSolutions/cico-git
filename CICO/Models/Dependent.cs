@@ -8,7 +8,7 @@ namespace Cico.Models
 {
     public partial class Dependent:EntityBaseWithKey
     {
-        public Dependent()
+       public Dependent()
         {
             //SameECData = true;
         }
@@ -25,7 +25,7 @@ namespace Cico.Models
         public string Relationship { get; set; }
         
         [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Date of Birth.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         
         [DisplayName("Title/Salutation")]
@@ -42,7 +42,7 @@ namespace Cico.Models
         
         [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+        [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid Personal e-mail.")]
         public  string PersonalEmail { get; set; }
         [DisplayName("Passport Number")]
         [StringLength(9)]
@@ -51,12 +51,12 @@ namespace Cico.Models
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }
         [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Passport Expiration.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         [DisplayName("Visa Number")]
         public string VisaNumber { get; set; }
         [DisplayName("Visa Expiration. Format: mm/dd/yyyy")]
-        [RegularExpression("^([0-9]{1,2})[./-]+([0-9]{1,2})[./-]+([0-9]{2}|[0-9]{4})$", ErrorMessage = "Invalid format for Visa Expiration.")]
+        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         [DisplayName("Emergency Info Same as Primary")]
         public bool SameECData { get; set; }
@@ -85,8 +85,10 @@ namespace Cico.Models
         [DefaultValue(52)]
         public string EmergencyContactPhone2 { get; set; }
         [DisplayName("Emergency Contact Email Address")]
-        public string EmergencyContactEmail { get; set; }
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid Emergency Contact e-mail.")]
+        public string EmergencyContactEmail { get; set; }
+        
         //[DisplayName("Personal Mobile Phone")]
         //[StringLength(30)]
         public string PersonalMobilePhone { get; set; }
