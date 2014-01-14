@@ -85,8 +85,10 @@ namespace Cico.Models
         [DefaultValue(52)]
         public string EmergencyContactPhone2 { get; set; }
         [DisplayName("Emergency Contact Email Address")]
-        public string EmergencyContactEmail { get; set; }
         [DataType(DataType.EmailAddress)]
+        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+        public string EmergencyContactEmail { get; set; }
+        
         //[DisplayName("Personal Mobile Phone")]
         //[StringLength(30)]
         public string PersonalMobilePhone { get; set; }
