@@ -1306,3 +1306,1283 @@ ClientConnectionId:185ef5e2-1138-4d70-bf31-540ba593186c
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 2014-01-13 19:48:22,038 [29] DEBUG MvcApplication - Application Started
+2014-01-15 07:27:32,241 [340] DEBUG MvcApplication - Application Started
+2014-01-15 07:29:06,873 [37] DEBUG MvcApplication - Application Started
+2014-01-15 07:29:25,604 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,615 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,615 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,650 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,651 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,651 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,673 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,680 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,681 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,698 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,706 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,706 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,725 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,726 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,726 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,729 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,731 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,731 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,733 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,734 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,734 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,736 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,737 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,737 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,740 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,741 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,741 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,742 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,743 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,743 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,745 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,747 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,747 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,749 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,751 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,751 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,754 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,754 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,755 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,757 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,757 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,757 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,760 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,761 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,761 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:29:25,764 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:29:25,766 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:29:25,766 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:02,173 [14] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 07:30:10,044 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,046 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,046 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,058 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,059 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,059 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,068 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,071 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,071 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,075 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,076 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,076 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,083 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,084 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,084 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,087 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,089 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,089 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,091 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,092 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,093 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,096 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,097 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,097 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,101 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,102 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,102 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,105 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,106 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,106 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,109 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,110 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,110 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,113 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,114 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,114 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,117 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,118 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,118 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,121 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,123 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,123 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,126 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,127 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,127 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:10,131 [14] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:10,132 [14] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:10,132 [14] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:30,061 [14] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 07:30:36,764 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,769 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,769 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,777 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,779 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,779 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,786 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,787 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,788 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,791 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,792 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,793 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,800 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,802 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,802 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,805 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,806 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,806 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,809 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,811 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,811 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,814 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,815 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,815 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,818 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,819 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,819 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,822 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,824 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,824 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,827 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,828 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,828 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,831 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,833 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,833 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,835 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,837 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,837 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,839 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,841 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,841 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,845 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,846 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,846 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:36,849 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:30:36,851 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:30:36,851 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:30:53,134 [339] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Dependent_DependentForm_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\DependentForm.cshtml:line 72
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Dependent_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 07:31:42,154 [37] DEBUG MvcApplication - Application Started
+2014-01-15 07:32:04,387 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,391 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,391 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,400 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,401 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,402 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,405 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,406 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,406 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,410 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,411 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,411 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,424 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,426 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,426 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,429 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,430 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,430 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,434 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,435 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,435 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,437 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,439 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,439 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,441 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,442 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,442 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,445 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,446 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,446 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,449 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,450 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,450 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,453 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,454 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,454 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,457 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,458 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,458 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,461 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,462 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,462 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,465 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,466 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,466 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:04,469 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:04,470 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:04,470 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:11,225 [14] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 07:32:13,676 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,678 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,678 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,682 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,683 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,683 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,686 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,688 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,688 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,695 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,699 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,699 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,705 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,709 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,709 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,714 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,716 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,716 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,721 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,723 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,723 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,728 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,730 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,730 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,734 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,735 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,735 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,738 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,741 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,741 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,745 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,747 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,747 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,750 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,751 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,751 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,753 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,755 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,755 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,759 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,760 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,760 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,762 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,764 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,764 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:13,767 [333] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:13,768 [333] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:13,768 [333] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:23,482 [335] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Dependent_DependentForm_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\DependentForm.cshtml:line 72
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Dependent_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 07:32:30,637 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,638 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,638 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,643 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,644 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,644 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,648 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,649 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,650 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,655 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,657 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,657 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,666 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,667 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,667 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,672 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,675 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,675 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,680 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,681 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,681 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,687 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,689 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,689 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,693 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,695 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,695 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,698 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,700 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,700 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,703 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,704 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,704 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,708 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,709 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,709 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,713 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,714 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,714 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,718 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,720 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,720 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,724 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,725 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,725 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:30,728 [339] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 07:32:30,729 [339] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 07:32:30,729 [339] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 07:32:53,258 [339] FATAL MvcApplication - System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   at System.Data.Entity.Internal.InternalContext.SaveChanges()
+   at System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   at System.Data.Entity.DbContext.SaveChanges()
+   at Cico.Models.CicoContext.SaveChanges() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\CicoContext.cs:line 110
+   at Cico.Controllers.ControllerBase.OnActionExecuted(ActionExecutedContext filterContext) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\ControllerBase.cs:line 35
+   at System.Web.Mvc.Controller.System.Web.Mvc.IActionFilter.OnActionExecuted(ActionExecutedContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 08:44:33,919 [37] DEBUG MvcApplication - Application Started
+2014-01-15 08:44:34,019 [316] FATAL MvcApplication - System.Web.HttpException (0x80004005): Path '/Views/Dependent/DependentForm.cshtml' was not found.
+   at System.Web.HttpNotFoundHandler.ProcessRequest(HttpContext context)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 08:44:58,870 [340] DEBUG MvcApplication - Application Started
+2014-01-15 08:45:18,660 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,670 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,671 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,739 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,747 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,747 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,777 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,778 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,779 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,783 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,797 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,797 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,849 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,889 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,889 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,909 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,916 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,916 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,930 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,931 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,931 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,949 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,958 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,958 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,970 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,972 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,972 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,984 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,986 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,986 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,989 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,990 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,990 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:18,995 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:18,997 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:18,997 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:19,000 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:19,002 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:19,002 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:19,005 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:19,006 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:19,006 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:19,011 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:19,012 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:19,012 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:19,015 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:45:19,016 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:45:19,016 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:45:44,403 [316] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Dependent_DependentForm_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\DependentForm.cshtml:line 72
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Dependent_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 08:46:02,603 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,606 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,606 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,618 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,620 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,620 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,635 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,636 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,636 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,643 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,648 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,648 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,656 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,658 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,658 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,662 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,664 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,664 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,667 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,669 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,669 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,672 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,674 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,674 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,677 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,678 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,678 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,681 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,682 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,683 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,685 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,687 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,687 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,691 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,692 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,692 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,695 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,696 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,696 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,699 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,700 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,700 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,703 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,705 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,705 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:46:02,708 [310] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 08:46:02,710 [310] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 08:46:02,710 [310] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 08:50:31,968 [310] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Dependent_DependentForm_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\DependentForm.cshtml:line 72
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Areas_Admin_Views_Dependent_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Areas\Admin\Views\Dependent\Edit.cshtml:line 12
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:03:37,515 [314] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at ASP._Page_Areas_Admin_Views_Employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Areas\Admin\Views\Employee\Edit.cshtml:line 22
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:20:17,163 [323] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at ASP._Page_Areas_Admin_Views_Employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Areas\Admin\Views\Employee\Edit.cshtml:line 22
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:23:04,925 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,926 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,926 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,930 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,933 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,933 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,937 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,939 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,939 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,942 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,944 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,944 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,950 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,951 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,952 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,956 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,957 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,957 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,962 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,965 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,965 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,971 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,974 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,974 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,981 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,983 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,983 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,988 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,991 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,991 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:04,995 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:04,998 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:04,998 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:05,004 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:05,006 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:05,006 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:05,010 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:05,011 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:05,011 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:05,015 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:05,017 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:05,017 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:05,021 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:05,022 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:05,022 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:05,025 [323] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:05,027 [323] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:05,027 [323] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:10,684 [323] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Dependent_DependentForm_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\DependentForm.cshtml:line 72
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Dependent_Create_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Dependent\Create.cshtml:line 11
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:23:13,492 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,496 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,496 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,502 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,503 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,503 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,510 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,513 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,513 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,531 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,532 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,532 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,537 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,539 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,539 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,542 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,544 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,544 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,546 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,548 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,548 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,553 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,554 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,554 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,557 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,558 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,558 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,561 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,562 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,562 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,565 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,566 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,566 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,569 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,571 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,571 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,573 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,574 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,574 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,577 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,579 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,579 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,582 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,583 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,584 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:23:13,587 [314] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 09:23:13,588 [314] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 09:23:13,588 [314] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 09:38:53,662 [316] FATAL MvcApplication - System.Web.HttpException (0x80004005): A public action method 'DependentForm' was not found on controller 'Cico.Controllers.DependentController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:39:18,094 [323] FATAL MvcApplication - System.Web.HttpException (0x80004005): A public action method 'DependentForm' was not found on controller 'Cico.Controllers.DependentController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 09:39:29,316 [314] FATAL MvcApplication - System.Web.HttpException (0x80004005): A public action method 'DependentForm' was not found on controller 'Cico.Controllers.DependentController'.
+   at System.Web.Mvc.Controller.HandleUnknownAction(String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-01-15 10:08:56,936 [37] DEBUG MvcApplication - Application Started
+2014-01-15 10:09:17,650 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,656 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,657 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,666 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,669 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,669 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,676 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,680 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,680 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,687 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,689 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,689 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,699 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,701 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,701 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,708 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,710 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,710 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,713 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,714 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,714 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,720 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,723 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,723 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,726 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,728 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,728 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,731 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,732 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,733 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,740 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,742 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,742 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,745 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,746 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,746 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,751 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,753 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,754 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,758 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,760 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,760 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,763 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,765 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,765 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:09:17,774 [316] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user determine can complete 
+2014-01-15 10:09:17,776 [316] DEBUG SecurityGuard - IDOX\khambright session owner 
+2014-01-15 10:09:17,776 [316] DEBUG SecurityGuard - not session owner session owner 
+2014-01-15 10:11:33,577 [314] FATAL MvcApplication - System.ArgumentException: parsing "^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$" - [x-y] range in reverse order.
+   at System.Text.RegularExpressions.RegexParser.ScanCharClass(Boolean caseInsensitive, Boolean scanOnly)
+   at System.Text.RegularExpressions.RegexParser.ScanRegex()
+   at System.Text.RegularExpressions.RegexParser.Parse(String re, RegexOptions op)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern, RegexOptions options, TimeSpan matchTimeout, Boolean useCache)
+   at System.Text.RegularExpressions.Regex..ctor(String pattern)
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.SetupRegex()
+   at System.ComponentModel.DataAnnotations.RegularExpressionAttribute.FormatErrorMessage(String name)
+   at System.Web.Mvc.DataAnnotationsModelValidator.get_ErrorMessage()
+   at System.Web.Mvc.RegularExpressionAttributeAdapter.GetClientValidationRules()
+   at System.Web.Mvc.HtmlHelper.<.ctor>b__1(ModelValidator v)
+   at System.Linq.Enumerable.<SelectManyIterator>d__14`2.MoveNext()
+   at System.Web.Mvc.HtmlHelper.GetUnobtrusiveValidationAttributes(String name, ModelMetadata metadata)
+   at System.Web.Mvc.Html.InputExtensions.InputHelper(HtmlHelper htmlHelper, InputType inputType, ModelMetadata metadata, String name, Object value, Boolean useViewData, Boolean isChecked, Boolean setId, Boolean isExplicitValue, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.DefaultEditorTemplates.StringTemplate(HtmlHelper html)
+   at System.Web.Mvc.Html.TemplateHelpers.ActionCacheCodeItem.Execute(HtmlHelper html, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.ExecuteTemplate(HtmlHelper html, ViewDataDictionary viewData, String templateName, DataBoundControlMode mode, GetViewNamesDelegate getViewNames, GetDefaultActionsDelegate getDefaultActions)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData, ExecuteTemplateDelegate executeTemplate)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateHelper(HtmlHelper html, ModelMetadata metadata, String htmlFieldName, String templateName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.EditorExtensions.EditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at Cico.Models.Helpers.UiHelper.CicoEditorFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Helpers\UiHelper.cs:line 37
+   at ASP._Page_Views_Employee__employeeFields_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\_employeeFields.cshtml:line 16
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Employee_Edit_cshtml.Execute() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Views\Employee\Edit.cshtml:line 13
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1c.<>c__DisplayClass1e.<InvokeActionResultWithFilters>b__1b()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
