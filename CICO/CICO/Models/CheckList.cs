@@ -5,7 +5,7 @@ namespace Cico.Models
 {
     public class CheckList
     {
-       [Key]
+        [Key]
         public int CheckListId { get; set; }
         [Required]
         [Display(Name = "CheckList Type")]
