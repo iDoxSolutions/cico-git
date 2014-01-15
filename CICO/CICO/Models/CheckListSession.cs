@@ -10,7 +10,7 @@ namespace Cico.Models
 {
     public class CheckListSession:EntityBaseWithKey
     {
-        public string UserId { get; set; }
+       public string UserId { get; set; }
         public virtual ICollection<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public CheckListItemSubmitionTrack GetTrack(int templateId)
         {

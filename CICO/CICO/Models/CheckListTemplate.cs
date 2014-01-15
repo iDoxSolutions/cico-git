@@ -7,7 +7,7 @@ namespace Cico.Models
 {
     public class CheckListTemplate:EntityBase
     {
-          public CheckListTemplate()
+            public CheckListTemplate()
         {
             CheckListItemTemplates = new List<CheckListItemTemplate>();
         }
