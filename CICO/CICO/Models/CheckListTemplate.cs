@@ -14,7 +14,7 @@ namespace Cico.Models
 
         [Key]
         public int CheckListTemplateId { get; set; }
-        [Required]
+       // [Required]
         [Display(Name = "CheckList Type")]
         public string Type { get; set; }
         //[Required]
