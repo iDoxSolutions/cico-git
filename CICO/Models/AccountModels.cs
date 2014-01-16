@@ -52,6 +52,7 @@ namespace Cico.Models
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email Address")]
         [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+        
         public string Email { get; set; }
 
         [Required]
