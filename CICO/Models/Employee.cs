@@ -53,7 +53,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //4
         [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
-      //  [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for personal address.")]
+     [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Personal e-mail.")]
         public string PersonalEmail { get; set; }
 
         //5
