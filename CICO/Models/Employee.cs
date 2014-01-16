@@ -187,7 +187,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //16
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
-       // [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for Emergency Contact Email Address.")]
+       [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Emergency Contact e-mail.")]
         public string EmergencyContactEmail { get; set; }
         //17
         [DisplayName("Radio Call Sign")]
