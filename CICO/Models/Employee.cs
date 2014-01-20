@@ -153,6 +153,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //7
         [DisplayName("Email, Office")]
         [DataType(DataType.EmailAddress)]
+         [ RegularExpression (@"^[a-z0-9._%+-]+@[a-z0-9.-]+\.(?:edu|gov|mil)$", ErrorMessage=" Invalid Office Email address.")]
         public string WorkEmail { get; set; }
         //8
         [DisplayName("Agency")]
