@@ -26,7 +26,7 @@ namespace Cico.Models
         [Display(Name = "CheckList EndDate: Format: mm/dd/yyyy")]
       //  [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for End Date.")]
         public DateTime? EndDate { get; set; }
-        [Display(Name = "CheckList Due Date: Format: mm/dd/yyyy")]
+        [Display(Name = "CheckList Due Date.")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Due Date.")]
         public DateTime? DueDate { get; set; }
         public bool Published { get; set; }
