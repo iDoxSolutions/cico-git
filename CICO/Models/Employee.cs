@@ -224,7 +224,8 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [DataType(DataType.EmailAddress)]
         public string ProxyEmail { get; set; }
      
-        [Required(ErrorMessage = "Domain user id is required")]
+        [Required(ErrorMessage = "Domain User ID is required")]
+        [DisplayName("User ID")]
         public string UserId { get; set; }
         public virtual ICollection<CheckListSession> CheckListSessions { get; set; }
         public virtual ICollection<Dependent> Dependents { get; set; }

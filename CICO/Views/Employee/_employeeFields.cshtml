@@ -7,6 +7,7 @@
     @Html.ValidationSummary()
     <div class="float-left" style="width: 47%">
         
+        @Html.CicoEditorFor(model => model.UserId)
         @Html.CicoEditorFor(model => model.FirstName)
         @Html.CicoEditorFor(model => model.MiddleInitial)
         @Html.CicoEditorFor(model => model.LastName)
