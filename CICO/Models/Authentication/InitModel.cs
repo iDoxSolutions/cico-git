@@ -7,11 +7,12 @@ namespace Cico.Models.Authentication
     public class InitModel
     {
          [DisplayName("Arrival Date" + "*Enter best estimate. Can be changed later")]
+         
         [Required]
+  
         public DateTime ArrivalDate { get; set; }
-        [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Arrival Date.")]
-        [StringLength(65)]
-        [Required]
+     //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Arrival Date.")]
+       
         [DisplayName("First Name")]
         public string FirstName { get; set; }
         [StringLength(65)]
@@ -21,7 +22,7 @@ namespace Cico.Models.Authentication
         [DisplayName("Email")]
         [Required]
         [DataType(DataType.EmailAddress)]
-        [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
+    //    [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid e-mail.")]
         public string EmailAddress { get; set; }
         
         
