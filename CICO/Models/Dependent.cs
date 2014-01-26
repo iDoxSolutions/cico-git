@@ -42,11 +42,11 @@ namespace Cico.Models
         
         [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
-      //  [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid Personal e-mail.")]
+      [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Personal e-mail.")]
         public  string PersonalEmail { get; set; }
         [DisplayName("Passport Number")]
         [StringLength(9)]
-      //  [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
+        [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }
@@ -86,7 +86,7 @@ namespace Cico.Models
         public string EmergencyContactPhone2 { get; set; }
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
-      //  [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid Emergency Contact e-mail.")]
+      [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Emeregency Contact e-mail.")]
         public string EmergencyContactEmail { get; set; }
         
         //[DisplayName("Personal Mobile Phone")]

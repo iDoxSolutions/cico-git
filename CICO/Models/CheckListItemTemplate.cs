@@ -76,7 +76,7 @@ namespace Cico.Models
         public virtual string CustomFormUrl { get; set; }
 
        
-        [Display(Name = "Due Date: Format mm/dd/yyyy")]
+        [Display(Name = "Due Date.")]
     //    [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Due Date.")]
         public int DueDays{get; set; }
 

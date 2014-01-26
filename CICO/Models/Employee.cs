@@ -53,7 +53,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //4
         [DisplayName("Email, Personal")]
         [DataType(DataType.EmailAddress)]
-      //  [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for personal address.")]
+     [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Personal e-mail.")]
         public string PersonalEmail { get; set; }
 
         //5
@@ -86,7 +86,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //12
         [DisplayName("Passport Number")]
         [StringLength(9)]
-      //  [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
+        [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         //13
         [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
@@ -153,6 +153,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //7
         [DisplayName("Email, Office")]
         [DataType(DataType.EmailAddress)]
+         [ RegularExpression (@"^[a-z0-9._%+-]+@[a-z0-9.-]+\.(?:edu|gov|mil)$", ErrorMessage=" Invalid Office Email address.")]
         public string WorkEmail { get; set; }
         //8
         [DisplayName("Agency")]
@@ -187,7 +188,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //16
         [DisplayName("Emergency Contact Email Address")]
         [DataType(DataType.EmailAddress)]
-       // [RegularExpression("^[a-zA-Z][a-zA-Z0-9_-]+@[a-zA-Z]+[.]{1}[a-4.zA-Z]+$", ErrorMessage = "Invalid format for Emergency Contact Email Address.")]
+       [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Emergency Contact e-mail.")]
         public string EmergencyContactEmail { get; set; }
         //17
         [DisplayName("Radio Call Sign")]
