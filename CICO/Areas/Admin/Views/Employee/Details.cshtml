@@ -91,7 +91,7 @@
     @foreach (var dep in Model.Dependents)
     {
         <li>
-            @Html.ActionLink(dep.FirstName+", "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)
+            @Html.ActionLink(dep.FirstName+" "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)
         </li>
     }
 </ul>
