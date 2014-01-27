@@ -24,7 +24,7 @@ namespace Cico.Models
         [StringLength(20)]
         public string Relationship { get; set; }
         
-        [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
+        [DisplayName("Date of Birth  (mm/dd/yyyy)")]
        // [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         
@@ -50,12 +50,12 @@ namespace Cico.Models
         public string PassportNumber { get; set; }
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }
-        [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Passport Expiration  (mm/dd/yyyy)")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         [DisplayName("Visa Number")]
         public string VisaNumber { get; set; }
-        [DisplayName("Visa Expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Visa Expiration (mm/dd/yyyy)")]
     //    [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         [DisplayName("Emergency Info Same as Primary")]
