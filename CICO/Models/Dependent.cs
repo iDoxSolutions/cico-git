@@ -97,11 +97,11 @@ namespace Cico.Models
         public virtual IList<DependentFile> DependentFiles { get; set; }
 
         
-        [EmbasssyNameDisplayName("{0} Resident Phone Number")]
+        [EmbasssyNameDisplayName("{0}Panama Resident Phone Number")]
         [StringLength(30)]
         public string ResidentPhoneNumber { get; set; }
        
-        [EmbasssyNameDisplayName("{0} Resident Address")]
+        [EmbasssyNameDisplayName("{0}Panama Resident Address")]
         [StringLength(30)]
         public string ResidentAddress { get; set; }
     }
