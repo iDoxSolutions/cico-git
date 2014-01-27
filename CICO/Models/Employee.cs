@@ -61,7 +61,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string Title { get; set; }
         //6
-        [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
+        [DisplayName("Date of Birth   (mm/dd/yyyy)")]
       //  [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         //7
@@ -89,7 +89,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         //13
-        [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Passport Expiration (mm/dd/yyyy)")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         //14
@@ -127,13 +127,13 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
 
         #region column2
         //1
-        [DisplayName("Estimated Arrival Date. Format: mm/dd/yyyy")]
+        [DisplayName("Estimated Arrival Date  (mm/dd/yyyy)")]
 
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Estimated Arrival Date.")]
         
         public DateTime? ArrivalDate { get; set; }
         //2
-        [DisplayName("Estimated Departure Date. Format: mm/dd/yyyy")]
+        [DisplayName("Estimated Departure Date  (mm/dd/yyyy)")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Estimated Departure Date.")]
         public DateTime? TourEndDate { get; set; }
         //3
@@ -144,7 +144,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         [StringLength(65)]
         public string Office { get; set; }
         //5
-        [DisplayName("Visa expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Visa expiration  (mm/dd/yyyy)")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for  Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         //6
