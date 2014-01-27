@@ -61,9 +61,13 @@
     }
 </script>
 
-<input type="submit" value="Save" name="Save" />
+
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
+      <div class="editor-field">
+            <button type="submit">Save</button>
+        </div>
+        <br></br>
         @Html.HiddenFor(c=>c.EmployeeId)
         <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
         <div class="float-left" style="width: 47%">
@@ -123,8 +127,14 @@
             @Html.CicoEditorFor(model => model.Dependent.VisaNumber) 
             @Html.CicoEditorFor(model => model.Dependent.VisaExpiration) 
         </div>
+        
+        <br></br>
+          <div class="editor-field">
+            <button type="submit">Save</button>
+        </div>
+        
     </fieldset>
-    <input type="submit" value="Save" name="Save" />
+  
     
    
    
