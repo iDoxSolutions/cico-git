@@ -89,18 +89,19 @@ namespace Cico.Models
       [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Emeregency Contact e-mail.")]
         public string EmergencyContactEmail { get; set; }
         
-        //[DisplayName("Personal Mobile Phone")]
-        //[StringLength(30)]
+        [DisplayName("Personal Mobile Phone")]
+        [StringLength(30)]
         public string PersonalMobilePhone { get; set; }
 
         public virtual Employee Employee { get; set; }
         public virtual IList<DependentFile> DependentFiles { get; set; }
 
         
-        [EmbasssyNameDisplayName("{0} Resident Address")]
+        [EmbasssyNameDisplayName("{0} Resident Phone Number")]
         [StringLength(30)]
         public string ResidentPhoneNumber { get; set; }
-        [EmbasssyNameDisplayName("{0} Resident Phone Number")]
+       
+        [EmbasssyNameDisplayName("{0} Resident Address")]
         [StringLength(30)]
         public string ResidentAddress { get; set; }
     }
