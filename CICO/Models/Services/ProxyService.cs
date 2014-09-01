@@ -30,10 +30,13 @@ namespace Cico.Models.Services
             var staff = _userSession.GetCurrentStaff();
             if (staff == null)
                 return null;
-            if (staff.Proxied.Count == 0)
-                return new ProxyModel(){ProxiedList = new List<SelectListItem>()}; ;
             var model = new ProxyModel();
+            if (staff.Proxied.Count == 0)
+               return null;
+            
             model.ProxiedList = staff.Proxied.Select(c => new SelectListItem() {Text = c.LastName+", "+c.FirstName,Value = c.Id.ToString()}).ToList();
+            model.ProxiedList.Add(new SelectListItem() {Text = _userSession.GetCurrent().Employee.LastName+", "+_userSession.GetCurrent().Employee.FirstName,Value = _userSession.GetCurrent().Employee.Id.ToString()});
+
             return model;
         }
 

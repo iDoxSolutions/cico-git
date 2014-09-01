@@ -18,7 +18,7 @@ namespace Cico.Areas.Admin
 
         public ViewResult Index()
         {
-            return View(Db.Reminders.ToList());
+            return View(Db.Reminders.Where(r =>r.Active).ToList());
         }
 
         //

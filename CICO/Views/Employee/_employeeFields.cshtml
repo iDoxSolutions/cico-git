@@ -1,16 +1,15 @@
 ﻿@using Cico.Models.Helpers
 @model Cico.Models.Employee
 
-<input type="submit" value="Save" />
+<div> <input type="submit" value="Save" /></div>
 <fieldset class="two-column-form" style="width: 80%">
     <legend>Employee</legend>
     @Html.ValidationSummary()
+    
     <div class="float-left" style="width: 47%">
-        
-        @Html.CicoEditorFor(model => model.UserId)
-        @Html.CicoEditorFor(model => model.FirstName)
+        @Html.CicoEditorFor(model => model.FirstName, "*As appears on passport")
         @Html.CicoEditorFor(model => model.MiddleInitial)
-        @Html.CicoEditorFor(model => model.LastName)
+        @Html.CicoEditorFor(model => model.LastName, "*As appears on passport")
         @Html.CicoEditorFor(model => model.PreferredName)
         @Html.CicoEditorFor(model => model.SSN)
         @Html.CicoEditorFor(model => model.CellPhone)

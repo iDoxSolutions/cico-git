@@ -50,14 +50,17 @@ namespace Cico
             log4net.Config.XmlConfigurator.Configure();
             ConfigureLog4Net();
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<CicoContext, Cico.Migrations.Configuration>());
+            Database.SetInitializer<CicoContext>(null);
             AreaRegistration.RegisterAllAreas();
             log.Debug("Application Started");
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+            VersionSeed(new CicoContext());
+            
 
         }
 
-
+       
         protected void Application_Error(object sender, EventArgs e)
         {
             // Useful for debugging
@@ -66,7 +69,32 @@ namespace Cico
             log.Fatal(ex);
         }
 
+        private static void VersionSeed(Cico.Models.CicoContext context)
+        {
+            
 
+            string currentVersion = "1.1.31";
+            var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
+            if (version != null) {
+                version.Value = currentVersion;
+            }
+            else {
+                context.Settings.Add(new Setting() { Name = "AppVersion", Value = currentVersion });
+            }
+            context.SaveChanges();
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+        }
         private static void ConfigureLog4Net()
         {
             var hierarchy = LogManager.GetRepository() as Hierarchy;

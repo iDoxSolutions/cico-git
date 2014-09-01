@@ -34,13 +34,14 @@ namespace Cico.Controllers
             var model = new CheckListModel();
             model.Id = session.Id;
             var itemsForList = session.CheckListTemplate.CheckListItemTemplates.Where(c => c.Active);
-            if (session.Completed)
-            {
-                var tempateIds = session.CheckListItemSubmitionTracks.Select(c => c.CheckListItemTemplate.CheckListItemTemplateId);
-                itemsForList =
-                    session.CheckListTemplate.CheckListItemTemplates.Where(
-                        c => tempateIds.Contains(c.CheckListItemTemplateId));
-            }
+           //kwh comment out for Panama
+           // if (session.Completed)
+           // {
+           //     var tempateIds = session.CheckListItemSubmitionTracks.Select(c => c.CheckListItemTemplate.CheckListItemTemplateId);
+           //     itemsForList =
+           //         session.CheckListTemplate.CheckListItemTemplates.Where(
+           //             c => tempateIds.Contains(c.CheckListItemTemplateId));
+           // }
 
             foreach (CheckListItemTemplate checkListItemTemplate in itemsForList)
             {
@@ -58,10 +59,11 @@ namespace Cico.Controllers
                 var itemUri = new UriBuilder(Request.Url.Scheme, Request.Url.Host, Request.Url.Port, "home" ,param);
                 var completionEnabled = SecurityGuard.CanCompleteCheckListItem(track);
 
-                if (!completionEnabled)
-                {
-                    continue;
-                }
+                // kwh remove check for Panama
+                //if (!completionEnabled)
+                //{
+                //    continue;
+               // }
                 model.CheckListItems.Add(new CheckListItemModel
                     {
                         CompletionEnabled = completionEnabled,
@@ -107,7 +109,7 @@ namespace Cico.Controllers
             foreach (var dependent in dependents)
             {
                 var file = new DependentsFile();
-                file.DependentName = dependent.FirstName + ", " + dependent.LastName;
+                file.DependentName = dependent.FirstName + " " + dependent.LastName;
                 file.DependentId = dependent.Id;
                 var dependentFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
                 if (dependentFile != null)
@@ -171,8 +173,11 @@ namespace Cico.Controllers
                 }
                 track.SubmittedFile.Description = Path.GetFileName(docSubmitted.FileName);
                 track.Checked = true;
-
-                storage.PutFile(docSubmitted, track.SubmittedFile);
+                var skip = false; //for testing without sharepoint
+                if (!skip) 
+                { 
+                   storage.PutFile(docSubmitted, track.SubmittedFile);
+                }
             }
             
             foreach (string key in Request.Files.AllKeys)
@@ -195,6 +200,7 @@ namespace Cico.Controllers
                     var depFile = track.DependentFiles.FirstOrDefault(c => c.Dependent.Id == int.Parse(id));
                     if (depFile == null)
                     {
+                        
                         var file = new SystemFile()
                         {
                             Description = Path.GetFileName(ofile.FileName),
@@ -210,7 +216,11 @@ namespace Cico.Controllers
                         Db.DependentFiles.Add(depFile);    
                     }
                     depFile.SystemFile.Description = Path.GetFileName(ofile.FileName);
-                    storage.PutFile(ofile, depFile.SystemFile);
+                    var skip = false; //for testing without sharepoint
+                    if (!skip)
+                    {
+                        storage.PutFile(ofile, depFile.SystemFile);
+                    }
                 }
                 Db.SaveChanges();
             }
@@ -243,10 +253,11 @@ namespace Cico.Controllers
             track.DateEdited = DateTime.Now;
             track.Checked = true;
             var session = track.CheckListSession;
-            if (track.CheckListItemTemplate.CompleteCheckList)
+          if (track.CheckListItemTemplate.CompleteCheckList)
             {
                 session.Completed = true;
                 session.DateCompleted = DateTime.Today;
+                track.CheckListItemTemplate.CompletingChecklist = true;
             }
             var subs = new Subscriptions(HttpContext);
             //subs.Process(track,string.Format("Checkpoint completed by user {0} ",UserSession.GetUserName()));

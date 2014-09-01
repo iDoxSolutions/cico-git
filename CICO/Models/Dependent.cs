@@ -24,7 +24,7 @@ namespace Cico.Models
         [StringLength(20)]
         public string Relationship { get; set; }
         
-        [DisplayName("Date of Birth. Format: mm/dd/yyyy")]
+        [DisplayName("Date of Birth   (mm/dd/yyyy)")]
        // [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Date of Birth.")]
         public DateTime? DateOfBirth { get; set; }
         
@@ -50,12 +50,12 @@ namespace Cico.Models
         public string PassportNumber { get; set; }
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }
-        [DisplayName("Passport Expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Passport Expiration    (mm/dd/yyyy)")]
      //   [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Passport Expiration.")]
         public DateTime? PassportExpiration { get; set; }
         [DisplayName("Visa Number")]
         public string VisaNumber { get; set; }
-        [DisplayName("Visa Expiration. Format: mm/dd/yyyy")]
+        [DisplayName("Visa Expiration     (mm/dd/yyyy)")]
     //    [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Visa Expiration.")]
         public DateTime? VisaExpiration { get; set; }
         [DisplayName("Emergency Info Same as Primary")]
@@ -89,8 +89,8 @@ namespace Cico.Models
       [RegularExpression("^[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$", ErrorMessage = "Invalid Emeregency Contact e-mail.")]
         public string EmergencyContactEmail { get; set; }
         
-        //[DisplayName("Personal Mobile Phone")]
-        //[StringLength(30)]
+        [DisplayName("Personal Mobile Phone")]
+        [StringLength(30)]
         public string PersonalMobilePhone { get; set; }
 
         public virtual Employee Employee { get; set; }
@@ -99,10 +99,11 @@ namespace Cico.Models
         
         [EmbasssyNameDisplayName("{0} Resident Address")]
         [StringLength(30)]
-        public string ResidentPhoneNumber { get; set; }
+        public string ResidentAddress { get; set; }
         [EmbasssyNameDisplayName("{0} Resident Phone Number")]
         [StringLength(30)]
-        public string ResidentAddress { get; set; }
+        public string ResidentPhoneNumber { get; set; }
+        
     }
 
 

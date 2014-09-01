@@ -27,7 +27,7 @@ namespace Cico.Models
         public string Subscriber { get; set; }
         [Display(Name = "CheckList Id")]
         public string CheckListId { get; set; }
-        [Display(Name = "Due Date: Format mm/dd/yyyy")]
+        [Display(Name = "Due Date     (mm/dd/yyyy)")]
       //  [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Due Date.")]
         public DateTime? DueDate { get; set; }
         [Display(Name = "Instructions")]
@@ -46,7 +46,7 @@ namespace Cico.Models
         public bool Provisional { get; set; }
         [Display(Name = "Document ")]
         public string  Document { get; set; }
-        [Display(Name = "Download Template ")]
+        [Display(Name = "Download Form ")]
         public string Form { get; set; }
         [Display(Name = "Dependents ")]
         public bool Dependents { get; set; }
@@ -76,7 +76,7 @@ namespace Cico.Models
         public virtual string CustomFormUrl { get; set; }
 
        
-        [Display(Name = "Due Date.")]
+        [Display(Name = "Due Date ")]
     //    [RegularExpression("^(3[01]|[12][0-9]|0[1-9])/(1[0-2]|0[1-9])/[0-9]{4}$", ErrorMessage = "Invalid format for Due Date.")]
         public int DueDays{get; set; }
 

@@ -51,12 +51,14 @@ namespace Cico.Areas.Admin
         {
             Staff = staff;
             var filteredItems = db.CheckListItemTemplates as IQueryable<CheckListItemTemplate>;
+            filteredItems = filteredItems.Where(c => c.CheckListTemplate.Active);
             if (SelectedTemplate.HasValue)
             {
-                filteredItems = filteredItems.Where(c => c.CheckListTemplate.CheckListTemplateId == SelectedTemplate);
+                filteredItems = filteredItems.Where(c => c.CheckListTemplate.CheckListTemplateId == SelectedTemplate && c.CheckListTemplate.Active);
             }
-            SubscriptionLines = filteredItems.ToList().Select(c=>new SubscriptionLine(c,staff)).ToList();
-            Templates = db.CheckListTemplates.ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.CheckListTemplateId.ToString()}).ToList();
+           
+            SubscriptionLines = filteredItems.Where(c => c.Active).ToList().Select(c=>new SubscriptionLine(c,staff)).ToList();
+            Templates = db.CheckListTemplates.Where(t => t.Active).ToList().Select(c => new SelectListItem(){Text = c.Name,Value = c.CheckListTemplateId.ToString()}).ToList();
         }
     }
 

@@ -24,5 +24,6 @@ namespace Cico.Models
         public string Path { get; set; }
         public string Extension { get; set; }
         public string FileType{get; set; }
+       
     }
 }

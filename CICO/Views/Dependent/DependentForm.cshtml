@@ -15,13 +15,13 @@
             }
         );
 
-        $("#Dependent_Relationship").change(
-            function() {
-                if ($('#Dependent_SameECData').attr('checked')) {
-                    $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
-                }
-            }
-        );
+        //$("#Dependent_Relationship").change(
+        //    function() {
+        //        if ($('#Dependent_SameECData').attr('checked')) {
+        //            $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
+        //        }
+        //    }
+        //);
         populateAddress();
         populateEmergency();
     });
@@ -49,7 +49,7 @@
             $.post("/employee/AutoPopulateData", { employeeId: $("#EmployeeId").val() },
                 function(emergencyData) {
                     $('#Dependent_EmergencyContactName').val(emergencyData.EmergencyContactName);
-                    $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
+                   // $('#Dependent_EmergencyContactRelationship').val($('#Dependent_Relationship').val());
                     $('#Dependent_EmergencyContactOfficePhone').val(emergencyData.EmergencyContactOfficePhone);
                     $('#Dependent_EmergencyContactPhone').val(emergencyData.EmergencyContactPhone);
                     $('#Dependent_EmergencyContactPhone2').val(emergencyData.EmergencyContactPhone2);
@@ -61,7 +61,7 @@
     }
 </script>
 
-<input type="submit" value="Save" name="Save" />
+<div><input type="submit" value="Save" name="Save" /> </div>
     @Html.ValidationSummary()
     <fieldset class="two-column-form" style="width: 80%">
         @Html.HiddenFor(c=>c.EmployeeId)
@@ -93,18 +93,20 @@
             </div>
             <div id="emergency-data">
                 @Html.CicoEditorFor(model => model.Dependent.EmergencyContactName) 
-                @Html.CicoDropdownFor(model => model.Dependent.EmergencyContactRelationship,"Relationship") 
                 @Html.CicoEditorFor(model => model.Dependent.EmergencyContactOfficePhone) 
                 @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone) 
                 @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone2) 
                 @Html.CicoEditorFor(model => model.Dependent.EmergencyContactEmail)
+            </div>
+            <div class="editor-field">
+                   @Html.CicoEditorFor(model => model.Dependent.EmergencyContactRelationship)
             </div>
          </div>
         <div style="clear: both"></div>
     </fieldset>
     <fieldset class="two-column-form" style="width: 80%">
         <legend>After Arrival</legend>
-        <h2>To be completed after arrival</h2>
+        <h2>After Arrival</h2>
         <div class="float-left" style="width: 47%">
             <div>
                 <div class="editor-label">
@@ -115,8 +117,8 @@
                 </div>
             </div>
             <div id="address-data">
-                @Html.CicoEditorFor(model => model.Dependent.ResidentAddress) 
-                @Html.CicoEditorFor(model => model.Dependent.ResidentPhoneNumber) 
+                 @Html.CicoEditorFor(model => model.Dependent.ResidentPhoneNumber) 
+                 @Html.CicoEditorFor(model => model.Dependent.ResidentAddress) 
             </div>
             </div>
         <div class="float-right" style="width: 47%">
@@ -124,7 +126,7 @@
             @Html.CicoEditorFor(model => model.Dependent.VisaExpiration) 
         </div>
     </fieldset>
-    <input type="submit" value="Save" name="Save" />
+    <div><input type="submit" value="Save" name="Save" /> </div>
     
    
    

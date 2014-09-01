@@ -31,40 +31,45 @@ namespace Cico.Models
         }
         public virtual SystemFile SubmittedFile { get; set; }
         public bool Checked { get; set; }
+        public bool ForDependents {
+            get { return this.CheckListItemTemplate.Dependents; }
+        }
         public bool Completed { 
             get
             {
                 if (this.SubmittedFile == null &&
-                    this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
-                    || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
+                    (this.CheckListItemTemplate.Item.Trim() == "DocumentSubmitted"
+                    || this.CheckListItemTemplate.Item.Trim() == "DocumentWriting"))
                 {
+                    log.DebugFormat("type={0}; Item Name={1}",this.CheckListItemTemplate.Item, this.CheckListItemTemplate.Description);
                     return false;
                 }
 
-                //log.DebugFormat("item type:{0} dependents:{1} item name {2}, ", CheckListItemTemplate.Type, CheckListItemTemplate.Dependents,this.CheckListItemTemplate.Description);
-                if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Type == ChckItemTypes.DocumentSubmitted.ToString()
-                    || this.CheckListItemTemplate.Type == ChckItemTypes.DocumentWriting.ToString())
+                log.DebugFormat("dependents = {1}",this.CheckListItemTemplate.Dependents);
+                if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Item == ChckItemTypes.DocumentSubmitted.ToString()
+                    || this.CheckListItemTemplate.Item == ChckItemTypes.DocumentWriting.ToString())
                 {
+                    log.DebugFormat("Dependents found: type={0} dependents={1} Item Name={2}", this.CheckListItemTemplate.Item, this.CheckListItemTemplate.Dependents, this.CheckListItemTemplate.Description);
                     foreach (var dependent in this.CheckListSession.Employee.Dependents)
                     {
                         var depFile = this.DependentFiles.FirstOrDefault(c => c.Dependent.Id == dependent.Id);
-                        if (depFile == null)
+                        if (depFile == null) 
+                        { 
+                            log.DebugFormat("empty dependent file - not complete");
                             return false;
+                        }
                     }
-                  //  log.DebugFormat("all dependent fine");
+                    log.DebugFormat("all dependents have file - complete");
                     return true;
                 }
                 else
                 {
-                    //log.DebugFormat("condition nut passed");
+                    log.DebugFormat("No dependents or not Doc w/Writing or Doc Submitted type Item Name {0}", this.CheckListItemTemplate.Description);
                     return true;
                 }
             } 
         }
-        public bool ForDependents
-        {
-            get { return this.CheckListItemTemplate.Dependents; }
-        }
+       
         public bool Provisioned { get; set; }
         public virtual IList<DependentFile> DependentFiles { get; set; } 
     }

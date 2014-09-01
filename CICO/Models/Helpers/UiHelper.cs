@@ -23,6 +23,7 @@ namespace Cico.Models.Helpers
                     "user_full_name_" + userName);
             if (employee != null)
             {
+                //SetCurrentName(employee.FirstName + " " + employee.LastName);
                 return employee.FirstName + " " + employee.LastName;
             }
             else
@@ -43,8 +44,8 @@ namespace Cico.Models.Helpers
         {
             var builder = new TagBuilder("span");
             builder.InnerHtml = "<div class=\"editor-label\">" + html.LabelFor(expression) + "</div>" +
-            "<div class=\"editor-field\">" + html.EditorFor(expression) + html.ValidationMessageFor(expression) + 
-            string.Format("<div class=\"homescreen-inline-instructions\">{0}</div>",hint) + "</div>";
+            string.Format("<div class=\"homescreen-inline-instructions\"> {0}", hint) + "</div>" +
+            "<div class=\"editor-field\">" + html.EditorFor(expression) + html.ValidationMessageFor(expression) + "</div>";
             return new MvcHtmlString(builder.ToString());
         }
 
@@ -72,7 +73,11 @@ namespace Cico.Models.Helpers
             }
             else
             {
-                return HttpContext.Current.Cache["cached_curr_user"].ToString();
+               
+                var currUser = HttpContext.Current.Cache["cached_curr_user"].ToString();
+                SetCurrentName(UserFullName(helper));
+                return currUser;
+
             }
         }
 
@@ -81,10 +86,16 @@ namespace Cico.Models.Helpers
         {
             var name = ConfigurationManager.AppSettings["EmbassyEmail"];
             if (string.IsNullOrEmpty(name))
-                throw new ConfigurationErrorsException(string.Format("app serrings EmbassyEmail is empty"));
+                throw new ConfigurationErrorsException(string.Format("app settings EmbassyEmail is empty"));
             return name;
         }
-
+        public static string EmbassyContact(this HtmlHelper helper)
+        {
+            var name = "PNM-ISC-STAFF@STATE.GOV";
+            if (string.IsNullOrEmpty(name))
+                throw new ConfigurationErrorsException(string.Format("app settings EmbassyEmail is empty"));
+            return name;
+        }
         public static string EmbassyName(this HtmlHelper helper)
         {
             return EmbassyNameAtt;

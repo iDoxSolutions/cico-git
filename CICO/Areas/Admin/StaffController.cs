@@ -44,7 +44,7 @@ namespace Cico.Areas.Admin
         {
             if (model.SelectedRoles == null || model.SelectedRoles.Length==0)
             {
-                ModelState.AddModelError("", "At least one role have to be selected");
+                ModelState.AddModelError("", "At least one role has to be selected");
                 return;
             }
             if (model.SelectedRoles.Contains("OfficeAdmin") && !model.SelectedOffice.HasValue)

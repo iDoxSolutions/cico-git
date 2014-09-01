@@ -18,10 +18,10 @@ namespace Cico.Models
         [StringLength(66)]
         public string  MessageSubject { get; set; }
         [DisplayName("Preface")]
-        [StringLength(66)]
+        [StringLength(250)]
         public string MessagePreface { get; set; }
         [DisplayName("Closing")]
-        [StringLength(66)]
+        [StringLength(250)]
         public string MessageClosing { get; set; }
 
         public virtual CheckListItemTemplate CheckListItemTemplate { get; set; }

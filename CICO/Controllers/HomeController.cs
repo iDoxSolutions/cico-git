@@ -36,6 +36,7 @@ namespace Cico.Controllers
             if (ModelState.IsValid)
             {
                 var session = UserSession.InitCheckListSession(initModel);
+                UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
                 return RedirectToAction("index",new {id=session.Id,land="false"});
             }
             else
@@ -54,20 +55,17 @@ namespace Cico.Controllers
             {
                 if (!staff.ReqireCheckList && !id.HasValue)
                 {
-                    if (!User.IsInRole(SystemRole.UserProxy))
-                    {
-                        return RedirectToAction("index", "checklists", new {area = "Admin"});
+                    if (!User.IsInRole(SystemRole.UserProxy)) {
+                        return RedirectToAction("index", "checklists", new { area = "Admin" });
                     }
-                    else
-                    {
-                        return RedirectToAction("proxy");
+                    else {
+                      //kwh for panama  return RedirectToAction("proxy");
                     }
-                    
+
                 }
             }
 
-            if (!UserSession.IsInitialized(null) && !id.HasValue)
-            {
+            if (!UserSession.IsInitialized(null) && !id.HasValue) {
                 return RedirectToAction("initialize");
             }
             CheckListSession session = null;

@@ -9,9 +9,9 @@
 
 @using (Html.BeginForm())
 {
-    
+        
      @Html.Partial("_employeeFields")
-        <input type="submit" value="Save" name="Save"/>
+        <div><input type="submit" value="Save" name="Save"/></div>
      @Html.HiddenFor(model => model.Id)
      @Html.HiddenFor(model => model.UserId)
    

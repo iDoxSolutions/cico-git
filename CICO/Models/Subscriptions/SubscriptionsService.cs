@@ -42,6 +42,7 @@ namespace Cico.Models.Subscriptions
                                   in _db.EmailSubscriptions on t.UserId equals emailSubscription.Staff.UserId
                               join checkListItemTemplate in _db.CheckListItemTemplates on
                                   emailSubscription.CheckListItemTemplate.CheckListItemTemplateId equals
+        
                                   checkListItemTemplate.CheckListItemTemplateId
                               join checkListItemSubmitionTrack in _db.CheckListItemSubmitionTracks on
                                   checkListItemTemplate.CheckListItemTemplateId equals
@@ -70,7 +71,7 @@ namespace Cico.Models.Subscriptions
                              join checkListItemSubmitionTrack in _db.CheckListItemSubmitionTracks on
                                  checkListItemTemplate.CheckListItemTemplateId equals
                                  checkListItemSubmitionTrack.CheckListItemTemplate.CheckListItemTemplateId
-                         where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value, refDate) == 0 && t.UserId == staff.UserId && checkListItemSubmitionTrack.Checked
+                         where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value, refDate) == 0 && t.UserId == staff.UserId && checkListItemSubmitionTrack.Checked && checkListItemSubmitionTrack.CheckListItemTemplate.Active
                              orderby checkListItemSubmitionTrack.DateEdited descending 
                              select checkListItemSubmitionTrack;
             string title = string.Format("<h2>Checklist items completed on {0}</h2>", refDate.ToShortDateString());

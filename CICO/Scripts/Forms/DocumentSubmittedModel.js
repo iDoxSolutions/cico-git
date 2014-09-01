@@ -8,6 +8,7 @@
     self.templateName = "DocumentSubmitted";
     self.submittedFile = ko.observable(item.item.SubmittedFile);
     self.submitDoc = function (e) {
+       
         if (!self.Enabled()) {
             alert("Forbidden");
             return false;

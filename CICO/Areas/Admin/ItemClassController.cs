@@ -97,6 +97,7 @@ namespace Cico.Areas.Admin
                 }
 
                 model.CheckListItemTemplate.Office = db.Offices.Single(c => c.OfficeId == model.SelectedOffice);
+                model.CheckListItemTemplate.Type = model.CheckListItemTemplate.Item;
                 var template = db.CheckListItemTemplates.Add(model.CheckListItemTemplate);
                 db.SaveChanges();
                
@@ -160,6 +161,7 @@ namespace Cico.Areas.Admin
                 item.DueDays = model.CheckListItemTemplate.DueDays;
                 item.Description = model.CheckListItemTemplate.Description;
                 item.Item = model.CheckListItemTemplate.Item;
+                item.Type = model.CheckListItemTemplate.Item;
                 item.Form = model.CheckListItemTemplate.Form;
                 item.Provisional = model.CheckListItemTemplate.Provisional;
                 item.NotesAccess = model.CheckListItemTemplate.NotesAccess;

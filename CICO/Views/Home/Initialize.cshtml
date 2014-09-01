@@ -1,4 +1,5 @@
-﻿@model Cico.Models.Authentication.InitModel
+﻿@using Cico.Models.Helpers
+@model Cico.Models.Authentication.InitModel
 
 @{
     ViewBag.Title = "Initialize Checklist";
@@ -11,11 +12,8 @@
     <fieldset>
         @Html.ValidationSummary()
         <legend>Init Data</legend>
-        <div class="editor-label">
-            @Html.LabelFor(c=>c.ArrivalDate)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(c=>c.ArrivalDate)
+            @Html.CicoEditorFor(c => c.ArrivalDate,"*Enter best estimate. Can be changed later")
             @Html.ValidationMessageFor(c=>c.ArrivalDate)
         </div>
         <div class="editor-label">

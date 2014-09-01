@@ -92,6 +92,7 @@ namespace Cico.Areas.Admin
             if (!employee.TourEndDate.HasValue)
             {
                 ModelState.AddModelError("", "Departure Date is required");
+                
                 return View(employee);
             }
             else
@@ -241,7 +242,7 @@ namespace Cico.Areas.Admin
             catch (Exception)
             {
                 DontSave = true;
-                ModelState.AddModelError("", "You can't delete employee it's assigned");
+                ModelState.AddModelError("", "You can't delete an employee that has an active process");
                 return View();
             }
         }

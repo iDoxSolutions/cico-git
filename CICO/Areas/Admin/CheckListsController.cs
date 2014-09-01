@@ -6,11 +6,14 @@ using System.Linq;
 using System.Web.Mvc;
 using Cico.Models;
 using PagedList;
+using log4net;
 
 namespace Cico.Areas.Admin
 {
+    
     public class CheckListModel
     {
+        
         public bool Completed { get; set; }
         public string EmployeeName { get; set; }
         public Employee Employee { get; set; }
@@ -69,9 +72,11 @@ namespace Cico.Areas.Admin
 
     public class CheckListsController : Cico.Controllers.ControllerBase
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(CheckListsController).Name);
+
         //
         // GET: /CheckLists/
-
+        
         public ActionResult Index(CheckListsModel model)
         {
             model.Page = model.Page ?? 1;
@@ -119,21 +124,21 @@ namespace Cico.Areas.Admin
                     ReferenceDate = c.ReferenceDate,
                     DateValue = c.DateCreated,
                     Session = c,
-                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked )- c.CheckListItemSubmitionTracks.Count(d=>d.Checked && d.CheckListItemTemplate.Provisional ),
-                    ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked),
+                    ItemsChecked = c.CheckListItemSubmitionTracks.Count(d=>d.Checked )- c.CheckListItemSubmitionTracks.Count(d=>d.Checked && d.CheckListItemTemplate.Provisional && d.CheckListItemTemplate.Active ),
+                    ItemsProvision = c.CheckListItemSubmitionTracks.Count(d=>d.CheckListItemTemplate.Provisional && !d.Provisioned && d.Checked && d.CheckListItemTemplate.Active),
                     UserId = c.UserId.Contains("\\")?c.UserId.Substring(c.UserId.IndexOf("\\")+1):"",
-                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked ),
+                    ItemsLeft = c.CheckListItemSubmitionTracks.Count(d => !d.Checked && d.CheckListItemTemplate.Active ),
 
                     SessionType = c.CheckListTemplate.Type,
                     Completed = c.Completed
 
                     
                 }).ToPagedList(model.Page.Value, 50);
-
+           
             foreach (var item in model.CheckListModels)
             {
-                item.ItemsChecked = item.Tracks.Count(c => c.Completed && c.Checked) - item.Tracks.Count(c => c.Completed && c.Checked && c.CheckListItemTemplate.Provisional && c.Provisioned);
-                item.InProcess = item.Tracks.Count(c => !c.Completed && c.Checked && c.CheckListItemTemplate.Dependents) ;
+               
+                item.InProcess = item.Tracks.Count(c => !c.Completed && c.Checked && c.CheckListItemTemplate.Dependents && c.CheckListItemTemplate.Active) ;
             }
             return View(model);
         }
@@ -149,12 +154,12 @@ namespace Cico.Areas.Admin
                 var staff = UserSession.GetCurrentStaff();
                 model.SessionTracks =
                     model.Session.CheckListItemSubmitionTracks.Where(
-                        c => c.CheckListItemTemplate.Office.OfficeId == staff.Office.OfficeId).ToList();
+                        c => c.CheckListItemTemplate.Office.OfficeId == staff.Office.OfficeId & c.CheckListItemTemplate.Active).ToList();
             }
             else
             {
                 model.SessionTracks =
-                    model.Session.CheckListItemSubmitionTracks.ToList();
+                    model.Session.CheckListItemSubmitionTracks.Where(c => c.CheckListItemTemplate.Active).ToList();
             }
             model.SessionTracks = model.SessionTracks.Where(c => SecurityGuard.CanCompleteCheckListItem(c)).ToList();
            return View(model);
@@ -164,17 +169,31 @@ namespace Cico.Areas.Admin
         {
             var item = Db.CheckListItemSubmitionTracks.Single(c => c.Id == ItemId);
             item.Provisioned = true;
+            item.CheckListItemTemplate.CompletingChecklist = true;
             return RedirectToAction("show", new {id = item.CheckListSession.Id});
         }
 
         public ActionResult RejectProvisional(int ItemId)
         {
+            
             var item = Db.CheckListItemSubmitionTracks.Single(c => c.Id == ItemId);
             item.Checked = false;
+            //remove the links to  any uploaded documents
+                if (item.SubmittedFile != null) { 
+                var systemFile = Db.SystemFiles.SingleOrDefault(s => s.Id == item.SubmittedFile.Id );
+                if (systemFile != null) {
+                    Db.SystemFiles.Remove(systemFile);
+                }
+            }
+            log.DebugFormat("Dependent File count: {0}",item.DependentFiles.Count);
+            item.SubmittedFile = null;
+            item.DependentFiles = null;
+
             ///if checklist item completes the checklist we need to uncomplete
             if (item.CheckListItemTemplate.CompleteCheckList)
             {
                 item.CheckListSession.Completed = false;
+                item.CheckListItemTemplate.CompletingChecklist = false;
             }
             return RedirectToAction("show", new { id = item.CheckListSession.Id });
         }

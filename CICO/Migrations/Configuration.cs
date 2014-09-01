@@ -17,7 +17,7 @@ namespace Cico.Migrations
 
         protected override void Seed(Cico.Models.CicoContext context)
         {
-            string currentVersion = "1.1.20";
+            string currentVersion = "1.1.31";
             var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
             if (version != null)
             {

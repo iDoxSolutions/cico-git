@@ -140,7 +140,7 @@
                 
             </ul>
 
-            <div id="checkIn" style="overflow-y: scroll; height: 750px">
+            <div id="checkIn" style="overflow-y: scroll; height: 1110px">
                 <div class="homescreen-instructions" data-bind="with:completed" style="color: red">
                     Checklist is completed
                 </div>
@@ -195,8 +195,7 @@
     <div class="homescreen-instructions">
         <label>Step 2: Browse to the document to upload</label></div>
     <br />
-
-    <form id="docSubmitted" data-bind="submit:submitDoc,disabled:!Enabled" enctype="multipart/form-data" method="POST">
+    <form id="docSubmitted" data-bind="submit:submitDoc, disabled:!Enabled" enctype="multipart/form-data" method="POST">
         <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
         <div data-bind="with:submittedFile">
             Submitted file:
@@ -220,7 +219,8 @@
     <div class="homescreen-instructions">
         <label>Step 3: Upload the selected document</label></div>
     <br />
-    <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
+    
+    <a href="#" data-bind="click:submitDoc,enabled:Enabled">Upload</a>
     <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
 
     
@@ -240,15 +240,16 @@
         <label>Step 3: Browse to your completed form.</label>
 
         <form id="docSubmitted" data-bind="submit:submitDoc" enctype="multipart/form-data" method="POST" action="/checklist/uploadfile" >
-            <input name="docSubmitted" type="file" data-bind="enable:Enabled" />
-             <div data-bind="with:submittedFile">
-            Submitted file:
-        <a target="_blank"   data-bind="attr: { href: Url },text:Description"></a>
-        </div>
+            <input name="docSubmitted" type="file" data-bind="enable:Enabled()" />
+            <div data-bind="with:submittedFile">
+                Submitted file:
+                <a target="_blank"   data-bind="attr: { href: Url },text:Description"></a>
+            </div>
             
             <div data-bind="with:DependentsFiles">
-            <ul data-bind="foreach:$data">
-                <li>
+                <ul data-bind="foreach:$data">
+                    <li>
+                    <!--kwh chages for Panama: changed enable:$parentContext.$parent.Enabled   to allow uploads after completed checklist -->
                     <div data-bind="text:DependentName"></div>
                     <input name="dependent" type="file" data-bind="attr:{name:'dependent-'+DependentId}, enable:$parentContext.$parent.Enabled" />
                     <div></div>
@@ -261,7 +262,7 @@
         <br />
        
         <label>Step 4: Upload the completed form.</label>
-        <a href="#" data-bind="click:submitDoc,enable:Enabled">Upload</a>
+        <a href="#" data-bind="click:submitDoc,enable:Enabled()">Upload</a>
         <img style="display: none" class="loader" src="/Images/ajaxWait.gif" />
     </div>
 
@@ -382,7 +383,9 @@
         };
 
         self.Enabled = ko.computed(function () {
-            return !parent.completed();
+            //  return !parent.completed();
+            // kwh for panama
+            return true;
         }, self);
 
         self.Completed = ko.computed(function () {

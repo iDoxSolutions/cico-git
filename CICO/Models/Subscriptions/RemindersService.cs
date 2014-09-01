@@ -38,7 +38,7 @@ namespace Cico.Models.Subscriptions
                 foreach (var checkListSession in sessions)
                 {
                     var tracks = from track in _db.CheckListItemSubmitionTracks.ToList()
-                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate<=refDate && (!track.Checked || !track.Completed)
+                                 where track.CheckListSession.Id == checkListSession.Id && track.DueDate<=refDate && (!track.Checked || !track.Completed) && track.CheckListItemTemplate.Active
                                  select track;
                     if (tracks.Any())
                     {
@@ -59,13 +59,7 @@ namespace Cico.Models.Subscriptions
             }
             var sb = new StringBuilder();
             sb.Append("<h2>");
-            string title = string.Format("CICO application Reminder on {0}",refDate.ToShortDateString() );
-            sb.Append(title);
             
-            sb.Append("</h2>");
-            sb.Append("<h3>");
-            sb.Append(reminder.MessageSubject);
-            sb.Append("</h3>");
             sb.Append("<p>");
             sb.Append(reminder.MessagePreface);
             sb.Append("</p>");
@@ -117,7 +111,7 @@ namespace Cico.Models.Subscriptions
                 }
                    
             }
-            message.Subject = string.Format("CICO Reminder",refDate.ToShortDateString());
+            message.Subject = reminder.MessageSubject;
             message.Body = sb.ToString();
             message.IsBodyHtml = true;
             smtp.Send(message);

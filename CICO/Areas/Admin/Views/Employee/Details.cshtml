@@ -6,6 +6,7 @@
 }
 
 <h2>Employee Details</h2>
+@Html.ValidationSummary()
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
@@ -69,6 +70,7 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(c=>c.Id)
+    @Html.HiddenFor(c=>c.UserId)
     <input type="submit" value="Start Checkout"/>
 }
 
@@ -80,7 +82,8 @@
 
 
 
-                @Html.DisplayFor(model => model.SSN)
+                
+@Html.SSNDisplay(model => model.SSN)
 @Html.Partial("EmployeeForm")
 
 <h3>
@@ -91,7 +94,7 @@
     @foreach (var dep in Model.Dependents)
     {
         <li>
-            @Html.ActionLink(dep.FirstName+", "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)
+            @Html.ActionLink(dep.FirstName+" "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)
         </li>
     }
 </ul>

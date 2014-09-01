@@ -28,7 +28,7 @@ namespace Cico.Models.SharePoint
 
         public string CreateFolder(string baseFolder, string folder)
         {
-            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; ;
+            var listProxy = new Lists() { Url = url + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; ;
             if (_secure)
             {
                 listProxy.UseDefaultCredentials = true;
@@ -39,6 +39,7 @@ namespace Cico.Models.SharePoint
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
             doc.LoadXml(xmlFolder);
             XmlNode batchNode = doc.SelectSingleNode("//Batch");
+            log.DebugFormat("CreateFolder batchNode: {0}  xmlFolder: {1} SiteName:{2}",batchNode,xmlFolder,listProxy.Site.Name);
             XmlNode resultNode = listProxy.UpdateListItems(libraryName, batchNode);
             return resultNode.InnerXml;
         }
@@ -93,12 +94,13 @@ namespace Cico.Models.SharePoint
         public string CreateFolder( string folder)
         {
 
-            var listProxy = new Lists() { Url = url + "/" + siteName + "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; ;
-            /*
+                var listProxy = new Lists() { Url = url +  "/_vti_bin/Lists.asmx", Credentials = new NetworkCredential(userName, password,domain) }; 
+
+            
                 //AppDomain.CurrentDomain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
                 log.DebugFormat("Http user:{0}",HttpContext.Current.User.Identity.Name);
                 log.DebugFormat("Default creedentials user:{0}", System.Net.CredentialCache.DefaultNetworkCredentials.UserName);
-                listProxy.PreAuthenticate = true;
+               /* listProxy.PreAuthenticate = true;
                 listProxy.UseDefaultCredentials = true;
                listProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;*/
             if (_secure)
@@ -106,13 +108,29 @@ namespace Cico.Models.SharePoint
                 listProxy.UseDefaultCredentials = true;
                 listProxy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
             }
-            log.DebugFormat("url:{0}, user:{1}, domain:{2}, secure:{3}", listProxy.Url, userName, domain,_secure);
+            log.DebugFormat("url:{0}, user:{1}, domain:{2}, secure:{3}, libraryName: {4}, folder: {5}", listProxy.Url, userName, domain,_secure,libraryName, folder);
+            
             string xmlconst = "<Batch OnError='Continue'><Method ID='1' Cmd='New'><Field Name='ID'>New</Field><Field Name='FSObjType'>1</Field><Field Name='BaseName'>!@foldername</Field></Method></Batch>";
             XmlDocument doc = new XmlDocument();
             string xmlFolder = xmlconst.Replace("!@foldername", folder);
             doc.LoadXml(xmlFolder);
+            XmlNode resultNode;
             XmlNode batchNode = doc.SelectSingleNode("//Batch");
-            XmlNode resultNode = listProxy.UpdateListItems(libraryName, batchNode);
+            log.DebugFormat("batchNode:{0}", batchNode.InnerXml);
+            log.DebugFormat("Proxy URL: {0}", listProxy.Url);
+            log.DebugFormat("LibraryName: {0}",libraryName);
+            log.DebugFormat("List ID: {0}", libId);
+            try
+            {
+                resultNode = listProxy.UpdateListItems(libraryName, batchNode);
+                log.DebugFormat("resultNode UpdateListItems: {0}",resultNode.InnerXml);
+            }
+            catch (Exception ex)
+            {
+                log.DebugFormat("Exception Message: {0}", ex.Message);
+                throw;
+            }
+            
             
             return resultNode.InnerXml;
         }
@@ -145,7 +163,7 @@ namespace Cico.Models.SharePoint
             //proxy.CookieContainer = GetCookie();
             //proxy.Url = "http://lightkeeper2.sharepoint.com/TeamSite/_vti_bin/Lists.asmx";
             //proxy.Credentials = new NetworkCredential(userName, password, domain);
-            proxy.Url = url + "/" + siteName + "/_vti_bin/Lists.asmx";
+            proxy.Url = url + "/_vti_bin/Lists.asmx";
             //proxy.ClientCredentials.Windows.AllowedImpersonationLevel = System.Security.Principal.TokenImpersonationLevel.Identification;
             var query = new XmlDocument();
             var sQuery = "<Query xmlns=\"http://schemas.microsoft.com/sharepoint/soap/\">" +
@@ -220,7 +238,8 @@ namespace Cico.Models.SharePoint
             var copy = !string.IsNullOrEmpty(siteName)
                            ? new Copy
                                {
-                                   Url = url + "/" + siteName + "/_vti_bin/copy.asmx",
+                                  //kwh Panama debugging Url = url + "/" + siteName + "/_vti_bin/copy.asmx",
+                                    Url = url +  "/_vti_bin/copy.asmx",
                                    Credentials = new NetworkCredential(userName, password)
                                }
                            : new Copy
@@ -228,6 +247,7 @@ namespace Cico.Models.SharePoint
                                    Url = url +  "/_vti_bin/copy.asmx",
                                    Credentials = new NetworkCredential(userName, password)
                                };
+            log.DebugFormat("Save Copy URl: {0}",copy.Url);
             log.DebugFormat("url:{0}, user:{1}, domain:{2} secure:{3}", copy.Url, userName, domain,_secure);
             if (_secure)
             {
@@ -235,9 +255,12 @@ namespace Cico.Models.SharePoint
                 copy.UseDefaultCredentials = true;
                 copy.Credentials = System.Net.CredentialCache.DefaultNetworkCredentials;
             }
+            log.DebugFormat("Save siteName: {0} url: {1} libraryname: {2} name: {3}", siteName,url,libraryName,name);
             var dest = !string.IsNullOrEmpty(siteName)
                            ? string.Format("{0}/{3}/{1}/{2}", url, libraryName, name, siteName)
                            : string.Format("{0}/{1}/{2}", url, libraryName, name);
+            dest = url + "/" + libraryName + "/" + name;
+            log.DebugFormat("name: {0} ",dest);
             string[] destinationUrlColl = { dest };
 
             var fieldInfo = new List<FieldInformation>();
@@ -274,9 +297,12 @@ namespace Cico.Models.SharePoint
             //When creating new content use the same URL in the SourceURI as in the Destination URL argument
 
             CopyResult[] result = new CopyResult[] { resultTest };
+            log.DebugFormat("dest: {0} destination Url Coll: {1} fieldInfo count: {2} content: {3}",dest,destinationUrlColl,fieldInfo.Count, content.Length);
+            
             var res = copy.CopyIntoItems(dest, destinationUrlColl, fieldInfo.ToArray(), content, out result);
             if (result[0].ErrorMessage != null)
             {
+                log.DebugFormat("Copy result:", "Error: " + result[0].ErrorMessage);
                 msg = "Error: " + result[0].ErrorMessage;
                 throw new Exception(result[0].ErrorMessage);
             }
@@ -291,7 +317,7 @@ namespace Cico.Models.SharePoint
 
         public byte[] LoadDocument(string url)
         {
-            var copy = new Copy { Url = url + "/" + siteName + "/_vti_bin/copy.asmx" };
+            var copy = new Copy { Url = url + "/_vti_bin/copy.asmx" };
             var fi = new FieldInformation[] { new FieldInformation() };
             byte[] buff;
             copy.GetItem(url, out fi, out buff);

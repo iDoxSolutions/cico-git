@@ -49,6 +49,15 @@ namespace Cico.Models.Authentication
                 return true;
             }
 
+            if (track.CheckListSession.Employee.Proxy != null)
+            {
+                if (track.CheckListSession.Employee.Proxy.UserId.Equals(_http.User.Identity.Name,
+                                                                        StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
             if (!track.CheckListItemTemplate.NotesAccess)
             {
                 var staff = _usersession.GetCurrentStaff();
@@ -65,20 +74,33 @@ namespace Cico.Models.Authentication
 
         public bool CanCompleteCheckListItem(CheckListItemSubmitionTrack track)
         {
-            log.DebugFormat("{0} user determine can complete ",_http.User.Identity.Name);
+            log.DebugFormat("{0} user Identity can complete ",_http.User.Identity.Name);
             
             var staff = _usersession.GetCurrentStaff();
             var itemTemplate = track.CheckListItemTemplate;
             var session = track.CheckListSession;
             log.DebugFormat("{0} session owner ", session.UserId);
+            if (itemTemplate.CheckListTemplate.Name == "Check Out" && session.Completed)
+            {
+                if (itemTemplate.CompletingChecklist)
+                {
+                    
+                    return true;
+                }
+                
+            }
+            if (itemTemplate.CheckListTemplate.Name == "Check Out" && session.Completed) 
+            {
+               return  false;
+            }
             if (IsUsersCheckList(session))
             {
                 return true;
             }
-            log.DebugFormat("not session owner session owner ", session.UserId);
+            log.DebugFormat("Session owner {0} not checklist owner", session.UserId);
             if (_http.User.IsInRole(SystemRole.GlobalAdmin))
                 return true;
-            log.DebugFormat("not global admin  ", session.UserId);
+            log.DebugFormat("{0} not global admin", session.UserId);
 
             if (session.Employee.Proxy != null)
             {
@@ -87,18 +109,17 @@ namespace Cico.Models.Authentication
                     return true;
                 }
             }
-            log.DebugFormat("not ritht proxy person  ", session.UserId);
+            log.DebugFormat("{0} not right proxy person  ", session.UserId);
 
             if (staff != null)
             {
-                return true; // Panama request - Don't check for HR, all office admins ok
-                if (staff.Office.Name == itemTemplate.Office.Name
+               if (staff.Office.Name == itemTemplate.Office.Name
                     || staff.Office.Name=="HR")
                 {
                     return true;
                 }
             }
-            log.DebugFormat("not ritht office admin  ", session.UserId);
+            log.DebugFormat("{0} not right office admin  ", session.UserId);
             
             return false;
         }
