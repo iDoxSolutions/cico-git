@@ -3,6 +3,10 @@
 
 <div> <input type="submit" value="Save" /></div>
 <fieldset class="two-column-form" style="width: 80%">
+<div class="editor-field">
+            <button type="submit">Save</button>
+        </div>
+        <br></br>
     <legend>Employee</legend>
     @Html.ValidationSummary()
     
@@ -49,14 +53,21 @@
         @Html.CicoEditorFor(model => model.RoutingNumber)
         <div style="clear: both"></div>
     </div>
+    
+    <br > <br />
+        
+        <div class="editor-field" >
+            <button type="submit">Save</button>
+        </div>
 </fieldset>
 <fieldset class="two-column-form" style="width: 80%">
     <legend>After Arrival</legend>
     <h2>After Arrival</h2>
     
     <div class="float-left" style="width: 47%">
-        @Html.CicoEditorFor(model => model.ResidentAddress)
         @Html.CicoEditorFor(model => model.HomePhone)
+        @Html.CicoEditorFor(model => model.ResidentAddress)
+      
         @Html.CicoEditorFor(model => model.OfficeCellPhone)
         @Html.CicoEditorFor(model => model.OfficePhone)
         @*Html.CicoEditorFor(model => model.SafeWord)*@

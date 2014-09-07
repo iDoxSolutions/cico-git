@@ -115,11 +115,11 @@ namespace Cico.Models
 
            
 
-            context.CheckListItemTypes.Add(new CheckListItemType()
-                {
-                    Name = "OnlineForm",
-                    Description = "Online Form"
-                });
+           // context.CheckListItemTypes.Add(new CheckListItemType()
+             //   {
+             //       Name = "OnlineForm",
+             //       Description = "Online Form"
+             //   });
             context.CheckListItemTypes.Add(new CheckListItemType()
                 {
                     Name = "DocumentSubmitted",
@@ -639,10 +639,10 @@ namespace Cico.Models
             context.DropdownItems.Add(new DropdownItem() { Description = "CONGO, THE DEMOCRATIC REPUBLIC OF THE", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "COOK ISLANDS", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "COSTA RICA", ValueType = "Nations"});
-            context.DropdownItems.Add(new DropdownItem() { Description = "CÔTE D'IVOIRE", ValueType = "Nations"});
+            context.DropdownItems.Add(new DropdownItem() { Description = "Cï¿½TE D'IVOIRE", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "CROATIA", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "CUBA", ValueType = "Nations"});
-            context.DropdownItems.Add(new DropdownItem() { Description = "CURAÇAO", ValueType = "Nations"});
+            context.DropdownItems.Add(new DropdownItem() { Description = "CURAï¿½AO", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "CYPRUS", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "CZECH REPUBLIC", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "DENMARK", ValueType = "Nations"});
@@ -765,11 +765,11 @@ namespace Cico.Models
             context.DropdownItems.Add(new DropdownItem() { Description = "PORTUGAL", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "PUERTO RICO", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "QATAR", ValueType = "Nations"});
-            context.DropdownItems.Add(new DropdownItem() { Description = "RÉUNION", ValueType = "Nations"});
+            context.DropdownItems.Add(new DropdownItem() { Description = "Rï¿½UNION", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "ROMANIA", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "RUSSIAN FEDERATION", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "RWANDA", ValueType = "Nations"});
-            context.DropdownItems.Add(new DropdownItem() { Description = "SAINT BARTHÉLEMY", ValueType = "Nations"});
+            context.DropdownItems.Add(new DropdownItem() { Description = "SAINT BARTHï¿½LEMY", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "SAINT KITTS AND NEVIS", ValueType = "Nations"});
             context.DropdownItems.Add(new DropdownItem() { Description = "SAINT LUCIA", ValueType = "Nations"});
