@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace Cico.Models.Authentication
@@ -20,7 +21,10 @@ namespace Cico.Models.Authentication
 
         public string GetUserName()
         {
-            return _httpContext.User.Identity.Name;
+            var uname = _httpContext.User.Identity.Name;
+            //remove the domain - OpenText users are unique
+            uname = Regex.Replace(uname, ".*\\\\(.*)", "$1", RegexOptions.None);
+            return uname;
         }
 
         
@@ -32,8 +36,10 @@ namespace Cico.Models.Authentication
             }
             else
             {
-                var uname = _httpContext.User.Identity.Name;
-                return _db.CheckListSessions.Include("Employee").Any(c => c.UserId == uname && c.Active);
+                var duname = _httpContext.User.Identity.Name;
+                //remove the doamin - OpenText users are unique
+                var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
+                return _db.CheckListSessions.Include("Employee").Any(c => c.UserId == uname && c.Active || c.UserId == duname && c.Active);
             }
             
            
@@ -46,17 +52,21 @@ namespace Cico.Models.Authentication
 
         public CheckListSession GetCurrent()
         {
-            var uname = _httpContext.User.Identity.Name;
-            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active );
+            var duname = _httpContext.User.Identity.Name;
+            //remove the doamin - OpenText users are unique
+           var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
+            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active || c.UserId == duname && c.Active);
             if(session==null)
                 throw new InvalidOperationException("Session not initialized!");
             return session;
         }
         public CheckListSession InitCheckListSession(InitModel initmodel)
         {
-            var uname = _httpContext.User.Identity.Name;
+            var duname = _httpContext.User.Identity.Name;
+            //remove the domain - OpenText users are unique
+            var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
             var template = GetCurrentTemplate();
-            var employee = initmodel.EmpId.HasValue ? _db.Employees.FirstOrDefault(c => c.Id == initmodel.EmpId) : _db.Employees.FirstOrDefault(c => c.UserId == uname && c.Active);
+            var employee = initmodel.EmpId.HasValue ? _db.Employees.FirstOrDefault(c => c.Id == initmodel.EmpId) : _db.Employees.FirstOrDefault(c => c.UserId == uname && c.Active || c.UserId == duname && c.Active);
             if (employee == null)
             {
                 employee = new Employee() { UserId = uname, FirstName = initmodel.FirstName, LastName = initmodel.LastName, PersonalEmail = initmodel.EmailAddress, ArrivalDate = initmodel.ArrivalDate };
@@ -124,7 +134,11 @@ namespace Cico.Models.Authentication
 
         public Staff GetCurrentStaff()
         {
-            var staff = _db.Staffs.Include("Office").Include("Proxied").SingleOrDefault(c => c.UserId == _httpContext.User.Identity.Name);
+            var duname = _httpContext.User.Identity.Name;
+            //remove the domain - OpenText users are unique
+            var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
+            
+            var staff = _db.Staffs.Include("Office").Include("Proxied").SingleOrDefault(c => c.UserId == uname || c.UserId == duname);
             return staff;
         }
 

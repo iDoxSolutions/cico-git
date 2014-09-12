@@ -73,7 +73,7 @@ namespace Cico
         {
             
 
-            string currentVersion = "1.1.31";
+            string currentVersion = "1.1.32";
             var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
             if (version != null) {
                 version.Value = currentVersion;

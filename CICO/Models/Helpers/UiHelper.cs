@@ -7,6 +7,7 @@ using System.Linq.Expressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using System.Text.RegularExpressions;
 namespace Cico.Models.Helpers
 {
     public static class UiHelper
@@ -15,11 +16,13 @@ namespace Cico.Models.Helpers
         public static string UserFullName(this HtmlHelper helper)
         {
             var userName = HttpContext.Current.User.Identity.Name;
+            //trim off the domain - not needed because OpenNet userids are unique across domains
+            userName = Regex.Replace(userName, ".*\\\\(.*)", "$1", RegexOptions.None);
             var context = new CicoContext();
             var employee =
                 CacheHelper.Cache(
                     ()=>
-                        { return context.Employees.FirstOrDefault(c => c.UserId == HttpContext.Current.User.Identity.Name && c.Active); },
+                        { return context.Employees.FirstOrDefault(c => c.UserId == userName && c.Active); },
                     "user_full_name_" + userName);
             if (employee != null)
             {
