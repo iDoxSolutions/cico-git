@@ -5506,3 +5506,317 @@
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-09-12 10:26:55,741 [1] DEBUG MvcApplication - Application Started
+2014-09-12 10:27:31,493 [1] DEBUG MvcApplication - Application Started
+2014-09-12 10:54:02,329 [7] FATAL MvcApplication - System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Cico.Models.Authentication.UserSession.GetCurrent() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Authentication\UserSession.cs:line 58
+   at Cico.Controllers.HomeController.Index(Nullable`1 id, String tab, String land) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\HomeController.cs:line 75
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-09-12 10:54:02,329 [8] FATAL MvcApplication - System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Cico.Models.Authentication.UserSession.GetCurrent() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Authentication\UserSession.cs:line 58
+   at Cico.Controllers.HomeController.Index(Nullable`1 id, String tab, String land) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\HomeController.cs:line 75
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-09-12 10:54:22,479 [12] DEBUG MvcApplication - Application Started
+2014-09-13 07:58:56,256 [1] DEBUG MvcApplication - Application Started
+2014-09-13 08:00:41,698 [1] DEBUG MvcApplication - Application Started
+2014-09-13 08:02:31,791 [6] FATAL MvcApplication - System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Cico.Models.Authentication.UserSession.GetCurrent() in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Models\Authentication\UserSession.cs:line 58
+   at Cico.Controllers.HomeController.Index(Nullable`1 id, String tab, String land) in c:\Users\Ken\Documents\wingithub\cico-git\CICO\Controllers\HomeController.cs:line 75
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<InvokeActionMethodWithFilters>b__12()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodFilter(IActionFilter filter, ActionExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass15.<>c__DisplayClass17.<InvokeActionMethodWithFilters>b__14()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethodWithFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAction(ControllerContext controllerContext, String actionName)
+   at System.Web.Mvc.Controller.ExecuteCore()
+   at System.Web.Mvc.ControllerBase.Execute(RequestContext requestContext)
+   at System.Web.Mvc.ControllerBase.System.Web.Mvc.IController.Execute(RequestContext requestContext)
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClass6.<>c__DisplayClassb.<BeginProcessRequest>b__5()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass1.<MakeVoidDelegate>b__0()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.MvcHandler.<>c__DisplayClasse.<EndProcessRequest>b__d()
+   at System.Web.Mvc.SecurityUtil.<GetCallInAppTrustThunk>b__0(Action f)
+   at System.Web.Mvc.SecurityUtil.ProcessInApplicationTrust(Action action)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2014-09-13 08:10:41,193 [1] DEBUG MvcApplication - Application Started
+2014-09-13 08:11:32,042 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,065 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,118 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,246 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,315 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,316 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,318 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,319 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,397 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,398 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,400 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,401 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,403 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,405 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,407 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,409 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,412 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,413 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,415 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,416 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,418 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,419 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,422 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,423 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,426 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,427 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,429 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,431 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,433 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,434 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:11:32,437 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:11:32,438 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:12:05,151 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,260 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Submit passport copy
+2014-09-13 08:12:05,261 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit visa
+2014-09-13 08:12:05,262 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Sign Standards of Conduct
+2014-09-13 08:12:05,263 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit travel orders
+2014-09-13 08:12:05,263 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit bio form
+2014-09-13 08:12:05,264 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,289 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Attend orientation
+2014-09-13 08:12:05,290 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,315 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name RSO security briefing
+2014-09-13 08:12:05,316 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit EFT form
+2014-09-13 08:12:05,317 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Computer security requirements
+2014-09-13 08:12:05,317 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Unclass ISC user form
+2014-09-13 08:12:05,318 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Deliver medical records
+2014-09-13 08:12:05,319 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Family network data sheet
+2014-09-13 08:12:05,319 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,344 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with Ambassador
+2014-09-13 08:12:05,346 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,371 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with IT
+2014-09-13 08:12:05,372 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit HHE inventory
+2014-09-13 08:12:05,373 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,397 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name End Worklist
+2014-09-13 08:12:05,397 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,422 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Submit passport copy
+2014-09-13 08:12:05,422 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit visa
+2014-09-13 08:12:05,422 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Sign Standards of Conduct
+2014-09-13 08:12:05,422 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit travel orders
+2014-09-13 08:12:05,423 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit bio form
+2014-09-13 08:12:05,423 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,447 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Attend orientation
+2014-09-13 08:12:05,447 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name RSO security briefing
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit EFT form
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Computer security requirements
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Unclass ISC user form
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Deliver medical records
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Family network data sheet
+2014-09-13 08:12:05,474 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,499 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with Ambassador
+2014-09-13 08:12:05,499 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,525 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with IT
+2014-09-13 08:12:05,525 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit HHE inventory
+2014-09-13 08:12:05,525 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,550 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name End Worklist
+2014-09-13 08:12:05,550 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Submit passport copy
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit visa
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Sign Standards of Conduct
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit travel orders
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit bio form
+2014-09-13 08:12:05,577 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,603 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Attend orientation
+2014-09-13 08:12:05,603 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name RSO security briefing
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit EFT form
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Computer security requirements
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Unclass ISC user form
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Deliver medical records
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Family network data sheet
+2014-09-13 08:12:05,631 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,659 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with Ambassador
+2014-09-13 08:12:05,659 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,709 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with IT
+2014-09-13 08:12:05,709 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit HHE inventory
+2014-09-13 08:12:05,709 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,735 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name End Worklist
+2014-09-13 08:12:05,735 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,764 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Submit passport copy
+2014-09-13 08:12:05,765 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit visa
+2014-09-13 08:12:05,765 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Sign Standards of Conduct
+2014-09-13 08:12:05,765 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit travel orders
+2014-09-13 08:12:05,765 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit bio form
+2014-09-13 08:12:05,765 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,796 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Attend orientation
+2014-09-13 08:12:05,796 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name RSO security briefing
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit EFT form
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Computer security requirements
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Unclass ISC user form
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Deliver medical records
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Family network data sheet
+2014-09-13 08:12:05,825 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,851 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with Ambassador
+2014-09-13 08:12:05,851 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,879 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with IT
+2014-09-13 08:12:05,881 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit housing questionaire
+2014-09-13 08:12:05,881 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit HHE inventory
+2014-09-13 08:12:05,881 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,906 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name End Worklist
+2014-09-13 08:12:05,906 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Submit passport copy
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit visa
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Sign Standards of Conduct
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Submit travel orders
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit bio form
+2014-09-13 08:12:05,939 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,966 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Attend orientation
+2014-09-13 08:12:05,966 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name RSO security briefing
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit EFT form
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentSubmitted; Item Name=Computer security requirements
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Unclass ISC user form
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Deliver medical records
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Family network data sheet
+2014-09-13 08:12:05,993 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:06,020 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with Ambassador
+2014-09-13 08:12:06,020 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:06,045 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name Schedule mtg with IT
+2014-09-13 08:12:06,045 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit housing questionaire
+2014-09-13 08:12:06,045 [12] DEBUG CheckListItemSubmitionTrack - type=DocumentWriting; Item Name=Submit HHE inventory
+2014-09-13 08:12:06,045 [12] DEBUG CheckListItemSubmitionTrack - <log4net.Error>Exception during StringFormat: Index (zero based) must be greater than or equal to zero and less than the size of the argument list. <format>dependents = {1}</format><args>{False}</args></log4net.Error>
+2014-09-13 08:12:06,073 [12] DEBUG CheckListItemSubmitionTrack - No dependents or not Doc w/Writing or Doc Submitted type Item Name End Worklist
+2014-09-13 08:13:23,610 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,612 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,631 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,633 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,636 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,638 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,640 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,643 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,647 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,648 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,651 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,652 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,654 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,656 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,659 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,661 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,664 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,666 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,668 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,670 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,673 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,675 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,677 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,679 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,681 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,682 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,684 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,686 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,688 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,690 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:13:23,693 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:13:23,695 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,559 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,560 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,580 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,590 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,637 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,638 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,647 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,652 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,657 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,661 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,664 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,666 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,669 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,677 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,680 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,683 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,688 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,693 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,696 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,699 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,702 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,706 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,710 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,712 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,715 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,717 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,720 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,722 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,725 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,727 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
+2014-09-13 08:19:00,729 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken user Identity can complete 
+2014-09-13 08:19:00,730 [19] DEBUG SecurityGuard - LIGHTKEEPERDEV\Ken session owner 
