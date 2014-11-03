@@ -183,6 +183,7 @@
     <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\DependentController.cs" />
     <Compile Include="Controllers\EmergencyDataController.cs" />
+    <Compile Include="Areas\Admin\AccessRightsController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileStorageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Models\Dependent.Behavior.cs" />
     <Compile Include="Models\DocumentTemplate.cs" />
     <Compile Include="Models\DependentFile.cs" />
+    <Compile Include="Models\FieldName.cs" />
     <Compile Include="Models\Helpers\CacheHelper.cs" />
     <Compile Include="Models\Helpers\UiHelper.cs" />
     <Compile Include="Models\Reminder.cs" />
@@ -716,7 +718,9 @@
     <Content Include="Content\DocTemplates\Template1.docx" />
     <Content Include="Content\DocTemplates\Template2.docx" />
     <Content Include="Areas\Admin\Views\CheckLists\Index.cshtml" />
-    <Content Include="Mvc.sitemap" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Admin\Views\CheckLists\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Dependent\Delete.cshtml" />
@@ -752,6 +756,11 @@
     <Content Include="Areas\Admin\Views\SentBox\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SentBox\Show.cshtml" />
     <Content Include="Areas\Admin\Views\Employee\_proxyFields.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessRights\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessRights\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessRights\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessRights\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AccessRights\Index2.cshtml" />
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

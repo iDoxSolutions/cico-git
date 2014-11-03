@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Cico.Models;
 using Cico.Models.Authentication;
 using Cico.Models.Helpers;
+using Cico.Areas.Admin;
 using Cico.Models.Services;
 
 
@@ -99,12 +100,19 @@ namespace Cico.Controllers
             UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
             var model = new HomeModel()
                 {
-                    Employee = session.Employee,
+                    EmployeeModel = new EmployeeModel() { Employee = session.Employee,
+                                            EditEnabled = false    
+                                                         },
                     CheckListId = id,
                     CheckListName = session.CheckListTemplate.Name,
                     Tab = tab,
                     CanEditEmployee = canEditEmployee
+                    
                 };
+            if (staff.Office != null)
+            {
+                //model.EmployeeModel.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+            }
             model.Load(Db);
             ViewBag.Message = "Please enter information";
 

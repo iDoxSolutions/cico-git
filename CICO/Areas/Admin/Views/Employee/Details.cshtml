@@ -1,5 +1,5 @@
 ﻿@using Cico.Models.Helpers
-@model Cico.Models.Employee
+@model Cico.Areas.Admin.EmployeeModel
 
 @{
     ViewBag.Title = "Employee Details";
@@ -28,7 +28,7 @@
             Active Process
         </th>
     </tr>
-    @foreach (var pr in Model.CheckListSessions.Where(c=>c.Active))
+    @foreach (var pr in Model.Employee.CheckListSessions.Where(c=>c.Active))
     {
         <tr>
             <td>
@@ -49,7 +49,7 @@
         </th>
     </tr>
     
-    @foreach (var pr in Model.CheckListSessions.Where(c=>!c.Active).OrderByDescending(c=>c.Id))
+    @foreach (var pr in Model.Employee.CheckListSessions.Where(c=>!c.Active).OrderByDescending(c=>c.Id))
     {
         <tr>
             <td>
@@ -69,29 +69,29 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(c=>c.Id)
-    @Html.HiddenFor(c=>c.UserId)
+    @Html.HiddenFor(c=>c.Employee.Id)
+    @Html.HiddenFor(c=>c.Employee.UserId)
     <input type="submit" value="Start Checkout"/>
 }
 
 @using (Html.BeginForm("StartCheckin","Employee"))
 {
-    @Html.HiddenFor(c=>c.Id)
+    @Html.HiddenFor(c=>c.Employee.Id)
     <input type="submit" value="Start CheckIn"/>
 }
 
 
 
                 
-@Html.SSNDisplay(model => model.SSN)
+@Html.SSNDisplay(model => model.Employee.SSN)
 @Html.Partial("EmployeeForm")
 
 <h3>
     Dependents
 </h3>
-@Html.ActionLink("Add Dependent","Create","Dependent",new {employeeId=Model.Id},null)
+@Html.ActionLink("Add Dependent","Create","Dependent",new {employeeId=Model.Employee.Id},null)
 <ul>
-    @foreach (var dep in Model.Dependents)
+    @foreach (var dep in Model.Employee.Dependents)
     {
         <li>
             @Html.ActionLink(dep.FirstName+" "+dep.LastName,"Edit","Dependent",new {id=dep.Id},null)

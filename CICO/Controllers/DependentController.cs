@@ -6,14 +6,19 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Cico.Models;
+using Cico.Areas.Admin;
+using Cico.Models.Helpers;
+
 
 namespace Cico.Controllers
 {
-    public class DepententModel
+    public class DependentModel
     {
         public Dependent Dependent { get; set; }
         public int EmployeeId { get; set; }
+        public DependentAccess DependentAccess { get; set; }
         public int ChecklistId{get; set; }
+        public bool EditEnabled { get; set; }
     }
 
     public class DependentController : ControllerBase
@@ -30,15 +35,30 @@ namespace Cico.Controllers
         public ActionResult Create(int id)
         {
             var employee = Db.Employees.Single(c => c.Id == id);
+            
             var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == id && c.Active);
-            return View(new DepententModel(){Dependent = new Dependent(){Employee = employee,SameECData = true},EmployeeId = employee.Id,ChecklistId = checklist.Id});
+            var staff = UserSession.GetCurrentStaff();
+            
+            var model = new DependentModel() { Dependent = new Dependent() 
+                                               { 
+                                                 Employee = employee, SameECData = true 
+                                               }, 
+                                               EmployeeId = employee.Id, 
+                                               ChecklistId = checklist.Id 
+                                             };
+
+            if (staff.Office != null)
+            {
+                //model.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+            }
+            return View(model);
         }
 
 
        
 
         [HttpPost]
-        public ActionResult Create(DepententModel model)
+        public ActionResult Create(DependentModel model)
         {
             var employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
             SecurityGuard.CanEditEmployee(employee, ModelState);
@@ -61,7 +81,7 @@ namespace Cico.Controllers
             var dependent = Db.Dependents.Single(c => c.Id == id);
             
             var checklist = Db.CheckListSessions.FirstOrDefault(c => c.Employee.Id == dependent.Employee.Id && c.Active);
-            var model = new DepententModel() { Dependent = dependent, EmployeeId = dependent.Employee.Id };
+            var model = new DependentModel() { Dependent = dependent, EmployeeId = dependent.Employee.Id };
             if (checklist != null)
             {
                 model.ChecklistId = checklist.Id;
@@ -69,7 +89,7 @@ namespace Cico.Controllers
             
             return View(model);
         }
-        public void Validate(DepententModel employee)
+        public void Validate(DependentModel employee)
         {
             try
             {
@@ -91,7 +111,7 @@ namespace Cico.Controllers
 
         }
         [HttpPost]
-        public ActionResult Edit(DepententModel model) {
+        public ActionResult Edit(DependentModel model) {
             var dependent = Db.Dependents.Single(c => c.Id == model.Dependent.Id);
             SecurityGuard.CanEditDependent(dependent, ModelState);
             if (ModelState.IsValid)

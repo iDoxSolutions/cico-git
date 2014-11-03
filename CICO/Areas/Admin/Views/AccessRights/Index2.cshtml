@@ -1,0 +1,234 @@
+﻿@using Cico.Models
+@using Cico.Areas.Admin
+@model Cico.Areas.Admin.AccessLevelModel
+
+@{
+    ViewBag.Title = "Access Rights";
+ 
+}
+
+
+<h2>Access Rights</h2>
+
+
+<p>
+    @Html.ActionLink("Create", "Create")
+</p>
+
+<div>
+    
+    <table class="admin-table" cols="8" >
+        <tr>
+            <th>
+                Field
+            </th>
+           
+            <th>
+                Access
+            </th>
+             @if (Model.Offices != null)
+             {
+                 foreach (var office in Model.Offices)
+                 {
+                     <td>
+                         @office.Name
+                     </td>
+                 }
+             }
+            <th colspan="2">
+                Action
+            </th>
+        </tr>
+        @if (Model.AccessRights != null)
+        { 
+            foreach (AccessRight accrm in Model.AccessRights)
+            {
+            <tr>
+                <td>
+                    @accrm.FieldName
+                </td>
+                
+                <td>
+                   @foreach (OfficeRight officeRight in accrm.OfficeRights)
+                   {
+                     <td>
+                         @officeRight.AccessLevel
+                     </td>
+                 }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = accrm.FieldName})  |
+                    @Html.ActionLink("Delete", "Delete", new { id = accrm.FieldName })
+                </td>
+            </tr>
+           }
+       }
+    </table>
+</div>
+<script type="text/javascript">
+
+    $(".add").live("click", function () {
+
+        var existrow = $('.save').length;
+        if (existrow == 0) {
+            var index = $("#grid tbody tr").length + 1;
+
+            var Name = "Name_" + index;
+            var AccessLevel = "Access Type" + index;
+            var Save = "Save_" + index;
+            var Cancel = "Cancel_" + index;
+
+            var tr = '<tr class="alternate-row"><td></td><td><span> <input id="' + Name + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' + Address + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' + ContactNo + '" type="text" /></span></td>' +
+                 '<td> <a href="#" id="' + Save + '" class="save">Save</a><a href="#" id="' + Cancel + '"  class="icancel">Cancel</a></td>' +
+             '</tr>';
+
+            $("#grid tbody").append(tr);
+        }
+        else {
+            alert('First Save your previous record !!');
+        }
+
+    });
+
+    $(".icancel").live("click", function () {
+        var flag = confirm('Are you sure to cancel');
+        if (flag) {
+            $(this).parents("tr").remove();
+        }
+
+    });
+
+    $(".save").live("click", function () {
+        var id = $("#grid tbody tr").length;
+        var Name = $("#Name_" + id).val();
+
+
+        if (id != "") {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveRecord", "AccessRights")',
+                data: { "name": Name },
+                dataType: "json",
+                beforeSend: function () { },
+                success: function (data) {
+                    if (data.result == true) {
+                        $("#divmsg").html("Record has been saved successfully !!");
+                        setTimeout(function () { window.location.replace("Index"); }, 2000);
+                    }
+                    else {
+                        alert('There is some error');
+
+                    }
+
+                }
+
+            });
+        }
+    });
+
+    $(".edit").live("click", function () {
+        var str = $(this).attr("id").split("_");
+        id = str[1];
+
+        var Name = "#Name_" + id;
+        var spanName = "#spanName_" + id;
+
+
+        $(Name).show();
+        $(spanName).hide();
+
+        $(this).hide();
+        $("#Update_" + id).show();
+        $("#Cancel_" + id).show();
+    });
+
+    $(".cancel").live("click", function () {
+        var str = $(this).attr("id").split("_");
+        id = str[1];
+
+        var Name = "#Name_" + id;
+        var spanName = "#spanName_" + id;
+
+
+        $(Name).hide();
+        $(spanName).show();
+
+
+        $(this).hide();
+        $("#Update_" + id).hide();
+
+        $("#Edit_" + id).show();
+    });
+
+    $(".update").live("click", function () {
+        var str = $(this).attr("id").split("_");
+        id = str[1];
+
+        var Name = $("#Name_" + id).val();
+        var spanName = $("#spanName_" + id).val();
+
+        if (id != "") {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("UpdateRecord", "FieldAccess")',
+                data: { "id": id, "name": Name },
+                dataType: "json",
+                beforeSend: function () {//alert(id);
+                },
+                success: function (data) {
+
+                    if (data.result == true) {
+                        $("#Update_" + id).hide();
+                        $("#Cancel_" + id).hide();
+                        $("#Edit_" + id).show();
+
+                        var Name = "#Name_" + id;
+                        var spanName = "#spanName_" + id;
+
+                        $(Name).hide();
+                        $(spanName).show();
+
+                        $(spanName).text($(Name).val());
+
+                    }
+                    else {
+                        alert('There is some error');
+                    }
+                }
+
+            });
+        }
+    });
+
+    $(".delete").live("click", function () {
+        var str = $(this).attr("id").split("_");
+        id = str[1];
+
+        var flag = confirm('Are you sure you want to delete ??');
+        if (id != "" && flag) {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("DeleteRecord", "FieldAccess")',
+                data: { "id": id },
+                dataType: "json",
+                beforeSend: function () { },
+                success: function (data) {
+
+                    if (data.result == true) {
+                        $("#Update_" + id).parents("tr").remove();
+                    }
+                    else {
+                        alert('There is some error');
+                    }
+                }
+
+            });
+        }
+    });
+
+</script>

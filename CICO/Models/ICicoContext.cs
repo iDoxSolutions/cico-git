@@ -28,6 +28,8 @@ namespace Cico.Models
         IDbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         IDbSet<CheckListSession> CheckListSessions { get; set; }
         IDbSet<SentBoxItem> SentBoxItems { get; set; }
+        IDbSet<EmployeeAccess> EmployeeAccess { get; set; }
+        IDbSet<DependentAccess> DependentAccess { get; set; }
         int SaveChanges();
     }
 }

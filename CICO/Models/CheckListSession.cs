@@ -24,6 +24,7 @@ namespace Cico.Models
             }
             return track;
         }
+        
         public CheckListTemplate CheckListTemplate { get; set; }
         public virtual Employee Employee { get; set; }
         [DisplayName("Reference Date    (mm/dd/yyyy)")]

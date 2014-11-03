@@ -1,5 +1,6 @@
-﻿@model Cico.Controllers.DepententModel
-@using Cico.Models.Helpers;
+﻿@using Cico.Models.Helpers
+@model Cico.Controllers.DependentModel
+
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -67,20 +68,20 @@
         @Html.HiddenFor(c=>c.EmployeeId)
         <legend>Information for @Model.Dependent.FirstName @Model.Dependent.LastName</legend>
         <div class="float-left" style="width: 47%">
-            @Html.CicoEditorFor(model => model.Dependent.FirstName,"*As appears on passport")
-            @Html.CicoEditorFor(model => model.Dependent.LastName,"*As appears on passport")
-            @Html.CicoEditorFor(model => model.Dependent.PersonalEmail)
-            @Html.CicoEditorFor(model => model.Dependent.DateOfBirth)
-            @Html.CicoEditorFor(model => model.Dependent.SchoolName)
-            @Html.CicoDropdownFor(model => model.Dependent.Nationality,"Nations")
-            @Html.CicoEditorFor(model => model.Dependent.PassportNumber)
-            @Html.CicoEditorFor(model => model.Dependent.PassportExpiration)
-            @Html.CicoDropdownFor(model => model.Dependent.PassportType,"PassportType")
+            @Html.CicoDepHTMLFor(model => model.Dependent.FirstName, Model, "*As appears on passport")
+            @Html.CicoDepHTMLFor(model => model.Dependent.LastName, Model, "*As appears on passport")
+            @Html.CicoDepHTMLFor(model => model.Dependent.PersonalEmail, Model)
+            @Html.CicoDepHTMLFor(model => model.Dependent.DateOfBirth, Model)
+            @Html.CicoDepHTMLFor(model => model.Dependent.SchoolName, Model)
+            @Html.CicoDepDropdownFor(model => model.Dependent.Nationality, Model, "Nations")
+            @Html.CicoDepHTMLFor(model => model.Dependent.PassportNumber, Model)
+            @Html.CicoDepHTMLFor(model => model.Dependent.PassportExpiration, Model)
+            @Html.CicoDepDropdownFor(model => model.Dependent.PassportType, Model, "PassportType")
         </div>
         <div class="float-right" style="width: 47%">
-            @Html.CicoEditorFor(model => model.Dependent.PreferredName)
-            @Html.CicoDropdownFor(model => model.Dependent.Relationship,"Relationship")
-            @Html.CicoEditorFor(model => model.Dependent.PersonalMobilePhone)
+            @Html.CicoDepHTMLFor(model => model.Dependent.PreferredName, Model)
+            @Html.CicoDepDropdownFor(model => model.Dependent.Relationship, Model, "Relationship")
+            @Html.CicoDepHTMLFor(model => model.Dependent.PersonalMobilePhone, Model)
             <div>
                 <div class="editor-label">
                     <label>
@@ -92,14 +93,14 @@
                 </div>
             </div>
             <div id="emergency-data">
-                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactName) 
-                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactOfficePhone) 
-                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone) 
-                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactPhone2) 
-                @Html.CicoEditorFor(model => model.Dependent.EmergencyContactEmail)
+                @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactName, Model) 
+                @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactOfficePhone, Model) 
+                @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactPhone, Model) 
+                @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactPhone2, Model) 
+                @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactEmail, Model)
             </div>
             <div class="editor-field">
-                   @Html.CicoEditorFor(model => model.Dependent.EmergencyContactRelationship)
+                   @Html.CicoDepHTMLFor(model => model.Dependent.EmergencyContactRelationship, Model)
             </div>
          </div>
         <div style="clear: both"></div>
@@ -117,13 +118,13 @@
                 </div>
             </div>
             <div id="address-data">
-                 @Html.CicoEditorFor(model => model.Dependent.ResidentPhoneNumber) 
-                 @Html.CicoEditorFor(model => model.Dependent.ResidentAddress) 
+                 @Html.CicoDepHTMLFor(model => model.Dependent.ResidentPhoneNumber, Model) 
+                 @Html.CicoDepHTMLFor(model => model.Dependent.ResidentAddress, Model) 
             </div>
             </div>
         <div class="float-right" style="width: 47%">
-            @Html.CicoEditorFor(model => model.Dependent.VisaNumber) 
-            @Html.CicoEditorFor(model => model.Dependent.VisaExpiration) 
+            @Html.CicoDepHTMLFor(model => model.Dependent.VisaNumber, Model) 
+            @Html.CicoDepHTMLFor(model => model.Dependent.VisaExpiration, Model) 
         </div>
     </fieldset>
     <div><input type="submit" value="Save" name="Save" /> </div>

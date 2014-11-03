@@ -16,6 +16,11 @@ namespace Cico.Models.Authentication
             _httpContext = httpContext;
         }
 
+        public UserSession()
+        {
+            // TODO: Complete member initialization
+        }
+
         private readonly ICicoContext _db = null;
         private readonly HttpContextBase _httpContext;
 
@@ -140,6 +145,15 @@ namespace Cico.Models.Authentication
             
             var staff = _db.Staffs.Include("Office").Include("Proxied").SingleOrDefault(c => c.UserId == uname || c.UserId == duname);
             return staff;
+        }
+        public Office GetCurrentStaffOffice()
+        {
+            var duname = _httpContext.User.Identity.Name;
+            //remove the domain - OpenText users are unique
+            var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
+
+            var staff = _db.Staffs.Include("Office").Include("Proxied").SingleOrDefault(c => c.UserId == uname || c.UserId == duname);
+            return staff.Office;
         }
 
 

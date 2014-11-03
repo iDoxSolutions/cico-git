@@ -38,17 +38,60 @@ namespace Cico.Areas.Admin
     {
         public Employee Employee { get; set; }
         public IList<SelectListItem> Proxies { get; set; }
+        public List<EmployeeAccess> EmployeeAccess { get; set; }
         public string SelectedProxy { get; set; }
+        public bool EditEnabled { get; set; }
         public void Load(ICicoContext db)
         {
-            Proxies = db.Staffs.Include("SystemRoles").Where(c=>c.SystemRoles.Any(d=>d.Name==SystemRole.UserProxy)).ToList().Select(c => new SelectListItem() {Text = c.UserId,Value = c.UserId}).ToList();
+            Proxies = db.Staffs.Include("SystemRoles").Where(c => c.SystemRoles.Any(d => d.Name == SystemRole.UserProxy)).ToList().Select(c => new SelectListItem() { Text = c.UserId, Value = c.UserId }).ToList();
             if (Employee != null && Employee.Proxy != null)
             {
                 SelectedProxy = Employee.Proxy.UserId;
             }
+            EmployeeAccess = AddEmployeeAccess(db);
+        }
+
+        private List<EmployeeAccess> AddEmployeeAccess(ICicoContext db)
+        {
+            var fieldNames = typeof(Employee).GetProperties().Select(a => new SelectListItem() { Text = a.ToString(), Value = a.Name, }).ToList().OrderBy(a => a.Text);
+            var EmployeeAccessModel = new List<EmployeeAccess>();
+
+            for (var i = 0; i < fieldNames.Count(); i++)
+            {
+                var fieldName = fieldNames.ToArray()[i];
+                var employeeRow = db.EmployeeAccess.SingleOrDefault(e => e.Name == fieldName.Value);
+                if (employeeRow == null)
+                {
+                    EmployeeAccessModel.Add(new EmployeeAccess()
+                    {
+                        Id = i,
+                        Name = fieldName.Value,
+                        Office0 = "Hide",
+                        Office1 = "Hide",
+                        Office2 = "Hide",
+                        Office3 = "Hide",
+                        Office4 = "Hide",
+                        Office5 = "Hide",
+                        Office6 = "Hide",
+                        Office7 = "Hide",
+                        Office8 = "Hide",
+                        Office9 = "Hide",
+                        Office10 = "Hide",
+                        Office11 = "Hide",
+                        Office12 = "Hide"
+                    });
+                }
+                else
+                {
+                    EmployeeAccessModel.Add(employeeRow);
+                }
+
+
+            }
+            return EmployeeAccessModel;
         }
     }
-
+    
     public class EmployeeController : Cico.Controllers.ControllerBase
     {
         //
@@ -82,23 +125,32 @@ namespace Cico.Areas.Admin
         public ViewResult Details(int id)
         {
             Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == id);
-            return View(employee);
+            var model = new EmployeeModel() { Employee = employee };
+            var staff = UserSession.GetCurrentStaff();
+            if (staff.Office != null)
+            {
+               // model.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+            }
+            model.Load(Db);
+            model.EditEnabled = false;
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Details(Employee model)
+        public ActionResult Details(EmployeeModel model)
         {
-            Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == model.Id);
+            Employee employee = Db.Employees.Include("CheckListSessions").Include("CheckListSessions.ChecklistTemplate").Single(c => c.Id == model.Employee.Id);
+            model.Employee = employee;
             if (!employee.TourEndDate.HasValue)
             {
                 ModelState.AddModelError("", "Departure Date is required");
                 
-                return View(employee);
+                return View(model);
             }
             else
             {
                 UserSession.InitCheckOutSession(employee);
-                return RedirectToAction("Details",new{id=model.Id});
+                return RedirectToAction("Details",new{id=model.Employee.Id});
             }
             
         }
@@ -152,8 +204,15 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(int id)
         {
             Employee employee = Db.Employees.Find(id);
-            var model = new EmployeeModel() {Employee = employee};
+            var model = new EmployeeModel() { Employee = employee };
+            var staff = UserSession.GetCurrentStaff();
+            //if (staff.Office != null)
+            //{
+            //    model.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+            //}
+            model.EditEnabled = true;
             model.Load(Db);
+            
             return View(model);
         }
 

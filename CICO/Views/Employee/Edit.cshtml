@@ -1,4 +1,4 @@
-﻿@model Cico.Models.Employee
+﻿@model Cico.Areas.Admin.EmployeeModel
 
 @{
     ViewBag.Title = "Employee Data";
@@ -12,8 +12,8 @@
         
      @Html.Partial("_employeeFields")
         <div><input type="submit" value="Save" name="Save"/></div>
-     @Html.HiddenFor(model => model.Id)
-     @Html.HiddenFor(model => model.UserId)
+     @Html.HiddenFor(model => model.Employee.Id)
+     @Html.HiddenFor(model => model.Employee.UserId)
    
     
 }

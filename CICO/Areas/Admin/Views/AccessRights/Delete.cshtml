@@ -1,0 +1,41 @@
+﻿@model Cico.Models.AccessRights
+
+@{
+    ViewBag.Title = "Delete AccessRights";
+}
+
+<h2>Delete AccessRights</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Access Rights</legend>
+    @Html.ValidationSummary()
+
+    <div class="display-label">Field Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FieldName)
+    </div>
+
+    <div class="display-label">Hide</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hide)
+    </div>
+    <div class="display-label">View</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.View)
+    </div>
+    <div class="display-label">View</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.View)
+    </div>
+    <div class="display-label">Office</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Office.Name)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index",new {fieldId=Model.Id})
+    </p>
+}

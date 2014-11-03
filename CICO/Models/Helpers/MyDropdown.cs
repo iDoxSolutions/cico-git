@@ -16,5 +16,15 @@ namespace Cico.Models.Helpers
                 .ToList();
             return items;
         }
+        
+    }
+
+    public static class FieldNamesDropdown
+    {
+        public static System.Collections.IList GetFieldNameItems(this HtmlHelper helper, string dropdownType)
+        {
+            return typeof(Employee).GetProperties().Select(a => a.Name).ToList();
+            
+        }
     }
 }

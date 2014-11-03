@@ -16,6 +16,7 @@
         <mvcSiteMapNode title="Edit Employee" controller="Employee" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Employee Details" controller="Employee" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Employee" controller="Employee" action="Delete" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Dependent" controller="Employee" action="DependentIndex" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
       <mvcSiteMapNode title="Offices" controller="Office" action="Index" area="admin">
         <mvcSiteMapNode title="Edit Office" controller="Office" action="Edit" area="admin"></mvcSiteMapNode>
@@ -41,6 +42,11 @@
         <mvcSiteMapNode title="Edit Staff" controller="Staff" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Staff Details" controller="Staff" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Staff" controller="Staff" action="Delete" area="admin"></mvcSiteMapNode>
+      </mvcSiteMapNode>
+    <mvcSiteMapNode title="Access Rights" controller="AccessRights" action="Index" area="admin">
+        <mvcSiteMapNode title="Create Access Rights" controller="AccessRights" action="Create" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Edit Access Rights" controller="AccessRights" action="Edit" area="admin"></mvcSiteMapNode>
+        <mvcSiteMapNode title="Delete Access Rights" controller="AccessRights" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
       <mvcSiteMapNode title="DropDowns" controller="DropDownItems" action="Index" area="admin">
         <mvcSiteMapNode title="Create DropDowns" controller="DropDownItems" action="Create" area="admin"></mvcSiteMapNode>

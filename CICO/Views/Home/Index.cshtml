@@ -27,7 +27,7 @@
 
 <div class="columnsContainer">
     <div class="rightColumn">
-        <div id="infoTabs">
+        <div id="infoTabs" style="overflow-y: scroll; height: 600px">
             <ul>
                 <li><a href="#myinfo">My Info</a></li>
                 <li><a href="#completion">Completion Details</a></li>
@@ -110,11 +110,11 @@
                     <div class="title ui-widget ui-widget-header">
                         @if (Model.CanEditEmployee)
                         {
-                            <a href="/employee/edit/@Model.Employee.Id" style="float: right">Edit my data</a>
+                            <a href="/employee/edit/@Model.EmployeeModel.Employee.Id" style="float: right">Edit my data</a>
                         }
                         <div style="clear: both"></div>
                     </div>
-                    @Html.Partial("EmployeeForm", Model.Employee)
+                    @Html.Partial("EmployeeForm", Model.EmployeeModel)
                 </div>
 
             </div>
@@ -123,7 +123,7 @@
                     <div class="title ui-widget ui-widget-header">
                         @if (Model.CanEditEmployee)
                         {
-                            <a href="/dependent/create/@Model.Employee.Id" style="float: right">Add Dependent</a>
+                            <a href="/dependent/create/@Model.EmployeeModel.Employee.Id" style="float: right">Add Dependent</a>
                         }
                         <div style="clear: both"></div>
                     </div>
@@ -140,7 +140,7 @@
                 
             </ul>
 
-            <div id="checkIn" style="overflow-y: scroll; height: 1110px">
+            <div id="checkIn" style="overflow-y: scroll; height: 600px">
                 <div class="homescreen-instructions" data-bind="with:completed" style="color: red">
                     Checklist is completed
                 </div>
@@ -333,7 +333,7 @@
             return { 'controlsDescendantBindings': true };
         }
     };
-
+ 
 
     $(function () {
         $("#infoTabs").tabs();
@@ -370,7 +370,6 @@
                     plugins : 'autoresize',
                     width: '100%',
                     content_css: "/content/custom-tinymce.css",
-                    theme_advanced_font_sizes: "10px,12px,13px,14px,16px,18px,20px",
                     font_size_style_values: "10px,12px,13px,14px,16px,18px,20px",
                     mode: "textareas",
                     theme: "simple"

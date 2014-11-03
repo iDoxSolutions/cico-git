@@ -20,5 +20,6 @@ namespace Cico.Models
 
         public virtual IList<Staff> Staffs { get; set; }
         public virtual IList<CheckListItemTemplate> CheckListItemTemplates { get; set; }
+        
     }
 }

@@ -100,6 +100,7 @@ h5, h6 {
 .content-wrapper {
     margin: 0 auto;
     max-width: 960px;
+    max-height: 600px;
 }
 
 #body {
@@ -813,7 +814,7 @@ div.tabcontents div.content h2 {
  .columnsContainer
     {
         position: relative;
-        height: 400px
+        height: 610px
     }
 
     .leftColumn
@@ -971,6 +972,18 @@ div.tabcontents div.content h2 {
         border: 1px solid #e2e2e2;
         vertical-align: central
     }
+
+    .hide-display {
+        padding-left: 5px;
+        font-size: small;
+	    color: lightgrey;
+        min-height: 20px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        border: 1px solid #e2e2e2;
+        vertical-align: central;
+        background-color: lightgrey
+    }
 	.homescreen-instructions {
         font-style: normal;
 		color: green;
@@ -1000,6 +1013,16 @@ div.tabcontents div.content h2 {
         
     }
 
+        .two-column-form editor-label label {
+            font-style: normal;
+            font-size: medium;
+            font-weight: normal;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            margin-top: 3px;
+            margin-bottom: 1px;
+        }
+
     .two-column-form .editor-field input {
         width: 100%;
         padding: 5px;
@@ -1020,6 +1043,14 @@ div.tabcontents div.content h2 {
         border: 1px solid #e2e2e2;
         margin: 5px 0 6px 0;
         padding: 5px;
+    }
+     .two-column-form .hide-field input {
+        width: 100%;
+        padding: 5px;
+        margin: 5px 0 6px 0;
+        border: 1px solid #e2e2e2;
+        background-color: lightgrey;
+        color: lightgrey;
     }
 
     

@@ -38,6 +38,8 @@ namespace Cico.Models
         public IDbSet<DocumentTemplate> DocumentTemplates { get; set; }
         public IDbSet<CheckListItemSubmitionTrack> CheckListItemSubmitionTracks { get; set; }
         public IDbSet<CheckListSession> CheckListSessions { get; set; }
+        public IDbSet<EmployeeAccess> EmployeeAccess { get; set; }
+        public IDbSet<DependentAccess> DependentAccess { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>()

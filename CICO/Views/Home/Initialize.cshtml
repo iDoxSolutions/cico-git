@@ -20,21 +20,21 @@
         @Html.ValidationSummary()
         <legend>Init Data</legend>
         <div class="editor-field">
-            @Html.CicoEditorFor(c => c.ArrivalDate,"*Enter best estimate. Can be changed later")
-            @Html.ValidationMessageFor(c=>c.ArrivalDate)
+            @Html.CicoHTMLFor(c => c.ArrivalDate, Model, "*Enter best estimate. Can be changed later")
+            @Html.ValidationMessageFor(c => c.ArrivalDate)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(c=>c.FirstName)
+            @Html.LabelFor(c => c.FirstName, Model)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(c=>c.FirstName)
-            @Html.ValidationMessageFor(c=>c.FirstName)
+            @Html.EditorFor(c => c.FirstName)
+            @Html.ValidationMessageFor(c => c.FirstName)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(c=>c.LastName)
+            @Html.LabelFor(c => c.LastName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(c=>c.LastName)
+            @Html.EditorFor(c => c.LastName)
             @Html.ValidationMessageFor(c=>c.LastName)
         </div>
         <div class="editor-label">

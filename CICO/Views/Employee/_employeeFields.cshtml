@@ -1,82 +1,82 @@
 ﻿@using Cico.Models.Helpers
-@model Cico.Models.Employee
+@model Cico.Areas.Admin.EmployeeModel
 
 <div> <input type="submit" value="Save" /></div>
 <fieldset class="two-column-form" style="width: 80%">
-<div class="editor-field">
+@*<div class="editor-field">
             <button type="submit">Save</button>
-        </div>
+        </div>*@
         <br></br>
     <legend>Employee</legend>
     @Html.ValidationSummary()
     
     <div class="float-left" style="width: 47%">
-        @Html.CicoEditorFor(model => model.FirstName, "*As appears on passport")
-        @Html.CicoEditorFor(model => model.MiddleInitial)
-        @Html.CicoEditorFor(model => model.LastName, "*As appears on passport")
-        @Html.CicoEditorFor(model => model.PreferredName)
-        @Html.CicoEditorFor(model => model.SSN)
-        @Html.CicoEditorFor(model => model.CellPhone)
-        @Html.CicoEditorFor(model => model.PersonalEmail)
-        @Html.CicoEditorFor(model => model.WorkEmail)
-        @Html.CicoEditorFor(model => model.Title)
-        @Html.CicoEditorFor(model => model.PositionTitle)
-        @Html.CicoEditorFor(model => model.DiplomaticTitle)
-        @Html.CicoEditorFor(model => model.DateOfBirth)
-        @Html.CicoDropdownFor(model => model.Nationality, "Nations")
-        @Html.CicoEditorFor(model => model.HomeAddress)
-        @Html.CicoDropdownFor(model => model.LegalResidenceState, "States")
-        @Html.CicoEditorFor(model => model.PassportNumber)
-        @Html.CicoEditorFor(model => model.PassportExpiration)
-        @Html.CicoDropdownFor(model => model.PassportType, "PassportType")
+        @Html.CicoEmpHTMLFor(model => model.Employee.FirstName, Model, "*As appears on passport")
+        @Html.CicoEmpHTMLFor(model => model.Employee.MiddleInitial, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.LastName, Model, "*As appears on passport")
+        @Html.CicoEmpHTMLFor(model => model.Employee.PreferredName, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.SSN, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.CellPhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.PersonalEmail, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.WorkEmail, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.Title, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.PositionTitle, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.DiplomaticTitle, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.DateOfBirth, Model)
+        @Html.CicoEmpDropdownFor(model => model.Employee.Nationality, Model, "Nations")
+        @Html.CicoEmpHTMLFor(model => model.Employee.HomeAddress, Model)
+        @Html.CicoEmpDropdownFor(model => model.Employee.LegalResidenceState, Model, "States")
+        @Html.CicoEmpHTMLFor(model => model.Employee.PassportNumber, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.PassportExpiration, Model)
+        @Html.CicoEmpDropdownFor(model => model.Employee.PassportType, Model, "PassportType")
         
             
     </div>
     <div class="float-right" style="width: 47%">
         
-        @Html.CicoDropdownFor(model => model.Agency, "Agency")
-        @Html.CicoDropdownFor(model => model.Section, "Sections")
-        @Html.CicoDropdownFor(model => model.Office, "Office")
-        @Html.CicoEditorFor(model => model.ArrivalDate)
-        @Html.CicoEditorFor(model => model.TourEndDate)
-        @Html.CicoEditorFor(model => model.PriorPost)
-        @Html.CicoEditorFor(model => model.PreArrivalPhone)
-        @Html.CicoEditorFor(model => model.EmergencyContactName)
-        @Html.CicoEditorFor(model => model.EmergencyContactRelationship)
-        @Html.CicoEditorFor(model => model.EmergencyContactOfficePhone)
-        @Html.CicoEditorFor(model => model.EmergencyContactPhone)
-        @Html.CicoEditorFor(model => model.EmergencyContactPhone2)
-        @Html.CicoEditorFor(model => model.EmergencyContactEmail)
-        @Html.CicoEditorFor(model => model.ClearanceLevel)
-        @Html.CicoEditorFor(model => model.Gender)
-        @Html.CicoEditorFor(model => model.BankAccount)
-        @Html.CicoEditorFor(model => model.RoutingNumber)
+        @Html.CicoEmpDropdownFor(model => model.Employee.Agency, Model, "Agency")
+        @Html.CicoEmpDropdownFor(model => model.Employee.Section, Model, "Sections")
+        @Html.CicoEmpDropdownFor(model => model.Employee.Office, Model, "Office")
+        @Html.CicoEmpHTMLFor(model => model.Employee.ArrivalDate, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.TourEndDate, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.PriorPost, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.PreArrivalPhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactName, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactRelationship, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactOfficePhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactPhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactPhone2, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.EmergencyContactEmail, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.ClearanceLevel, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.Gender, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.BankAccount, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.RoutingNumber, Model)
         <div style="clear: both"></div>
     </div>
     
-    <br > <br />
+    @*<br > <br />
         
         <div class="editor-field" >
             <button type="submit">Save</button>
-        </div>
+        </div>*@
 </fieldset>
 <fieldset class="two-column-form" style="width: 80%">
     <legend>After Arrival</legend>
     <h2>After Arrival</h2>
     
     <div class="float-left" style="width: 47%">
-        @Html.CicoEditorFor(model => model.HomePhone)
-        @Html.CicoEditorFor(model => model.ResidentAddress)
+        @Html.CicoEmpHTMLFor(model => model.Employee.HomePhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.ResidentAddress, Model)
       
-        @Html.CicoEditorFor(model => model.OfficeCellPhone)
-        @Html.CicoEditorFor(model => model.OfficePhone)
-        @*Html.CicoEditorFor(model => model.SafeWord)*@
+        @Html.CicoEmpHTMLFor(model => model.Employee.OfficeCellPhone, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.OfficePhone, Model)
+        @*Html.CicoEmpHTMLFor(model => model.Employee.SafeWord)*@
         
     </div>
     <div class="float-right" style="width: 47%">
-        @Html.CicoEditorFor(model => model.VisaNumber)
-        @Html.CicoEditorFor(model => model.VisaExpiration)
-        @Html.CicoEditorFor(model => model.RadioCallSign)
-        @Html.CicoEditorFor(model => model.LicensePlate)
+        @Html.CicoEmpHTMLFor(model => model.Employee.VisaNumber, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.VisaExpiration, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.RadioCallSign, Model)
+        @Html.CicoEmpHTMLFor(model => model.Employee.LicensePlate,Model)
     </div>
 </fieldset>

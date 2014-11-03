@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cico.Models;
+using Cico.Areas.Admin;
 using Cico.Models.Helpers;
 
 namespace Cico.Controllers
@@ -35,7 +36,15 @@ namespace Cico.Controllers
         public ActionResult Edit(int id)
         {
             var employee = Db.Employees.Find(id);
-            return View(employee);
+            var model = new EmployeeModel() { Employee = employee };
+            var staff = UserSession.GetCurrentStaff();
+            if (staff.Office != null)
+            {
+                //model.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+            }
+            model.EditEnabled = true;
+            model.Load(Db);
+            return View(model);
         }
 
         public ActionResult AutoPopulateData(int employeeId)
@@ -48,33 +57,33 @@ namespace Cico.Controllers
 
         
         [HttpPost]
-        public ActionResult Edit(Employee model) {
-            var employeee = Db.Employees.Single(c => c.Id == model.Id);
+        public ActionResult Edit(EmployeeModel model) {
+            var employeee = Db.Employees.Single(c => c.Id == model.Employee.Id);
             SecurityGuard.CanEditEmployee(employeee, ModelState);
             if (ModelState.IsValid)
             {
-                var emp = Db.Employees.Single(c => c.Id == model.Id);
+                var emp = Db.Employees.Single(c => c.Id == model.Employee.Id);
                 Db.Entry(emp).State = EntityState.Modified;
-                var checklist = Db.CheckListSessions.Include("CheckListTemplate").FirstOrDefault(c => c.Employee.Id == model.Id && c.Active);
-                if (emp.ArrivalDate.HasValue && model.ArrivalDate.HasValue &&
-                    emp.ArrivalDate.Value.Date != model.ArrivalDate.Value.Date)
+                var checklist = Db.CheckListSessions.Include("CheckListTemplate").FirstOrDefault(c => c.Employee.Id == model.Employee.Id && c.Active);
+                if (emp.ArrivalDate.HasValue && model.Employee.ArrivalDate.HasValue &&
+                    emp.ArrivalDate.Value.Date != model.Employee.ArrivalDate.Value.Date)
                 {
                     if (checklist != null)
                     {
                         if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKIN")
                         {
-                            checklist.ReferenceDate = model.ArrivalDate.Value;
+                            checklist.ReferenceDate = model.Employee.ArrivalDate.Value;
                         }
                         
                     }
                 }
 
-                if (emp.TourEndDate.HasValue && model.TourEndDate.HasValue &&
-                    emp.TourEndDate.Value.Date != model.TourEndDate.Value.Date)
+                if (emp.TourEndDate.HasValue && model.Employee.TourEndDate.HasValue &&
+                    emp.TourEndDate.Value.Date != model.Employee.TourEndDate.Value.Date)
                 {
                     if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKOUT")
                     {
-                        checklist.ReferenceDate = model.TourEndDate.Value;
+                        checklist.ReferenceDate = model.Employee.TourEndDate.Value;
                     }
                 }
 

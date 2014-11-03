@@ -12,7 +12,7 @@ using Cico.Models.Authentication;
 
 namespace Cico.Areas.Admin
 {
-    //public class DepententModel
+    //public class DependentModel
     //{
     //    public Dependent Dependent { get; set; }
     //}
@@ -30,11 +30,11 @@ namespace Cico.Areas.Admin
 
         public ActionResult Create(int employeeId)
         {
-            return View(new DepententModel(){EmployeeId = employeeId,Dependent = new Dependent(){SameECData = true, Employee = new Employee(){Id = employeeId}}});
+            return View(new DependentModel(){EmployeeId = employeeId,Dependent = new Dependent(){SameECData = true, Employee = new Employee(){Id = employeeId}}});
         }
 
         [HttpPost]
-        public ActionResult Create(DepententModel model)
+        public ActionResult Create(DependentModel model)
         {
             var dep = Db.Employees.Find(model.EmployeeId);
             SecurityGuard.CanEditEmployee(dep, ModelState);
@@ -55,12 +55,13 @@ namespace Cico.Areas.Admin
         public ActionResult Edit(int id)
         {
             var dependent = Db.Dependents.Single(c => c.Id == id);
-            var model = new DepententModel(){Dependent = dependent,EmployeeId = dependent.Employee.Id};
+            var model = new DependentModel(){Dependent = dependent,EmployeeId = dependent.Employee.Id};
+            model.EditEnabled = true;
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(DepententModel model)
+        public ActionResult Edit(DependentModel model)
         {
 
             var dep = Db.Dependents.Find(model.Dependent.Id);
