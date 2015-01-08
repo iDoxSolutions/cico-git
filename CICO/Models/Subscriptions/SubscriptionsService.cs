@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Objects.SqlClient;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
 using System.Web;
+using System.Data.Entity;
+using System.Data.Objects.SqlClient;
 using log4net;
 
 namespace Cico.Models.Subscriptions
@@ -47,7 +48,7 @@ namespace Cico.Models.Subscriptions
                               join checkListItemSubmitionTrack in _db.CheckListItemSubmitionTracks on
                                   checkListItemTemplate.CheckListItemTemplateId equals
                                   checkListItemSubmitionTrack.CheckListItemTemplate.CheckListItemTemplateId
-                              where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value,refDate) == 0 && checkListItemSubmitionTrack.Checked
+                               where SqlFunctions.DateDiff("day", checkListItemSubmitionTrack.DateEdited.Value, refDate) == 0 && checkListItemSubmitionTrack.Checked
                               && checkListItemTemplate.Active
                               select t ).ToList();
             log.DebugFormat("{0} staff users to be emailed",usersToSend.Count());

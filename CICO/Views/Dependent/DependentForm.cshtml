@@ -1,5 +1,6 @@
-﻿@using Cico.Models.Helpers
-@model Cico.Controllers.DependentModel
+﻿@model Cico.Controllers.DependentModel
+@using Cico.Models.Helpers
+
 
 
 <script type="text/javascript">
@@ -74,7 +75,7 @@
             @Html.CicoDepHTMLFor(model => model.Dependent.DateOfBirth, Model)
             @Html.CicoDepHTMLFor(model => model.Dependent.SchoolName, Model)
             @Html.CicoDepDropdownFor(model => model.Dependent.Nationality, Model, "Nations")
-            @Html.CicoDepHTMLFor(model => model.Dependent.PassportNumber, Model)
+            @Html.DepPassportDisplay(model => model.Dependent.PassportNumber, Model)
             @Html.CicoDepHTMLFor(model => model.Dependent.PassportExpiration, Model)
             @Html.CicoDepDropdownFor(model => model.Dependent.PassportType, Model, "PassportType")
         </div>

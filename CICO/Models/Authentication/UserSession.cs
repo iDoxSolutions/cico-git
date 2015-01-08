@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
+using System.Data;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -64,6 +64,16 @@ namespace Cico.Models.Authentication
             if(session==null)
                 throw new InvalidOperationException("Session not initialized!");
             return session;
+        }
+        public int GetCurrentUserId()
+        {
+            var duname = _httpContext.User.Identity.Name;
+            //remove the doamin - OpenText users are unique
+            var uname = Regex.Replace(duname, ".*\\\\(.*)", "$1", RegexOptions.None);
+            var session = _db.CheckListSessions.Include("CheckListTemplate").Include("CheckListItemSubmitionTracks").SingleOrDefault(c => c.UserId == uname && c.Active || c.UserId == duname && c.Active);
+            if (session == null)
+                throw new InvalidOperationException("Session not initialized!");
+            return session.Employee.Id;
         }
         public CheckListSession InitCheckListSession(InitModel initmodel)
         {

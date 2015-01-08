@@ -1,9 +1,8 @@
-﻿@using Cico.Models.Helpers
-@model Cico.Areas.Admin.EmployeeModel
+﻿@model Cico.Areas.Admin.EmployeeModel
 @{
     ViewBag.Title = "Edit Employee";
 }
-
+<h2>Edit Employee @Html.DisplayFor(m => m.Employee.FirstName) @Html.DisplayFor(m => m.Employee.LastName) </h2>
 <div>
 
     @Html.ActionLink("Back to List", "Index")
@@ -19,7 +18,7 @@
 {
     
     @Html.ValidationSummary(true)
-    @Html.Partial("_adminEmployeeFields",Model,new ViewDataDictionary{TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "Employee" }})
+    @Html.Partial("_adminEmployeeFields")
     @Html.Partial("_proxyFields")
     <input type="submit" value="Save" name="Save" />
     @Html.HiddenFor(model => model.Employee.Id)

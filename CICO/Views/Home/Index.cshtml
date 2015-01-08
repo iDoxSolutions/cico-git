@@ -25,9 +25,9 @@
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/DocumentWritingModel.js")"></script>
 <script type="text/javascript" src="@Html.VerRes("/Scripts/Forms/PhysicalActivityModel.js")"></script>
 
-<div class="columnsContainer">
+<div class="columnsContainer" >
     <div class="rightColumn">
-        <div id="infoTabs" style="overflow-y: scroll; height: 600px">
+        <div id="infoTabs" style="overflow-y: scroll; height: 590px">
             <ul>
                 <li><a href="#myinfo">My Info</a></li>
                 <li><a href="#completion">Completion Details</a></li>
@@ -108,9 +108,9 @@
 
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                        @if (Model.CanEditEmployee)
+                        @if (Model.CanEditEmployee != null)
                         {
-                            <a href="/employee/edit/@Model.EmployeeModel.Employee.Id" style="float: right">Edit my data</a>
+                        <a href="/employee/edit/@Model.EmployeeModel.Employee.Id" style="float: right">Edit my data</a>
                         }
                         <div style="clear: both"></div>
                     </div>
@@ -121,9 +121,9 @@
             <div id="mydependents">
                 <div class="tabContent">
                     <div class="title ui-widget ui-widget-header">
-                        @if (Model.CanEditEmployee)
+                        @if (Model.CanEditEmployee != null)
                         {
-                            <a href="/dependent/create/@Model.EmployeeModel.Employee.Id" style="float: right">Add Dependent</a>
+                        <a href="/dependent/create/@Model.EmployeeModel.Employee.Id" style="float: right">Add Dependent</a>
                         }
                         <div style="clear: both"></div>
                     </div>
@@ -137,17 +137,17 @@
         <div id="checkInTabs">
             <ul>
                 <li><a href="#checkIn">@Model.CheckListName</a></li>
-                
+
             </ul>
 
-            <div id="checkIn" style="overflow-y: scroll; height: 600px">
+            <div id="checkIn" style="overflow-y: scroll; height: 529px">
                 <div class="homescreen-instructions" data-bind="with:completed" style="color: red">
                     Checklist is completed
                 </div>
                 <div class="homescreen-instructions">
                     <label>Please select a task from the list below</label>
                 </div>
-                <ul data-bind="foreach: checklist " class="checklist" >
+                <ul data-bind="foreach: checklist " class="checklist">
                     <li>
                         <div data-bind="css: { selected: selected }, click:selectUrl" class="checkInItem ui-corner-all">
                             <div data-bind="text: Description" class="description" style="width: 180px; float: left"></div>

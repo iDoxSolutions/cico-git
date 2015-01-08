@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
@@ -8,6 +7,8 @@ using System.Web.Mvc;
 using Cico.Models;
 using Cico.Areas.Admin;
 using Cico.Models.Helpers;
+using System.Data.Entity;
+using System.Data;
 
 namespace Cico.Controllers
 {
@@ -36,13 +37,20 @@ namespace Cico.Controllers
         public ActionResult Edit(int id)
         {
             var employee = Db.Employees.Find(id);
-            var model = new EmployeeModel() { Employee = employee };
-            var staff = UserSession.GetCurrentStaff();
-            if (staff.Office != null)
+            var model = new EmployeeModel(UserSession)
             {
-                //model.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
+                Employee = employee,
+                AccessRights = Db.AccessFieldRights.Include("Office").Include("AccessField").ToList(),
+                Staff = UserSession.GetCurrentStaff()               
+            };
+            if (id == UserSession.GetCurrentUserId())
+            {
+                model.EditEnabled = true;
             }
-            model.EditEnabled = true;
+            else
+            {
+                model.AdminEditEnabled = true;
+            }
             model.Load(Db);
             return View(model);
         }
@@ -58,15 +66,16 @@ namespace Cico.Controllers
         
         [HttpPost]
         public ActionResult Edit(EmployeeModel model) {
-            var employeee = Db.Employees.Single(c => c.Id == model.Employee.Id);
-            SecurityGuard.CanEditEmployee(employeee, ModelState);
+            var employee = Db.Employees.Single(c => c.Id == model.Employee.Id);
+            // new field level security makes this obsolete
+            //SecurityGuard.CanEditEmployee(employee, ModelState);
             if (ModelState.IsValid)
             {
-                var emp = Db.Employees.Single(c => c.Id == model.Employee.Id);
-                Db.Entry(emp).State = EntityState.Modified;
+
+                Db.Entry(employee).State = EntityState.Modified;
                 var checklist = Db.CheckListSessions.Include("CheckListTemplate").FirstOrDefault(c => c.Employee.Id == model.Employee.Id && c.Active);
-                if (emp.ArrivalDate.HasValue && model.Employee.ArrivalDate.HasValue &&
-                    emp.ArrivalDate.Value.Date != model.Employee.ArrivalDate.Value.Date)
+                if (employee.ArrivalDate.HasValue && model.Employee.ArrivalDate.HasValue &&
+                    employee.ArrivalDate.Value.Date != model.Employee.ArrivalDate.Value.Date)
                 {
                     if (checklist != null)
                     {
@@ -78,8 +87,8 @@ namespace Cico.Controllers
                     }
                 }
 
-                if (emp.TourEndDate.HasValue && model.Employee.TourEndDate.HasValue &&
-                    emp.TourEndDate.Value.Date != model.Employee.TourEndDate.Value.Date)
+                if (employee.TourEndDate.HasValue && model.Employee.TourEndDate.HasValue &&
+                    employee.TourEndDate.Value.Date != model.Employee.TourEndDate.Value.Date)
                 {
                     if (checklist.CheckListTemplate.Type.ToUpper() == "CHECKOUT")
                     {
@@ -87,8 +96,8 @@ namespace Cico.Controllers
                     }
                 }
 
-                CopyValues(model,emp);
-                
+                CopyValues(model.Employee, employee);
+                Db.Entry(employee).State = EntityState.Modified;
                 Db.SaveChanges();
                 
                 CacheHelper.RemoveKey<Employee>("user_full_name_" + UserSession.GetUserName()); 
@@ -96,7 +105,10 @@ namespace Cico.Controllers
             }
             else
             {
-                return View();
+                model.UserSession = UserSession;
+                model.EditEnabled = true;
+                model.Load(Db);
+                return View(model);
             }
         }
 

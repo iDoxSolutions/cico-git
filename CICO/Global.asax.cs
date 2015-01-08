@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Data.Entity;
 using Cico.Models;
 using Cico.Models.Helpers;
 using Cico.Models.SharePoint;
@@ -73,7 +73,7 @@ namespace Cico
         {
             
 
-            string currentVersion = "1.1.32";
+            string currentVersion = "2.0.10";
             var version = context.Settings.SingleOrDefault(c => c.Name == "AppVersion");
             if (version != null) {
                 version.Value = currentVersion;

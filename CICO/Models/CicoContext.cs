@@ -2,21 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Objects;
 using System.Linq;
 using System.Web;
 using Cico.Models.Helpers;
+using System.Data.Entity;
 
 namespace Cico.Models
 {
-    public class CicoContext : DbContext, ICicoContext
+    public class CicoContext : System.Data.Entity.DbContext, ICicoContext
     {
         public CicoContext()
         {
             this.Configuration.LazyLoadingEnabled = true;
         }
+
+        public IDbSet<AccessField> AccessFields { get; set; }
+        public IDbSet<AccessFieldRight> AccessFieldRights { get; set; }
         public IDbSet<SentBoxItem> SentBoxItems { get; set; }
         public IDbSet<AppFeature> AppFeatures { get; set; }
         public IDbSet<DependentFile> DependentFiles { get; set; }
@@ -64,6 +67,8 @@ namespace Cico.Models
                         .WithMany(c => c.ChecklistItems);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.Staffs).WithMany(c => c.SystemRoles);
             modelBuilder.Entity<SystemRole>().HasMany(c => c.AppFeatures).WithMany(c => c.SystemRoles);
+            modelBuilder.Entity<AccessFieldRight>().HasRequired(c => c.AccessField);
+            modelBuilder.Entity<AccessFieldRight>().HasRequired(c => c.Office);
             modelBuilder.Ignore<EntityBase>().Ignore<EntityBaseWithKey>();
         }
 

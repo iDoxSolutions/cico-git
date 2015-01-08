@@ -45,7 +45,7 @@ namespace Cico.Models
                     return false;
                 }
 
-                log.DebugFormat("dependents = {1}",this.CheckListItemTemplate.Dependents);
+                log.DebugFormat("dependents = {0}",this.CheckListItemTemplate.Dependents);
                 if (this.CheckListItemTemplate.Dependents && this.CheckListItemTemplate.Item == ChckItemTypes.DocumentSubmitted.ToString()
                     || this.CheckListItemTemplate.Item == ChckItemTypes.DocumentWriting.ToString())
                 {

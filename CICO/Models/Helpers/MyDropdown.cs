@@ -16,6 +16,19 @@ namespace Cico.Models.Helpers
                 .ToList();
             return items;
         }
+
+        public static IList<SelectListItem> GetNationsDropdownItems(this HtmlHelper helper, string dropdownType)
+        {
+            var db = new CicoContext();
+
+            var items = db.DropdownItems.Where(c => c.ValueType == dropdownType).OrderBy(c => c.Description)
+                .Select(c => new SelectListItem() { Text = c.Description, Value = c.Key })
+                .ToList();
+            var us = db.DropdownItems.Where(c => c.Description == "UNITED STATES")                                        
+                .Select(c => new SelectListItem() { Text =c.Description, Value = c.Key })
+                .ToList();
+            return (us.Concat(items).ToList());
+        }
         
     }
 

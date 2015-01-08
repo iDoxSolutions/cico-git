@@ -51,7 +51,7 @@ namespace Cico.Areas.Admin
             CheckOut = true;
         }
         public IPagedList<CheckListModel> CheckListModels { get; set; }
-        public string EmployeeeName { get; set; }
+        public string EmployeeName { get; set; }
         public DateTime? ReceiveDateFrom { get; set; }
         public DateTime? ReceiveDateTo { get; set; }
         public int? Page { get; set; }
@@ -82,9 +82,9 @@ namespace Cico.Areas.Admin
             model.Page = model.Page ?? 1;
             
             var sessions = Db.CheckListSessions.Where(c => c.Active).Include("Employee").Include("CheckListTemplate");
-            if (!string.IsNullOrEmpty(model.EmployeeeName))
+            if (!string.IsNullOrEmpty(model.EmployeeName))
             {
-                sessions = sessions.Where(c => c.Employee.FirstName.Contains(model.EmployeeeName) || c.Employee.LastName.Contains(model.EmployeeeName));
+                sessions = sessions.Where(c => c.Employee.FirstName.Contains(model.EmployeeName) || c.Employee.LastName.Contains(model.EmployeeName));
             }
             if (model.ReceiveDateFrom.HasValue)
             {

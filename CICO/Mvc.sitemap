@@ -29,9 +29,13 @@
         <mvcSiteMapNode title="Reminder Details" controller="Reminder" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Reminder" controller="Reminder" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
-      <mvcSiteMapNode title="Subscriptions" controller="Subscriptions" action="Index" area="admin">
+      <mvcSiteMapNode title="Notifications" controller="SentBox" action="Index" area="admin">
+      <mvcSiteMapNode title="Show Notifications" controller="SentBox" action="Show" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
-    <mvcSiteMapNode title="Forms Library" controller="forms" action="Index" area="admin">
+      <mvcSiteMapNode title="Subscriptions" controller="OfficeAdminDashboard" action="Index" area="admin">
+      
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Forms Library" controller="DocumentTemplate" action="Index" area="admin">
       <mvcSiteMapNode title="Create Forms" controller="DocumentTemplate" action="Create" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Edit Forms" controller="DocumentTemplate" action="Edit" area="admin"></mvcSiteMapNode>
       <mvcSiteMapNode title="Forms Details" controller="DocumentTemplate" action="Details" area="admin"></mvcSiteMapNode>
@@ -43,7 +47,7 @@
         <mvcSiteMapNode title="Staff Details" controller="Staff" action="Details" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Staff" controller="Staff" action="Delete" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
-    <mvcSiteMapNode title="Access Rights" controller="AccessRights" action="Index" area="admin">
+      <mvcSiteMapNode title="Access Rights" controller="AccessRights" action="Index" area="admin">
         <mvcSiteMapNode title="Create Access Rights" controller="AccessRights" action="Create" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Edit Access Rights" controller="AccessRights" action="Edit" area="admin"></mvcSiteMapNode>
         <mvcSiteMapNode title="Delete Access Rights" controller="AccessRights" action="Delete" area="admin"></mvcSiteMapNode>
@@ -57,6 +61,7 @@
         <mvcSiteMapNode title="Edit Checklist" controller="ChecklistBuilder" action="Edit" area="admin"></mvcSiteMapNode>
           <mvcSiteMapNode title="Edit Checklist Item" controller="ItemClass" action="Edit" area="admin"></mvcSiteMapNode>
       </mvcSiteMapNode>
+     
 </mvcSiteMapNode>
   </mvcSiteMapNode>
 

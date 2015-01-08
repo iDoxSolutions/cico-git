@@ -56,7 +56,6 @@
 			tb.add(cf.createButton('undo', {title : 'simple.undo_desc', cmd : 'Undo'}));
 			tb.add(cf.createButton('redo', {title : 'simple.redo_desc', cmd : 'Redo'}));
 			tb.add(cf.createSeparator());
-			tb.add(cf.createButton('cleanup', {title : 'simple.cleanup_desc', cmd : 'mceCleanup'}));
 			tb.add(cf.createSeparator());
 			tb.add(cf.createButton('insertunorderedlist', {title : 'simple.bullist_desc', cmd : 'InsertUnorderedList'}));
 			tb.add(cf.createButton('insertorderedlist', {title : 'simple.numlist_desc', cmd : 'InsertOrderedList'}));

@@ -1,8 +1,11 @@
 ﻿@model Cico.Controllers.DependentModel
+@using Cico.Models.Helpers
 
 @{
     ViewBag.Title = "Create";
 }
+<h2>Create Dependent for Employee @Html.GetDepModelEmployeeName(Model) </h2>
+
 
 <div class="homescreen-instructions"><label>Please enter your dependent's information. Select "Save" to save your changes</label></div>
 

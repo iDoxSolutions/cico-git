@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Data.Common;
-using System.Data.Entity.Infrastructure;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Cico.Models;
 using Cico.Models.Authentication;
+using System.Data.Entity.Infrastructure;
 
 namespace Cico.Controllers
 {
@@ -58,8 +59,11 @@ namespace Cico.Controllers
                 if (targetProperty != null && targetProperty.CanWrite && targetProperty.PropertyType.IsAssignableFrom(property.PropertyType))
                 {
                     var value = property.GetValue(source, null);
+                    if (value != null)
+                    {
+                        targetProperty.SetValue(target, value, null);
 
-                    targetProperty.SetValue(target, value, null);
+                    }
                 }
             }
         }

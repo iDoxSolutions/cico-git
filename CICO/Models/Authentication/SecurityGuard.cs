@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using log4net;
+using System.Text.RegularExpressions;
 
 namespace Cico.Models.Authentication
 {
@@ -126,7 +127,10 @@ namespace Cico.Models.Authentication
 
         private bool IsUsersCheckList(CheckListSession session)
         {
-            return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase) && session.Employee.Active;
+            //return string.Equals( session.UserId.TrimEnd() ,_http.User.Identity.Name,StringComparison.OrdinalIgnoreCase) && session.Employee.Active;
+            //strip off the domain name and compare
+            return string.Equals( Regex.Replace(session.UserId.TrimEnd(), ".*\\\\(.*)", "$1", RegexOptions.None) ,Regex.Replace(_http.User.Identity.Name, ".*\\\\(.*)", "$1", RegexOptions.None),StringComparison.OrdinalIgnoreCase) && session.Employee.Active;
+            
         }
 
         public bool CanEditEmployee(Employee employee,ModelStateDictionary modelState)

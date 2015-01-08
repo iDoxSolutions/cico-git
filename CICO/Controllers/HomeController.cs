@@ -10,12 +10,15 @@ using Cico.Models.Authentication;
 using Cico.Models.Helpers;
 using Cico.Areas.Admin;
 using Cico.Models.Services;
+using log4net;
 
 
 namespace Cico.Controllers
 {
     public class HomeController : ControllerBase
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(CheckListsController).Name);
+
         public ActionResult Initialize(int? employeeId)
         {
             if (UserSession.IsInitialized(employeeId))
@@ -54,9 +57,11 @@ namespace Cico.Controllers
 
             if (staff != null)
             {
+                log.DebugFormat("HomeController:Index: staff not null");
                 if (!staff.ReqireCheckList && !id.HasValue)
                 {
                     if (!User.IsInRole(SystemRole.UserProxy)) {
+                        log.DebugFormat("HomeController:Index: not proxy, redirect to checklist index");
                         return RedirectToAction("index", "checklists", new { area = "Admin" });
                     }
                     else {
@@ -65,57 +70,71 @@ namespace Cico.Controllers
 
                 }
             }
+            
 
             if (!UserSession.IsInitialized(null) && !id.HasValue) {
+                log.DebugFormat("HomeController:Index: redirect to initialize");
                 return RedirectToAction("initialize");
             }
             CheckListSession session = null;
             bool canEditEmployee = false;
             if (!id.HasValue)
             {
+                log.DebugFormat("HomeController:Index: no id value");
                 session = UserSession.GetCurrent();
-                canEditEmployee = true;
+                // no editing until "edit my data" selected
+                //canEditEmployee = true;
             }
             else
             {
                 session = Db.CheckListSessions.Include("CheckListTemplate").Single(c=>c.Id==id.Value);
                 if ((staff != null && UserSession.IsOfficeAdmin))
                 {
+                    log.DebugFormat("HomeController:Index: office admin");
                     if (staff.Office.Name == "HR" || User.IsInRole(SystemRole.GlobalAdmin))
                     {
-                        canEditEmployee = true;
-                        ViewData["canEditEmployee"] = true;
+                        log.DebugFormat("HomeController:Index: global admin");
+                        // no editing until "edit my data" selected
+                        //canEditEmployee = true;
+                        //ViewData["canEditEmployee"] = true;
                     }
                 }
                 else
                 {
                     if (User.IsInRole(SystemRole.GlobalAdmin))
                     {
-                        canEditEmployee = true;
-                        ViewData["canEditEmployee"] = true;
+                        // no editing until "edit my data" selected
+                       // canEditEmployee = true;
+                       // ViewData["canEditEmployee"] = true;
                     }
                 }
             }
-            canEditEmployee = true;
+            //canEditEmployee = true;
             UiHelper.SetCurrentName(session.Employee.FirstName + " " + session.Employee.LastName);
+            var accessRights = Db.AccessFieldRights.Include("AccessField").Include("Office").ToList();
             var model = new HomeModel()
                 {
-                    EmployeeModel = new EmployeeModel() { Employee = session.Employee,
-                                            EditEnabled = false    
+                    EmployeeModel = new EmployeeModel(UserSession) { Employee = session.Employee,
+                                                          EditEnabled = canEditEmployee,
+                                                          Staff = staff,
+                                                          AccessRights = accessRights,
                                                          },
                     CheckListId = id,
                     CheckListName = session.CheckListTemplate.Name,
                     Tab = tab,
-                    CanEditEmployee = canEditEmployee
+                    CanEditEmployee = canEditEmployee,
+                    AccessRights = accessRights,
+                    Staff=staff
                     
                 };
-            if (staff.Office != null)
-            {
+            log.DebugFormat("HomeController:Index: HomeModel created");
+            //if (staff.Office != null)
+            //{
                 //model.EmployeeModel.UserAccessRights = Db.AccessRights.Where(a => a.Office.Name == staff.Office.Name).ToList();
-            }
+            //}
             model.Load(Db);
             ViewBag.Message = "Please enter information";
-
+            log.DebugFormat("HomeController:Index: HomeModel loaded");
             return View(model);
         }
 

@@ -12,7 +12,7 @@
         @Html.CicoEmpHTMLFor(model => model.Employee.MiddleInitial,Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.LastName, Model, "*As appears on passport")
         @Html.CicoEmpHTMLFor(model => model.Employee.PreferredName, Model)
-        @Html.CicoEmpHTMLFor(model => model.Employee.SSN, Model)
+        @Html.SSNDisplay(model => model.Employee.SSN, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.CellPhone, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.PersonalEmail, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.WorkEmail, Model)
@@ -23,7 +23,7 @@
         @Html.CicoEmpDropdownFor(model => model.Employee.Nationality, Model, "Nations")
         @Html.CicoEmpHTMLFor(model => model.Employee.HomeAddress, Model)
         @Html.CicoEmpDropdownFor(model => model.Employee.LegalResidenceState, Model, "States")
-        @Html.CicoEmpHTMLFor(model => model.Employee.PassportNumber, Model)
+        @Html.PassportDisplay(model => model.Employee.PassportNumber, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.PassportExpiration, Model)
         @Html.CicoEmpDropdownFor(model => model.Employee.PassportType, Model, "PassportType")
         

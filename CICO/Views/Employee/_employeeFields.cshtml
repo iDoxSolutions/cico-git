@@ -23,7 +23,7 @@
         @Html.CicoEmpHTMLFor(model => model.Employee.PositionTitle, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.DiplomaticTitle, Model)
         @Html.CicoEmpHTMLFor(model => model.Employee.DateOfBirth, Model)
-        @Html.CicoEmpDropdownFor(model => model.Employee.Nationality, Model, "Nations")
+        @Html.CicoEmpNationsDropdownFor(model => model.Employee.Nationality, Model, "Nations")
         @Html.CicoEmpHTMLFor(model => model.Employee.HomeAddress, Model)
         @Html.CicoEmpDropdownFor(model => model.Employee.LegalResidenceState, Model, "States")
         @Html.CicoEmpHTMLFor(model => model.Employee.PassportNumber, Model)

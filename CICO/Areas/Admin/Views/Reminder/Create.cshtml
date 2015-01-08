@@ -24,8 +24,9 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.DateToSend)
-        </div>
+            @Html.LabelFor(model => model.DateToSend)<div class="homescreen-inline-instructions">
+                *negative is # days before Key Date, positive is # days after Key Date</div>
+            </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.DateToSend)
             @Html.ValidationMessageFor(model => model.DateToSend)

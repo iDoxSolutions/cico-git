@@ -76,7 +76,7 @@
                 @Html.LabelFor(model => model.Employee.Nationality)
             </div>
             <div class="editor-field">
-                @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetDropdownItems("Nations"), "")
+                @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetNationsDropdownItems("Nations"), "")
                 @Html.ValidationMessageFor(model => model.Employee.Nationality)
             </div>
                      
@@ -234,7 +234,7 @@
                     @Html.LabelFor(model => model.Employee.PriorPostCountry)
                 </div>
                 <div class="editor-field">
-                    @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetDropdownItems("Nations"), "")
+                    @Html.DropDownListFor(model => model.Employee.Nationality, Html.GetNationsDropdownItems("Nations"), "")
                     @Html.ValidationMessageFor(model => model.Employee.PriorPostCountry)
                 </div>
 

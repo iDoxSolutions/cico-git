@@ -4,12 +4,14 @@
     ViewBag.Title = "Employee Data";
     
 }
+<h2>Edit Employee @Html.DisplayFor(m => m.Employee.FirstName) @Html.DisplayFor(m => m.Employee.LastName) </h2>
+
 
 <div class="homescreen-instructions"><label>Please update your information. Select "Save" to save your changes</label></div>
 
 @using (Html.BeginForm())
 {
-        
+     @Html.ValidationSummary(true)
      @Html.Partial("_employeeFields")
         <div><input type="submit" value="Save" name="Save"/></div>
      @Html.HiddenFor(model => model.Employee.Id)

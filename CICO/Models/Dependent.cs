@@ -46,7 +46,7 @@ namespace Cico.Models
         public  string PersonalEmail { get; set; }
         [DisplayName("Passport Number")]
         [StringLength(9)]
-        [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
+        [RegularExpression("^[A-Za-z0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         [DisplayName("Passport Type")]
         public string PassportType { get; set; }

@@ -1,11 +1,14 @@
-using System.Data.Entity;
+using System.Data;
 using System.Data.Entity.Infrastructure;
 using Cico.Models.Helpers;
+using System.Data.Entity;
 
 namespace Cico.Models
 {
     public interface ICicoContext
     {
+        IDbSet<AccessField> AccessFields { get; set; }
+        IDbSet<AccessFieldRight> AccessFieldRights { get; set; }
         IDbSet<Reminder> Reminders { get; set; }
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
         DbEntityEntry Entry(object entity);

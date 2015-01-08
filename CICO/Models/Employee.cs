@@ -86,7 +86,7 @@ namespace Cico.Models    //  [DisplayName("")]   [StringLength()]
         //12
         [DisplayName("Passport Number")]
         [StringLength(9)]
-        [RegularExpression("^[0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
+        [RegularExpression("^[A-Za-z0-9]{6,9}$", ErrorMessage = "Invalid format for Passport Number.")]
         public string PassportNumber { get; set; }
         //13
         [DisplayName("Passport Expiration    (mm/dd/yyyy)")]

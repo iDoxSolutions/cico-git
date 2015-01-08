@@ -5,7 +5,7 @@
     ViewBag.Title = "Employee Details";
 }
 
-<h2>Employee Details</h2>
+<h2>Employee @Html.DisplayFor(m => m.Employee.FirstName) @Html.DisplayFor(m => m.Employee.LastName) Details</h2>
 @Html.ValidationSummary()
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -83,7 +83,7 @@
 
 
                 
-@Html.SSNDisplay(model => model.Employee.SSN)
+@Html.SSNDisplay(model => model.Employee.SSN, Model)
 @Html.Partial("EmployeeForm")
 
 <h3>

@@ -2,6 +2,7 @@
 @using Cico.Models.Helpers;
 @using (Html.BeginForm())
 {
+    
     <fieldset>
         <legend>Employee</legend>
         <div>
@@ -12,7 +13,7 @@
                 @Html.CicoEmpHTMLFor(model => model.Employee.MiddleInitial, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.LastName, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.PreferredName, Model)
-                @Html.SSNDisplay(model => model.Employee.SSN)
+                @Html.SSNDisplay(model => model.Employee.SSN, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.CellPhone, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.PersonalEmail, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.WorkEmail, Model)
@@ -23,7 +24,7 @@
                 @Html.CicoEmpHTMLFor(model => model.Employee.Nationality, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.HomeAddress, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.LegalResidenceState, Model)
-                @Html.CicoEmpHTMLFor(model => model.Employee.PassportNumber, Model)
+                @Html.PassportDisplay(model => model.Employee.PassportNumber, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.PassportExpiration, Model)
                 @Html.CicoEmpHTMLFor(model => model.Employee.PassportType, Model)
             </div>

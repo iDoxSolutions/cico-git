@@ -1,0 +1,437 @@
+﻿@using Cico.Models
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using Cico.Models.Helpers
+@using Cico.Areas.Admin
+
+@model AccessLevelModel
+
+       @{
+
+          ViewBag.Title = "Field Security";
+        }
+        <h2>Access Rights</h2>
+
+        <p>
+            
+            <a href="#" class="add">Add New</a>
+            <br />
+            <br />
+        </p>
+      @{
+      
+            var grid = new WebGrid(Model.EmployeeAccessModel, canPage: true, canSort: true, rowsPerPage: 12);
+       
+       }
+
+        @grid.GetHtml(
+        htmlAttributes: new { id = "grid" },
+        headerStyle: "webgridHeader",
+        tableStyle: "webgrid",
+        
+        fillEmptyRows: false,
+        mode: WebGridPagerModes.All,
+        firstText: "<< First",
+        previousText: "< Prev",
+        nextText: "Next >",
+        lastText: "Last >>",
+        columns: Model.WebGridColumns)
+        
+        
+        @*new[] {
+
+    grid.Column(columnName: "Name" ,header: "  Field Name", canSort: true, format: @<span>@Html.DropDownList("Name", Model.EmployeeFields)</span>),
+        
+    grid.Column(columnName: Model.OfficeArray[0],header: Model.OfficeArray[0], canSort: false, format: @<span>@Html.CicoEmpFieldDropdownFor((item) => Model.AccessList,Model, "AccessLevel")</span>),
+    grid.Column(columnName: Model.OfficeArray[1] ,header: Model.OfficeArray[1] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[1],Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[2] ,header: Model.OfficeArray[2] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[2], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[3] ,header: Model.OfficeArray[3] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[3], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[4] ,header: Model.OfficeArray[4] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[4], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[5] ,header: Model.OfficeArray[5] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[5], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[6] ,header: Model.OfficeArray[6] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[6], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[7] ,header: Model.OfficeArray[7] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[7], Model.AccessLevelList)</span>),
+    grid.Column(columnName: Model.OfficeArray[8] ,header: Model.OfficeArray[8] , canSort: false, format: @<span>@Html.DropDownList(Model.OfficeArray[8], Model.AccessLevelList)</span>),
+    grid.Column("Action",header: "Action",format:@<text> <a href="#" id="Edit_1" class="edit">Edit</a><a href="#" id="Update_1" style="display:none" class="update">Update</a><a href="#" id="Cancel_1" style="display:none" class="cancel">Cancel</a><a href="#" id="Delete_1" class="delete">Delete</a></text>)}*@
+    
+
+
+
+
+   
+  
+    <script type="text/javascript">
+
+    $(".add").live("click", function () {
+
+        var existrow = $('.save').length;
+        if (existrow == 0) {
+            var index = $("#grid tbody tr").length + 1;
+
+            var Name = "Name_" + index;
+            var Office0 = "#Office0_" + index;
+            var Office1 =  "#Office1_" + index;
+            var Office2 = "#Office2_" + index;
+            var Office3 = "#Office3_" + index;
+            var Office4 = "#Office4_" + index;
+            var Office5 = "#Office5_" + index;
+            var Office6 = "#Office6_" + index;
+            var Office7 = "#Office7_" + index;
+            var Office8 = "#Office8_" + index;
+            var Office9 = "#Office9_" + index;
+            var Office10 = "#Office10_" + index;
+            var Office11 = "#Office11_" + index;
+            var Office12 = "#Office12_" + index;
+
+            var Save = "Save_" + index;
+            var Cancel = "Cancel_" + index;
+
+            var tr = '<tr class="alternate-row"><td></td>' +
+                 
+                 '<td><span> <input id="' + Name + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' + Office0 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office1 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office2 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office3 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office4 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office5 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office6 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office7 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office8 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office9 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office10 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office11 + '" type="text" /></span></td>' +
+                 '<td><span> <input id="' +  Office12 + '" type="text" /></span></td>' +
+
+                 
+                 '<td> <a href="#" id="' + Save + '" class="save">Save</a><a href="#" id="' + Cancel + '"  class="icancel">Cancel</a></td>' +
+             '</tr>';
+
+            $("#grid tbody").append(tr);
+        }
+        else {
+            alert('First Save your previous record !!');
+        }
+
+    });
+
+    $(".icancel").live("click", function () {
+        var flag = confirm('Are you sure to cancel');
+        if (flag) {
+            $(this).parents("tr").remove();
+        }
+
+    });
+
+    $(".save").live("click", function () {
+        var id = $("#grid tbody tr").length;
+        var Name = $("#Name_" + id).val();
+        var Office0 = $("#Office0_" + id).val();
+        var Office1 = $("#Office1_" + id).val();
+        var Office2 = $("#Office2_" + id).val();
+        var Office3 = $("#Office3_" + id).val();
+        var Office4 = $("#Office4_" + id).val();
+        var Office5 = $("#Office5_" + id).val();
+        var Office6 = $("#Office6_" + id).val();
+        var Office7 = $("#Office7_" + id).val();
+        var Office8 = $("#Office8_" + id).val();
+        var Office9 = $("#Office9_" + id).val();
+        var Office10 = $("#Office10_" + id).val();
+        var Office11 = $("#Office11_" + id).val();
+        var Office12 = $("#Office12_" + id).val();
+
+
+        if (id != "") {
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                url: '@Url.Action("SaveRecord", "AccessRights")',
+                data: { "id": id, "name": Name
+                       , "Office0": Office0
+                       , "Office1": Office1
+                       , "Office2": Office2
+                       , "Office3": Office3
+                       , "Office4": Office4
+                       , "Office5": Office5
+                       , "Office6": Office6
+                       , "Office7": Office7
+                       , "Office8": Office8
+                       , "Office9": Office9
+                       , "Office10": Office10
+                       , "Office11": Office11
+                       , "Office12": Office12
+                },
+                    dataType: "json",
+                    beforeSend: function () { },
+                    success: function (data) {
+                        if (data.result == true) {
+                            $("#divmsg").html("Record has been saved successfully !!");
+                            setTimeout(function () { window.location.replace("Index"); }, 2000);
+                        }
+                        else {
+                            alert('There is some error');
+
+                        }
+
+                    }
+
+                });
+            }
+        });
+
+        $(".edit").live("click", function () {
+            var str = $(this).attr("id").split("_");
+            id = str[1];
+
+            var Name = "#Name_" + id;
+            var spanName = "#spanName_" + id;
+            var Office0 = "#Office0_" + id;
+            var Office1 = "#Office1_" + id;
+            var Office2 = "#Office2_" + id;
+            var Office3 = "#Office3_" + id;
+            var Office4 = "#Office4_" + id;
+            var Office5 = "#Office5_" + id;
+            var Office6 = "#Office6_" + id;
+            var Office7 = "#Office7_" + id;
+            var Office8 = "#Office8_" + id;
+            var Office9 = "#Office9_" + id;
+            var Office10 = "#Office10_" + id;
+            var Office11 = "#Office11_" + id;
+            var Office12 = "#Office12_" + id;
+           
+            var spanOffice0 = "#spanOffice0_" + id;
+            var spanOffice1 = "#spanOffice1_" + id;
+            var spanOffice2 = "#spanOffice2_" + id;
+            var spanOffice3 = "#spanOffice3_" + id;
+            var spanOffice4 = "#spanOffice4_" + id;
+            var spanOffice5 = "#spanOffice5_" + id;
+            var spanOffice6 = "#spanOffice6_" + id;
+            var spanOffice7 = "#spanOffice7_" + id;
+            var spanOffice8 = "#spanOffice8_" + id;
+            var spanOffice9 = "#spanOffice9_" + id;
+            var spanOffice10 = "#spanOffice10_" + id;
+            var spanOffice11 = "#spanOffice11_" + id;
+            var spanOffice12 = "#spanOffice12_" + id;
+            
+
+            $(Office0).Hide;
+            $(Office1).Hide;
+            $(Office2).Hide;
+            $(Office3).Hide;
+            $(Office4).Hide;
+            $(Office5).Hide;
+            $(Office6).Hide;
+            $(Office7).Hide;
+            $(Office8).Hide;
+            $(Office9).Hide;
+            $(Office10).Hide;
+            $(Office11).Hide;
+            $(Office12).Hide;
+           
+            $(spanOffice0).Show;
+            $(spanOffice1).Show;
+            $(spanOffice2).Show;
+            $(spanOffice3).Show;
+            $(spanOffice4).Show;
+            $(spanOffice5).Show;
+            $(spanOffice6).Show;
+            $(spanOffice7).Show;
+            $(spanOffice8).Show;
+            $(spanOffice9).Show;
+            $(spanOffice10).Show;
+            $(spanOffice11).Show;
+            $(spanOffice12).Show;
+
+            $(this).hide();
+            $("#Update_" + id).show();
+            $("#Cancel_" + id).show();
+        });
+
+        $(".cancel").live("click", function () {
+            var str = $(this).attr("id").split("_");
+            id = str[1];
+
+            var Name = "#Name_" + id;
+            var spanName = "#spanName_" + id;
+            var Office0 = "#Office0_" + id;
+            var Office1 = "#Office1_" + id;
+            var Office2 = "#Office2_" + id;
+            var Office3 = "#Office3_" + id;
+            var Office4 = "#Office4_" + id;
+            var Office5 = "#Office5_" + id;
+            var Office6 = "#Office6_" + id;
+            var Office7 = "#Office7_" + id;
+            var Office8 = "#Office8_" + id;
+            var Office9 = "#Office9_" + id;
+            var Office10 = "#Office10_" + id;
+            var Office11 = "#Office11_" + id;
+            var Office12 = "#Office12_" + id;
+
+
+            $(Name).hide();
+            $(Office0).Show;
+            $(Office1).Show;
+            $(Office2).Show;
+            $(Office3).Show;
+            $(Office4).Show;
+            $(Office5).Show;
+            $(Office6).Show;
+            $(Office7).Show;
+            $(Office8).Show;
+            $(Office9).Show;
+            $(Office10).Show;
+            $(Office11).Show;
+            $(Office12).Show;
+
+            $(this).hide();
+            $("#Update_" + id).hide();
+
+            $("#Edit_" + id).show();
+        });
+
+        $(".update").live("click", function () {
+            var str = $(this).attr("id").split("_");
+            id = str[1];
+
+            var Name = $("#Name_" + id).val();
+            var spanName = $("#spanName_" + id).val();
+            var Office0 = $("#Office0_" + id).val();
+            var Office1 = $("#Office1_" + id).val();
+            var Office2 = $("#Office2_" + id).val();
+            var Office3 = $("#Office3_" + id).val();
+            var Office4 = $("#Office4_" + id).val();
+            var Office5 = $("#Office5_" + id).val();
+            var Office6 = $("#Office6_" + id).val();
+            var Office7 = $("#Office7_" + id).val();
+            var Office8 = $("#Office8_" + id).val();
+            var Office9 = $("#Office9_" + id).val();
+            var Office10 = $("#Office10_" + id).val();
+            var Office11 = $("#Office11_" + id).val();
+            var Office12 = $("#Office12_" + id).val();
+            
+
+            if (id != "") {
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    url: '@Url.Action("UpdateRecord", "AccessRights")',
+                    data: { "id": id, "name": Name
+                           , "Office0": Office0
+                           , "Office1": Office1
+                           , "Office2": Office2
+                           , "Office3": Office3
+                           , "Office4": Office4
+                           , "Office5": Office5
+                           , "Office6": Office6
+                           , "Office7": Office7
+                           , "Office8": Office8
+                           , "Office9": Office9
+                           , "Office10": Office10
+                           , "Office11": Office11
+                           , "Office12": Office12
+                        
+
+                    },
+                    dataType: "json",
+                    beforeSend: function () {//alert(id);
+                    },
+                    success: function (data) {
+
+                        if (data.result == true) {
+                            $("#Update_" + id).hide();
+                            $("#Cancel_" + id).hide();
+                            $("#Edit_" + id).show();
+
+                            var Name = "#Name_" + id;
+                            var spanName = "#spanName_" + id;
+
+                            $(Name).hide();
+                            $(spanName).show();
+
+                            $(spanName).text($(Name).val());
+
+                        }
+                        else {
+                            alert('There is some error');
+                        }
+                    }
+
+                });
+            }
+        });
+
+        $(".delete").live("click", function () {
+            var str = $(this).attr("id").split("_");
+            id = str[1];
+
+            var flag = confirm('Are you sure you want to delete ??');
+            if (id != "" && flag) {
+                $.ajax({
+                    type: "GET",
+                    contentType: "application/json; charset=utf-8",
+                    url: '@Url.Action("DeleteRecord", "AccessRights")',
+                data: { "id": id },
+                dataType: "json",
+                beforeSend: function () { },
+                success: function (data) {
+
+                    if (data.result == true) {
+                        $("#Update_" + id).parents("tr").remove();
+                    }
+                    else {
+                        alert('There is some error');
+                    }
+                }
+
+            });
+        }
+    });
+
+    </script>
+
+    <br />
+    <br />
+
+
+    @*<div>
+            <table class="admin-table" cols="8">
+                <tr>
+                    <th>
+                        Field
+                    </th>
+                    @if (Model.Offices != null)
+                    {
+                        foreach (var office in Model.Offices)
+                        {
+                            <td>
+                                @office.Name
+                            </td>
+                        }
+                    }
+                    <th colspan="2">
+                        Action
+                    </th>
+                </tr>
+                @if (Model != null)
+                {
+                    foreach (AccessRight accessRight in Model.AccessRights)
+                    {
+                        <tr>
+                            <td>
+                                @accessRight.Name
+                            </td>
+                            @foreach (OfficeRight officeRight in accessRight.OfficeRights)
+                            {
+                                <td>
+                                    @officeRight.AccessLevel
+                                </td>
+                            }
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = 1 })  |
+                                @Html.ActionLink("Delete", "Delete", new { id = 1 })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>*@

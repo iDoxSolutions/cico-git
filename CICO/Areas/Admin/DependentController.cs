@@ -30,7 +30,20 @@ namespace Cico.Areas.Admin
 
         public ActionResult Create(int employeeId)
         {
-            return View(new DependentModel(){EmployeeId = employeeId,Dependent = new Dependent(){SameECData = true, Employee = new Employee(){Id = employeeId}}});
+            Employee employee =
+               Db.Employees.Include("CheckListSessions")
+                   .Include("CheckListSessions.ChecklistTemplate")
+                   .Single(c => c.Id == employeeId);
+            var model = new DependentModel()
+            {
+                EmployeeId = employee.Id,
+                Dependent = new Dependent() {SameECData = true, Employee = employee}
+            };
+            model.Load(Db);
+            //Field level security will handle edit rights
+            //model.EditEnabled = true;
+            return View(model);
+
         }
 
         [HttpPost]
@@ -38,6 +51,9 @@ namespace Cico.Areas.Admin
         {
             var dep = Db.Employees.Find(model.EmployeeId);
             SecurityGuard.CanEditEmployee(dep, ModelState);
+            var accessRights = Db.AccessFieldRights.Include("AccessField").Include("Office").ToList();
+            model.AccessRights = accessRights;
+            model.Load(Db);
             if (ModelState.IsValid)
             {
                 model.Dependent.Employee = Db.Employees.Single(c => c.Id == model.EmployeeId);
@@ -54,9 +70,18 @@ namespace Cico.Areas.Admin
 
         public ActionResult Edit(int id)
         {
+
             var dependent = Db.Dependents.Single(c => c.Id == id);
-            var model = new DependentModel(){Dependent = dependent,EmployeeId = dependent.Employee.Id};
-            model.EditEnabled = true;
+            Employee employee =
+               Db.Employees.Include("CheckListSessions")
+                   .Include("CheckListSessions.ChecklistTemplate")
+                   .Single(c => c.Id == dependent.Employee.Id);
+            var model = new DependentModel(){Dependent = dependent,Employee = employee,EmployeeId = dependent.Employee.Id};
+            model.EditEnabled = false;
+            model.AdminEditEnabled = true;
+            model.Load(Db);
+            var accessRights = Db.AccessFieldRights.Include("AccessField").Include("Office").ToList();
+            model.AccessRights = accessRights;
             return View(model);
         }
 
@@ -66,14 +91,13 @@ namespace Cico.Areas.Admin
 
             var dep = Db.Dependents.Find(model.Dependent.Id);
             SecurityGuard.CanEditDependent(dep, ModelState);
+            model.Load(Db);
             if (ModelState.IsValid)
             {
                 CopyValues(model.Dependent,dep);
-                //model.Dependent.Employee = UserSession.GetCurrent().Employee;
-               // Db.Entry(model.Dependent).State = EntityState.Modified;
+                Db.Entry(dep).State = EntityState.Modified;
                 Db.SaveChanges();
                 return RedirectToAction("index", new { employeeId = model.EmployeeId });
-                //return RedirectToAction("index", "home",new {land="false"});
             }
             else
             {

@@ -42,5 +42,7 @@ namespace Cico.Models
         
         public virtual IList<SystemRole> SystemRoles { get; set; }  
     }
+
+    
     
 }
